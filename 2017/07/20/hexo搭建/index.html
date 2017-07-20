@@ -16,7 +16,7 @@
 <meta property="og:description" content="一直纠结于要不要写博客，直到最近，手头上事情比较少，有些空闲时间来整理这个事情，花了一上午的时间了解了博客相关的信息，最终决定选用hexo+github来搭建自己的博客，整体过程还是比较顺利，但是过程中还是遇到了不少坑，觉得还是很有必要记录一下整个过程的。 ##1.环境准备 安装Node 直接到Node.js官网现在最新版本，一路安装即可  安装git 这个网上的教程有很多，直接到官网下载安装并且">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/BA408E6C-C356-4D7E-8EF7-D2B7873C9797.png">
-<meta property="og:updated_time" content="2017-07-20T04:24:02.000Z">
+<meta property="og:updated_time" content="2017-07-20T04:28:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo搭建">
 <meta name="twitter:description" content="一直纠结于要不要写博客，直到最近，手头上事情比较少，有些空闲时间来整理这个事情，花了一上午的时间了解了博客相关的信息，最终决定选用hexo+github来搭建自己的博客，整体过程还是比较顺利，但是过程中还是遇到了不少坑，觉得还是很有必要记录一下整个过程的。 ##1.环境准备 安装Node 直接到Node.js官网现在最新版本，一路安装即可  安装git 这个网上的教程有很多，直接到官网下载安装并且">
@@ -196,7 +196,7 @@ git config --global user.name &quot;yourname&quot;
 <pre><code>cat ~/.ssh/id_rsa.pub
 </code></pre><p>这里会得到一段很长的编码：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCuYZIchz3THIcc/wH0ZB5WZYqe2iBVUNqSzfrgxBvJCZkFHWiUZhA/4omNud/27PVT/FADV9qSvrX7ifP05Cbl6mhE4uJjxOQRNoPdQQcsTEFh5vDvOeiJOT1CoFb9WLGg49Xml4yJmFJqv/Kz5hCe7LEWRYJH6tmaVG0qi9nwAZmjfTQpSWu07eAKB9wAbK6stCdnd5JvMq7IsNNylbwDlXf0RQA4RpppO+14oNBqivhi5ftBPjP15+aWKpnXUxkGMVAefKTvwsyw1T0H2sj+ILVFM4d5xpxu3jPHebqh363OwPPLMsoUy9VhQ3YDtMxt4vyOxvpJ9ekMGlDn/9ut youremail@XX.com</div></pre></td></tr></table></figure>
-<p>进入git的Account settings -&gt; SSH Keys -&gt; Add SSH Key将这段秘钥添加进入即可。</p>
+<p>进入git的Account settings -&gt; SSH Keys -&gt; Add SSH Key将这段秘钥添加进去即可。</p>
 <p><img src="http://otdc3q7z7.bkt.clouddn.com/BA408E6C-C356-4D7E-8EF7-D2B7873C9797.png" alt="example"></p>
 <h2 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2.安装hexo"></a>2.安装hexo</h2><h3 id="全局安装hexo"><a href="#全局安装hexo" class="headerlink" title="全局安装hexo"></a>全局安装hexo</h3><pre><code>npm install -g hexo
 </code></pre><h3 id="初始化hexo，将hexo安装到你指定的目录（到指定目录使用此命令直接进行初始化）"><a href="#初始化hexo，将hexo安装到你指定的目录（到指定目录使用此命令直接进行初始化）" class="headerlink" title="初始化hexo，将hexo安装到你指定的目录（到指定目录使用此命令直接进行初始化）"></a>初始化hexo，将hexo安装到你指定的目录（到指定目录使用此命令直接进行初始化）</h3><pre><code>hexo init
@@ -204,8 +204,7 @@ git config --global user.name &quot;yourname&quot;
 </code></pre><h3 id="启动hexo本地服务"><a href="#启动hexo本地服务" class="headerlink" title="启动hexo本地服务"></a>启动hexo本地服务</h3><pre><code>hexo server
 </code></pre><p>   浏览器输入<a href="http://localhost:4000就可以看到你的专属博客啦" target="_blank" rel="external">http://localhost:4000就可以看到你的专属博客啦</a></p>
 <p>  至此，hexo的安装也已经完成。</p>
-<p>##3.让hexo和github建立联系</p>
-<h3 id="在hexo的安装目录中，找到-config-yml，将Deployment属性做如"><a href="#在hexo的安装目录中，找到-config-yml，将Deployment属性做如" class="headerlink" title="在hexo的安装目录中，找到_config.yml，将Deployment属性做如"></a>在hexo的安装目录中，找到_config.yml，将Deployment属性做如</h3><pre><code>deploy:
+<h2 id="3-让hexo和github建立联系"><a href="#3-让hexo和github建立联系" class="headerlink" title="3.让hexo和github建立联系"></a>3.让hexo和github建立联系</h2><h3 id="在hexo的安装目录中，找到-config-yml，将Deployment属性做如"><a href="#在hexo的安装目录中，找到-config-yml，将Deployment属性做如" class="headerlink" title="在hexo的安装目录中，找到_config.yml，将Deployment属性做如"></a>在hexo的安装目录中，找到_config.yml，将Deployment属性做如</h3><pre><code>deploy:
      type: git
     repo: git@github.com:yourname/yourname.github.io.git
     branch: master 
@@ -313,7 +312,7 @@ git config --global user.name &quot;yourname&quot;
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Node"><span class="toc-number">1.</span> <span class="toc-text">安装Node</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装git"><span class="toc-number">2.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GitHub账号和GitHub-Pages"><span class="toc-number">3.</span> <span class="toc-text">GitHub账号和GitHub Pages</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装hexo"><span class="toc-number"></span> <span class="toc-text">2.安装hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#全局安装hexo"><span class="toc-number">1.</span> <span class="toc-text">全局安装hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化hexo，将hexo安装到你指定的目录（到指定目录使用此命令直接进行初始化）"><span class="toc-number">2.</span> <span class="toc-text">初始化hexo，将hexo安装到你指定的目录（到指定目录使用此命令直接进行初始化）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成hexo的静态页面（到init的目录执行此命令）"><span class="toc-number">3.</span> <span class="toc-text">生成hexo的静态页面（到init的目录执行此命令）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动hexo本地服务"><span class="toc-number">4.</span> <span class="toc-text">启动hexo本地服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在hexo的安装目录中，找到-config-yml，将Deployment属性做如"><span class="toc-number">5.</span> <span class="toc-text">在hexo的安装目录中，找到_config.yml，将Deployment属性做如</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Node"><span class="toc-number">1.</span> <span class="toc-text">安装Node</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装git"><span class="toc-number">2.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GitHub账号和GitHub-Pages"><span class="toc-number">3.</span> <span class="toc-text">GitHub账号和GitHub Pages</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装hexo"><span class="toc-number"></span> <span class="toc-text">2.安装hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#全局安装hexo"><span class="toc-number">1.</span> <span class="toc-text">全局安装hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化hexo，将hexo安装到你指定的目录（到指定目录使用此命令直接进行初始化）"><span class="toc-number">2.</span> <span class="toc-text">初始化hexo，将hexo安装到你指定的目录（到指定目录使用此命令直接进行初始化）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成hexo的静态页面（到init的目录执行此命令）"><span class="toc-number">3.</span> <span class="toc-text">生成hexo的静态页面（到init的目录执行此命令）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动hexo本地服务"><span class="toc-number">4.</span> <span class="toc-text">启动hexo本地服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-让hexo和github建立联系"><span class="toc-number"></span> <span class="toc-text">3.让hexo和github建立联系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在hexo的安装目录中，找到-config-yml，将Deployment属性做如"><span class="toc-number">1.</span> <span class="toc-text">在hexo的安装目录中，找到_config.yml，将Deployment属性做如</span></a></li></ol>
                     </div>
                 </span>
             </div>
