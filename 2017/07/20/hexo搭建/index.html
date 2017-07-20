@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/7 | 朱亮的博客</title>
+  <title>hexo搭建 | 朱亮的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Zhu Liang’s blog | java | vue | jhipster">
-<meta property="og:type" content="website">
-<meta property="og:title" content="朱亮的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2017/07/index.html">
+  <meta name="description" content="一直纠结于要不要写博客，直到最近，手头上事情比较少，有些空闲时间来整理这个事情，花了一上午的时间了解了博客相关的信息，最终决定选用hexo+github来搭建自己的博客，整体过程还是比较顺利，但是过程中还是遇到了不少坑，觉得还是很有必要记录一下整个过程的。 ##1.环境准备  安装Node 直接到Node.js官网现在最新版本，一路安装即可   安装git 这个网上的教程有很多，直接到官网下载安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo搭建">
+<meta property="og:url" content="http://yoursite.com/2017/07/20/hexo搭建/index.html">
 <meta property="og:site_name" content="朱亮的博客">
-<meta property="og:description" content="Zhu Liang’s blog | java | vue | jhipster">
+<meta property="og:description" content="一直纠结于要不要写博客，直到最近，手头上事情比较少，有些空闲时间来整理这个事情，花了一上午的时间了解了博客相关的信息，最终决定选用hexo+github来搭建自己的博客，整体过程还是比较顺利，但是过程中还是遇到了不少坑，觉得还是很有必要记录一下整个过程的。 ##1.环境准备  安装Node 直接到Node.js官网现在最新版本，一路安装即可   安装git 这个网上的教程有很多，直接到官网下载安装">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-07-20T03:42:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="朱亮的博客">
-<meta name="twitter:description" content="Zhu Liang’s blog | java | vue | jhipster">
+<meta name="twitter:title" content="hexo搭建">
+<meta name="twitter:description" content="一直纠结于要不要写博客，直到最近，手头上事情比较少，有些空闲时间来整理这个事情，花了一上午的时间了解了博客相关的信息，最终决定选用hexo+github来搭建自己的博客，整体过程还是比较顺利，但是过程中还是遇到了不少坑，觉得还是很有必要记录一下整个过程的。 ##1.环境准备  安装Node 直接到Node.js官网现在最新版本，一路安装即可   安装git 这个网上的教程有很多，直接到官网下载安装">
   
     <link rel="alternative" href="/atom.xml" title="朱亮的博客" type="application/atom+xml">
   
@@ -149,76 +150,220 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-hexo搭建" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      hexo搭建
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/20/hexo搭建/" class="archive-article-date">
+
+        
+        <a href="/2017/07/20/hexo搭建/" class="archive-article-date">
   	<time datetime="2017-07-19T16:19:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-20</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/20/hexo搭建/">hexo搭建</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一直纠结于要不要写博客，直到最近，手头上事情比较少，有些空闲时间来整理这个事情，花了一上午的时间了解了博客相关的信息，最终决定选用hexo+github来搭建自己的博客，整体过程还是比较顺利，但是过程中还是遇到了不少坑，觉得还是很有必要记录一下整个过程的。</p>
+<p>##1.环境准备</p>
+<ul>
+<li>安装Node<ul>
+<li>直接到Node.js官网现在最新版本，一路安装即可</li>
+</ul>
+</li>
+<li>安装git<ul>
+<li>这个网上的教程有很多，直接到官网下载安装并且设置下环境变量即可</li>
+</ul>
+</li>
+<li><p>GitHub账号和GitHub Pages</p>
+<ul>
+<li>在自己的GitHub上新建一个仓库（repository），需要注意的是仓库的名称，比如我的账号是ZhuLiangT,那么我的仓库名称就应该是：ZhuLiangT.github.io,创建完成之后直接访问这个地址就是你的个人主页了。</li>
+<li><p>添加SSH公钥到『Account settings -&gt; SSH Keys -&gt; Add SSH Key』，步骤如下:</p>
+<p>   1.设置你的用户名密码</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"> git config --global user.email <span class="string">"youremail@XX.com"</span>                   </div><div class="line">git config --global user.name <span class="string">"yourname"</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code> 2.生成SSH秘钥
+  <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">ssh-keygen -t rsa -C <span class="string">"bu.ru@qq.com"</span></div><div class="line">~/.ssh/id_rsa是生成私钥，~/.ssh/id_rsa.pub是生成公钥</div></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+      3.接着打开秘钥文件，复制秘钥
+      <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">    cat ~/.ssh/id_rsa.pub</div><div class="line">``` </div><div class="line"> 这里会得到一段很长的编码：</div><div class="line"> ``` bash</div><div class="line">  	ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCuYZIchz3THIcc/wH0ZB5WZYqe2iBVUNqSzfrgxBvJCZkFHWiUZhA/4omNud/27PVT/FADV9qSvrX7ifP05Cbl6mhE4uJjxOQRNoPdQQcsTEFh5vDvOeiJOT1CoFb9WLGg49Xml4yJmFJqv/Kz5hCe7LEWRYJH6tmaVG0qi9nwAZmjfTQpSWu07eAKB9wAbK6stCdnd5JvMq7IsNNylbwDlXf0RQA4RpppO+14oNBqivhi5ftBPjP15+aWKpnXUxkGMVAefKTvwsyw1T0H2sj+ILVFM4d5xpxu3jPHebqh363OwPPLMsoUy9VhQ3YDtMxt4vyOxvpJ9ekMGlDn/9ut youremail@XX.com</div></pre></td></tr></table></figure>
 
+        进入git的Account settings -&gt; SSH Keys -&gt; Add SSH Key将这段秘钥添加进入即可。
+
+![example](http://otdc3q7z7.bkt.clouddn.com/BA408E6C-C356-4D7E-8EF7-D2B7873C9797.png)
+</code></pre><p>##2.安装hexo</p>
+<ul>
+<li><p>全局安装hexo</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">npm install -g hexo</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>初始化hexo，将hexo安装到你指定的目录（到指定目录使用此命令直接进行初始化）</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"> 		hexo init</div><div class="line"> 	```	</div><div class="line"> 	</div><div class="line">* 生成hexo的静态页面（到init的目录执行此命令）</div><div class="line">	``` bash</div><div class="line">     hexo generate</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动hexo本地服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure>
+<p>浏览器输入<a href="http://localhost:4000就可以看到你的专属博客啦" target="_blank" rel="external">http://localhost:4000就可以看到你的专属博客啦</a></p>
+<p>至此，hexo的安装也已经完成。</p>
+</li>
+</ul>
+<p>##3.让hexo和github建立联系</p>
+<ul>
+<li><p>在hexo的安装目录中，找到_config.yml，将Deployment属性做如</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">deploy:</div><div class="line">	<span class="built_in">type</span>: git</div><div class="line">  		repo: git@github.com:yourname/yourname.github.io.git</div><div class="line">  		branch: master</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p> 注：在hexo3.0之后要部署到git需要进行如下操作</p>
+   <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">npm install hexo-deployer-git --save </div><div class="line">hexo g(从新生成)</div><div class="line">hexo d（部署到git上）</div></pre></td></tr></table></figure>
+<pre><code>至此，访问刚才部署的git个人页面，就能看到你的私人博客啦。
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/20/hexo搭建/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/19/hello-world/" class="archive-article-date">
-  	<time datetime="2017-07-19T08:41:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/19/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/19/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="hexo搭建" data-title="hexo搭建" data-url="http://yoursite.com/2017/07/20/hexo搭建/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -241,8 +386,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
