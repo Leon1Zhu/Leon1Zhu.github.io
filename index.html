@@ -172,8 +172,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>一直纠结于要不要写博客，直到最近，手头上事情比较少，有些空闲时间来整理这个事情，花了一上午的时间了解了博客相关的信息，最终决定选用hexo+github来搭建自己的博客，整体过程还是比较顺利，但是过程中还是遇到了不少坑，觉得还是很有必要记录一下整个过程的。</p>
-<p>##1.环境准备</p>
-<h3 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h3><ul>
+<h2 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1.环境准备"></a>1.环境准备</h2><h3 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h3><ul>
 <li>直接到Node.js官网现在最新版本，一路安装即可</li>
 </ul>
 <h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><ul>
@@ -203,7 +202,7 @@ git config --global user.name &quot;yourname&quot;
 </code></pre><h3 id="启动hexo本地服务"><a href="#启动hexo本地服务" class="headerlink" title="启动hexo本地服务"></a>启动hexo本地服务</h3><pre><code>hexo server
 </code></pre><p>   浏览器输入<a href="http://localhost:4000就可以看到你的专属博客啦" target="_blank" rel="external">http://localhost:4000就可以看到你的专属博客啦</a></p>
 <p>  至此，hexo的安装也已经完成。</p>
-<h2 id="3-让hexo和github建立联系"><a href="#3-让hexo和github建立联系" class="headerlink" title="3.让hexo和github建立联系"></a>3.让hexo和github建立联系</h2><h3 id="在hexo的安装目录中，找到-config-yml，将Deployment属性做如"><a href="#在hexo的安装目录中，找到-config-yml，将Deployment属性做如" class="headerlink" title="在hexo的安装目录中，找到_config.yml，将Deployment属性做如"></a>在hexo的安装目录中，找到_config.yml，将Deployment属性做如</h3><pre><code>deploy:
+<h2 id="3-让hexo和github建立联系"><a href="#3-让hexo和github建立联系" class="headerlink" title="3.让hexo和github建立联系"></a>3.让hexo和github建立联系</h2><h3 id="在hexo的安装目录中，找到-config-yml，将Deployment属性做如下修改"><a href="#在hexo的安装目录中，找到-config-yml，将Deployment属性做如下修改" class="headerlink" title="在hexo的安装目录中，找到_config.yml，将Deployment属性做如下修改"></a>在hexo的安装目录中，找到_config.yml，将Deployment属性做如下修改</h3><pre><code>deploy:
      type: git
     repo: git@github.com:yourname/yourname.github.io.git
     branch: master 
