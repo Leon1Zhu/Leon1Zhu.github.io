@@ -204,8 +204,11 @@ git config --global user.name &quot;yourname&quot;
 </code></pre><p>   浏览器输入<a href="http://localhost:4000就可以看到你的专属博客啦" target="_blank" rel="external">http://localhost:4000就可以看到你的专属博客啦</a></p>
 <p>  至此，hexo的安装也已经完成。</p>
 <p>##3.让hexo和github建立联系</p>
-<h3 id="在hexo的安装目录中，找到-config-yml，将Deployment属性做如"><a href="#在hexo的安装目录中，找到-config-yml，将Deployment属性做如" class="headerlink" title="在hexo的安装目录中，找到_config.yml，将Deployment属性做如"></a>在hexo的安装目录中，找到_config.yml，将Deployment属性做如</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">    repo: git@github.com:yourname/yourname.github.io.git</div><div class="line">    branch: master</div></pre></td></tr></table></figure>
-<p> 注：在hexo3.0之后要部署到git需要进行如下操作</p>
+<h3 id="在hexo的安装目录中，找到-config-yml，将Deployment属性做如"><a href="#在hexo的安装目录中，找到-config-yml，将Deployment属性做如" class="headerlink" title="在hexo的安装目录中，找到_config.yml，将Deployment属性做如"></a>在hexo的安装目录中，找到_config.yml，将Deployment属性做如</h3><pre><code>deploy:
+     type: git
+    repo: git@github.com:yourname/yourname.github.io.git
+    branch: master 
+</code></pre><p> 注：在hexo3.0之后要部署到git需要进行如下操作</p>
  <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">npm install hexo-deployer-git --save </div><div class="line">hexo g(从新生成)</div><div class="line">hexo d（部署到git上）</div></pre></td></tr></table></figure>
 <pre><code>至此，访问刚才部署的git个人页面，就能看到你的私人博客啦。
 </code></pre>
