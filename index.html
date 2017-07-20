@@ -186,8 +186,11 @@
 </li>
 </ul>
 <p>设置你的用户名密码</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"> 	git config --global user.email <span class="string">"youremail@XX.com"</span>                   </div><div class="line">	git config --global user.name <span class="string">"yourname"</span></div><div class="line"> ``` </div><div class="line"> </div><div class="line"> 生成SSH秘钥</div><div class="line">		  </div><div class="line">``` bash</div><div class="line">	ssh-keygen -t rsa -C <span class="string">"bu.ru@qq.com"</span></div><div class="line">	~/.ssh/id_rsa是生成私钥，~/.ssh/id_rsa.pub是生成公钥</div></pre></td></tr></table></figure>
-<p>接着打开秘钥文件，复制秘钥</p>
+<pre><code> git config --global user.email &quot;youremail@XX.com&quot;                   
+git config --global user.name &quot;yourname&quot;
+</code></pre><p> 生成SSH秘钥</p>
+<pre><code><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">ssh-keygen -t rsa -C <span class="string">"bu.ru@qq.com"</span></div><div class="line">~/.ssh/id_rsa是生成私钥，~/.ssh/id_rsa.pub是生成公钥</div></pre></td></tr></table></figure>
+</code></pre><p>接着打开秘钥文件，复制秘钥</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">   cat ~/.ssh/id_rsa.pub</div><div class="line">``` </div><div class="line"></div><div class="line">这里会得到一段很长的编码：</div><div class="line"></div><div class="line">``` bash</div><div class="line">   ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCuYZIchz3THIcc/wH0ZB5WZYqe2iBVUNqSzfrgxBvJCZkFHWiUZhA/4omNud/27PVT/FADV9qSvrX7ifP05Cbl6mhE4uJjxOQRNoPdQQcsTEFh5vDvOeiJOT1CoFb9WLGg49Xml4yJmFJqv/Kz5hCe7LEWRYJH6tmaVG0qi9nwAZmjfTQpSWu07eAKB9wAbK6stCdnd5JvMq7IsNNylbwDlXf0RQA4RpppO+14oNBqivhi5ftBPjP15+aWKpnXUxkGMVAefKTvwsyw1T0H2sj+ILVFM4d5xpxu3jPHebqh363OwPPLMsoUy9VhQ3YDtMxt4vyOxvpJ9ekMGlDn/9ut youremail@XX.com</div></pre></td></tr></table></figure>
 <p>进入git的Account settings -&gt; SSH Keys -&gt; Add SSH Key将这段秘钥添加进入即可。</p>
 <p><img src="http://otdc3q7z7.bkt.clouddn.com/BA408E6C-C356-4D7E-8EF7-D2B7873C9797.png" alt="example"></p>
