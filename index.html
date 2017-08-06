@@ -180,16 +180,18 @@
 </li>
 <li><p>安装vue-cli</p>
 <p> 安装好了 node，我们可以直接全局安装 vue-cli：</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">	npm install -g vue-cli</div><div class="line">	``` </div><div class="line">	</div><div class="line">	最新的 vue 项目模板中，都带有 webpack 插件，所以这里可以不安装 webpack</div><div class="line"></div><div class="line">	安装完成后，可以使用 vue -V （注意 V 大写）查看是否安装成功。</div><div class="line"></div><div class="line">   如果提示“无法识别 <span class="string">'vue'</span> ” ，有可能是 npm 版本过低，可以使用 npm install -g npm 来更新版本</div><div class="line">	</div><div class="line">* 生成项目</div><div class="line">   </div><div class="line">  首先需要在命令行中进入到项目目录，然后输入：</div><div class="line">  </div><div class="line">	``` bash</div><div class="line">	vue init webpack Vue-Project</div></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">	npm install -g vue-cli</div><div class="line">	``` </div><div class="line">	</div><div class="line">	最新的 vue 项目模板中，都带有 webpack 插件，所以这里可以不安装 webpack</div><div class="line"></div><div class="line">	安装完成后，可以使用 vue -V （注意 V 大写）查看是否安装成功。</div><div class="line"></div><div class="line">   如果提示“无法识别 <span class="string">'vue'</span> ” ，有可能是 npm 版本过低，可以使用 npm install -g npm 来更新版本</div><div class="line">	</div><div class="line">* 生成项目</div><div class="line">   </div><div class="line">  首先需要在命令行中进入到项目目录，然后输入：</div><div class="line">  </div><div class="line">	``` bash</div><div class="line">	</div><div class="line">	vue init webpack Vue-Project</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>  按照提示项进行设置生成项目即可。</p>
 <p>  生成之后使用</p>
-<pre><code class="bash">npm install
+<pre><code class="bash">
+npm install
 </code></pre>
 <p>  即可安装依赖</p>
 <p>  然后启动项目</p>
-<pre><code class="bash">npm run dev
+<pre><code class="bash">
+npm run dev
 </code></pre>
 <p>  至此，项目的生成就完成了</p>
 <h2 id="2-对生成的项目进行配置"><a href="#2-对生成的项目进行配置" class="headerlink" title="2.对生成的项目进行配置"></a>2.对生成的项目进行配置</h2><p>刚生成的项目因为通用的原因，所以没有太多的定制需求，在这里，我们将vuex，axios，axios二次封装,global全局文件等等设置，加速开发。</p>
