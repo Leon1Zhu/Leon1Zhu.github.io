@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/02039E49-6D47-40B2-8E22-1063D3F7523A.png">
 <meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/2D881D6C-BBC0-4BF8-AF22-0F519A1D523E.png">
 <meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/96EBB9DB-3AD0-479D-AC49-99A43FE7BA95.png">
-<meta property="og:updated_time" content="2017-08-06T08:13:23.000Z">
+<meta property="og:updated_time" content="2017-08-06T08:14:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于vue快速搭建开发框架">
 <meta name="twitter:description" content="从去年开始接触vue开发，也从头到尾经历了两个大项目，从搭建项目一点点的也积累了不少经验，也给自己挖了不少的坑。同样的，填的坑也不少。今天就总结一下，如何搭建vue前端开发框架。其中涉及的相关技术有：vue-cli脚手架、vuex作为全局事件、变量的管理，global.js（中小型项目开发时不需要复杂的vuex时使用），vue-router，axios，scss等。 1.使用vue-cli生成we">
@@ -188,7 +188,7 @@
 </li>
 <li><p>安装vue-cli</p>
 <p> 安装好了 node，我们可以直接全局安装 vue-cli：</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">		npm install -g vue-cli</div><div class="line">	``` </div><div class="line">	</div><div class="line">	最新的 vue 项目模板中，都带有 webpack 插件，所以这里可以不安装 webpack</div><div class="line"></div><div class="line">	安装完成后，可以使用 vue -V （注意 V 大写）查看是否安装成功。</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">	如果提示“无法识别 <span class="string">'vue'</span> ” ，有可能是 npm 版本过低，可以使用 npm install -g npm 来更新版本</div><div class="line">	</div><div class="line">* 生成项目</div><div class="line">   </div><div class="line">  首先需要在命令行中进入到项目目录，然后输入：</div><div class="line">  </div><div class="line">	``` bash</div><div class="line">		vue init webpack Vue-Project</div></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">	npm install -g vue-cli</div><div class="line">	``` </div><div class="line">	</div><div class="line">	最新的 vue 项目模板中，都带有 webpack 插件，所以这里可以不安装 webpack</div><div class="line"></div><div class="line">	安装完成后，可以使用 vue -V （注意 V 大写）查看是否安装成功。</div><div class="line"></div><div class="line">   如果提示“无法识别 <span class="string">'vue'</span> ” ，有可能是 npm 版本过低，可以使用 npm install -g npm 来更新版本</div><div class="line">	</div><div class="line">* 生成项目</div><div class="line">   </div><div class="line">  首先需要在命令行中进入到项目目录，然后输入：</div><div class="line">  </div><div class="line">	``` bash</div><div class="line">	vue init webpack Vue-Project</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>  按照提示项进行设置生成项目即可。</p>
