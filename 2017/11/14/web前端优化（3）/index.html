@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>web前端优化（2） | 朱亮的博客</title>
+  <title>web前端优化（3） | 朱亮的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##图片相关优化 ####1.图片相关优化的核心概念 图片压缩指的是针对图片的情况，舍弃一些相对无关紧要的色彩信息，舍去测部分人眼基本是察觉不出来的。  有损压缩在压缩过程中会丢失部分图片资源，但是这部分资源对人眼来说是没有区别，所以不是很重要。   png8/png24/png32的区别 png8   256色+支持透明（8bit就可以表示一个颜色） png24  2^24色+不支持透明（24b">
+  <meta name="description" content="浏览器css和js的加载过程  浏览器通过网址首先拿到由字节流转变成字符流的HTML文档，HTML文档会被解析器解析成一段段TOKEN，浏览器通过nextToken方法，浏览器会自顶向下对HTML文档进行解析，逐渐生成DOM树，但是此时DOM树并不会在页面上进行显示 在生成DOM树的过程中，浏览器会对外部资源（CSS、js）进行请求和解析，对于请求的css，浏览器会生成对应的CSSOM,当CSSO">
+<meta name="keywords" content="css和js部分的优化相关">
 <meta property="og:type" content="article">
-<meta property="og:title" content="web前端优化（2）">
-<meta property="og:url" content="http://yoursite.com/2017/11/13/web前端优化（2）/index.html">
+<meta property="og:title" content="web前端优化（3）">
+<meta property="og:url" content="http://yoursite.com/2017/11/14/web前端优化（3）/index.html">
 <meta property="og:site_name" content="朱亮的博客">
-<meta property="og:description" content="##图片相关优化 ####1.图片相关优化的核心概念 图片压缩指的是针对图片的情况，舍弃一些相对无关紧要的色彩信息，舍去测部分人眼基本是察觉不出来的。  有损压缩在压缩过程中会丢失部分图片资源，但是这部分资源对人眼来说是没有区别，所以不是很重要。   png8/png24/png32的区别 png8   256色+支持透明（8bit就可以表示一个颜色） png24  2^24色+不支持透明（24b">
+<meta property="og:description" content="浏览器css和js的加载过程  浏览器通过网址首先拿到由字节流转变成字符流的HTML文档，HTML文档会被解析器解析成一段段TOKEN，浏览器通过nextToken方法，浏览器会自顶向下对HTML文档进行解析，逐渐生成DOM树，但是此时DOM树并不会在页面上进行显示 在生成DOM树的过程中，浏览器会对外部资源（CSS、js）进行请求和解析，对于请求的css，浏览器会生成对应的CSSOM,当CSSO">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-11-14T01:24:45.000Z">
+<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/css.js%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B.png">
+<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/F20DE3E5-747E-49B0-9BA8-CB12D242D8D2.png">
+<meta property="og:updated_time" content="2017-11-14T14:55:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="web前端优化（2）">
-<meta name="twitter:description" content="##图片相关优化 ####1.图片相关优化的核心概念 图片压缩指的是针对图片的情况，舍弃一些相对无关紧要的色彩信息，舍去测部分人眼基本是察觉不出来的。  有损压缩在压缩过程中会丢失部分图片资源，但是这部分资源对人眼来说是没有区别，所以不是很重要。   png8/png24/png32的区别 png8   256色+支持透明（8bit就可以表示一个颜色） png24  2^24色+不支持透明（24b">
+<meta name="twitter:title" content="web前端优化（3）">
+<meta name="twitter:description" content="浏览器css和js的加载过程  浏览器通过网址首先拿到由字节流转变成字符流的HTML文档，HTML文档会被解析器解析成一段段TOKEN，浏览器通过nextToken方法，浏览器会自顶向下对HTML文档进行解析，逐渐生成DOM树，但是此时DOM树并不会在页面上进行显示 在生成DOM树的过程中，浏览器会对外部资源（CSS、js）进行请求和解析，对于请求的css，浏览器会生成对应的CSSOM,当CSSO">
+<meta name="twitter:image" content="http://otdc3q7z7.bkt.clouddn.com/css.js%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B.png">
   
     <link rel="alternative" href="/atom.xml" title="朱亮的博客" type="application/atom+xml">
   
@@ -150,86 +154,67 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-web前端优化（2）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-web前端优化（3）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      web前端优化（2）
+      web前端优化（3）
     </h1>
   
 
         
-        <a href="/2017/11/13/web前端优化（2）/" class="archive-article-date">
-  	<time datetime="2017-11-13T04:30:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-13</time>
+        <a href="/2017/11/14/web前端优化（3）/" class="archive-article-date">
+  	<time datetime="2017-11-14T10:21:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##图片相关优化</p>
-<p>####1.图片相关优化的核心概念</p>
-<p>图片压缩指的是针对图片的情况，舍弃一些相对无关紧要的色彩信息，舍去测部分人眼基本是察觉不出来的。</p>
+        <h2 id="浏览器css和js的加载过程"><a href="#浏览器css和js的加载过程" class="headerlink" title="浏览器css和js的加载过程"></a>浏览器css和js的加载过程</h2><p><img src="http://otdc3q7z7.bkt.clouddn.com/css.js%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B.png" alt="css和html的渲染过程"></p>
 <ul>
-<li>有损压缩在压缩过程中会丢失部分图片资源，但是这部分资源对人眼来说是没有区别，所以不是很重要。</li>
-</ul>
-<ul>
-<li>png8/png24/png32的区别<ul>
-<li>png8   256色+支持透明（8bit就可以表示一个颜色）</li>
-<li>png24  2^24色+不支持透明（24bit才可以显示一个像素中的颜色）</li>
-<li>png32  2^24色+支持透明（在24位的基础上增加8位支持透明）</li>
-<li>根据需要选择文件类型，颜色越丰富，所需的空间就越多</li>
-</ul>
-</li>
-<li>不同格式图片常用的业务场景<ul>
-<li>jpg有损压缩，压缩率高，不支持透明</li>
-<li>png支持透明，浏览器兼容性好（如果png8能支持的话，那么文件大小会相对更小）</li>
-<li>webp压缩程度更好，在ios webview有兼容性问题（2010年谷歌提出来的文件格式）</li>
-<li>svg矢量图，代码内嵌，相对较小，图片样式相对简单的场景（svg标签在代码中进行图片的绘制，质量相对较高，iconfont这样的库就可以很好的使用svg图）</li>
-<li>jpg多应用于大部分不需要透明图片的业务场景</li>
-<li>png多应用于大部分需要透明图片的业务场景</li>
-<li>webp多应用于安卓部分</li>
-<li>svg多应用于图片样式相对简单的业务场景</li>
-</ul>
-</li>
-<li>css雪碧图<ul>
-<li>将网站要用的图片都放在一张图片上</li>
-<li>可以减少网站对于图片的http请求，减少网站的请求数量</li>
-<li>当雪碧图比较大时，加载会比较慢</li>
-<li>一旦雪碧图加载失败，那么网站上所有的图标都会消失</li>
-</ul>
-</li>
-<li>svg矢量图的使用<ul>
-<li>svg是html5中一个比较重要的标准</li>
-<li>可以使用几行代码就实现相对复杂的图标，减少页面的体积，增加网页的请求速度</li>
-</ul>
-</li>
+<li>浏览器通过网址首先拿到由字节流转变成字符流的HTML文档，HTML文档会被解析器解析成一段段TOKEN，浏览器通过nextToken方法，浏览器会自顶向下对HTML文档进行解析，逐渐生成DOM树，但是此时DOM树并不会在页面上进行显示</li>
+<li>在生成DOM树的过程中，浏览器会对外部资源（CSS、js）进行请求和解析，对于请求的css，浏览器会生成对应的CSSOM,当CSSOM树和DOM树都生成完之后，浏览器才会将这些资源进行合并，生成RenderTree从而对页面进行绘制</li>
 </ul>
 <ul>
-<li>image inline 将图片的内容内嵌到html中以减少网站的http请求数量</li>
-<li>image inline会将html文件变大，但是图片不大的话，基本可以忽略，但是可以减少一次http请求，所有小鱼8kb或者4kb的文件，一般是选用image inline将图片内联进来，这样减少网络请求的时间会大大小鱼html文件大小的增加的请求时间</li>
-<li><a href="https://tinypng.com（图片压缩网站）" target="_blank" rel="external">https://tinypng.com（图片压缩网站）</a></li>
-<li><ul>
-<li><a href="https://www.spritecow.com（雪碧图制作网站）" target="_blank" rel="external">https://www.spritecow.com（雪碧图制作网站）</a></li>
+<li>HTML渲染过程中的特点<ul>
+<li>是顺序执行且并发加载的</li>
+<li>对于单个域名，浏览器的并发度是有限的</li>
+<li>是否阻塞（css的加载是否会阻塞js的加载，css的加载是否会阻塞页面的渲染等等等）</li>
+<li>依赖关系（比如css代码再哪里引入的关系，js代码的执行顺序的关系问题）</li>
+<li>引入方式（link,import，script…）</li>
 </ul>
 </li>
 </ul>
-<p>####2.facebook和淘宝移动首页案例分析</p>
-<ul>
-<li><p>淘宝移动端首页分析</p>
-<ul>
-<li>淘宝首页会自动判断是否当前浏览器是否支持webp格式图片，若是，则使用webp格式的文件，若是ios类型的浏览器，不支持webp格式的话，则自动换成jpg格式的文件</li>
-<li>部分小图标使用了image inline的方式直接将图片内嵌到网页中，减少http的请求数量。 </li>
+<h2 id="css、js加载过程中的优化点"><a href="#css、js加载过程中的优化点" class="headerlink" title="css、js加载过程中的优化点"></a>css、js加载过程中的优化点</h2><h2 id="懒加载和预加载"><a href="#懒加载和预加载" class="headerlink" title="懒加载和预加载"></a>懒加载和预加载</h2><ul>
+<li>懒加载<ul>
+<li>当页面进入可视区域之后才请求图片，对于图片很多，页面很长的业务场景适用</li>
+<li>可以减少无效资源的加载</li>
+<li>当并发资源过多时，会阻塞js的加载，影响网站的正常使用</li>
 </ul>
 </li>
-<li><p>facebook的实例分析</p>
-<ul>
-<li>facebook的网站上使用的css图标是雪碧图，但是对雪碧图也做了一定的处理，将部分具有相同特性的图标放在一张雪碧图上，这样将雪碧图拆分开，增加了请求数量，但是避免了图片过大对网络的压力</li>
+<li>预加载<ul>
+<li>网站的静态资源在使用之前进行提前请求</li>
+<li>资源在使用时，可以直接从缓存中加载，提升用户体验</li>
+<li>页面展示的依赖维护关系</li>
+<li>对图片请求过程要求比较高的时候使用预加载可以提升用户体验</li>
+<li>活动展示页面，就需要用预加载将图片都加载出来</li>
 </ul>
 </li>
+<li>懒加载lazyload.js实现原理<ol>
+<li>首先通过document的clientHeight属性获取当前的可视高度</li>
+<li>选中所有带有懒加载属性的标签，循环遍历</li>
+<li>通过元素的getBoundingClientRect方法获得当前元素的top值</li>
+<li>如果top值小于可视界面的高度，就将设置的懒加载属性去掉，同时将src中的图片读取出来，放置在页面上<br><img src="http://otdc3q7z7.bkt.clouddn.com/F20DE3E5-747E-49B0-9BA8-CB12D242D8D2.png" alt="使用原生js实现的lazyload.js"><br>注:!function这样的写法表示在方法前加上布尔值，表示执行后面的代码，也就是合法实现调用</li>
+</ol>
+</li>
+</ul>
+<h2 id="懒加载与预加载案例分析"><a href="#懒加载与预加载案例分析" class="headerlink" title="懒加载与预加载案例分析"></a>懒加载与预加载案例分析</h2><ul>
+<li>手淘的页面就使用的懒加载，只有当图片出现在界面的可视部分时才会加载对应的图片</li>
+<li></li>
 </ul>
 
       
@@ -239,6 +224,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css和js部分的优化相关</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -289,7 +285,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/13/web前端优化（2）/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/14/web前端优化（3）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -303,18 +299,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/14/web前端优化（3）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          web前端优化（3）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/12/web前端优化（1）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">web前端优化小结（资源合并与压缩）</div>
+    <a href="/2017/11/13/web前端优化（2）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">web前端优化（2）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -341,7 +328,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器css和js的加载过程"><span class="toc-number">1.</span> <span class="toc-text">浏览器css和js的加载过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css、js加载过程中的优化点"><span class="toc-number">2.</span> <span class="toc-text">css、js加载过程中的优化点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#懒加载和预加载"><span class="toc-number">3.</span> <span class="toc-text">懒加载和预加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#懒加载与预加载案例分析"><span class="toc-number">4.</span> <span class="toc-text">懒加载与预加载案例分析</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -355,7 +342,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="web前端优化（2）" data-title="web前端优化（2）" data-url="http://yoursite.com/2017/11/13/web前端优化（2）/"></div>
+	<div class="ds-thread" data-thread-key="web前端优化（3）" data-title="web前端优化（3）" data-url="http://yoursite.com/2017/11/14/web前端优化（3）/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -378,8 +365,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2017/11/13/web前端优化（2）/", 
-    sourceId: "web前端优化（2）",
+    url: "http://yoursite.com/2017/11/14/web前端优化（3）/", 
+    sourceId: "web前端优化（3）",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -388,7 +375,7 @@
   
 
   
-  <div id="SOHUCS" sid="web前端优化（2）" ></div> 
+  <div id="SOHUCS" sid="web前端优化（3）" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "true"; 
