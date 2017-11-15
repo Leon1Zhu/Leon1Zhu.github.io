@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/css.js%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B.png">
 <meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/F20DE3E5-747E-49B0-9BA8-CB12D242D8D2.png">
-<meta property="og:updated_time" content="2017-11-14T14:55:11.000Z">
+<meta property="og:updated_time" content="2017-11-15T04:36:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web前端优化（3）">
 <meta name="twitter:description" content="浏览器css和js的加载过程  浏览器通过网址首先拿到由字节流转变成字符流的HTML文档，HTML文档会被解析器解析成一段段TOKEN，浏览器通过nextToken方法，浏览器会自顶向下对HTML文档进行解析，逐渐生成DOM树，但是此时DOM树并不会在页面上进行显示 在生成DOM树的过程中，浏览器会对外部资源（CSS、js）进行请求和解析，对于请求的css，浏览器会生成对应的CSSOM,当CSSO">
@@ -204,17 +204,25 @@
 <li>活动展示页面，就需要用预加载将图片都加载出来</li>
 </ul>
 </li>
-<li>懒加载lazyload.js实现原理<ol>
+<li><p>懒加载lazyload.js实现原理</p>
+<ol>
 <li>首先通过document的clientHeight属性获取当前的可视高度</li>
 <li>选中所有带有懒加载属性的标签，循环遍历</li>
 <li>通过元素的getBoundingClientRect方法获得当前元素的top值</li>
 <li>如果top值小于可视界面的高度，就将设置的懒加载属性去掉，同时将src中的图片读取出来，放置在页面上<br><img src="http://otdc3q7z7.bkt.clouddn.com/F20DE3E5-747E-49B0-9BA8-CB12D242D8D2.png" alt="使用原生js实现的lazyload.js"><br>注:!function这样的写法表示在方法前加上布尔值，表示执行后面的代码，也就是合法实现调用</li>
 </ol>
 </li>
+<li><p>预加载的实现</p>
+<ol>
+<li>对img标签使用display：none，将图片隐藏，但是会加载图片</li>
+<li>使用js的image对象img.src去加载图片，使用的时候直接赋值即可</li>
+<li>使用xmlhttprequest对象去实现,存在跨域问题，但是可以更好的控制预加载的状态</li>
+<li>使用PreloadJS实现预加载</li>
+</ol>
+</li>
 </ul>
 <h2 id="懒加载与预加载案例分析"><a href="#懒加载与预加载案例分析" class="headerlink" title="懒加载与预加载案例分析"></a>懒加载与预加载案例分析</h2><ul>
 <li>手淘的页面就使用的懒加载，只有当图片出现在界面的可视部分时才会加载对应的图片</li>
-<li></li>
 </ul>
 
       
@@ -298,6 +306,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/11/15/web前端优化（4）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          web前端优化（4）
+        
+      </div>
+    </a>
   
   
     <a href="/2017/11/13/web前端优化（2）/" id="article-nav-older" class="article-nav-link-wrap">
