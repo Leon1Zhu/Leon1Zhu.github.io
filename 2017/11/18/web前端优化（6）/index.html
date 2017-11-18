@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>web前端优化小结（资源合并与压缩） | 朱亮的博客</title>
+  <title>web前端优化（6） | 朱亮的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##资源合并与压缩 ####1.WEB前端优化的核心概念以及意义  不同于C/S架构，用户访问时的软件是访问本地的包，B/S架构是将软件包部署在服务器上， 当用户访问我们的程序时，浏览器才会动态的，增量的去向服务器发起请求。因此，WEB前端的请求是一个动态的，增量的请求过程。在这个过程中，如果我们的资源更少，http请求更快，那么我们的请求响应就会更快，用户体验就会更好。  ####2.HTTP请">
+  <meta name="description" content="service worker实战 service worker可以做的事 后台消息传递 网络代理，转发请求，伪造响应 离线缓存 消息推送 ……     注册当前的service worker  //检测浏览器是否支持serviceWorker  if(navigator.serviceWorker){ navigator.serviceWorker.register(&amp;apos;./service">
+<meta name="keywords" content="service worker实战">
 <meta property="og:type" content="article">
-<meta property="og:title" content="web前端优化小结（资源合并与压缩）">
-<meta property="og:url" content="http://yoursite.com/2017/11/12/web前端优化（1）/index.html">
+<meta property="og:title" content="web前端优化（6）">
+<meta property="og:url" content="http://yoursite.com/2017/11/18/web前端优化（6）/index.html">
 <meta property="og:site_name" content="朱亮的博客">
-<meta property="og:description" content="##资源合并与压缩 ####1.WEB前端优化的核心概念以及意义  不同于C/S架构，用户访问时的软件是访问本地的包，B/S架构是将软件包部署在服务器上， 当用户访问我们的程序时，浏览器才会动态的，增量的去向服务器发起请求。因此，WEB前端的请求是一个动态的，增量的请求过程。在这个过程中，如果我们的资源更少，http请求更快，那么我们的请求响应就会更快，用户体验就会更好。  ####2.HTTP请">
+<meta property="og:description" content="service worker实战 service worker可以做的事 后台消息传递 网络代理，转发请求，伪造响应 离线缓存 消息推送 ……     注册当前的service worker  //检测浏览器是否支持serviceWorker  if(navigator.serviceWorker){ navigator.serviceWorker.register(&amp;apos;./service">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-11-14T15:04:41.000Z">
+<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/E0F3B907-EE45-44CA-A140-9B4BDA100ACE.png">
+<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/3E42AB1C-451E-422A-8247-59DD2AA68D28.png">
+<meta property="og:updated_time" content="2017-11-18T11:42:57.555Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="web前端优化小结（资源合并与压缩）">
-<meta name="twitter:description" content="##资源合并与压缩 ####1.WEB前端优化的核心概念以及意义  不同于C/S架构，用户访问时的软件是访问本地的包，B/S架构是将软件包部署在服务器上， 当用户访问我们的程序时，浏览器才会动态的，增量的去向服务器发起请求。因此，WEB前端的请求是一个动态的，增量的请求过程。在这个过程中，如果我们的资源更少，http请求更快，那么我们的请求响应就会更快，用户体验就会更好。  ####2.HTTP请">
+<meta name="twitter:title" content="web前端优化（6）">
+<meta name="twitter:description" content="service worker实战 service worker可以做的事 后台消息传递 网络代理，转发请求，伪造响应 离线缓存 消息推送 ……     注册当前的service worker  //检测浏览器是否支持serviceWorker  if(navigator.serviceWorker){ navigator.serviceWorker.register(&amp;apos;./service">
+<meta name="twitter:image" content="http://otdc3q7z7.bkt.clouddn.com/E0F3B907-EE45-44CA-A140-9B4BDA100ACE.png">
   
     <link rel="alternative" href="/atom.xml" title="朱亮的博客" type="application/atom+xml">
   
@@ -150,51 +154,93 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-web前端优化（1）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-web前端优化（6）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      web前端优化小结（资源合并与压缩）
+      web前端优化（6）
     </h1>
   
 
         
-        <a href="/2017/11/12/web前端优化（1）/" class="archive-article-date">
-  	<time datetime="2017-11-12T13:35:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
+        <a href="/2017/11/18/web前端优化（6）/" class="archive-article-date">
+  	<time datetime="2017-11-18T11:32:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##资源合并与压缩</p>
-<p>####1.WEB前端优化的核心概念以及意义</p>
-<ul>
-<li>不同于C/S架构，用户访问时的软件是访问本地的包，B/S架构是将软件包部署在服务器上， 当用户访问我们的程序时，浏览器才会动态的，增量的去向服务器发起请求。因此，WEB前端的请求是一个动态的，增量的请求过程。在这个过程中，如果我们的资源更少，http请求更快，那么我们的请求响应就会更快，用户体验就会更好。</li>
-</ul>
-<p>####2.HTTP请求的过程中的优化</p>
-<p>*在浏览器层面，可以进行缓存，缓存请求频率比较高的资源，减少对于DNS服务器的请求。</p>
-<p>*带宽层面，可以减少http请求的大小，同时将多次http请求合并成一次，减少对网络信道的损耗</p>
-<p>*dns可以通过缓存减少dns查询的时间</p>
-<p>*对于vue，ng这样的框架，会在浏览器端对代码进行解析，渲染，对于这样的问题，可以使用框架进行ssr（服务端渲染）加快首屏渲染，减少首屏渲染的损耗以及浏览器的压力</p>
-<ul>
-<li>图片和文件层面<ul>
-<li>使用雪碧图</li>
-<li>对于图片使用image inline的方法将图片信息内嵌到html页面中，减少请求数量</li>
-<li>对于代码进行打包压缩合并，减少对于文件的请求数量</li>
+        <h2 id="service-worker实战"><a href="#service-worker实战" class="headerlink" title="service worker实战"></a>service worker实战</h2><ul>
+<li>service worker可以做的事<ul>
+<li>后台消息传递</li>
+<li>网络代理，转发请求，伪造响应</li>
+<li>离线缓存</li>
+<li>消息推送</li>
+<li>……</li>
 </ul>
 </li>
 </ul>
-<p>####3.压缩与合并</p>
-<p>*压缩与合并可以减少http请求数量，同时也可以减少请求资源的大小</p>
-<p>*html压缩</p>
-<p>*css压缩</p>
-<p>*js压缩和混乱</p>
-<p>*文件合并</p>
-<p>*谷歌在每1MB的请求中减少1字节，每年可以节省流量近500TB，每年可以减少上亿元的支出。</p>
+<ul>
+<li><p>注册当前的service worker<br>  //检测浏览器是否支持serviceWorker<br>  if(navigator.serviceWorker){</p>
+<pre><code>navigator.serviceWorker.register(&apos;./service-worker.js&apos;,{scope : &apos;./&apos;})
+  .then( function(reg){
+    console.log(reg)
+  })/*.catch(fu nction(error){
+    console.log(error)
+})*/
+</code></pre><p>  }else{</p>
+<pre><code>alert(&quot;Service Worker is not support&quot;)
+</code></pre><p>  }</p>
+</li>
+<li><p>编写service-worker.js</p>
+<pre><code>    self.addEventListener(&quot;install&quot;,function(e){
+      //waitUntil表示知道里面的异步方法执行完成，才会进行下一步
+      e.waitUntil(
+        caches.open(&apos;app-v1&apos;).then(function(cache){
+          console.log(&apos;open cache&apos;)
+          return cache.addAll([
+            &apos;./app.js&apos;,
+            &apos;./main.css&apos;,
+            &apos;./service-worker.js&apos;
+          ]);
+        })
+      )
+    })
+
+//fetch可以请求拦截和响应
+self.addEventListener(&quot;fetch&quot;, function(event){
+  //改变response返回的数组
+  event.respondWith(
+    //改变请求返回的资源，如果serviceWorker中有，就直接返回，否则就启用fetch进行请求
+    caches.match(event.request).then(function(res){
+      if(res){
+        return res;
+      }else{
+        //通过fetch方法向网络发起请求
+       /* fetch(url).then(function(){
+          if(res){
+             //对于新请求的资源存储搭配我们的cachestorage中
+          }else{
+             //用户提示
+          }
+        })*/
+
+      }
+      return fetch(event.request)
+    })
+  )
+})
+</code></pre></li>
+<li>其中self 属性可返回对窗口自身的只读引用。等价于 Window 属性</li>
+<li>install是service worker的一个生命周期 waitUntil表示当其中的promise都执行完之后才会继续往下执行</li>
+<li>service worker会拦截对应的fetch请求进行对应的处理</li>
+<li>service worker还有message事件，可以用来各个页面之间的通信<br><img src="http://otdc3q7z7.bkt.clouddn.com/E0F3B907-EE45-44CA-A140-9B4BDA100ACE.png" alt="第一次执行之后的cachestorage缓存的数据"></li>
+</ul>
+<p><img src="http://otdc3q7z7.bkt.clouddn.com/3E42AB1C-451E-422A-8247-59DD2AA68D28.png" alt="第一次刷新发现，需要的文件都从缓存中读取，实现了离线应用的需求"></p>
 
       
 
@@ -203,6 +249,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">service worker实战</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -253,7 +310,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/12/web前端优化（1）/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/18/web前端优化（6）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -267,18 +324,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/13/web前端优化（2）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          web前端优化（2）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/10/25/vue全局变量无法触发热更新以及解决方案/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">vue全局变量无法触发视图更新以及解决方案</div>
+    <a href="/2017/11/16/web前端优化（5）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">web前端优化（5）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -305,7 +353,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#service-worker实战"><span class="toc-number">1.</span> <span class="toc-text">service worker实战</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -319,7 +367,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="web前端优化（1）" data-title="web前端优化小结（资源合并与压缩）" data-url="http://yoursite.com/2017/11/12/web前端优化（1）/"></div>
+	<div class="ds-thread" data-thread-key="web前端优化（6）" data-title="web前端优化（6）" data-url="http://yoursite.com/2017/11/18/web前端优化（6）/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -342,8 +390,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2017/11/12/web前端优化（1）/", 
-    sourceId: "web前端优化（1）",
+    url: "http://yoursite.com/2017/11/18/web前端优化（6）/", 
+    sourceId: "web前端优化（6）",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -352,7 +400,7 @@
   
 
   
-  <div id="SOHUCS" sid="web前端优化（1）" ></div> 
+  <div id="SOHUCS" sid="web前端优化（6）" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "true"; 

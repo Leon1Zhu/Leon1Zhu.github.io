@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>web前端优化小结（资源合并与压缩） | 朱亮的博客</title>
+  <title>web前端优化（5） | 朱亮的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##资源合并与压缩 ####1.WEB前端优化的核心概念以及意义  不同于C/S架构，用户访问时的软件是访问本地的包，B/S架构是将软件包部署在服务器上， 当用户访问我们的程序时，浏览器才会动态的，增量的去向服务器发起请求。因此，WEB前端的请求是一个动态的，增量的请求过程。在这个过程中，如果我们的资源更少，http请求更快，那么我们的请求响应就会更快，用户体验就会更好。  ####2.HTTP请">
+  <meta name="description" content="cookie相关 cookie的本意是用来与服务端通信，告诉服务端当前调用的人的相关信息，方便服务端及时的知道是那些人在调用后台的数据 每次发送http请求时，都会自动的吧cookie信息带上 cookie的大小为4MB cookie具有时效性 在dns服务器上，如果使用cookie来存储信息的话，并且在相同域名下请求静态资源文件，那么因为请求会自动带上cookie这一项而浪费很多的流量，例如京东">
+<meta name="keywords" content="浏览器存储和缓存">
 <meta property="og:type" content="article">
-<meta property="og:title" content="web前端优化小结（资源合并与压缩）">
-<meta property="og:url" content="http://yoursite.com/2017/11/12/web前端优化（1）/index.html">
+<meta property="og:title" content="web前端优化（5）">
+<meta property="og:url" content="http://yoursite.com/2017/11/16/web前端优化（5）/index.html">
 <meta property="og:site_name" content="朱亮的博客">
-<meta property="og:description" content="##资源合并与压缩 ####1.WEB前端优化的核心概念以及意义  不同于C/S架构，用户访问时的软件是访问本地的包，B/S架构是将软件包部署在服务器上， 当用户访问我们的程序时，浏览器才会动态的，增量的去向服务器发起请求。因此，WEB前端的请求是一个动态的，增量的请求过程。在这个过程中，如果我们的资源更少，http请求更快，那么我们的请求响应就会更快，用户体验就会更好。  ####2.HTTP请">
+<meta property="og:description" content="cookie相关 cookie的本意是用来与服务端通信，告诉服务端当前调用的人的相关信息，方便服务端及时的知道是那些人在调用后台的数据 每次发送http请求时，都会自动的吧cookie信息带上 cookie的大小为4MB cookie具有时效性 在dns服务器上，如果使用cookie来存储信息的话，并且在相同域名下请求静态资源文件，那么因为请求会自动带上cookie这一项而浪费很多的流量，例如京东">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-11-14T15:04:41.000Z">
+<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/1758B00C-BD65-4FD8-AC81-0ED2A1151E3D.png">
+<meta property="og:updated_time" content="2017-11-18T09:05:42.943Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="web前端优化小结（资源合并与压缩）">
-<meta name="twitter:description" content="##资源合并与压缩 ####1.WEB前端优化的核心概念以及意义  不同于C/S架构，用户访问时的软件是访问本地的包，B/S架构是将软件包部署在服务器上， 当用户访问我们的程序时，浏览器才会动态的，增量的去向服务器发起请求。因此，WEB前端的请求是一个动态的，增量的请求过程。在这个过程中，如果我们的资源更少，http请求更快，那么我们的请求响应就会更快，用户体验就会更好。  ####2.HTTP请">
+<meta name="twitter:title" content="web前端优化（5）">
+<meta name="twitter:description" content="cookie相关 cookie的本意是用来与服务端通信，告诉服务端当前调用的人的相关信息，方便服务端及时的知道是那些人在调用后台的数据 每次发送http请求时，都会自动的吧cookie信息带上 cookie的大小为4MB cookie具有时效性 在dns服务器上，如果使用cookie来存储信息的话，并且在相同域名下请求静态资源文件，那么因为请求会自动带上cookie这一项而浪费很多的流量，例如京东">
+<meta name="twitter:image" content="http://otdc3q7z7.bkt.clouddn.com/1758B00C-BD65-4FD8-AC81-0ED2A1151E3D.png">
   
     <link rel="alternative" href="/atom.xml" title="朱亮的博客" type="application/atom+xml">
   
@@ -150,51 +153,66 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-web前端优化（1）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-web前端优化（5）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      web前端优化小结（资源合并与压缩）
+      web前端优化（5）
     </h1>
   
 
         
-        <a href="/2017/11/12/web前端优化（1）/" class="archive-article-date">
-  	<time datetime="2017-11-12T13:35:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
+        <a href="/2017/11/16/web前端优化（5）/" class="archive-article-date">
+  	<time datetime="2017-11-16T09:47:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##资源合并与压缩</p>
-<p>####1.WEB前端优化的核心概念以及意义</p>
-<ul>
-<li>不同于C/S架构，用户访问时的软件是访问本地的包，B/S架构是将软件包部署在服务器上， 当用户访问我们的程序时，浏览器才会动态的，增量的去向服务器发起请求。因此，WEB前端的请求是一个动态的，增量的请求过程。在这个过程中，如果我们的资源更少，http请求更快，那么我们的请求响应就会更快，用户体验就会更好。</li>
+        <h2 id="cookie相关"><a href="#cookie相关" class="headerlink" title="cookie相关"></a>cookie相关</h2><ul>
+<li>cookie的本意是用来与服务端通信，告诉服务端当前调用的人的相关信息，方便服务端及时的知道是那些人在调用后台的数据</li>
+<li>每次发送http请求时，都会自动的吧cookie信息带上</li>
+<li>cookie的大小为4MB</li>
+<li>cookie具有时效性</li>
+<li>在dns服务器上，如果使用cookie来存储信息的话，并且在相同域名下请求静态资源文件，那么因为请求会自动带上cookie这一项而浪费很多的流量，例如京东这样的公司，如果dns服务器进行cookie操作的话，光是对静态资源的请求，就会浪费上亿元的流量费</li>
+<li>cookie并不适合做浏览器端数据的存储</li>
+<li>cookie具有httponly的设置，防止js的恶意读取<h2 id="sessionStorage和LocalStorage"><a href="#sessionStorage和LocalStorage" class="headerlink" title="sessionStorage和LocalStorage"></a>sessionStorage和LocalStorage</h2></li>
+<li>这两个是H5为了浏览器存储而设计的</li>
+<li>仅在客户端使用，不和服务端通信</li>
+<li>5MB大小</li>
+<li>使用storage进行缓存数据，可以减少对于后端的http请求，进行一定的优化</li>
+<li>sessionStorage是会话级别的浏览器存储</li>
+<li>loaclStorage是直接存储在本地</li>
+<li>百度在loaclStorage中存储了很多的信息，包括百度地图的js、函数级别的缓存和css级别的缓存，但是要注意要有一个很好的更新机制</li>
+<li>手淘将很多的小的icon图片都存在loaclstorage中，同样也很好加快了网页的读取速度，用户数据还是放在了cookie中，随请求发送到后端，手淘中将浏览器是否支持webp格式的图片字段放在了sessionStorage中，因为这个字段是会每次随浏览器的改变都会改变</li>
 </ul>
-<p>####2.HTTP请求的过程中的优化</p>
-<p>*在浏览器层面，可以进行缓存，缓存请求频率比较高的资源，减少对于DNS服务器的请求。</p>
-<p>*带宽层面，可以减少http请求的大小，同时将多次http请求合并成一次，减少对网络信道的损耗</p>
-<p>*dns可以通过缓存减少dns查询的时间</p>
-<p>*对于vue，ng这样的框架，会在浏览器端对代码进行解析，渲染，对于这样的问题，可以使用框架进行ssr（服务端渲染）加快首屏渲染，减少首屏渲染的损耗以及浏览器的压力</p>
-<ul>
-<li>图片和文件层面<ul>
-<li>使用雪碧图</li>
-<li>对于图片使用image inline的方法将图片信息内嵌到html页面中，减少请求数量</li>
-<li>对于代码进行打包压缩合并，减少对于文件的请求数量</li>
+<h2 id="indexDB浏览器端数据库"><a href="#indexDB浏览器端数据库" class="headerlink" title="indexDB浏览器端数据库"></a>indexDB浏览器端数据库</h2><ul>
+<li>用于客户端存储大量结构化数据，大数据量存储就使用这个</li>
+<li>可以为应用创建离线版本</li>
+</ul>
+<h2 id="Service-Workers"><a href="#Service-Workers" class="headerlink" title="Service Workers"></a>Service Workers</h2><ul>
+<li>Service Worker是一个脚本可以将一些运行时间比较长或者不依赖页面的JS放在后台运行</li>
+<li>Service Worker可以拦截请求，将需要到后台请求资源的请求拦截下来，直接从Service Worker的缓存数据中进行请求（离线应用就是一个比较重要的能力）</li>
+<li>Service Worker可以实现与主页面的通信，可以将大规模的运算放在Service Worker中进行运算，结束之后通过API进行通信</li>
+<li>当前端需要大批量的运算和获取时，使用Service Workers可以避免对UI渲染的堵塞</li>
+<li>在谷歌中，使用chrome://inspect/#/service-workers可以查看当前浏览器有多少service worker在运行</li>
+<li>使用chrome://serviceworker-internals可以查看service-worker的历史，用来查看浏览过的网站，那些使用了service-worker</li>
+<li>目前苹果设备对service-worker的支持不是很好</li>
+<li>service Worker目前只支持https的站点，http的站点不支持，但是对localhost的本地地址进行了过滤<br><img src="http://otdc3q7z7.bkt.clouddn.com/1758B00C-BD65-4FD8-AC81-0ED2A1151E3D.png" alt="Service Work的生命周期"><ul>
+<li><h2 id="PWA-Progressive-Web-Apps"><a href="#PWA-Progressive-Web-Apps" class="headerlink" title="PWA(Progressive Web Apps)"></a>PWA(Progressive Web Apps)</h2></li>
 </ul>
 </li>
+<li>PWA是一种WebApp的新模型，并不是单一的知识点，它通过一系列新的WEB特性，配合优秀的UI交互设计，逐步增强WebApp的用户体验</li>
+<li>渐进式（弱网环境下，是否可以加载出来，没有网的时候能不能加载出来，然后渐进式的提升用体验）</li>
+<li>可靠：在没有网络的情况下也能访问提供的基本页面，而不是出现“没有连接到互联网的提示”</li>
+<li>快速：针对网页渲染和书库访问有较好的优化</li>
+<li>融入：应用可以被增加到手机桌面，并且和普通应用一样有全屏，推送等特性</li>
 </ul>
-<p>####3.压缩与合并</p>
-<p>*压缩与合并可以减少http请求数量，同时也可以减少请求资源的大小</p>
-<p>*html压缩</p>
-<p>*css压缩</p>
-<p>*js压缩和混乱</p>
-<p>*文件合并</p>
-<p>*谷歌在每1MB的请求中减少1字节，每年可以节省流量近500TB，每年可以减少上亿元的支出。</p>
+<p>##使用lightHouse对页面进行性能检验</p>
 
       
 
@@ -203,6 +221,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">浏览器存储和缓存</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -253,7 +282,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/12/web前端优化（1）/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/16/web前端优化（5）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -267,18 +296,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/13/web前端优化（2）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/18/web前端优化（6）/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          web前端优化（2）
+          web前端优化（6）
         
       </div>
     </a>
   
   
-    <a href="/2017/10/25/vue全局变量无法触发热更新以及解决方案/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">vue全局变量无法触发视图更新以及解决方案</div>
+    <a href="/2017/11/15/web前端优化（4）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">web前端优化（4）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -305,7 +334,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#cookie相关"><span class="toc-number">1.</span> <span class="toc-text">cookie相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sessionStorage和LocalStorage"><span class="toc-number">2.</span> <span class="toc-text">sessionStorage和LocalStorage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#indexDB浏览器端数据库"><span class="toc-number">3.</span> <span class="toc-text">indexDB浏览器端数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Service-Workers"><span class="toc-number">4.</span> <span class="toc-text">Service Workers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PWA-Progressive-Web-Apps"><span class="toc-number">5.</span> <span class="toc-text">PWA(Progressive Web Apps)</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -319,7 +348,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="web前端优化（1）" data-title="web前端优化小结（资源合并与压缩）" data-url="http://yoursite.com/2017/11/12/web前端优化（1）/"></div>
+	<div class="ds-thread" data-thread-key="web前端优化（5）" data-title="web前端优化（5）" data-url="http://yoursite.com/2017/11/16/web前端优化（5）/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -342,8 +371,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2017/11/12/web前端优化（1）/", 
-    sourceId: "web前端优化（1）",
+    url: "http://yoursite.com/2017/11/16/web前端优化（5）/", 
+    sourceId: "web前端优化（5）",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -352,7 +381,7 @@
   
 
   
-  <div id="SOHUCS" sid="web前端优化（1）" ></div> 
+  <div id="SOHUCS" sid="web前端优化（5）" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "true"; 
