@@ -172,15 +172,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="service-worker实战"><a href="#service-worker实战" class="headerlink" title="service worker实战"></a>service worker实战</h2><ul>
-<li><p>service worker可以做的事</p>
-<ul>
+<li>service worker可以做的事<ul>
 <li>后台消息传递</li>
 <li>网络代理，转发请求，伪造响应</li>
 <li>离线缓存</li>
 <li>消息推送</li>
-<li><p>……</p>
-<pre><code>所属地
-</code></pre></li>
+<li>……</li>
 </ul>
 </li>
 </ul>
@@ -188,12 +185,12 @@
 <li><p>注册当前的service worker</p>
 <pre><code>//检测浏览器是否支持serviceWorker
 if(navigator.serviceWorker){
-    navigator.serviceWorker.register(&apos;./service-worker.js&apos;,{scope : &apos;./&apos;})
-      .then( function(reg){
-        console.log(reg)
-      })/*.catch(fu nction(error){
-        console.log(error)
-    })*/
+      navigator.serviceWorker.register(&apos;./service-worker.js&apos;,{scope : &apos;./&apos;})
+        .then( function(reg){
+          console.log(reg)
+        })/*.catch(fu nction(error){
+          console.log(error)
+      })*/
 }else{
   alert(&quot;Service Worker is not support&quot;)
 }
@@ -202,15 +199,15 @@ if(navigator.serviceWorker){
 <pre><code>self.addEventListener(&quot;install&quot;,function(e){
   //waitUntil表示知道里面的异步方法执行完成，才会进行下一步
   e.waitUntil(
-         caches.open(&apos;app-v1&apos;).then(function(cache){
-       console.log(&apos;open cache&apos;)
-       return cache.addAll([
-          &apos;./app.js&apos;,
-          &apos;./main.css&apos;,
-          &apos;./service-worker.js&apos;
-        ]);
-      })
-    )
+    caches.open(&apos;app-v1&apos;).then(function(cache){
+      console.log(&apos;open cache&apos;)
+      return cache.addAll([
+        &apos;./app.js&apos;,
+        &apos;./main.css&apos;,
+        &apos;./service-worker.js&apos;
+      ]);
+    })
+  )
 })
 
 //fetch可以请求拦截和响应
@@ -237,7 +234,8 @@ self.addEventListener(&quot;fetch&quot;, function(event){
   )
 })
 </code></pre></li>
-<li>其中self 属性可返回对窗口自身的只读引用。等价于 Window 属性</li>
+<li><p>其中self 属性可返回对窗口自身的只读引用。等价于 Window 属性</p>
+</li>
 <li>install是service worker的一个生命周期 waitUntil表示当其中的promise都执行完之后才会继续往下执行</li>
 <li>service worker会拦截对应的fetch请求进行对应的处理</li>
 <li>service worker还有message事件，可以用来各个页面之间的通信<br><img src="http://otdc3q7z7.bkt.clouddn.com/E0F3B907-EE45-44CA-A140-9B4BDA100ACE.png" alt="第一次执行之后的cachestorage缓存的数据"></li>
