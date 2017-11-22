@@ -151,6 +151,121 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-web前端优化-缓存-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/22/web前端优化-缓存-1/">web前端优化（7）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/22/web前端优化-缓存-1/" class="archive-article-date">
+  	<time datetime="2017-11-22T12:25:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##浏览器的缓存</p>
+<ul>
+<li>大规模的文件存储需要浏览器和服务器之间约定一个缓存大文件的缓存方式</li>
+</ul>
+<h2 id="cache-control所控制的缓存策略"><a href="#cache-control所控制的缓存策略" class="headerlink" title="cache-control所控制的缓存策略"></a>cache-control所控制的缓存策略</h2><ul>
+<li>可以出现在http responseheader 或者http requestheader中</li>
+<li>max-age指定缓存的最大时间，在这段时间内，不会向服务端重新请求（相对过期时间，max-age的优先级更高）</li>
+<li>s-maxage s-maxage返回状态304，也是定义缓存的最大时间，但是只能针对public的缓存 （优先级高于max-age，设置之后要去public缓存区拿）</li>
+<li>private私人的缓存设备，只能私人用户使用</li>
+<li>public比如cdn服务器，可以被很多用户访问并且获取信息的</li>
+<li>no-cache 搭配max-age=0配置，每次都会发发起请求，询问我当前的文件是否过期，从而知道缓存策略是什么样的</li>
+<li>no-store 完全不使用缓存策略</li>
+</ul>
+<ul>
+<li>Expires<ul>
+<li>设置缓存过期时间，过期之前都可以直接从缓存读取（max-age(http1.1)的优先级高于expires（http1.0））</li>
+</ul>
+</li>
+</ul>
+<p>##last-modified和etagg以及整个服务端浏览器端的存储过程</p>
+<ul>
+<li>Last-Modified/If-Modified-Since<ul>
+<li>last-modified– response header客户端拿到，服务端这告诉客户端个文件的最后修改时间</li>
+<li>if-modified-since – request header客户端告诉服务端当前文件客户端知道的最后修改时间，如果服务端没有更新，返回304成功状态，表示没有更新，可以使用，如果有修改，返回200状态码，返回最新文件，此时需要使用返回的最新的文件，不需要从缓存中读取</li>
+<li>第一次请求，客户端不会携带if-modified-since的参数</li>
+</ul>
+</li>
+<li>last-modified缺点<ul>
+<li>服务端可能没有精确的修改时间</li>
+<li>有些文件修改时间是改了，但是文件内容是没有修改</li>
+</ul>
+</li>
+<li>etagg(If-None-Match，优先级高于last-modified)<ul>
+<li>Response Header中返回 ETag（文件的hash值）</li>
+<li>request Headers中带If-None-Match参数，这个参数是ETag传递回来的hash值</li>
+<li>etag是记住当前文件的hash值，当文件的hash值改变时，表示文件变动，返回200，否则是304状态</li>
+<li>也需要和cache-control一起使用<br><img src="http://otdc3q7z7.bkt.clouddn.com/E394114D-4422-499E-90AD-C0C3317E957C.png" alt="缓存流程last-modified和etagg"><br><img src="http://otdc3q7z7.bkt.clouddn.com/3DD6BC6C-F4D3-4CC6-A3C8-7B96F57FC9C6.png" alt="缓存流程cache-control"></li>
+</ul>
+</li>
+</ul>
+<p>##案例分析和基于node实践缓存方式</p>
+<p>chrome下使用 chrome://cache可以直接查看到当前的cache</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">缓存相关</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/22/web前端优化-缓存-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-web前端优化（6）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -182,8 +297,7 @@
 </li>
 </ul>
 <ul>
-<li>注册当前的service worker</li>
-</ul>
+<li><p>注册当前的service worker</p>
 <pre><code>if(navigator.serviceWorker){
       navigator.serviceWorker.register(&apos;./service-worker.js&apos;,{scope : &apos;./&apos;})
         .then( function(reg){
@@ -194,7 +308,7 @@
 }else{
   alert(&quot;Service Worker is not support&quot;)
 }
-</code></pre><ul>
+</code></pre></li>
 <li><p>编写service-worker.js</p>
 <pre><code>self.addEventListener(&quot;install&quot;,function(e){
   //waitUntil表示知道里面的异步方法执行完成，才会进行下一步
@@ -1184,89 +1298,6 @@ xhr.withCredentials = true;
 
 
   
-    <article id="post-gitlub私服的搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/20/gitlub私服的搭建/">gitlub私服的搭建</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/20/gitlub私服的搭建/" class="archive-article-date">
-  	<time datetime="2017-07-20T15:03:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近应公司需求，搭建gitlab私服，在这里做一个简单的记录。</p>
-<h2 id="1-安装和配置必要的依赖"><a href="#1-安装和配置必要的依赖" class="headerlink" title="1.安装和配置必要的依赖"></a>1.安装和配置必要的依赖</h2><pre><code>sudo yum install curl policycoreutils openssh-    server openssh-clients
-sudo systemctl enable sshd
-sudo systemctl start sshd
-sudo yum install postfix
-sudo systemctl enable postfix
-sudo systemctl start postfix
-sudo firewall-cmd --permanent --add-service=http
-sudo systemctl reload firewalld
-</code></pre><h2 id="2-使用国内镜像安装，新建-etc-yum-repos-d-gitlab-ce-repo，添加以下内容，否则下载安装太过缓慢"><a href="#2-使用国内镜像安装，新建-etc-yum-repos-d-gitlab-ce-repo，添加以下内容，否则下载安装太过缓慢" class="headerlink" title="2.使用国内镜像安装，新建 /etc/yum.repos.d/gitlab-ce.repo，添加以下内容，否则下载安装太过缓慢"></a>2.使用国内镜像安装，新建 /etc/yum.repos.d/gitlab-ce.repo，添加以下内容，否则下载安装太过缓慢</h2><pre><code>[gitlab-ce]
-name=gitlab-ce
-baseurl=http://mirrors.tuna.tsinghua.edu.cn/    gitlab-ce/yum/el6
-repo_gpgcheck=0
-gpgcheck=0
-enabled=1
-gpgkey=https://packages.gitlab.com/gpg.key
-</code></pre><h2 id="3-安装并初始化gitlab"><a href="#3-安装并初始化gitlab" class="headerlink" title="3.安装并初始化gitlab"></a>3.安装并初始化gitlab</h2><pre><code># 安装 GitLab 社区版
-sudo yum install gitlab-ce
-# 初始化 GitLab
-sudo gitlab-ctl reconfigure
-</code></pre><p>最后通过ip访问80端口即可（giutlab默认使用80端口）</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/20/gitlub私服的搭建/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1381,6 +1412,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">service worker实战</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">缓存相关</a>
               </li>
             
             <div class="clearfix"></div>
