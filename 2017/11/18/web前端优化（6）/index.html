@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>web前端优化（6） | 朱亮的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="service worker实战 service worker可以做的事 后台消息传递 网络代理，转发请求，伪造响应 离线缓存 消息推送 ……     注册当前的service worker  //检测浏览器是否支持serviceWorker  if(navigator.serviceWorker){ navigator.serviceWorker.register(&amp;apos;./service">
+  <meta name="description" content="service worker实战 service worker可以做的事 后台消息传递 网络代理，转发请求，伪造响应 离线缓存 消息推送 ……     注册当前的service worker //检测浏览器是否支持serviceWorker if(navigator.serviceWorker){     navigator.serviceWorker.register(&amp;apos;./servi">
 <meta name="keywords" content="service worker实战">
 <meta property="og:type" content="article">
 <meta property="og:title" content="web前端优化（6）">
 <meta property="og:url" content="http://yoursite.com/2017/11/18/web前端优化（6）/index.html">
 <meta property="og:site_name" content="朱亮的博客">
-<meta property="og:description" content="service worker实战 service worker可以做的事 后台消息传递 网络代理，转发请求，伪造响应 离线缓存 消息推送 ……     注册当前的service worker  //检测浏览器是否支持serviceWorker  if(navigator.serviceWorker){ navigator.serviceWorker.register(&amp;apos;./service">
+<meta property="og:description" content="service worker实战 service worker可以做的事 后台消息传递 网络代理，转发请求，伪造响应 离线缓存 消息推送 ……     注册当前的service worker //检测浏览器是否支持serviceWorker if(navigator.serviceWorker){     navigator.serviceWorker.register(&amp;apos;./servi">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/E0F3B907-EE45-44CA-A140-9B4BDA100ACE.png">
 <meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/3E42AB1C-451E-422A-8247-59DD2AA68D28.png">
-<meta property="og:updated_time" content="2017-11-18T12:08:22.697Z">
+<meta property="og:updated_time" content="2017-11-22T12:09:31.308Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web前端优化（6）">
-<meta name="twitter:description" content="service worker实战 service worker可以做的事 后台消息传递 网络代理，转发请求，伪造响应 离线缓存 消息推送 ……     注册当前的service worker  //检测浏览器是否支持serviceWorker  if(navigator.serviceWorker){ navigator.serviceWorker.register(&amp;apos;./service">
+<meta name="twitter:description" content="service worker实战 service worker可以做的事 后台消息传递 网络代理，转发请求，伪造响应 离线缓存 消息推送 ……     注册当前的service worker //检测浏览器是否支持serviceWorker if(navigator.serviceWorker){     navigator.serviceWorker.register(&amp;apos;./servi">
 <meta name="twitter:image" content="http://otdc3q7z7.bkt.clouddn.com/E0F3B907-EE45-44CA-A140-9B4BDA100ACE.png">
   
     <link rel="alternative" href="/atom.xml" title="朱亮的博客" type="application/atom+xml">
@@ -185,31 +185,33 @@
 </li>
 </ul>
 <ul>
-<li><p>注册当前的service worker<br>  //检测浏览器是否支持serviceWorker<br>  if(navigator.serviceWorker){</p>
-<pre><code>navigator.serviceWorker.register(&apos;./service-worker.js&apos;,{scope : &apos;./&apos;})
-  .then( function(reg){
-    console.log(reg)
-  })/*.catch(fu nction(error){
-    console.log(error)
-})*/
-</code></pre><p>  }else{</p>
-<pre><code>alert(&quot;Service Worker is not support&quot;)
-</code></pre><p>  }</p>
-</li>
+<li><p>注册当前的service worker</p>
+<pre><code>//检测浏览器是否支持serviceWorker
+if(navigator.serviceWorker){
+    navigator.serviceWorker.register(&apos;./service-worker.js&apos;,{scope : &apos;./&apos;})
+      .then( function(reg){
+        console.log(reg)
+      })/*.catch(fu nction(error){
+        console.log(error)
+    })*/
+}else{
+  alert(&quot;Service Worker is not support&quot;)
+}
+</code></pre></li>
 <li><p>编写service-worker.js</p>
-<pre><code>    self.addEventListener(&quot;install&quot;,function(e){
-      //waitUntil表示知道里面的异步方法执行完成，才会进行下一步
-      e.waitUntil(
-        caches.open(&apos;app-v1&apos;).then(function(cache){
-          console.log(&apos;open cache&apos;)
-          return cache.addAll([
-            &apos;./app.js&apos;,
-            &apos;./main.css&apos;,
-            &apos;./service-worker.js&apos;
-          ]);
-        })
-      )
-    })
+<pre><code>self.addEventListener(&quot;install&quot;,function(e){
+  //waitUntil表示知道里面的异步方法执行完成，才会进行下一步
+  e.waitUntil(
+         caches.open(&apos;app-v1&apos;).then(function(cache){
+       console.log(&apos;open cache&apos;)
+       return cache.addAll([
+          &apos;./app.js&apos;,
+          &apos;./main.css&apos;,
+          &apos;./service-worker.js&apos;
+        ]);
+      })
+    )
+})
 
 //fetch可以请求拦截和响应
 self.addEventListener(&quot;fetch&quot;, function(event){
@@ -511,15 +513,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">service worker实战</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css和js部分的优化相关</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">浏览器存储和缓存</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">service worker实战</a>
               </li>
             
             <div class="clearfix"></div>

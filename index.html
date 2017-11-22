@@ -182,31 +182,33 @@
 </li>
 </ul>
 <ul>
-<li><p>注册当前的service worker<br>  //检测浏览器是否支持serviceWorker<br>  if(navigator.serviceWorker){</p>
-<pre><code>navigator.serviceWorker.register(&apos;./service-worker.js&apos;,{scope : &apos;./&apos;})
-  .then( function(reg){
-    console.log(reg)
-  })/*.catch(fu nction(error){
-    console.log(error)
-})*/
-</code></pre><p>  }else{</p>
-<pre><code>alert(&quot;Service Worker is not support&quot;)
-</code></pre><p>  }</p>
-</li>
+<li><p>注册当前的service worker</p>
+<pre><code>//检测浏览器是否支持serviceWorker
+if(navigator.serviceWorker){
+    navigator.serviceWorker.register(&apos;./service-worker.js&apos;,{scope : &apos;./&apos;})
+      .then( function(reg){
+        console.log(reg)
+      })/*.catch(fu nction(error){
+        console.log(error)
+    })*/
+}else{
+  alert(&quot;Service Worker is not support&quot;)
+}
+</code></pre></li>
 <li><p>编写service-worker.js</p>
-<pre><code>    self.addEventListener(&quot;install&quot;,function(e){
-      //waitUntil表示知道里面的异步方法执行完成，才会进行下一步
-      e.waitUntil(
-        caches.open(&apos;app-v1&apos;).then(function(cache){
-          console.log(&apos;open cache&apos;)
-          return cache.addAll([
-            &apos;./app.js&apos;,
-            &apos;./main.css&apos;,
-            &apos;./service-worker.js&apos;
-          ]);
-        })
-      )
-    })
+<pre><code>self.addEventListener(&quot;install&quot;,function(e){
+  //waitUntil表示知道里面的异步方法执行完成，才会进行下一步
+  e.waitUntil(
+         caches.open(&apos;app-v1&apos;).then(function(cache){
+       console.log(&apos;open cache&apos;)
+       return cache.addAll([
+          &apos;./app.js&apos;,
+          &apos;./main.css&apos;,
+          &apos;./service-worker.js&apos;
+        ]);
+      })
+    )
+})
 
 //fetch可以请求拦截和响应
 self.addEventListener(&quot;fetch&quot;, function(event){
@@ -1369,15 +1371,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">service worker实战</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css和js部分的优化相关</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">浏览器存储和缓存</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">service worker实战</a>
               </li>
             
             <div class="clearfix"></div>
