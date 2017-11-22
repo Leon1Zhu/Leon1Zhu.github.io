@@ -299,7 +299,15 @@
 <ul>
 <li><p>注册当前的service worker</p>
 <pre><code>if(navigator.serviceWorker){
-navigator.serviceWorker.register(&apos;./service-worker.js&apos;,{scope : &apos;./&apos;})
+      navigator.serviceWorker.register(&apos;./service-worker.js&apos;,{scope : &apos;./&apos;})
+        .then( function(reg){
+          console.log(reg)
+        })/*.catch(fu nction(error){
+          console.log(error)
+      })*/
+}else{
+  alert(&quot;Service Worker is not support&quot;)
+}
 </code></pre></li>
 <li><p>编写service-worker.js</p>
 <pre><code>self.addEventListener(&quot;install&quot;,function(e){
