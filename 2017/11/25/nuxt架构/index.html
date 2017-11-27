@@ -6,25 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>vue全局变量无法触发视图更新以及解决方案 | 朱亮的博客</title>
+  <title>nuxt架构 | 朱亮的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在用vue写一个图书馆的项目的时候，因为项目不是很复杂，就没有上vuex，并按照以往的习惯使用global进行全局变量的设置以及管理。按照往常的经验来说，是没有什么问题的。但是万万没想到踩到了自己挖的坑。 1.全局变量的定义以及使用在vue-cli生成的模板项目中，若觉得项目不是很复杂没有必要使用vuex的话，我们一般会使用一个bus.js或者global.js用来定义变量，将变量挂在在js的">
+  <meta name="description" content="安装过程 首先安装vue-cli，直接使用过nuxt的模板 然后直接安装vue-cli对应的nuxt模板  vue init nuxt/starter &amp;lt;project-name&amp;gt; cd &amp;lt;project-name&amp;gt; npm install   目录结构 components存放组件，nuxt.js不会扩展增强该目录下的vue.js组件，即不会拥有asyncData特性 l">
+<meta name="keywords" content="nuxt学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue全局变量无法触发视图更新以及解决方案">
-<meta property="og:url" content="http://yoursite.com/2017/10/25/vue全局变量无法触发热更新以及解决方案/index.html">
+<meta property="og:title" content="nuxt架构">
+<meta property="og:url" content="http://yoursite.com/2017/11/25/nuxt架构/index.html">
 <meta property="og:site_name" content="朱亮的博客">
-<meta property="og:description" content="最近在用vue写一个图书馆的项目的时候，因为项目不是很复杂，就没有上vuex，并按照以往的习惯使用global进行全局变量的设置以及管理。按照往常的经验来说，是没有什么问题的。但是万万没想到踩到了自己挖的坑。 1.全局变量的定义以及使用在vue-cli生成的模板项目中，若觉得项目不是很复杂没有必要使用vuex的话，我们一般会使用一个bus.js或者global.js用来定义变量，将变量挂在在js的">
+<meta property="og:description" content="安装过程 首先安装vue-cli，直接使用过nuxt的模板 然后直接安装vue-cli对应的nuxt模板  vue init nuxt/starter &amp;lt;project-name&amp;gt; cd &amp;lt;project-name&amp;gt; npm install   目录结构 components存放组件，nuxt.js不会扩展增强该目录下的vue.js组件，即不会拥有asyncData特性 l">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/17-10-254.png">
-<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/17-10-253.png">
-<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/2017-10-251.png">
-<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/2017-10-252.png">
-<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/17-10-261.png">
-<meta property="og:updated_time" content="2017-10-26T04:47:18.000Z">
+<meta property="og:updated_time" content="2017-11-26T11:11:07.859Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue全局变量无法触发视图更新以及解决方案">
-<meta name="twitter:description" content="最近在用vue写一个图书馆的项目的时候，因为项目不是很复杂，就没有上vuex，并按照以往的习惯使用global进行全局变量的设置以及管理。按照往常的经验来说，是没有什么问题的。但是万万没想到踩到了自己挖的坑。 1.全局变量的定义以及使用在vue-cli生成的模板项目中，若觉得项目不是很复杂没有必要使用vuex的话，我们一般会使用一个bus.js或者global.js用来定义变量，将变量挂在在js的">
-<meta name="twitter:image" content="http://otdc3q7z7.bkt.clouddn.com/17-10-254.png">
+<meta name="twitter:title" content="nuxt架构">
+<meta name="twitter:description" content="安装过程 首先安装vue-cli，直接使用过nuxt的模板 然后直接安装vue-cli对应的nuxt模板  vue init nuxt/starter &amp;lt;project-name&amp;gt; cd &amp;lt;project-name&amp;gt; npm install   目录结构 components存放组件，nuxt.js不会扩展增强该目录下的vue.js组件，即不会拥有asyncData特性 l">
   
     <link rel="alternative" href="/atom.xml" title="朱亮的博客" type="application/atom+xml">
   
@@ -156,41 +151,86 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vue全局变量无法触发热更新以及解决方案" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-nuxt架构" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      vue全局变量无法触发视图更新以及解决方案
+      nuxt架构
     </h1>
   
 
         
-        <a href="/2017/10/25/vue全局变量无法触发热更新以及解决方案/" class="archive-article-date">
-  	<time datetime="2017-10-25T13:12:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-25</time>
+        <a href="/2017/11/25/nuxt架构/" class="archive-article-date">
+  	<time datetime="2017-11-25T08:36:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近在用vue写一个图书馆的项目的时候，因为项目不是很复杂，就没有上vuex，并按照以往的习惯使用global进行全局变量的设置以及管理。按照往常的经验来说，是没有什么问题的。但是万万没想到踩到了自己挖的坑。</p>
-<h2 id="1-全局变量的定义以及使用"><a href="#1-全局变量的定义以及使用" class="headerlink" title="1.全局变量的定义以及使用"></a>1.全局变量的定义以及使用</h2><p>在vue-cli生成的模板项目中，若觉得项目不是很复杂没有必要使用vuex的话，我们一般会使用一个bus.js或者global.js用来定义变量，将变量挂在在js的gloabl上，然后在入口页面直接import这个文件即可成为全局变量，这样即可实现vuex的全局变量的功能</p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/17-10-254.png" alt="全局变量定义"></p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/17-10-253.png" alt="在组件中的使用"></p>
-<p>在gloabl文件中直接定义，定义完成之后再子组件的文件中，直接使用名称进行访问即可，也可以自己写get/set方法来实现变量的管理。</p>
-<h2 id="2-问题的产生"><a href="#2-问题的产生" class="headerlink" title="2.问题的产生"></a>2.问题的产生</h2><p>在这次的系统中，有一个需求就是在个人中心的收藏和预定模块展示个人收藏和预定的书籍列表，如下图所示。</p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/2017-10-251.png" alt="收藏页面"></p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/2017-10-252.png" alt="书籍展示页面"></p>
-<p>当在列表中点击收藏和预定按钮时，我的预定和收藏页面需要能及时刷新。而我又很作死的使用了全局变量来做列表数据存储，更作死的是我还没有用vuex及时通知组件数据的更新。。。。。。。</p>
-<p>当预定列表的收藏列表的全局数组不为空时，一切都很正常，添加删除都很正常，但是当页面加载的时候，若预定和收藏的列表为空，则当用户添加的时候就无法实现双向绑定。这是问题让我很奔溃，一切都正常，只有数组初始化为空的时候无法响应。</p>
-<p>coputed和watch都使用了,通过computed方法，实时打印的话可以发现数组的值已经改变，但是页面就是无法做出响应。</p>
-<h2 id="3-问题的解决"><a href="#3-问题的解决" class="headerlink" title="3.问题的解决"></a>3.问题的解决</h2><p>经过无数次的尝试之后发现，当全局变变量的书籍列表数组初始化为空时，computed计算属性和watch变量都做不到监听的效果。其中，通过打印computed可以发现，数组的值是变化了，但是没有触发computed。</p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/17-10-261.png" alt="使用过computed监听"></p>
-<p>最后，我想到既然有数据时是正常的，那么是不是我的数组初始化不为空就可以了，所以我给数组增加了一个默认的变量，这样，即使用户没有收藏的书籍，数组也不会为空。果然，问题也得到了解决。</p>
-<h2 id="4-感想"><a href="#4-感想" class="headerlink" title="4.感想"></a>4.感想</h2><p>或许这种时候使用vuex就不会那么麻烦了吧，总感觉这种解决方案比较low，后续准备继续研究，找出问题的关键所在。</p>
+        <h2 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h2><ul>
+<li>首先安装vue-cli，直接使用过nuxt的模板</li>
+<li><p>然后直接安装vue-cli对应的nuxt模板</p>
+<pre><code> vue init nuxt/starter &lt;project-name&gt;
+cd &lt;project-name&gt;
+npm install
+</code></pre></li>
+</ul>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><ul>
+<li>components存放组件，nuxt.js不会扩展增强该目录下的vue.js组件，即不会拥有asyncData特性</li>
+<li>layouts用于组织应用的布局组件</li>
+<li>middleware用于存放中间件</li>
+<li>pages用于组织应用的路由以及视图，nuxt会读取改目录下所有的.vue文件并自动生成对应的路由配置，并且该目录为保留目录，不可更改</li>
+<li>plugins用于存放那些需要在页面中使用的javascript组件</li>
+<li>nuxt拓展的asyncData方法（仅限于页面组件）可以在组件每次加载之前没调用，可以再服务端或者路由更新之前调用。被调用时，第一个参数设置为当前页面的上下文对对象，可以利用这个方法获取数据，nuxt会将返回的数据融合组件data方法返回的数据一并返回给当前组件</li>
+</ul>
+<ul>
+<li>Nuxt.js 提供了几种不同的方法来使用 asyncData 方法，你可以选择自己熟悉的一种来用：<ul>
+<li>返回一个 Promise, nuxt.js会等待该Promise被解析之后才会设置组件的数据，从而渲染组件.</li>
+<li>使用 async 或 await (了解更多)</li>
+<li>为第二个参数指定一个回调函数. 注：该回调函数需符合通用的 NodeJs 回调函数的形式:  callback(err, data)</li>
+<li><a href="https://zh.nuxtjs.org/guide/async-data" target="_blank" rel="external">具体使用示例</a></li>
+</ul>
+<ul>
+<li>nuxt.config.js的extend函数介绍<ul>
+<li>该扩展方法会被调用两次，一次在服务端打包构建的时候，另外一次是在客户端打包构建的时    候。</li>
+<li>该方法的参数为1.Webpack 配置对象2.构建环境对象，包括这些属性（全部为布尔类型）： dev， isClient， isServer</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>使用starter模板的不需要对scss进行额外的配置</li>
+<li><a href="https://segmentfault.com/a/1190000008114613" target="_blank" rel="external">nuxt运行时的各种生命周期</a></li>
+<li><a href="https://zh.nuxtjs.org/api/configuration-plugins" target="_blank" rel="external">插件的使用</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="关于子路由"><a href="#关于子路由" class="headerlink" title="关于子路由"></a>关于子路由</h2><ul>
+<li><p>你可以通过 vue-router 的子路由创建 Nuxt.js 应用的嵌套路由。</p>
+</li>
+<li><p>创建内嵌子路由，你需要添加一个 Vue 文件，同时添加一个与该文件同名的目录用来存放子视图组件。</p>
+</li>
+<li><p>别忘了在父级 Vue 文件内增加 &lt;nuxt-child/&gt; 用于显示子视图内容。</p>
+<pre><code>pages/
+    --| users/
+    -----| _id.vue
+    -----| index.vue
+    --| users.vue
+</code></pre></li>
+</ul>
+<p>##关于插件（plugin）</p>
+<ul>
+<li>如果担心对于同一个插件引入次数过多，可以使用build下的vendor配置，直接把该插件打进vendor bundle从而减少文件的体积（自己写的组件也可以这样使用）</li>
+</ul>
+<p>##生成项目之后</p>
+<ul>
+<li>使用nuxt build可以在dist文件夹下生成dist目录直接生成项目</li>
+<li>使用nuxt build -a 可以直接生成dist文件之后再8888端口对文件的大小进行分析</li>
+</ul>
+<p> 注：在任何 Vue 组件的生命周期内， 只有 beforeCreate 和 created 这两个钩子方法会在 客户端和服务端均被调用。其他钩子方法仅在客户端被调用。</p>
 
       
 
@@ -199,6 +239,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nuxt学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -249,7 +300,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/25/vue全局变量无法触发热更新以及解决方案/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/25/nuxt架构/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -263,18 +314,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/12/web前端优化（1）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          web前端优化小结（资源合并与压缩）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/26/spring的跨域/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">浅谈跨域问题</div>
+    <a href="/2017/11/23/看vue-js实战中一书的总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">看vue.js实战中一书的总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -301,7 +343,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-全局变量的定义以及使用"><span class="toc-number">1.</span> <span class="toc-text">1.全局变量的定义以及使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-问题的产生"><span class="toc-number">2.</span> <span class="toc-text">2.问题的产生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-问题的解决"><span class="toc-number">3.</span> <span class="toc-text">3.问题的解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-感想"><span class="toc-number">4.</span> <span class="toc-text">4.感想</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装过程"><span class="toc-number">1.</span> <span class="toc-text">安装过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目录结构"><span class="toc-number">2.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于子路由"><span class="toc-number">3.</span> <span class="toc-text">关于子路由</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -315,7 +357,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="vue全局变量无法触发热更新以及解决方案" data-title="vue全局变量无法触发视图更新以及解决方案" data-url="http://yoursite.com/2017/10/25/vue全局变量无法触发热更新以及解决方案/"></div>
+	<div class="ds-thread" data-thread-key="nuxt架构" data-title="nuxt架构" data-url="http://yoursite.com/2017/11/25/nuxt架构/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -338,8 +380,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2017/10/25/vue全局变量无法触发热更新以及解决方案/", 
-    sourceId: "vue全局变量无法触发热更新以及解决方案",
+    url: "http://yoursite.com/2017/11/25/nuxt架构/", 
+    sourceId: "nuxt架构",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -348,7 +390,7 @@
   
 
   
-  <div id="SOHUCS" sid="vue全局变量无法触发热更新以及解决方案" ></div> 
+  <div id="SOHUCS" sid="nuxt架构" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "true"; 
