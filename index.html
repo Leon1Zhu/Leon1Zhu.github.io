@@ -151,6 +151,249 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js语言精粹" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/28/js语言精粹/">js语言精粹一书整理</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/28/js语言精粹/" class="archive-article-date">
+  	<time datetime="2017-11-28T12:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>书 P35的递归方法、</p>
+<p>注：字面量表示如何表达这个值，一般除去表达式，给变量赋值时，等号右边的就可以认为是字面量</p>
+<pre><code>var test = &quot;hello world!&quot;
+</code></pre><p>这里 “hello world!”就是字面量，test是变量名<br>在js中，字面量分为字符串字面量，对象字面量，数组字面量和函数字面量</p>
+<p>##第二章 语法</p>
+<p>####语句</p>
+<ul>
+<li>在js中会被判断为假的字面量<ol>
+<li>false</li>
+<li>null</li>
+<li>undefined</li>
+<li>空字符串’’</li>
+<li>数字0</li>
+<li>数字NaN<br>####表达式</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>如果函数没有写reture，那么会默认返回undefined</li>
+<li>typeof 会产生的类型 number,string,boolean,object,function,undefined,但是当时一个数组或者使null时，返回的是object,这其实是不对的</li>
+<li>对象字面量就是指包围在一个花括号中的零或多个键值对，对象字面量可以出现在任何允许表达式出现的地方</li>
+<li>检索对象里面包含的值bookinfo[“item”]</li>
+</ul>
+<p>##第三章 对象</p>
+<p>####检索</p>
+<ul>
+<li>javascript的标识符中不能包含连接符（-），但是可以包含下划线（_）</li>
+<li>一个机智的写法 bookinfo.item &amp;&amp; bookinfo.item.child,不会因为item属性不存在而抛出异常</li>
+</ul>
+<p>####引用</p>
+<ul>
+<li>对象通过引用传递，对象永远不会被复制</li>
+</ul>
+<p>####原型</p>
+<ul>
+<li>原型连接在更新时是不起作用的，所以对某个对象作出改变时，不会触及该对象的原型</li>
+<li>委托可以理解为，在一个对象中找某个属性时，如果这个对象没有，那么在它的原型中继续找，如果也没有，那么继续往上找，直到object.property</li>
+<li>当我们添加一个新的属性到原型中，那么所有基于这个原型创建的对象对该属性都会可见</li>
+<li>hasOwnProperty方法不会检查原型链，只会检查该对象是否独有这个属性</li>
+</ul>
+<p>####减少全局变量的污染</p>
+<ul>
+<li><p>全局变量削弱了程序的灵活性，应该避免使用，最小化全局变量的方法就是只创建一个唯一的全局变量，这样与其他应用程序或者页面冲突的可能就会明显降低，还有一种有效减少全局变量的方式方式就是闭包。</p>
+<pre><code>var mappy = {};
+</code></pre></li>
+</ul>
+<p>##第四章 函数</p>
+<p>####函数对象和字面量</p>
+<ul>
+<li>函数对象连接到Function.property(改原型对象本身也连接到object.property)</li>
+<li>js的函数被创建时，会有一个调用属性，当你调用函数时，其实是调用了这个‘调用’属性</li>
+<li>通过函数字面量创建的函数对象包含一个连到外部上下文的连接，这被称为闭包</li>
+</ul>
+<p>####函数的调用方式</p>
+<ul>
+<li>函数的四种调用模式,这四种模式在如何初始化关键参数this上存在差异<ol>
+<li>方法调用模式，可以理解为在对象中的属性，这个时候就不是函数，而是方法了，此时this指向当前的对象</li>
+<li>函数调用模式，此时this会绑定到全局（这是语言设计上的一个错误），需要定义一个that变量来存储之前的this</li>
+<li>构造器调用模式，使用new来调用，那么就会创建一个连接到该函数property成员的新对象，同时，this也会绑定到这个新对象上</li>
+<li>apply调用模式，需要两个参数，一个表示要绑定的this值，一个表示传递的参数数组,this传null默认绑定到window变量<br><img src="http://otdc3q7z7.bkt.clouddn.com/78041670-226A-436F-A3F4-EBD65EC76470.png" alt="四种调用模式"></li>
+</ol>
+</li>
+</ul>
+<p>####返回</p>
+<ul>
+<li>函数调用时若用了new，则返回当前的this(该新对象）</li>
+</ul>
+<p>####异常</p>
+<ul>
+<li>在类库混用时，可以用异常进行确保没有该方法时才进行添加</li>
+</ul>
+<p>####作用域</p>
+<ul>
+<li>js不支持块级作用域（任何一对花括号中的代码{}都是一个块，在js中，在块内用var声明的变量可以在块外访问到，但是在es6中，let和const则是支持块级作用域的，let其实也是支持变量提升的，只是提升到函数的顶部，但是没有初始化为undefined，所以在提升的顶部到变量初始化之前的区域都不能使用，这就是暂时性死区），所以使用var的话，最好就是在函数顶部吧变量都声明</li>
+<li>避免在循环中创建函数，这样只会带来无意义的计算并且引起混淆</li>
+</ul>
+<p>####模块</p>
+<ul>
+<li>模块是一个提供接口却隐藏状态与实现的函数或对象（有点类似java类的私有变量）</li>
+<li>可以使用函数和闭包来构建模块</li>
+<li>模块模式的一般形式：定义了私有变量和函数的函数，利用闭包创建可以访问变量和函数的特权函数，最后返回这个特权函数即可。 </li>
+<li>通过模块，几乎可以完全摒弃全局变量的使用。（javascript最糟糕的特性之一 ———— 全局变量）</li>
+</ul>
+<p>####级联</p>
+<ul>
+<li>element.width(‘100px’).height(‘100px’)就是一个级联，每次调用的结果都会被下一次所调用，所以没有必要写太过全能的接口，一个接口没必要一次做太多的事情。</li>
+</ul>
+<p>####记忆</p>
+<ul>
+<li>将先前操作的结果记在某个对象里，从而避免重复的计算<br><img src="http://otdc3q7z7.bkt.clouddn.com/951E1A46-D414-4F89-BE96-8C53BC9F690A.png" alt="example"></li>
+</ul>
+<p>##继承</p>
+<ul>
+<li>伪类，基于类继承，通过修改子类的property去继承父类的属性和方法</li>
+<li>基于原型的继承（不会对父原型改变）<br><img src="http://otdc3q7z7.bkt.clouddn.com/56B16C69-9362-409F-8F1D-E9DD4BA477FC.png" alt="example"></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">一本需要反复阅读的js书籍</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/28/js语言精粹/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-前端知识点小计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/27/前端知识点小计/">前端知识点小计</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/27/前端知识点小计/" class="archive-article-date">
+  	<time datetime="2017-11-27T11:45:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#####HTML5新特性</p>
+<ul>
+<li>用于绘画的canvas元素</li>
+<li>基于SVG、Canvas、WebGL以及CSS的3D功能</li>
+<li>用于媒介回访的video和audio元素</li>
+<li>两个storage，更好的本地存储</li>
+<li>新的特殊内容元素&lt;header&gt;、&lt;nav&gt;、&lt;footer&gt;等等，对于搜索引擎的搜索有一定的好处</li>
+<li>新的表单控件 date、time、email等等给</li>
+<li>本地存储，indexDB</li>
+<li>设备可访问性(DEVICEACCESS),包括地理位置API（获取用户的地理位置，需要权限申请，电脑上可能会获取不到），媒体访问API（麦克风和摄像头），访问联系人及事件（尚未纳入标准），设备方向（重力感应和摇一摇）</li>
+</ul>
+<p>#####HTML5语义化</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/27/前端知识点小计/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-nuxt架构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1074,227 +1317,6 @@ self.addEventListener(&quot;fetch&quot;, function(event){
 
 
   
-    <article id="post-web前端优化（2）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/13/web前端优化（2）/">web前端优化（2）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/13/web前端优化（2）/" class="archive-article-date">
-  	<time datetime="2017-11-13T04:30:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##图片相关优化</p>
-<p>####1.图片相关优化的核心概念</p>
-<p>图片压缩指的是针对图片的情况，舍弃一些相对无关紧要的色彩信息，舍去测部分人眼基本是察觉不出来的。</p>
-<ul>
-<li>有损压缩在压缩过程中会丢失部分图片资源，但是这部分资源对人眼来说是没有区别，所以不是很重要。</li>
-</ul>
-<ul>
-<li>png8/png24/png32的区别<ul>
-<li>png8   256色+支持透明（8bit就可以表示一个颜色）</li>
-<li>png24  2^24色+不支持透明（24bit才可以显示一个像素中的颜色）</li>
-<li>png32  2^24色+支持透明（在24位的基础上增加8位支持透明）</li>
-<li>根据需要选择文件类型，颜色越丰富，所需的空间就越多</li>
-</ul>
-</li>
-<li>不同格式图片常用的业务场景<ul>
-<li>jpg有损压缩，压缩率高，不支持透明</li>
-<li>png支持透明，浏览器兼容性好（如果png8能支持的话，那么文件大小会相对更小）</li>
-<li>webp压缩程度更好，在ios webview有兼容性问题（2010年谷歌提出来的文件格式）</li>
-<li>svg矢量图，代码内嵌，相对较小，图片样式相对简单的场景（svg标签在代码中进行图片的绘制，质量相对较高，iconfont这样的库就可以很好的使用svg图）</li>
-<li>jpg多应用于大部分不需要透明图片的业务场景</li>
-<li>png多应用于大部分需要透明图片的业务场景</li>
-<li>webp多应用于安卓部分</li>
-<li>svg多应用于图片样式相对简单的业务场景</li>
-</ul>
-</li>
-<li>css雪碧图<ul>
-<li>将网站要用的图片都放在一张图片上</li>
-<li>可以减少网站对于图片的http请求，减少网站的请求数量</li>
-<li>当雪碧图比较大时，加载会比较慢</li>
-<li>一旦雪碧图加载失败，那么网站上所有的图标都会消失</li>
-</ul>
-</li>
-<li>svg矢量图的使用<ul>
-<li>svg是html5中一个比较重要的标准</li>
-<li>可以使用几行代码就实现相对复杂的图标，减少页面的体积，增加网页的请求速度</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>image inline 将图片的内容内嵌到html中以减少网站的http请求数量</li>
-<li>image inline会将html文件变大，但是图片不大的话，基本可以忽略，但是可以减少一次http请求，所有小鱼8kb或者4kb的文件，一般是选用image inline将图片内联进来，这样减少网络请求的时间会大大小鱼html文件大小的增加的请求时间</li>
-<li><a href="https://tinypng.com（图片压缩网站）" target="_blank" rel="external">https://tinypng.com（图片压缩网站）</a></li>
-<li><ul>
-<li><a href="https://www.spritecow.com（雪碧图制作网站）" target="_blank" rel="external">https://www.spritecow.com（雪碧图制作网站）</a></li>
-</ul>
-</li>
-</ul>
-<p>####2.facebook和淘宝移动首页案例分析</p>
-<ul>
-<li><p>淘宝移动端首页分析</p>
-<ul>
-<li>淘宝首页会自动判断是否当前浏览器是否支持webp格式图片，若是，则使用webp格式的文件，若是ios类型的浏览器，不支持webp格式的话，则自动换成jpg格式的文件</li>
-<li>部分小图标使用了image inline的方式直接将图片内嵌到网页中，减少http的请求数量。 </li>
-</ul>
-</li>
-<li><p>facebook的实例分析</p>
-<ul>
-<li>facebook的网站上使用的css图标是雪碧图，但是对雪碧图也做了一定的处理，将部分具有相同特性的图标放在一张雪碧图上，这样将雪碧图拆分开，增加了请求数量，但是避免了图片过大对网络的压力</li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图片相关</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/13/web前端优化（2）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-web前端优化（1）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/12/web前端优化（1）/">web前端优化小结（资源合并与压缩）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/12/web前端优化（1）/" class="archive-article-date">
-  	<time datetime="2017-11-12T13:35:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##资源合并与压缩</p>
-<p>####1.WEB前端优化的核心概念以及意义</p>
-<ul>
-<li>不同于C/S架构，用户访问时的软件是访问本地的包，B/S架构是将软件包部署在服务器上， 当用户访问我们的程序时，浏览器才会动态的，增量的去向服务器发起请求。因此，WEB前端的请求是一个动态的，增量的请求过程。在这个过程中，如果我们的资源更少，http请求更快，那么我们的请求响应就会更快，用户体验就会更好。</li>
-</ul>
-<p>####2.HTTP请求的过程中的优化</p>
-<p>*在浏览器层面，可以进行缓存，缓存请求频率比较高的资源，减少对于DNS服务器的请求。</p>
-<p>*带宽层面，可以减少http请求的大小，同时将多次http请求合并成一次，减少对网络信道的损耗</p>
-<p>*dns可以通过缓存减少dns查询的时间</p>
-<p>*对于vue，ng这样的框架，会在浏览器端对代码进行解析，渲染，对于这样的问题，可以使用框架进行ssr（服务端渲染）加快首屏渲染，减少首屏渲染的损耗以及浏览器的压力</p>
-<ul>
-<li>图片和文件层面<ul>
-<li>使用雪碧图</li>
-<li>对于图片使用image inline的方法将图片信息内嵌到html页面中，减少请求数量</li>
-<li>对于代码进行打包压缩合并，减少对于文件的请求数量</li>
-</ul>
-</li>
-</ul>
-<p>####3.压缩与合并</p>
-<p>*压缩与合并可以减少http请求数量，同时也可以减少请求资源的大小</p>
-<p>*html压缩</p>
-<p>*css压缩</p>
-<p>*js压缩和混乱</p>
-<p>*文件合并</p>
-<p>*谷歌在每1MB的请求中减少1字节，每年可以节省流量近500TB，每年可以减少上亿元的支出。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/12/web前端优化（1）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1400,6 +1422,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">一本需要反复阅读的js书籍</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
               </li>
              
@@ -1412,11 +1438,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css和js部分的优化相关</a>
+                <a href="javascript:void(0)" class="js-tag color3">服务端性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">服务端性能优化</a>
+                <a href="javascript:void(0)" class="js-tag color4">css和js部分的优化相关</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1424,11 +1450,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">service worker实战</a>
+                <a href="javascript:void(0)" class="js-tag color4">浏览器存储和缓存</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器存储和缓存</a>
+                <a href="javascript:void(0)" class="js-tag color2">service worker实战</a>
               </li>
              
               <li class="article-tag-list-item">

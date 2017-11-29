@@ -6,25 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>vue全局变量无法触发视图更新以及解决方案 | 朱亮的博客</title>
+  <title>Archives: 2017/11 | 朱亮的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在用vue写一个图书馆的项目的时候，因为项目不是很复杂，就没有上vuex，并按照以往的习惯使用global进行全局变量的设置以及管理。按照往常的经验来说，是没有什么问题的。但是万万没想到踩到了自己挖的坑。 1.全局变量的定义以及使用在vue-cli生成的模板项目中，若觉得项目不是很复杂没有必要使用vuex的话，我们一般会使用一个bus.js或者global.js用来定义变量，将变量挂在在js的">
-<meta property="og:type" content="article">
-<meta property="og:title" content="vue全局变量无法触发视图更新以及解决方案">
-<meta property="og:url" content="http://yoursite.com/2017/10/25/vue全局变量无法触发热更新以及解决方案/index.html">
+  <meta name="description" content="Zhu Liang’s blog | java | vue | jhipster">
+<meta property="og:type" content="website">
+<meta property="og:title" content="朱亮的博客">
+<meta property="og:url" content="http://yoursite.com/archives/2017/11/page/2/index.html">
 <meta property="og:site_name" content="朱亮的博客">
-<meta property="og:description" content="最近在用vue写一个图书馆的项目的时候，因为项目不是很复杂，就没有上vuex，并按照以往的习惯使用global进行全局变量的设置以及管理。按照往常的经验来说，是没有什么问题的。但是万万没想到踩到了自己挖的坑。 1.全局变量的定义以及使用在vue-cli生成的模板项目中，若觉得项目不是很复杂没有必要使用vuex的话，我们一般会使用一个bus.js或者global.js用来定义变量，将变量挂在在js的">
+<meta property="og:description" content="Zhu Liang’s blog | java | vue | jhipster">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/17-10-254.png">
-<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/17-10-253.png">
-<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/2017-10-251.png">
-<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/2017-10-252.png">
-<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/17-10-261.png">
-<meta property="og:updated_time" content="2017-10-26T04:47:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue全局变量无法触发视图更新以及解决方案">
-<meta name="twitter:description" content="最近在用vue写一个图书馆的项目的时候，因为项目不是很复杂，就没有上vuex，并按照以往的习惯使用global进行全局变量的设置以及管理。按照往常的经验来说，是没有什么问题的。但是万万没想到踩到了自己挖的坑。 1.全局变量的定义以及使用在vue-cli生成的模板项目中，若觉得项目不是很复杂没有必要使用vuex的话，我们一般会使用一个bus.js或者global.js用来定义变量，将变量挂在在js的">
-<meta name="twitter:image" content="http://otdc3q7z7.bkt.clouddn.com/17-10-254.png">
+<meta name="twitter:title" content="朱亮的博客">
+<meta name="twitter:description" content="Zhu Liang’s blog | java | vue | jhipster">
   
     <link rel="alternative" href="/atom.xml" title="朱亮的博客" type="application/atom+xml">
   
@@ -156,208 +149,90 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vue全局变量无法触发热更新以及解决方案" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      vue全局变量无法触发视图更新以及解决方案
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/11/13/web前端优化（2）/" class="archive-article-date">
+  	<time datetime="2017-11-13T04:30:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-13</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/11/13/web前端优化（2）/">web前端优化（2）</a>
     </h1>
   
 
-        
-        <a href="/2017/10/25/vue全局变量无法触发热更新以及解决方案/" class="archive-article-date">
-  	<time datetime="2017-10-25T13:12:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在用vue写一个图书馆的项目的时候，因为项目不是很复杂，就没有上vuex，并按照以往的习惯使用global进行全局变量的设置以及管理。按照往常的经验来说，是没有什么问题的。但是万万没想到踩到了自己挖的坑。</p>
-<h2 id="1-全局变量的定义以及使用"><a href="#1-全局变量的定义以及使用" class="headerlink" title="1.全局变量的定义以及使用"></a>1.全局变量的定义以及使用</h2><p>在vue-cli生成的模板项目中，若觉得项目不是很复杂没有必要使用vuex的话，我们一般会使用一个bus.js或者global.js用来定义变量，将变量挂在在js的gloabl上，然后在入口页面直接import这个文件即可成为全局变量，这样即可实现vuex的全局变量的功能</p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/17-10-254.png" alt="全局变量定义"></p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/17-10-253.png" alt="在组件中的使用"></p>
-<p>在gloabl文件中直接定义，定义完成之后再子组件的文件中，直接使用名称进行访问即可，也可以自己写get/set方法来实现变量的管理。</p>
-<h2 id="2-问题的产生"><a href="#2-问题的产生" class="headerlink" title="2.问题的产生"></a>2.问题的产生</h2><p>在这次的系统中，有一个需求就是在个人中心的收藏和预定模块展示个人收藏和预定的书籍列表，如下图所示。</p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/2017-10-251.png" alt="收藏页面"></p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/2017-10-252.png" alt="书籍展示页面"></p>
-<p>当在列表中点击收藏和预定按钮时，我的预定和收藏页面需要能及时刷新。而我又很作死的使用了全局变量来做列表数据存储，更作死的是我还没有用vuex及时通知组件数据的更新。。。。。。。</p>
-<p>当预定列表的收藏列表的全局数组不为空时，一切都很正常，添加删除都很正常，但是当页面加载的时候，若预定和收藏的列表为空，则当用户添加的时候就无法实现双向绑定。这是问题让我很奔溃，一切都正常，只有数组初始化为空的时候无法响应。</p>
-<p>coputed和watch都使用了,通过computed方法，实时打印的话可以发现数组的值已经改变，但是页面就是无法做出响应。</p>
-<h2 id="3-问题的解决"><a href="#3-问题的解决" class="headerlink" title="3.问题的解决"></a>3.问题的解决</h2><p>经过无数次的尝试之后发现，当全局变变量的书籍列表数组初始化为空时，computed计算属性和watch变量都做不到监听的效果。其中，通过打印computed可以发现，数组的值是变化了，但是没有触发computed。</p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/17-10-261.png" alt="使用过computed监听"></p>
-<p>最后，我想到既然有数据时是正常的，那么是不是我的数组初始化不为空就可以了，所以我给数组增加了一个默认的变量，这样，即使用户没有收藏的书籍，数组也不会为空。果然，问题也得到了解决。</p>
-<h2 id="4-感想"><a href="#4-感想" class="headerlink" title="4.感想"></a>4.感想</h2><p>或许这种时候使用vuex就不会那么麻烦了吧，总感觉这种解决方案比较low，后续准备继续研究，找出问题的关键所在。</p>
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图片相关</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-      
+          
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/25/vue全局变量无法触发热更新以及解决方案/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2017/11/12/web前端优化（1）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          web前端优化小结（资源合并与压缩）
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/09/26/spring的跨域/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">浅谈跨域问题</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/11/12/web前端优化（1）/" class="archive-article-date">
+  	<time datetime="2017-11-12T13:35:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
+</a>
         </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-全局变量的定义以及使用"><span class="toc-number">1.</span> <span class="toc-text">1.全局变量的定义以及使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-问题的产生"><span class="toc-number">2.</span> <span class="toc-text">2.问题的产生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-问题的解决"><span class="toc-number">3.</span> <span class="toc-text">3.问题的解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-感想"><span class="toc-number">4.</span> <span class="toc-text">4.感想</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/11/12/web前端优化（1）/">web前端优化小结（资源合并与压缩）</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+          
+
         </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="vue全局变量无法触发热更新以及解决方案" data-title="vue全局变量无法触发视图更新以及解决方案" data-url="http://yoursite.com/2017/10/25/vue全局变量无法触发热更新以及解决方案/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
   
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "http://yoursite.com/2017/10/25/vue全局变量无法触发热更新以及解决方案/", 
-    sourceId: "vue全局变量无法触发热更新以及解决方案",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="vue全局变量无法触发热更新以及解决方案" ></div> 
-<script type="text/javascript"> 
-(function(){ 
-var appid = "true"; 
-var conf = "true"; 
-var width = window.innerWidth || document.documentElement.clientWidth; 
-if (width < 960) { 
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2017/11/">&laquo; Prev</a><a class="page-number" href="/archives/2017/11/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -389,8 +264,8 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

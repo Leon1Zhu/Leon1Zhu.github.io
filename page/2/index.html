@@ -151,6 +151,227 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-web前端优化（2）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/13/web前端优化（2）/">web前端优化（2）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/13/web前端优化（2）/" class="archive-article-date">
+  	<time datetime="2017-11-13T04:30:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##图片相关优化</p>
+<p>####1.图片相关优化的核心概念</p>
+<p>图片压缩指的是针对图片的情况，舍弃一些相对无关紧要的色彩信息，舍去测部分人眼基本是察觉不出来的。</p>
+<ul>
+<li>有损压缩在压缩过程中会丢失部分图片资源，但是这部分资源对人眼来说是没有区别，所以不是很重要。</li>
+</ul>
+<ul>
+<li>png8/png24/png32的区别<ul>
+<li>png8   256色+支持透明（8bit就可以表示一个颜色）</li>
+<li>png24  2^24色+不支持透明（24bit才可以显示一个像素中的颜色）</li>
+<li>png32  2^24色+支持透明（在24位的基础上增加8位支持透明）</li>
+<li>根据需要选择文件类型，颜色越丰富，所需的空间就越多</li>
+</ul>
+</li>
+<li>不同格式图片常用的业务场景<ul>
+<li>jpg有损压缩，压缩率高，不支持透明</li>
+<li>png支持透明，浏览器兼容性好（如果png8能支持的话，那么文件大小会相对更小）</li>
+<li>webp压缩程度更好，在ios webview有兼容性问题（2010年谷歌提出来的文件格式）</li>
+<li>svg矢量图，代码内嵌，相对较小，图片样式相对简单的场景（svg标签在代码中进行图片的绘制，质量相对较高，iconfont这样的库就可以很好的使用svg图）</li>
+<li>jpg多应用于大部分不需要透明图片的业务场景</li>
+<li>png多应用于大部分需要透明图片的业务场景</li>
+<li>webp多应用于安卓部分</li>
+<li>svg多应用于图片样式相对简单的业务场景</li>
+</ul>
+</li>
+<li>css雪碧图<ul>
+<li>将网站要用的图片都放在一张图片上</li>
+<li>可以减少网站对于图片的http请求，减少网站的请求数量</li>
+<li>当雪碧图比较大时，加载会比较慢</li>
+<li>一旦雪碧图加载失败，那么网站上所有的图标都会消失</li>
+</ul>
+</li>
+<li>svg矢量图的使用<ul>
+<li>svg是html5中一个比较重要的标准</li>
+<li>可以使用几行代码就实现相对复杂的图标，减少页面的体积，增加网页的请求速度</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>image inline 将图片的内容内嵌到html中以减少网站的http请求数量</li>
+<li>image inline会将html文件变大，但是图片不大的话，基本可以忽略，但是可以减少一次http请求，所有小鱼8kb或者4kb的文件，一般是选用image inline将图片内联进来，这样减少网络请求的时间会大大小鱼html文件大小的增加的请求时间</li>
+<li><a href="https://tinypng.com（图片压缩网站）" target="_blank" rel="external">https://tinypng.com（图片压缩网站）</a></li>
+<li><ul>
+<li><a href="https://www.spritecow.com（雪碧图制作网站）" target="_blank" rel="external">https://www.spritecow.com（雪碧图制作网站）</a></li>
+</ul>
+</li>
+</ul>
+<p>####2.facebook和淘宝移动首页案例分析</p>
+<ul>
+<li><p>淘宝移动端首页分析</p>
+<ul>
+<li>淘宝首页会自动判断是否当前浏览器是否支持webp格式图片，若是，则使用webp格式的文件，若是ios类型的浏览器，不支持webp格式的话，则自动换成jpg格式的文件</li>
+<li>部分小图标使用了image inline的方式直接将图片内嵌到网页中，减少http的请求数量。 </li>
+</ul>
+</li>
+<li><p>facebook的实例分析</p>
+<ul>
+<li>facebook的网站上使用的css图标是雪碧图，但是对雪碧图也做了一定的处理，将部分具有相同特性的图标放在一张雪碧图上，这样将雪碧图拆分开，增加了请求数量，但是避免了图片过大对网络的压力</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图片相关</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/13/web前端优化（2）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-web前端优化（1）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/12/web前端优化（1）/">web前端优化小结（资源合并与压缩）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/12/web前端优化（1）/" class="archive-article-date">
+  	<time datetime="2017-11-12T13:35:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##资源合并与压缩</p>
+<p>####1.WEB前端优化的核心概念以及意义</p>
+<ul>
+<li>不同于C/S架构，用户访问时的软件是访问本地的包，B/S架构是将软件包部署在服务器上， 当用户访问我们的程序时，浏览器才会动态的，增量的去向服务器发起请求。因此，WEB前端的请求是一个动态的，增量的请求过程。在这个过程中，如果我们的资源更少，http请求更快，那么我们的请求响应就会更快，用户体验就会更好。</li>
+</ul>
+<p>####2.HTTP请求的过程中的优化</p>
+<p>*在浏览器层面，可以进行缓存，缓存请求频率比较高的资源，减少对于DNS服务器的请求。</p>
+<p>*带宽层面，可以减少http请求的大小，同时将多次http请求合并成一次，减少对网络信道的损耗</p>
+<p>*dns可以通过缓存减少dns查询的时间</p>
+<p>*对于vue，ng这样的框架，会在浏览器端对代码进行解析，渲染，对于这样的问题，可以使用框架进行ssr（服务端渲染）加快首屏渲染，减少首屏渲染的损耗以及浏览器的压力</p>
+<ul>
+<li>图片和文件层面<ul>
+<li>使用雪碧图</li>
+<li>对于图片使用image inline的方法将图片信息内嵌到html页面中，减少请求数量</li>
+<li>对于代码进行打包压缩合并，减少对于文件的请求数量</li>
+</ul>
+</li>
+</ul>
+<p>####3.压缩与合并</p>
+<p>*压缩与合并可以减少http请求数量，同时也可以减少请求资源的大小</p>
+<p>*html压缩</p>
+<p>*css压缩</p>
+<p>*js压缩和混乱</p>
+<p>*文件合并</p>
+<p>*谷歌在每1MB的请求中减少1字节，每年可以节省流量近500TB，每年可以减少上亿元的支出。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/12/web前端优化（1）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vue全局变量无法触发热更新以及解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -835,6 +1056,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">一本需要反复阅读的js书籍</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
               </li>
              
@@ -847,11 +1072,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css和js部分的优化相关</a>
+                <a href="javascript:void(0)" class="js-tag color3">服务端性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">服务端性能优化</a>
+                <a href="javascript:void(0)" class="js-tag color4">css和js部分的优化相关</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -859,11 +1084,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">service worker实战</a>
+                <a href="javascript:void(0)" class="js-tag color4">浏览器存储和缓存</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器存储和缓存</a>
+                <a href="javascript:void(0)" class="js-tag color2">service worker实战</a>
               </li>
              
               <li class="article-tag-list-item">

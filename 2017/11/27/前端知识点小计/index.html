@@ -6,25 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>vue全局变量无法触发视图更新以及解决方案 | 朱亮的博客</title>
+  <title>前端知识点小计 | 朱亮的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在用vue写一个图书馆的项目的时候，因为项目不是很复杂，就没有上vuex，并按照以往的习惯使用global进行全局变量的设置以及管理。按照往常的经验来说，是没有什么问题的。但是万万没想到踩到了自己挖的坑。 1.全局变量的定义以及使用在vue-cli生成的模板项目中，若觉得项目不是很复杂没有必要使用vuex的话，我们一般会使用一个bus.js或者global.js用来定义变量，将变量挂在在js的">
+  <meta name="description" content="#####HTML5新特性  用于绘画的canvas元素 基于SVG、Canvas、WebGL以及CSS的3D功能 用于媒介回访的video和audio元素 两个storage，更好的本地存储 新的特殊内容元素&amp;lt;header&amp;gt;、&amp;lt;nav&amp;gt;、&amp;lt;footer&amp;gt;等等，对于搜索引擎的搜索有一定的好处 新的表单控件 date、time、email等等给 本地存储，inde">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue全局变量无法触发视图更新以及解决方案">
-<meta property="og:url" content="http://yoursite.com/2017/10/25/vue全局变量无法触发热更新以及解决方案/index.html">
+<meta property="og:title" content="前端知识点小计">
+<meta property="og:url" content="http://yoursite.com/2017/11/27/前端知识点小计/index.html">
 <meta property="og:site_name" content="朱亮的博客">
-<meta property="og:description" content="最近在用vue写一个图书馆的项目的时候，因为项目不是很复杂，就没有上vuex，并按照以往的习惯使用global进行全局变量的设置以及管理。按照往常的经验来说，是没有什么问题的。但是万万没想到踩到了自己挖的坑。 1.全局变量的定义以及使用在vue-cli生成的模板项目中，若觉得项目不是很复杂没有必要使用vuex的话，我们一般会使用一个bus.js或者global.js用来定义变量，将变量挂在在js的">
+<meta property="og:description" content="#####HTML5新特性  用于绘画的canvas元素 基于SVG、Canvas、WebGL以及CSS的3D功能 用于媒介回访的video和audio元素 两个storage，更好的本地存储 新的特殊内容元素&amp;lt;header&amp;gt;、&amp;lt;nav&amp;gt;、&amp;lt;footer&amp;gt;等等，对于搜索引擎的搜索有一定的好处 新的表单控件 date、time、email等等给 本地存储，inde">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/17-10-254.png">
-<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/17-10-253.png">
-<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/2017-10-251.png">
-<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/2017-10-252.png">
-<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/17-10-261.png">
-<meta property="og:updated_time" content="2017-10-26T04:47:18.000Z">
+<meta property="og:updated_time" content="2017-11-28T10:35:43.475Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue全局变量无法触发视图更新以及解决方案">
-<meta name="twitter:description" content="最近在用vue写一个图书馆的项目的时候，因为项目不是很复杂，就没有上vuex，并按照以往的习惯使用global进行全局变量的设置以及管理。按照往常的经验来说，是没有什么问题的。但是万万没想到踩到了自己挖的坑。 1.全局变量的定义以及使用在vue-cli生成的模板项目中，若觉得项目不是很复杂没有必要使用vuex的话，我们一般会使用一个bus.js或者global.js用来定义变量，将变量挂在在js的">
-<meta name="twitter:image" content="http://otdc3q7z7.bkt.clouddn.com/17-10-254.png">
+<meta name="twitter:title" content="前端知识点小计">
+<meta name="twitter:description" content="#####HTML5新特性  用于绘画的canvas元素 基于SVG、Canvas、WebGL以及CSS的3D功能 用于媒介回访的video和audio元素 两个storage，更好的本地存储 新的特殊内容元素&amp;lt;header&amp;gt;、&amp;lt;nav&amp;gt;、&amp;lt;footer&amp;gt;等等，对于搜索引擎的搜索有一定的好处 新的表单控件 date、time、email等等给 本地存储，inde">
   
     <link rel="alternative" href="/atom.xml" title="朱亮的博客" type="application/atom+xml">
   
@@ -156,41 +150,38 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vue全局变量无法触发热更新以及解决方案" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-前端知识点小计" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      vue全局变量无法触发视图更新以及解决方案
+      前端知识点小计
     </h1>
   
 
         
-        <a href="/2017/10/25/vue全局变量无法触发热更新以及解决方案/" class="archive-article-date">
-  	<time datetime="2017-10-25T13:12:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-25</time>
+        <a href="/2017/11/27/前端知识点小计/" class="archive-article-date">
+  	<time datetime="2017-11-27T11:45:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近在用vue写一个图书馆的项目的时候，因为项目不是很复杂，就没有上vuex，并按照以往的习惯使用global进行全局变量的设置以及管理。按照往常的经验来说，是没有什么问题的。但是万万没想到踩到了自己挖的坑。</p>
-<h2 id="1-全局变量的定义以及使用"><a href="#1-全局变量的定义以及使用" class="headerlink" title="1.全局变量的定义以及使用"></a>1.全局变量的定义以及使用</h2><p>在vue-cli生成的模板项目中，若觉得项目不是很复杂没有必要使用vuex的话，我们一般会使用一个bus.js或者global.js用来定义变量，将变量挂在在js的gloabl上，然后在入口页面直接import这个文件即可成为全局变量，这样即可实现vuex的全局变量的功能</p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/17-10-254.png" alt="全局变量定义"></p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/17-10-253.png" alt="在组件中的使用"></p>
-<p>在gloabl文件中直接定义，定义完成之后再子组件的文件中，直接使用名称进行访问即可，也可以自己写get/set方法来实现变量的管理。</p>
-<h2 id="2-问题的产生"><a href="#2-问题的产生" class="headerlink" title="2.问题的产生"></a>2.问题的产生</h2><p>在这次的系统中，有一个需求就是在个人中心的收藏和预定模块展示个人收藏和预定的书籍列表，如下图所示。</p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/2017-10-251.png" alt="收藏页面"></p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/2017-10-252.png" alt="书籍展示页面"></p>
-<p>当在列表中点击收藏和预定按钮时，我的预定和收藏页面需要能及时刷新。而我又很作死的使用了全局变量来做列表数据存储，更作死的是我还没有用vuex及时通知组件数据的更新。。。。。。。</p>
-<p>当预定列表的收藏列表的全局数组不为空时，一切都很正常，添加删除都很正常，但是当页面加载的时候，若预定和收藏的列表为空，则当用户添加的时候就无法实现双向绑定。这是问题让我很奔溃，一切都正常，只有数组初始化为空的时候无法响应。</p>
-<p>coputed和watch都使用了,通过computed方法，实时打印的话可以发现数组的值已经改变，但是页面就是无法做出响应。</p>
-<h2 id="3-问题的解决"><a href="#3-问题的解决" class="headerlink" title="3.问题的解决"></a>3.问题的解决</h2><p>经过无数次的尝试之后发现，当全局变变量的书籍列表数组初始化为空时，computed计算属性和watch变量都做不到监听的效果。其中，通过打印computed可以发现，数组的值是变化了，但是没有触发computed。</p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/17-10-261.png" alt="使用过computed监听"></p>
-<p>最后，我想到既然有数据时是正常的，那么是不是我的数组初始化不为空就可以了，所以我给数组增加了一个默认的变量，这样，即使用户没有收藏的书籍，数组也不会为空。果然，问题也得到了解决。</p>
-<h2 id="4-感想"><a href="#4-感想" class="headerlink" title="4.感想"></a>4.感想</h2><p>或许这种时候使用vuex就不会那么麻烦了吧，总感觉这种解决方案比较low，后续准备继续研究，找出问题的关键所在。</p>
+        <p>#####HTML5新特性</p>
+<ul>
+<li>用于绘画的canvas元素</li>
+<li>基于SVG、Canvas、WebGL以及CSS的3D功能</li>
+<li>用于媒介回访的video和audio元素</li>
+<li>两个storage，更好的本地存储</li>
+<li>新的特殊内容元素&lt;header&gt;、&lt;nav&gt;、&lt;footer&gt;等等，对于搜索引擎的搜索有一定的好处</li>
+<li>新的表单控件 date、time、email等等给</li>
+<li>本地存储，indexDB</li>
+<li>设备可访问性(DEVICEACCESS),包括地理位置API（获取用户的地理位置，需要权限申请，电脑上可能会获取不到），媒体访问API（麦克风和摄像头），访问联系人及事件（尚未纳入标准），设备方向（重力感应和摇一摇）</li>
+</ul>
+<p>#####HTML5语义化</p>
 
       
 
@@ -249,7 +240,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/25/vue全局变量无法触发热更新以及解决方案/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/27/前端知识点小计/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -263,18 +254,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/12/web前端优化（1）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/28/js语言精粹/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          web前端优化小结（资源合并与压缩）
+          js语言精粹一书整理
         
       </div>
     </a>
   
   
-    <a href="/2017/09/26/spring的跨域/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">浅谈跨域问题</div>
+    <a href="/2017/11/25/nuxt架构/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">nuxt架构</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -301,7 +292,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-全局变量的定义以及使用"><span class="toc-number">1.</span> <span class="toc-text">1.全局变量的定义以及使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-问题的产生"><span class="toc-number">2.</span> <span class="toc-text">2.问题的产生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-问题的解决"><span class="toc-number">3.</span> <span class="toc-text">3.问题的解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-感想"><span class="toc-number">4.</span> <span class="toc-text">4.感想</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -315,7 +306,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="vue全局变量无法触发热更新以及解决方案" data-title="vue全局变量无法触发视图更新以及解决方案" data-url="http://yoursite.com/2017/10/25/vue全局变量无法触发热更新以及解决方案/"></div>
+	<div class="ds-thread" data-thread-key="前端知识点小计" data-title="前端知识点小计" data-url="http://yoursite.com/2017/11/27/前端知识点小计/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -338,8 +329,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2017/10/25/vue全局变量无法触发热更新以及解决方案/", 
-    sourceId: "vue全局变量无法触发热更新以及解决方案",
+    url: "http://yoursite.com/2017/11/27/前端知识点小计/", 
+    sourceId: "前端知识点小计",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -348,7 +339,7 @@
   
 
   
-  <div id="SOHUCS" sid="vue全局变量无法触发热更新以及解决方案" ></div> 
+  <div id="SOHUCS" sid="前端知识点小计" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "true"; 
