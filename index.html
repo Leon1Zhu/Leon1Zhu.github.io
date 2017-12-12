@@ -151,6 +151,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-spring-boot引入外部jar" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/12/spring-boot引入外部jar/">spring boot引入外部jar</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/12/spring-boot引入外部jar/" class="archive-article-date">
+  	<time datetime="2017-12-12T02:47:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="前言-由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，每一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来"><a href="#前言-由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，每一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来" class="headerlink" title="前言:由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，每一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来"></a>前言:由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，每一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来</h4><p>首先在新建libs文件夹（根目录或者resource目录下都可以），将需要引入的jar放进去<br><img src="http://otdc3q7z7.bkt.clouddn.com/F423D890-4FC6-4C60-8106-99A81A54E4EB.png" alt="libs文件夹"></p>
+<p>然后再pom中加入如下配置，告诉maven导入本地jar</p>
+<pre><code>   &lt;dependency&gt;
+    &lt;groupId&gt;com.aliyun&lt;/groupId&gt;
+    &lt;artifactId&gt;aliyun-java-sdk-core&lt;/artifactId&gt;
+    &lt;version&gt;3.2.2&lt;/version&gt;
+    &lt;scope&gt;system&lt;/scope&gt;
+    &lt;systemPath&gt;${project.basedir}/libs/aliyun-java-sdk-core-3.3.1.jar&lt;/systemPath&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.aliyun&lt;/groupId&gt;
+    &lt;artifactId&gt;aliyun-java-sdk-dysmsapi&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+    &lt;scope&gt;system&lt;/scope&gt;
+    &lt;systemPath&gt;${project.basedir}/libs/aliyun-java-sdk-dysmsapi-1.0.0.jar&lt;/systemPath&gt;
+&lt;/dependency&gt;
+</code></pre><p>其中除了systemPath配置告诉maven引入的本地jar包的位置之外，其他的配置都可以随便写</p>
+<p>划重点！！！敲黑板！！！下面的一步配置也是最重要的一步，网上很多的教程缺了这样一步之后就会导致虽然本地可以运行，但是只要使用maven打包就不行，因为maven没有将本地的jar也打到生成的包中</p>
+<p>在pom中给spring boot的打包插件设置一下includeSystemScope参数即可</p>
+<pre><code>    &lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;configuration&gt;
+                &lt;includeSystemScope&gt;true&lt;/includeSystemScope&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;    
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/12/spring-boot引入外部jar/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-js语言精粹" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1361,129 +1453,6 @@ self.addEventListener(&quot;fetch&quot;, function(event){
 
 
   
-    <article id="post-web前端优化（3）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/14/web前端优化（3）/">web前端优化（3）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/14/web前端优化（3）/" class="archive-article-date">
-  	<time datetime="2017-11-14T10:21:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="浏览器css和js的加载过程"><a href="#浏览器css和js的加载过程" class="headerlink" title="浏览器css和js的加载过程"></a>浏览器css和js的加载过程</h2><p><img src="http://otdc3q7z7.bkt.clouddn.com/css.js%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B.png" alt="css和html的渲染过程"></p>
-<ul>
-<li>浏览器通过网址首先拿到由字节流转变成字符流的HTML文档，HTML文档会被解析器解析成一段段TOKEN，浏览器通过nextToken方法，浏览器会自顶向下对HTML文档进行解析，逐渐生成DOM树，但是此时DOM树并不会在页面上进行显示</li>
-<li>在生成DOM树的过程中，浏览器会对外部资源（CSS、js）进行请求和解析，对于请求的css，浏览器会生成对应的CSSOM,当CSSOM树和DOM树都生成完之后，浏览器才会将这些资源进行合并，生成RenderTree从而对页面进行绘制</li>
-</ul>
-<ul>
-<li>HTML渲染过程中的特点<ul>
-<li>是顺序执行且并发加载的</li>
-<li>对于单个域名，浏览器的并发度是有限的</li>
-<li>是否阻塞（css的加载是否会阻塞js的加载，css的加载是否会阻塞页面的渲染等等等）</li>
-<li>依赖关系（比如css代码再哪里引入的关系，js代码的执行顺序的关系问题）</li>
-<li>引入方式（link,import，script…）</li>
-</ul>
-</li>
-</ul>
-<h2 id="css、js加载过程中的优化点"><a href="#css、js加载过程中的优化点" class="headerlink" title="css、js加载过程中的优化点"></a>css、js加载过程中的优化点</h2><h2 id="懒加载和预加载"><a href="#懒加载和预加载" class="headerlink" title="懒加载和预加载"></a>懒加载和预加载</h2><ul>
-<li>懒加载<ul>
-<li>当页面进入可视区域之后才请求图片，对于图片很多，页面很长的业务场景适用</li>
-<li>可以减少无效资源的加载</li>
-<li>当并发资源过多时，会阻塞js的加载，影响网站的正常使用</li>
-</ul>
-</li>
-<li>预加载<ul>
-<li>网站的静态资源在使用之前进行提前请求</li>
-<li>资源在使用时，可以直接从缓存中加载，提升用户体验</li>
-<li>页面展示的依赖维护关系</li>
-<li>对图片请求过程要求比较高的时候使用预加载可以提升用户体验</li>
-<li>活动展示页面，就需要用预加载将图片都加载出来</li>
-</ul>
-</li>
-<li><p>懒加载lazyload.js实现原理</p>
-<ol>
-<li>首先通过document的clientHeight属性获取当前的可视高度</li>
-<li>选中所有带有懒加载属性的标签，循环遍历</li>
-<li>通过元素的getBoundingClientRect方法获得当前元素的top值</li>
-<li>如果top值小于可视界面的高度，就将设置的懒加载属性去掉，同时将src中的图片读取出来，放置在页面上<br><img src="http://otdc3q7z7.bkt.clouddn.com/F20DE3E5-747E-49B0-9BA8-CB12D242D8D2.png" alt="使用原生js实现的lazyload.js"><br>注:!function这样的写法表示在方法前加上布尔值，表示执行后面的代码，也就是合法实现调用</li>
-</ol>
-</li>
-<li><p>预加载的实现</p>
-<ol>
-<li>对img标签使用display：none，将图片隐藏，但是会加载图片</li>
-<li>使用js的image对象img.src去加载图片，使用的时候直接赋值即可</li>
-<li>使用xmlhttprequest对象去实现,存在跨域问题，但是可以更好的控制预加载的状态</li>
-<li>使用PreloadJS实现预加载</li>
-</ol>
-</li>
-</ul>
-<h2 id="懒加载与预加载案例分析"><a href="#懒加载与预加载案例分析" class="headerlink" title="懒加载与预加载案例分析"></a>懒加载与预加载案例分析</h2><ul>
-<li>手淘的页面就使用的懒加载，只有当图片出现在界面的可视部分时才会加载对应的图片</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css和js部分的优化相关</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/14/web前端优化（3）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1589,19 +1558,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">一本需要反复阅读的js书籍</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">缓存相关</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css和js部分的优化相关</a>
+                <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1613,15 +1574,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">缓存相关</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">服务端性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css和js部分的优化相关</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">service worker实战</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">浏览器存储和缓存</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">服务端性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
