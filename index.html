@@ -151,6 +151,128 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-精通css高级Web标准解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/14/精通css高级Web标准解决方案/">精通css高级Web标准解决方案</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/14/精通css高级Web标准解决方案/" class="archive-article-date">
+  	<time datetime="2017-12-14T12:36:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="IE兼容性相关"><a href="#IE兼容性相关" class="headerlink" title="IE兼容性相关"></a>IE兼容性相关</h2><ul>
+<li>IE6不支持锚链接的：focus伪类，ie7忽略:active和:focus</li>
+<li>css2.1和css3的很多高级选择器IE6和更低版本是不支持的（例如属性选择器）</li>
+<li>IE7以上都支持子元素选择器，但是在IE7中有一个BUG，如果选择的元素之间存在html注释，那么就会出问题，相邻同胞</li>
+<li>IE6中，混杂模式时使用的是非标准的盒模型，这时候，元素的width不是内容的宽度，而是内容、内边距和外边框的宽度</li>
+<li>IE8以上支持display:inline-block</li>
+<li>老版本的ie想要支持透明度的话需要专门的适配filter:alpha(opacity=80);（opacity = 0.8）</li>
+<li>在IE6中对PNG的透明度支持也要有专门的代码适配，代码见书P74</li>
+</ul>
+<h2 id="2、高级选择器"><a href="#2、高级选择器" class="headerlink" title="2、高级选择器"></a>2、高级选择器</h2><ul>
+<li>通用选择器（*）是最强大但是最少用的选择器，匹配所有元素</li>
+<li>子元素选择器（#nav &gt; li）选择所有的后代子元素</li>
+<li>相邻同胞元素选择器（h2 + p），根据一个元素与另外一个元素的相邻关系来选择元素</li>
+<li>选择器的优先级，见书P27页</li>
+<li>导入样式表（link）比导入样式表（@import）要快</li>
+<li>老式浏览器只能从同一个域名同时下载两个文件，也就是说如果有三个css文件，那么要等待前两个下载完才能下载第三个，所以结构良好的单一css文件可以显著提高文件的下载速度</li>
+<li>对代码进行有效的注释是一个很好的习惯</li>
+<li>一般来说，好的编码习惯是对不同的样式进行不同的分组，写在样式表的不同地方</li>
+<li>一般是使用@todo注释表示将要进行修改的工作，使用@workaround表示不完善的权宜之计，用@bugfix表示代码或特定浏览器遇到的问题</li>
+</ul>
+<h2 id="可视化格式模型"><a href="#可视化格式模型" class="headerlink" title="可视化格式模型"></a>可视化格式模型</h2><ul>
+<li>css的盒模型由元素的外边距（margin）、边框(border)、内边距(padding)、内容组成(content)</li>
+<li>css3中的box-sizing可以定义要使用哪种盒模型。</li>
+</ul>
+<h4 id="3-1-2外边距叠加"><a href="#3-1-2外边距叠加" class="headerlink" title="3.1.2外边距叠加"></a>3.1.2外边距叠加</h4><ul>
+<li>当两个或者更多的垂直外边距相遇时，它们将形成一个外边距，值等于两个外边距中较大的一个（只有普通文档流的块框的垂直外边距才会发生外边距叠加，行内框，浮动框和绝对定位框之间是不会发生的）</li>
+</ul>
+<h4 id="3-2-1可视化格式模型"><a href="#3-2-1可视化格式模型" class="headerlink" title="3.2.1可视化格式模型"></a>3.2.1可视化格式模型</h4><ul>
+<li>p,h1,div等成为块级元素，这些元素通常显示为一块内容，即‘块框’</li>
+<li>strong、span等元素显示在行中的就是行内元素</li>
+<li>可以通过display改变元素的可视化模型</li>
+<li>使用display:inline-block可以让元素显示为行内元素，但是有块级元素的特性，可以设置各种高度</li>
+<li>绝对定位是相对于已经定位的离他最近的祖先元素，如果都没有，那么直接相对于初始包含快</li>
+</ul>
+<ul>
+<li>清理浮动的几种方法<ul>
+<li>在元素中使用overflow:hidden，会自动清理浮动元素，但是这个方法对页面，因为会隐藏滚动条</li>
+<li>使用clear属性，但是这个方法需要额外增加一个元素</li>
+<li>使用after伪元素加上clear：both，但是这个方法在IE6中不被支持</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-不透明度"><a href="#4-不透明度" class="headerlink" title="4 不透明度"></a>4 不透明度</h2><ul>
+<li>视差效果的实现<ul>
+<li>对于背景图使用repeat-x，将图片水平铺平</li>
+<li>使用background-position：20% 0；让图片水平偏移20%，这样，当视窗移动时，看起来像是图片动了</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">css相关</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/14/精通css高级Web标准解决方案/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-spring-boot引入外部jar" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -171,7 +293,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="前言-由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，每一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来"><a href="#前言-由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，每一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来" class="headerlink" title="前言:由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，每一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来"></a>前言:由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，每一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来</h4><p>首先在新建libs文件夹（根目录或者resource目录下都可以），将需要引入的jar放进去<br><img src="http://otdc3q7z7.bkt.clouddn.com/F423D890-4FC6-4C60-8106-99A81A54E4EB.png" alt="libs文件夹"></p>
+        <h4 id="前言-由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，没一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来"><a href="#前言-由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，没一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来" class="headerlink" title="前言:由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，没一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来"></a>前言:由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，没一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来</h4><p>首先在新建libs文件夹（根目录或者resource目录下都可以），将需要引入的jar放进去<br><img src="http://otdc3q7z7.bkt.clouddn.com/F423D890-4FC6-4C60-8106-99A81A54E4EB.png" alt="libs文件夹"></p>
 <p>然后再pom中加入如下配置，告诉maven导入本地jar</p>
 <pre><code>   &lt;dependency&gt;
     &lt;groupId&gt;com.aliyun&lt;/groupId&gt;
@@ -190,7 +312,7 @@
 </code></pre><p>其中除了systemPath配置告诉maven引入的本地jar包的位置之外，其他的配置都可以随便写</p>
 <p>划重点！！！敲黑板！！！下面的一步配置也是最重要的一步，网上很多的教程缺了这样一步之后就会导致虽然本地可以运行，但是只要使用maven打包就不行，因为maven没有将本地的jar也打到生成的包中</p>
 <p>在pom中给spring boot的打包插件设置一下includeSystemScope参数即可</p>
-<pre><code>    &lt;build&gt;
+<pre><code>&lt;build&gt;
     &lt;plugins&gt;
         &lt;plugin&gt;
             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
@@ -1323,136 +1445,6 @@ self.addEventListener(&quot;fetch&quot;, function(event){
 
 
   
-    <article id="post-web前端优化（4）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/15/web前端优化（4）/">web前端优化（4）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/15/web前端优化（4）/" class="archive-article-date">
-  	<time datetime="2017-11-15T04:37:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="重绘与回流"><a href="#重绘与回流" class="headerlink" title="重绘与回流"></a>重绘与回流</h2><p>####浏览器的重绘与回流的机制</p>
-<ul>
-<li>频繁触发重绘与回流，会导致UI频繁渲染，降低js的运行性能，所以要对css的性能进行提高</li>
-<li>当render tree中的一部分因为元素的规模尺寸、布局、隐藏等改变需要重新构建，就是回流。比如。通过减少会触发回流的css的使用，可以对回流进行优化</li>
-<li>当render-tree中的一些元素需要更新属性，而这些属性只是影响元素的外观、风格。而不影响布局时，就是重绘，比如（background-color）。</li>
-<li>重绘的时候不一定会回流，但是回流一定会引起重绘。</li>
-</ul>
-<ul>
-<li>会触发重绘与回流的css属性<ol>
-<li>触发页面重布局的属性<br><img src="http://otdc3q7z7.bkt.clouddn.com/6BB86E46-CFA6-493C-90BC-319D16AD0FD9.png" alt="触发页面重布局的css属性"></li>
-<li>只触发重绘的属性<br><img src="http://otdc3q7z7.bkt.clouddn.com/202F0A54-AB47-4689-B95E-966B8254F489.png" alt="只触发重绘的属性"></li>
-</ol>
-</li>
-<li>针对重构与回流的优化<ul>
-<li>css维度</li>
-</ul>
-<ul>
-<li>图层维度(chrome创建图层的条件)<ol>
-<li>3D透视变换CSS属性</li>
-<li>使用加速视频解码<video>节点</video></li>
-<li>拥有3D上下文（WEBGL）或者2D（canvas）</li>
-<li>混合插件</li>
-<li>对自己的opcaity做css动画或者使用一个动画webkit变换的元素</li>
-<li>拥有加速CSS过滤器的元素</li>
-<li>元素有一个包含复合层的后代节点（一个元素拥有一个子元素，这个子元素在自己的层里）</li>
-<li>元素有一个z-index较低且包含一个复合层的兄弟元素（就是该元素在复合层上面渲染）</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>尽量避免使用触发重绘、回流的css</li>
-<li>将重绘、回流的范围控制在单独的图层内</li>
-<li>学会使用谷歌浏览器的performance工具来观察网页的性能</li>
-<li>在谷歌的开发和工具中的更多工具中可以看到当前页面的layers的布局，以及为什么会有这么多layers的原因</li>
-<li>谷歌开发者工具中的rendering可以直观的看到当前页面移动之后进行重绘的元素</li>
-<li>为元素添加-webkit-transform:transition3d(0,0,0)或-webkit-transform:translateZ(0);属性都会开启GPU的硬件加速，应为浏览器认为这是3D变换，会自动为其设置图层,或者使用will-chang:transform也可以完成新建图层的操作</li>
-<li>具体案例具体分析，不要盲目的使用图层</li>
-</ul>
-<ul>
-<li>具体的css替换方案<ol>
-<li>使用translate替换top的改变</li>
-<li>使用opacity替换visibility</li>
-<li>DOM样式不要一条条修改，都定义在一个className中，集中修改</li>
-<li>DOM离线修改，将元素设置为display：none，然后对元素修改100次再显示出来，这样之用重绘一次（元素出现的时候重绘）</li>
-<li>DOM节点的属性千万不要放在循环的变量里（offsetHeight，offsetWidth）每获取一次都会刷新dom的缓存，然后需要重新去回流</li>
-<li>不要使用table布局，可能一个很小的改动就会造成整个table的重新布局（30行的table，修改最后一行，回流的时间需要1.15ms，使用div的话只需要0.1ms）</li>
-<li>对gif图使用单独的图层，这样gif图的改变就不会涉及到整个页面的修改了</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li>动画实现速度要与网页的渲染速度相均衡，否则css的渲染可能导致阻塞js的加载</li>
-<li>使用位置变换时，如果使用了3d变换，那么会启用GPU的能力开启硬件加速，代价就是原来的数据从CPU走总线到GPU，如果数据过多，那么传输的损耗也是一个需要权衡的问题<br><img src="http://otdc3q7z7.bkt.clouddn.com/E2526202-CD86-411D-B415-73C8CC7B2482.png" alt="优化点总结"></li>
-<li>以上的优化点都只是理论，一定要针对真实的应用场景来考量，不能乱用<br>注：使用opacity替代visibity的话，opacity一定要在特定的图层中，否则整个页面都会触发重构、回流，反之则都不会触发。<br>图层不要用太多，否则浏览器在图层的合成上就要花费很多的时间</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">重绘与回流相关</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/15/web前端优化（4）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1566,19 +1558,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片相关</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">重绘与回流相关</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">缓存相关</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">服务端性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1586,11 +1566,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">service worker实战</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片相关</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">服务端性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">浏览器存储和缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">重绘与回流相关</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">service worker实战</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">css相关</a>
               </li>
              
               <li class="article-tag-list-item">
