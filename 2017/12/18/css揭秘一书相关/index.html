@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>前端知识点小计 | 朱亮的博客</title>
+  <title>css揭秘一书相关 | 朱亮的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#####HTML5新特性  用于绘画的canvas元素 基于SVG、Canvas、WebGL以及CSS的3D功能 用于媒介回访的video和audio元素 两个storage，更好的本地存储 新的特殊内容元素&amp;lt;header&amp;gt;、&amp;lt;nav&amp;gt;、&amp;lt;footer&amp;gt;等等，对于搜索引擎的搜索有一定的好处 新的表单控件 date、time、email等等给 本地存储，inde">
+  <meta name="description" content="46 状态平滑的动画 对于动画，使用animation-play-state属性，指定当前动画的动画状态  47 沿环形路径平移的动画 简单实现之后发现旋转的图片也会随之旋转，大大降低了可阅读性，通过一个反方向的旋转，即可解决 第二种解决方案暂不记录 玩了一把作者写的相框效果，要活用background-clip,background-origin，以及用box-shadow,效果很漂亮 back">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端知识点小计">
-<meta property="og:url" content="http://yoursite.com/2017/11/27/前端知识点小计/index.html">
+<meta property="og:title" content="css揭秘一书相关">
+<meta property="og:url" content="http://yoursite.com/2017/12/18/css揭秘一书相关/index.html">
 <meta property="og:site_name" content="朱亮的博客">
-<meta property="og:description" content="#####HTML5新特性  用于绘画的canvas元素 基于SVG、Canvas、WebGL以及CSS的3D功能 用于媒介回访的video和audio元素 两个storage，更好的本地存储 新的特殊内容元素&amp;lt;header&amp;gt;、&amp;lt;nav&amp;gt;、&amp;lt;footer&amp;gt;等等，对于搜索引擎的搜索有一定的好处 新的表单控件 date、time、email等等给 本地存储，inde">
+<meta property="og:description" content="46 状态平滑的动画 对于动画，使用animation-play-state属性，指定当前动画的动画状态  47 沿环形路径平移的动画 简单实现之后发现旋转的图片也会随之旋转，大大降低了可阅读性，通过一个反方向的旋转，即可解决 第二种解决方案暂不记录 玩了一把作者写的相框效果，要活用background-clip,background-origin，以及用box-shadow,效果很漂亮 back">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-11-28T10:35:43.475Z">
+<meta property="og:updated_time" content="2017-12-19T03:58:43.540Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端知识点小计">
-<meta name="twitter:description" content="#####HTML5新特性  用于绘画的canvas元素 基于SVG、Canvas、WebGL以及CSS的3D功能 用于媒介回访的video和audio元素 两个storage，更好的本地存储 新的特殊内容元素&amp;lt;header&amp;gt;、&amp;lt;nav&amp;gt;、&amp;lt;footer&amp;gt;等等，对于搜索引擎的搜索有一定的好处 新的表单控件 date、time、email等等给 本地存储，inde">
+<meta name="twitter:title" content="css揭秘一书相关">
+<meta name="twitter:description" content="46 状态平滑的动画 对于动画，使用animation-play-state属性，指定当前动画的动画状态  47 沿环形路径平移的动画 简单实现之后发现旋转的图片也会随之旋转，大大降低了可阅读性，通过一个反方向的旋转，即可解决 第二种解决方案暂不记录 玩了一把作者写的相框效果，要活用background-clip,background-origin，以及用box-shadow,效果很漂亮 back">
   
     <link rel="alternative" href="/atom.xml" title="朱亮的博客" type="application/atom+xml">
   
@@ -150,38 +150,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-前端知识点小计" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-css揭秘一书相关" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      前端知识点小计
+      css揭秘一书相关
     </h1>
   
 
         
-        <a href="/2017/11/27/前端知识点小计/" class="archive-article-date">
-  	<time datetime="2017-11-27T11:45:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
+        <a href="/2017/12/18/css揭秘一书相关/" class="archive-article-date">
+  	<time datetime="2017-12-18T03:32:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#####HTML5新特性</p>
-<ul>
-<li>用于绘画的canvas元素</li>
-<li>基于SVG、Canvas、WebGL以及CSS的3D功能</li>
-<li>用于媒介回访的video和audio元素</li>
-<li>两个storage，更好的本地存储</li>
-<li>新的特殊内容元素&lt;header&gt;、&lt;nav&gt;、&lt;footer&gt;等等，对于搜索引擎的搜索有一定的好处</li>
-<li>新的表单控件 date、time、email等等给</li>
-<li>本地存储，indexDB</li>
-<li>设备可访问性(DEVICEACCESS),包括地理位置API（获取用户的地理位置，需要权限申请，电脑上可能会获取不到），媒体访问API（麦克风和摄像头），访问联系人及事件（尚未纳入标准），设备方向（重力感应和摇一摇）</li>
+        <h3 id="46-状态平滑的动画"><a href="#46-状态平滑的动画" class="headerlink" title="46 状态平滑的动画"></a>46 状态平滑的动画</h3><ul>
+<li>对于动画，使用animation-play-state属性，指定当前动画的动画状态</li>
 </ul>
-<p>#####HTML5语义化</p>
+<h3 id="47-沿环形路径平移的动画"><a href="#47-沿环形路径平移的动画" class="headerlink" title="47 沿环形路径平移的动画"></a>47 沿环形路径平移的动画</h3><ul>
+<li>简单实现之后发现旋转的图片也会随之旋转，大大降低了可阅读性，通过一个反方向的旋转，即可解决</li>
+<li>第二种解决方案暂不记录</li>
+<li>玩了一把作者写的相框效果，要活用background-clip,background-origin，以及用box-shadow,效果很漂亮</li>
+<li>background-clip对于图片只是裁剪，多余的部分会被裁减掉，而background-origin则是将图片移动到起始位置</li>
+</ul>
+<h3 id="42-缓动效果"><a href="#42-缓动效果" class="headerlink" title="42 缓动效果"></a>42 缓动效果</h3><ul>
+<li>box-shadow 最后的inset参数可以实现将阴影投入到元素内部</li>
+<li><a href="http://cubic-bezier.com/#.17,.67,.83,.67" target="_blank" rel="external">贝塞尔曲线学习使用网站</a></li>
+</ul>
 
       
 
@@ -240,7 +241,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/27/前端知识点小计/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/12/18/css揭秘一书相关/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -254,18 +255,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/28/js语言精粹/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          js语言精粹一书整理
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/25/nuxt架构/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">nuxt架构</div>
+    <a href="/2017/12/14/精通css高级Web标准解决方案/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">精通css高级Web标准解决方案</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -292,7 +284,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#46-状态平滑的动画"><span class="toc-number">1.</span> <span class="toc-text">46 状态平滑的动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#47-沿环形路径平移的动画"><span class="toc-number">2.</span> <span class="toc-text">47 沿环形路径平移的动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#42-缓动效果"><span class="toc-number">3.</span> <span class="toc-text">42 缓动效果</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -306,7 +298,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="前端知识点小计" data-title="前端知识点小计" data-url="http://yoursite.com/2017/11/27/前端知识点小计/"></div>
+	<div class="ds-thread" data-thread-key="css揭秘一书相关" data-title="css揭秘一书相关" data-url="http://yoursite.com/2017/12/18/css揭秘一书相关/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -329,8 +321,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2017/11/27/前端知识点小计/", 
-    sourceId: "前端知识点小计",
+    url: "http://yoursite.com/2017/12/18/css揭秘一书相关/", 
+    sourceId: "css揭秘一书相关",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -339,7 +331,7 @@
   
 
   
-  <div id="SOHUCS" sid="前端知识点小计" ></div> 
+  <div id="SOHUCS" sid="css揭秘一书相关" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "true"; 
