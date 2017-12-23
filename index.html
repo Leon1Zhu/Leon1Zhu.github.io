@@ -151,6 +151,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-美原图书馆问题小结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/23/美原图书馆问题小结/">美院图书馆问题小结</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/23/美原图书馆问题小结/" class="archive-article-date">
+  	<time datetime="2017-12-23T02:27:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>对于vue单页的开发，css的组织十分重要，没有统一的规范，导致样式开发的比较乱，需要进行统一的整理以及预定义，对于某些页面单独的样式需要使用异步加载的样式，全部打包到一起，文件较大，网络带宽消耗也比较大</li>
+<li>对于页面的整体架构需要好好的设计，不能直接上手就开发，对开发方案需要经过仔细的验证</li>
+<li>对于global的全局变量，对于双向实时监听不太友好，下次需要考虑变换方案，使用bus或者vuex吧，不能怕麻烦</li>
+<li>功能开发应该预留一些修改，这次主要也是甲方的修改太过频繁，但是开发的时候也没有考虑这些修改，下次需要注意</li>
+<li>虽然项目不大，但是下次最好也是要用项目管理工具，否则进度比较难统一</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/23/美原图书馆问题小结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-css揭秘一书相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1307,148 +1376,6 @@ npm install
 
 
   
-    <article id="post-web前端优化（6）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/18/web前端优化（6）/">web前端优化（6）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/18/web前端优化（6）/" class="archive-article-date">
-  	<time datetime="2017-11-18T11:32:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="service-worker实战"><a href="#service-worker实战" class="headerlink" title="service worker实战"></a>service worker实战</h2><ul>
-<li>service worker可以做的事<ul>
-<li>后台消息传递</li>
-<li>网络代理，转发请求，伪造响应</li>
-<li>离线缓存</li>
-<li>消息推送</li>
-<li>……</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>注册当前的service worker</p>
-<pre><code>if(navigator.serviceWorker){
-      navigator.serviceWorker.register(&apos;./service-worker.js&apos;,{scope : &apos;./&apos;})
-        .then( function(reg){
-          console.log(reg)
-        })/*.catch(fu nction(error){
-          console.log(error)
-      })*/
-}else{
-  alert(&quot;Service Worker is not support&quot;)
-}
-</code></pre></li>
-<li><p>编写service-worker.js</p>
-<pre><code>self.addEventListener(&quot;install&quot;,function(e){
-  //waitUntil表示知道里面的异步方法执行完成，才会进行下一步
-  e.waitUntil(
-    caches.open(&apos;app-v1&apos;).then(function(cache){
-      console.log(&apos;open cache&apos;)
-      return cache.addAll([
-        &apos;./app.js&apos;,
-        &apos;./main.css&apos;,
-        &apos;./service-worker.js&apos;
-      ]);
-    })
-  )
-})
-
-//fetch可以请求拦截和响应
-self.addEventListener(&quot;fetch&quot;, function(event){
-  //改变response返回的数组
-  event.respondWith(
-    //改变请求返回的资源，如果serviceWorker中有，就直接返回，否则就启用fetch进行请求
-    caches.match(event.request).then(function(res){
-      if(res){
-        return res;
-      }else{
-        //通过fetch方法向网络发起请求
-       /* fetch(url).then(function(){
-          if(res){
-             //对于新请求的资源存储搭配我们的cachestorage中
-          }else{
-             //用户提示
-          }
-        })*/
-
-      }
-      return fetch(event.request)
-    })
-  )
-})
-</code></pre></li>
-<li><p>其中self 属性可返回对窗口自身的只读引用。等价于 Window 属性</p>
-</li>
-<li>install是service worker的一个生命周期 waitUntil表示当其中的promise都执行完之后才会继续往下执行</li>
-<li>service worker会拦截对应的fetch请求进行对应的处理</li>
-<li>service worker还有message事件，可以用来各个页面之间的通信<br><img src="http://otdc3q7z7.bkt.clouddn.com/E0F3B907-EE45-44CA-A140-9B4BDA100ACE.png" alt="第一次执行之后的cachestorage缓存的数据"></li>
-</ul>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/3E42AB1C-451E-422A-8247-59DD2AA68D28.png" alt="第一次刷新发现，需要的文件都从缓存中读取，实现了离线应用的需求"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">service worker实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/18/web前端优化（6）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1554,11 +1481,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">一本需要反复阅读的js书籍</a>
+                <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
+                <a href="javascript:void(0)" class="js-tag color4">一本需要反复阅读的js书籍</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1570,11 +1497,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">重绘与回流相关</a>
+                <a href="javascript:void(0)" class="js-tag color4">css和js部分的优化相关</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css和js部分的优化相关</a>
+                <a href="javascript:void(0)" class="js-tag color3">重绘与回流相关</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1582,11 +1509,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">service worker实战</a>
+                <a href="javascript:void(0)" class="js-tag color3">服务端性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">服务端性能优化</a>
+                <a href="javascript:void(0)" class="js-tag color2">service worker实战</a>
               </li>
              
               <li class="article-tag-list-item">
