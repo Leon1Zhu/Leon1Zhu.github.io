@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 朱亮的博客</title>
+  <title>使用原生js重现LOL新春官网 | 朱亮的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Zhu Liang’s blog | java | vue | jhipster">
-<meta property="og:type" content="website">
-<meta property="og:title" content="朱亮的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="1.使用浏览器的navigator对象判断当前是否是在手机端function is_pc()&amp;#123;	var os = new Array(&quot;Android&quot;,&quot;iPhone&quot;,&quot;Windows Phone&quot;,&quot;iPod&quot;,&quot;BlackBerry&quot;,&quot;MeeGo&quot;,&quot;SymbianOS&quot;);  	var info = navigator.userAgent;	var len = os.leng">
+<meta name="keywords" content="代码编写过程中的沉淀">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用原生js重现LOL新春官网">
+<meta property="og:url" content="http://yoursite.com/2018/02/08/使用原生js重现LOL新春官网/index.html">
 <meta property="og:site_name" content="朱亮的博客">
-<meta property="og:description" content="Zhu Liang’s blog | java | vue | jhipster">
+<meta property="og:description" content="1.使用浏览器的navigator对象判断当前是否是在手机端function is_pc()&amp;#123;	var os = new Array(&quot;Android&quot;,&quot;iPhone&quot;,&quot;Windows Phone&quot;,&quot;iPod&quot;,&quot;BlackBerry&quot;,&quot;MeeGo&quot;,&quot;SymbianOS&quot;);  	var info = navigator.userAgent;	var len = os.leng">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/hover1.gif">
+<meta property="og:updated_time" content="2018-02-20T13:47:37.375Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="朱亮的博客">
-<meta name="twitter:description" content="Zhu Liang’s blog | java | vue | jhipster">
+<meta name="twitter:title" content="使用原生js重现LOL新春官网">
+<meta name="twitter:description" content="1.使用浏览器的navigator对象判断当前是否是在手机端function is_pc()&amp;#123;	var os = new Array(&quot;Android&quot;,&quot;iPhone&quot;,&quot;Windows Phone&quot;,&quot;iPod&quot;,&quot;BlackBerry&quot;,&quot;MeeGo&quot;,&quot;SymbianOS&quot;);  	var info = navigator.userAgent;	var len = os.leng">
+<meta name="twitter:image" content="http://otdc3q7z7.bkt.clouddn.com/hover1.gif">
   
     <link rel="alternative" href="/atom.xml" title="朱亮的博客" type="application/atom+xml">
   
@@ -149,36 +153,40 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-使用原生js重现LOL新春官网" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/08/使用原生js重现LOL新春官网/" class="archive-article-date">
-  	<time datetime="2018-02-08T14:08:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/08/使用原生js重现LOL新春官网/">使用原生js重现LOL新春官网</a>
+    <h1 class="article-title" itemprop="name">
+      使用原生js重现LOL新春官网
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/02/08/使用原生js重现LOL新春官网/" class="archive-article-date">
+  	<time datetime="2018-02-08T14:08:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-使用浏览器的navigator对象判断当前是否是在手机端"><a href="#1-使用浏览器的navigator对象判断当前是否是在手机端" class="headerlink" title="1.使用浏览器的navigator对象判断当前是否是在手机端"></a>1.使用浏览器的navigator对象判断当前是否是在手机端</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">is_pc</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> os = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"Android"</span>,<span class="string">"iPhone"</span>,<span class="string">"Windows Phone"</span>,<span class="string">"iPod"</span>,<span class="string">"BlackBerry"</span>,<span class="string">"MeeGo"</span>,<span class="string">"SymbianOS"</span>);  </div><div class="line">	<span class="keyword">var</span> info = navigator.userAgent;</div><div class="line">	<span class="keyword">var</span> len = os.length;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</div><div class="line">	    <span class="keyword">if</span> (info.indexOf(os[i]) &gt; <span class="number">0</span>)&#123;</div><div class="line">	        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-减少if-for在编程中的使用"><a href="#2-减少if-for在编程中的使用" class="headerlink" title="2.减少if for在编程中的使用"></a>2.减少if for在编程中的使用</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="number">1.</span>三元运算符</div><div class="line"><span class="number">2.</span><span class="keyword">if</span>分支多的话改用<span class="keyword">switch</span></div><div class="line"><span class="number">3.</span>使用短路判断 &amp;&amp;、||</div><div class="line"><span class="keyword">if</span>(XXX)&#123;</div><div class="line">	 test()</div><div class="line">&#125;</div><div class="line"><span class="comment">// 改动后</span></div><div class="line">XXX &amp;&amp; test() 表示如果XXX为真，返回test，否则返回XXX</div><div class="line"></div><div class="line"><span class="keyword">if</span>(!XXX)&#123;</div><div class="line">	test()</div><div class="line">&#125;</div><div class="line"><span class="comment">// 改动后</span></div><div class="line">XXX ||  test()表示如果XXX为假，返回test，否则返回XXX</div></pre></td></tr></table></figure>
+<h4 id="3-使用background做颜色渐变字体"><a href="#3-使用background做颜色渐变字体" class="headerlink" title="3.使用background做颜色渐变字体"></a>3.使用background做颜色渐变字体</h4><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">  1.首先使用<span class="selector-tag">color</span>设置<span class="selector-tag">hack</span>，对于这些新的<span class="selector-tag">API</span>，除了敬业的<span class="selector-tag">chrom</span>，其他浏览器的支持性还不是很好。</div><div class="line">  2.使用<span class="selector-tag">background-image</span>颜色渐变<span class="selector-tag">linear-gradient</span>来设置渐变属性</div><div class="line">  3.使用<span class="selector-tag">text-fill-color</span><span class="selector-pseudo">:transparent</span>;来设置文字的填充颜色为透明，当这个属性声明时，<span class="selector-tag">color</span>将失效</div><div class="line">  4.最后使用<span class="selector-tag">background-clip</span><span class="selector-pseudo">:text</span>；声明只显示文字区域，就出现渐变色颜色的文字啦</div><div class="line">  <span class="selector-tag">color</span>: <span class="selector-id">#ef8247</span>;</div><div class="line"><span class="selector-tag">font-size</span><span class="selector-pseudo">:14px</span>;</div><div class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">linear-gradient</span>(<span class="selector-tag">to</span> <span class="selector-tag">right</span>,<span class="selector-id">#fee3b5</span>,<span class="selector-id">#f8bb87</span>);</div><div class="line">   <span class="selector-tag">background-clip</span>: <span class="selector-tag">text</span>;</div><div class="line"><span class="selector-tag">-webkit-background-clip</span>: <span class="selector-tag">text</span>;</div><div class="line"><span class="selector-tag">-webkit-text-fill-color</span>: <span class="selector-tag">transparent</span>;</div><div class="line"><span class="selector-tag">te</span></div><div class="line"></div><div class="line"><span class="selector-tag">xt-fill-color</span><span class="selector-pseudo">:transparent</span>;</div></pre></td></tr></table></figure>
+<h4 id="4-始终让元素保持居中或者垂直居中（在知道元素大小的情况下）"><a href="#4-始终让元素保持居中或者垂直居中（在知道元素大小的情况下）" class="headerlink" title="4.始终让元素保持居中或者垂直居中（在知道元素大小的情况下）"></a>4.始终让元素保持居中或者垂直居中（在知道元素大小的情况下）</h4><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">   1.首先使用<span class="selector-tag">position</span><span class="selector-pseudo">:absolute</span>绝对定位。</div><div class="line">   2.使用<span class="selector-tag">margin-left</span>: <span class="selector-tag">-50</span>%的宽度,<span class="selector-tag">margin-top</span><span class="selector-pseudo">:-50</span>%的高度</div><div class="line">   3.再使用<span class="selector-tag">left</span><span class="selector-pseudo">:50</span>%的宽度,<span class="selector-tag">top</span><span class="selector-pseudo">:50</span>%的高度即可实现界面缩小放大时元素始终垂直居中</div><div class="line">   <span class="selector-class">.bg1</span> <span class="selector-class">.video</span>&#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">width</span>: <span class="number">1920px</span>;</div><div class="line">  <span class="attribute">height</span>:<span class="number">900px</span>;</div><div class="line">  <span class="attribute">margin-left</span>:-<span class="number">960px</span>;</div><div class="line">  <span class="attribute">left</span>:<span class="number">50%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="5-按钮闪效果实现"><a href="#5-按钮闪效果实现" class="headerlink" title="5.按钮闪效果实现"></a>5.按钮闪效果实现</h4><figure class="highlight"><table><tr><td class="code"><pre><div class="line">    1.首先画好按钮。</div><div class="line">    2.使用before伪元素绘制透明菱形的滑动方块，闪的效果就是来自菱形的移动</div><div class="line">    3.使用动画让菱形伪元素移动起来即可</div><div class="line">    .first-page .bottom-btn span&#123;</div><div class="line">	  display: block;</div><div class="line">	  height:40px;</div><div class="line">	  line-height:40px;</div><div class="line">	  overflow: hidden;</div><div class="line">	  margin:0 9px 0 7px;</div><div class="line">	  position: relative;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	.first-page .bottom-btn  span:before&#123;</div><div class="line">	  content: ' ';</div><div class="line">	  position: absolute;</div><div class="line">	  width:80px;</div><div class="line">	  height:350px;</div><div class="line">	  top:0;</div><div class="line">	  left:-150px;</div><div class="line">	  transform: skew(-25deg);</div><div class="line">	  background: linear-gradient(to right,rgba(255,255,255,0) 0,rgba(255,255,255,.5) 50%,rgba(255,255,255,0) 100%);</div><div class="line">	&#125;</div><div class="line">	@keyframes leftToRight &#123;</div><div class="line">	  0%&#123;left:-150px;&#125;</div><div class="line">	  100%&#123;left:250px&#125;</div><div class="line">	&#125;</div><div class="line">``` </div><div class="line">![效果展示](http://otdc3q7z7.bkt.clouddn.com/%E6%8C%89%E9%92%AE.gif)</div><div class="line"></div><div class="line">#### 6.transform属性</div><div class="line"></div><div class="line">```css</div><div class="line">    transform:rotate3d(x,y,z,d)</div><div class="line">    这个比较好理解，3d旋转，4个参数，分别对应x,y,z轴，类型是number，最后一个参数是旋转的角度，最后旋转的角度为x*d,y*d,z*d,所以前面三个参数为1时就正常旋转角度，0时不旋转</div><div class="line">    </div><div class="line">    transform:perspective</div><div class="line">    </div><div class="line">    1. perspective属性设置镜头到元素平面的距离。所有元素都是放置在z=0的平面上。比如perspective(300px)表示，镜头距离元素表面的位置是300像素。</div><div class="line">    2. perspective-origin属性规定了镜头在平面上的位置。默认是放在元素的中心。</div></pre></td></tr></table></figure>
+<h4 id="7-好看的hover效果"><a href="#7-好看的hover效果" class="headerlink" title="7.好看的hover效果"></a>7.好看的hover效果</h4><p><img src="http://otdc3q7z7.bkt.clouddn.com/hover1.gif" alt="效果展示"></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"></div><div class="line">1.正常些元素属性</div><div class="line">2.在元素<span class="selector-tag">hover</span>的时候，使用<span class="selector-tag">before</span>伪元素，给<span class="selector-tag">before</span>伪元素添加动画，使用<span class="selector-tag">opacity</span>和<span class="selector-tag">scale</span>进行实现</div><div class="line"></div><div class="line">@<span class="keyword">keyframes</span> coruscate &#123;</div><div class="line">  0%&#123;</div><div class="line">    <span class="attribute">opacity</span>:.<span class="number">3</span>;</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(1);</div><div class="line">  &#125;</div><div class="line">  100%&#123;</div><div class="line">    <span class="attribute">opacity</span>:<span class="number">0</span>;</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(1.2);</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.as-you-play</span> <span class="selector-class">.card-list</span>  <span class="selector-class">.card-3</span>&#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">"../assets/spr_redpackage.png"</span>)<span class="built_in">no-repeat</span> -<span class="number">340px</span> -<span class="number">478px</span>;</div><div class="line">  <span class="attribute">width</span>:<span class="number">392px</span>;</div><div class="line">  <span class="attribute">height</span>:<span class="number">333px</span>;</div><div class="line">  <span class="attribute">top</span>:-<span class="number">38px</span>;</div><div class="line">  <span class="attribute">left</span>:<span class="number">800px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"> <span class="selector-class">.as-you-play</span> <span class="selector-class">.card-list</span>  <span class="selector-class">.card-3</span><span class="selector-pseudo">:hover</span><span class="selector-pseudo">:before</span>&#123;</div><div class="line">     <span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line">     <span class="attribute">position</span>: absolute;</div><div class="line">     <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">"./assets/spr_redpackage.png"</span>)<span class="built_in">no-repeat</span> -<span class="number">340px</span> -<span class="number">478px</span>;</div><div class="line">     <span class="attribute">width</span>:<span class="number">392px</span>;</div><div class="line">     <span class="attribute">height</span>:<span class="number">333px</span>;</div><div class="line">     <span class="attribute">top</span>:<span class="number">0px</span>;</div><div class="line">     <span class="attribute">left</span>:<span class="number">0px</span>;</div><div class="line">     <span class="attribute">animation</span>:coruscate .<span class="number">4s</span> ease-in-out;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -190,319 +198,156 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/06/alien-menu组件封装hexo-new-‘alien-menu组件封装/" class="archive-article-date">
-  	<time datetime="2018-02-06T01:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/06/alien-menu组件封装hexo-new-‘alien-menu组件封装/">alien-menu组件封装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/30/css视频学习相关-2/" class="archive-article-date">
-  	<time datetime="2018-01-30T05:07:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/30/css视频学习相关-2/">css视频学习相关(2)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">css相关</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/30/css视频学习相关/" class="archive-article-date">
-  	<time datetime="2018-01-30T02:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/30/css视频学习相关/">css视频学习相关（1）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">html相关强化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/23/美原图书馆问题小结/" class="archive-article-date">
-  	<time datetime="2017-12-23T02:27:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/23/美原图书馆问题小结/">美院图书馆问题小结</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/02/08/使用原生js重现LOL新春官网/" alt="微信分享二维码">
+    </div>
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/18/css揭秘一书相关/" class="archive-article-date">
-  	<time datetime="2017-12-18T03:32:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/02/06/alien-menu组件封装hexo-new-‘alien-menu组件封装/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">alien-menu组件封装</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/18/css揭秘一书相关/">css揭秘一书相关</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-使用浏览器的navigator对象判断当前是否是在手机端"><span class="toc-number">1.</span> <span class="toc-text">1.使用浏览器的navigator对象判断当前是否是在手机端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-减少if-for在编程中的使用"><span class="toc-number">2.</span> <span class="toc-text">2.减少if for在编程中的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-使用background做颜色渐变字体"><span class="toc-number">3.</span> <span class="toc-text">3.使用background做颜色渐变字体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-始终让元素保持居中或者垂直居中（在知道元素大小的情况下）"><span class="toc-number">4.</span> <span class="toc-text">4.始终让元素保持居中或者垂直居中（在知道元素大小的情况下）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-按钮闪效果实现"><span class="toc-number">5.</span> <span class="toc-text">5.按钮闪效果实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-好看的hover效果"><span class="toc-number">6.</span> <span class="toc-text">7.好看的hover效果</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/14/精通css高级Web标准解决方案/" class="archive-article-date">
-  	<time datetime="2017-12-14T12:36:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-14</time>
-</a>
-        </div>
-    	 
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="使用原生js重现LOL新春官网" data-title="使用原生js重现LOL新春官网" data-url="http://yoursite.com/2018/02/08/使用原生js重现LOL新春官网/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/14/精通css高级Web标准解决方案/">精通css高级Web标准解决方案</a>
-    </h1>
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2018/02/08/使用原生js重现LOL新春官网/", 
+    sourceId: "使用原生js重现LOL新春官网",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">总的来说，这本书有点脱节了，内容有些老旧</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/12/spring-boot引入外部jar/" class="archive-article-date">
-  	<time datetime="2017-12-12T02:47:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/12/spring-boot引入外部jar/">spring boot引入外部jar</a>
-    </h1>
+  <div id="SOHUCS" sid="使用原生js重现LOL新春官网" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "true"; 
+var conf = "true"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/28/js语言精粹/" class="archive-article-date">
-  	<time datetime="2017-11-28T12:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/28/js语言精粹/">js语言精粹一书整理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">一本需要反复阅读的js书籍</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/27/前端知识点小计/" class="archive-article-date">
-  	<time datetime="2017-11-27T11:45:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/27/前端知识点小计/">前端知识点小计</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -534,8 +379,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
