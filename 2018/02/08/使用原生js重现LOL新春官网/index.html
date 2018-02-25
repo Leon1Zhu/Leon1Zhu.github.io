@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/8DC18A0D-58E4-4CE6-9E39-9B714642772E.png">
 <meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/07BBA75D-2D74-4927-A1EA-CAFCB405453B.png">
 <meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/8F9B76BB-DB39-4418-A459-9EB7984656A6.png">
-<meta property="og:updated_time" content="2018-02-25T14:23:48.040Z">
+<meta property="og:updated_time" content="2018-02-25T14:26:03.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用原生js重现LOL新春官网">
 <meta name="twitter:description" content="今年过年的时候和小伙伴们看到了LOL的狗年活动官网。不得不感叹，搞IT的看的和别人就是不一样，别人看活动，我看设计、看特效,看完头脑一热，决定用原生js搞一波。。。。 抽了7、8天的空闲时间，搞的差不多了，在谷歌下显示的还是可以的，其他浏览器的兼容性并没有测试。 写完之后收获了很多，对于css属性以及css3动画的进一步学习以及应用，对原生js的练习、运用，加强了对于html标签语义化的应用，避免">
@@ -185,7 +185,7 @@
 <p>注：</p>
 <ul>
 <li>目前只对谷歌浏览器做了测试，并且没有手机端界面，所以建议用pc端的chrom浏览</li>
-<li>鉴于自己的服务器网速实在是比不起腾讯爸爸的，所以减少了很多资源（音频，明星与你同乐模块的三个视频）</li>
+<li>鉴于自己的服务器网速实在是比不起腾讯爸爸的，所以减少了很多资源（音频，明星与你同乐模块的三个视频）,首次加载因为服务器网速的原因，资源等待的时间要久一点</li>
 <li>纯粹个人兴趣</li>
 </ul>
 <h3 id="一些知识点的总结"><a href="#一些知识点的总结" class="headerlink" title="一些知识点的总结"></a>一些知识点的总结</h3><h4 id="1-使用浏览器的navigator对象判断当前是否是在手机端和微信端"><a href="#1-使用浏览器的navigator对象判断当前是否是在手机端和微信端" class="headerlink" title="1.使用浏览器的navigator对象判断当前是否是在手机端和微信端"></a>1.使用浏览器的navigator对象判断当前是否是在手机端和微信端</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">is_pc</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> os = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"Android"</span>,<span class="string">"iPhone"</span>,<span class="string">"Windows Phone"</span>,<span class="string">"iPod"</span>,<span class="string">"BlackBerry"</span>,<span class="string">"MeeGo"</span>,<span class="string">"SymbianOS"</span>);  </div><div class="line">	<span class="keyword">var</span> info = navigator.userAgent;</div><div class="line">	<span class="keyword">var</span> len = os.length;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</div><div class="line">	    <span class="keyword">if</span> (info.indexOf(os[i]) &gt; <span class="number">0</span>)&#123;</div><div class="line">	        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isWeixin</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> ua = navigator.userAgent.toLowerCase();</div><div class="line">	<span class="keyword">if</span>(ua.match(<span class="regexp">/MicroMessenger/i</span>) == <span class="string">'micromessenger'</span>)&#123;</div><div class="line">		<span class="keyword">return</span> <span class="literal">true</span>; </div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">	   <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
