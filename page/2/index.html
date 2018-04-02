@@ -151,6 +151,747 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-css揭秘一书相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/18/css揭秘一书相关/">css揭秘一书相关</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/18/css揭秘一书相关/" class="archive-article-date">
+  	<time datetime="2017-12-18T03:32:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="46-状态平滑的动画"><a href="#46-状态平滑的动画" class="headerlink" title="46 状态平滑的动画"></a>46 状态平滑的动画</h3><ul>
+<li>对于动画，使用animation-play-state属性，指定当前动画的动画状态</li>
+</ul>
+<h3 id="47-沿环形路径平移的动画"><a href="#47-沿环形路径平移的动画" class="headerlink" title="47 沿环形路径平移的动画"></a>47 沿环形路径平移的动画</h3><ul>
+<li>简单实现之后发现旋转的图片也会随之旋转，大大降低了可阅读性，通过一个反方向的旋转，即可解决</li>
+<li>第二种解决方案暂不记录</li>
+<li>玩了一把作者写的相框效果，要活用background-clip,background-origin，以及用box-shadow,效果很漂亮</li>
+<li>background-clip对于图片只是裁剪，多余的部分会被裁减掉，而background-origin则是将图片移动到起始位置</li>
+</ul>
+<h3 id="42-缓动效果"><a href="#42-缓动效果" class="headerlink" title="42 缓动效果"></a>42 缓动效果</h3><ul>
+<li>box-shadow 最后的inset参数可以实现将阴影投入到元素内部</li>
+<li><a href="http://cubic-bezier.com/#.17,.67,.83,.67" target="_blank" rel="external">贝塞尔曲线学习使用网站</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/18/css揭秘一书相关/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-精通css高级Web标准解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/14/精通css高级Web标准解决方案/">精通css高级Web标准解决方案</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/14/精通css高级Web标准解决方案/" class="archive-article-date">
+  	<time datetime="2017-12-14T12:36:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="IE兼容性相关"><a href="#IE兼容性相关" class="headerlink" title="IE兼容性相关"></a>IE兼容性相关</h2><ul>
+<li>IE浏览器的表现和其他浏览器不一样的一个原因就是，显示引擎使用一个称之为引擎的概念，所以布局的概念是IE浏览器上特有的，所以当元素在IE上显示时，如果元素拥有了布局，那么元素的显示就会被限制，就会和其他浏览器上展示的不一样（比如当给浮动元素设置的宽度时，浮动元素拥有布局，就会被限制为矩形，会阻止文本绕元素浮动）</li>
+<li>在其他浏览器上，如果元素的内容大于元素的尺寸，那么会溢出，而IE6或者更低版本中，拥有布局的元素会错误的扩展元素以支持这些多出的内容，剩余的问题列举见书P195</li>
+<li>在html中，可以指定css应用于特定的浏览器，可以使用条件注释指定特定的浏览器，也可以对IE浏览器隐藏某些css文件（见书P196）(&lt;!– [if It IE 6]&gt; &lt;![endif]&gt;)（这就是条件注释，用来兼容IE浏览器）</li>
+<li>IE6不支持锚链接的：focus伪类，ie7忽略:active和:focus</li>
+<li>css2.1和css3的很多高级选择器IE6和更低版本是不支持的（例如属性选择器）</li>
+<li>IE7以上都支持子元素选择器，但是在IE7中有一个BUG，如果选择的元素之间存在html注释，那么就会出问题，相邻同胞</li>
+<li>IE6中，混杂模式时使用的是非标准的盒模型，这时候，元素的width不是内容的宽度，而是内容、内边距和外边框的宽度</li>
+<li>IE8以上支持display:inline-block</li>
+<li>老版本的ie想要支持透明度的话需要专门的适配filter:alpha(opacity=80);（opacity = 0.8）</li>
+<li>在IE6中对PNG的透明度支持也要有专门的代码适配，代码见书P74</li>
+<li>老版本IE不支持对锚元素（a）使用：hover伪类</li>
+<li>IE6及其以下的双外边距BUG，使用display：inline即可修复</li>
+<li>更多的IEBUG请看书199页9.5 </li>
+<li>IE的缺陷不应该阻碍我们尝试各种新技术<h2 id="2、高级选择器"><a href="#2、高级选择器" class="headerlink" title="2、高级选择器"></a>2、高级选择器</h2><ul>
+<li>通用选择器（*）是最强大但是最少用的选择器，匹配所有元素</li>
+<li>子元素选择器（#nav &gt; li）选择所有的后代子元素</li>
+<li>相邻同胞元素选择器（h2 + p），根据一个元素与另外一个元素的相邻关系来选择元素</li>
+<li>选择器的优先级，见书P27页</li>
+<li>导入样式表（link）比导入样式表（@import）要快</li>
+<li>老式浏览器只能从同一个域名同时下载两个文件，也就是说如果有三个css文件，那么要等待前两个下载完才能下载第三个，所以结构良好的单一css文件可以显著提高文件的下载速度</li>
+<li>对代码进行有效的注释是一个很好的习惯</li>
+<li>一般来说，好的编码习惯是对不同的样式进行不同的分组，写在样式表的不同地方</li>
+<li>一般是使用@todo注释表示将要进行修改的工作，使用@workaround表示不完善的权宜之计，用@bugfix表示代码或特定浏览器遇到的问题</li>
+</ul>
+</li>
+</ul>
+<h2 id="可视化格式模型"><a href="#可视化格式模型" class="headerlink" title="可视化格式模型"></a>可视化格式模型</h2><ul>
+<li>css的盒模型由元素的外边距（margin）、边框(border)、内边距(padding)、内容组成(content)</li>
+<li>css3中的box-sizing可以定义要使用哪种盒模型。</li>
+</ul>
+<h4 id="3-1-2外边距叠加"><a href="#3-1-2外边距叠加" class="headerlink" title="3.1.2外边距叠加"></a>3.1.2外边距叠加</h4><ul>
+<li>当两个或者更多的垂直外边距相遇时，它们将形成一个外边距，值等于两个外边距中较大的一个（只有普通文档流的块框的垂直外边距才会发生外边距叠加，行内框，浮动框和绝对定位框之间是不会发生的）</li>
+</ul>
+<h4 id="3-2-1可视化格式模型"><a href="#3-2-1可视化格式模型" class="headerlink" title="3.2.1可视化格式模型"></a>3.2.1可视化格式模型</h4><ul>
+<li>p,h1,div等成为块级元素，这些元素通常显示为一块内容，即‘块框’</li>
+<li>strong、span等元素显示在行中的就是行内元素</li>
+<li>可以通过display改变元素的可视化模型</li>
+<li>使用display:inline-block可以让元素显示为行内元素，但是有块级元素的特性，可以设置各种高度</li>
+<li>绝对定位是相对于已经定位的离他最近的祖先元素，如果都没有，那么直接相对于初始包含快</li>
+</ul>
+<ul>
+<li>清理浮动的几种方法<ul>
+<li>在元素中使用overflow:hidden，会自动清理浮动元素，但是这个方法对页面，因为会隐藏滚动条</li>
+<li>使用clear属性，但是这个方法需要额外增加一个元素</li>
+<li>使用after伪元素加上clear：both，但是这个方法在IE6中不被支持</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-不透明度"><a href="#4-不透明度" class="headerlink" title="4 不透明度"></a>4 不透明度</h2><ul>
+<li>视差效果的实现<ul>
+<li>对于背景图使用repeat-x，将图片水平铺平</li>
+<li>使用background-position：20% 0；让图片水平偏移20%，这样，当视窗移动时，看起来像是图片动了</li>
+<li>使用line-height属性会让文字总是保持在元素的中间，这比使用height好，应为使用height的话需要使用内边距将文字压到中间,但是使用line-height当文本的高度占据两行时，行高就会很高，唯一的方法就是让文本不换行</li>
+<li>css精灵（雪碧图）减少请求，提高可维护性</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-布局"><a href="#8-布局" class="headerlink" title="8 布局"></a>8 布局</h2><ul>
+<li>计划布局<ul>
+<li>先设计，再写页面</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>使用浮动布局时，要做的不是连续的浮动和清理元素，而是浮动几乎所有东西，然后在整个文档的‘战略点’（比如页脚），进行一次清理，也可以使用溢出的方法清理元素</li>
+</ul>
+<ul>
+<li>固定宽度布局<ul>
+<li>固定宽度就是讲布局的宽度定死，但是，随着浏览器尺寸越来越多样，这已经不是一个很好的布局 了</li>
+</ul>
+</li>
+<li>流式布局<ul>
+<li>用百分比数设置元素的尺寸，这样就可以相对浏览器的大小进行伸缩，但是当窗口宽度较小时，行会变的非常窄，难以阅读，所以有必要添加min-height/width等单位进行控制，但是如果设置的太大，又会变的和固定宽度一样</li>
+</ul>
+</li>
+<li>弹性布局<ul>
+<li>使用字号（em,rem）来对元素的宽度进行设置，这样，当修改根元素的字号时，整个页面都会进行有效的缩放</li>
+</ul>
+</li>
+</ul>
+<h2 id="9-捕捉BUG"><a href="#9-捕捉BUG" class="headerlink" title="9 捕捉BUG"></a>9 捕捉BUG</h2><ul>
+<li>外边距叠加问题，出现的原因是因为具有块级子元素的元素计算其高度的原因,通过添加一个垂直边框或内边距，外边距就不再叠加了</li>
+</ul>
+<h2 id="10-实例研究"><a href="#10-实例研究" class="headerlink" title="10 实例研究"></a>10 实例研究</h2><ul>
+<li>reset样式表可以避免和缓解HTML元素默认样式不一致的问题</li>
+</ul>
+<h2 id="11实例研究"><a href="#11实例研究" class="headerlink" title="11实例研究"></a>11实例研究</h2><ul>
+<li>使用:first-letter 或者:first-line，可以选中文本的第一个字母或者第一行</li>
+<li>相邻同胞元素 li + li，匹配与第一个元素相邻的下一个同胞元素，并且元素的父元素必须是相同的，而且第二个元素必须紧挨着第一个元素。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">总的来说，这本书有点脱节了，内容有些老旧</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/14/精通css高级Web标准解决方案/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-spring-boot引入外部jar" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/12/spring-boot引入外部jar/">spring boot引入外部jar</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/12/spring-boot引入外部jar/" class="archive-article-date">
+  	<time datetime="2017-12-12T02:47:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="前言-由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，没一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来"><a href="#前言-由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，没一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来" class="headerlink" title="前言:由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，没一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来"></a>前言:由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，没一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来</h4><p>首先在新建libs文件夹（根目录或者resource目录下都可以），将需要引入的jar放进去<br><img src="http://otdc3q7z7.bkt.clouddn.com/F423D890-4FC6-4C60-8106-99A81A54E4EB.png" alt="libs文件夹"></p>
+<p>然后再pom中加入如下配置，告诉maven导入本地jar</p>
+<pre><code>   &lt;dependency&gt;
+    &lt;groupId&gt;com.aliyun&lt;/groupId&gt;
+    &lt;artifactId&gt;aliyun-java-sdk-core&lt;/artifactId&gt;
+    &lt;version&gt;3.2.2&lt;/version&gt;
+    &lt;scope&gt;system&lt;/scope&gt;
+    &lt;systemPath&gt;${project.basedir}/libs/aliyun-java-sdk-core-3.3.1.jar&lt;/systemPath&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.aliyun&lt;/groupId&gt;
+    &lt;artifactId&gt;aliyun-java-sdk-dysmsapi&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+    &lt;scope&gt;system&lt;/scope&gt;
+    &lt;systemPath&gt;${project.basedir}/libs/aliyun-java-sdk-dysmsapi-1.0.0.jar&lt;/systemPath&gt;
+&lt;/dependency&gt;
+</code></pre><p>其中除了systemPath配置告诉maven引入的本地jar包的位置之外，其他的配置都可以随便写</p>
+<p>划重点！！！敲黑板！！！下面的一步配置也是最重要的一步，网上很多的教程缺了这样一步之后就会导致虽然本地可以运行，但是只要使用maven打包就不行，因为maven没有将本地的jar也打到生成的包中</p>
+<p>在pom中给spring boot的打包插件设置一下includeSystemScope参数即可</p>
+<pre><code>&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;configuration&gt;
+                &lt;includeSystemScope&gt;true&lt;/includeSystemScope&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;    
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/12/spring-boot引入外部jar/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js语言精粹" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/28/js语言精粹/">js语言精粹一书整理</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/28/js语言精粹/" class="archive-article-date">
+  	<time datetime="2017-11-28T12:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##表示每一章，####表示每一个小节<br>书 P35的递归方法、书55页部件</p>
+<p>注：字面量表示如何表达这个值，一般除去表达式，给变量赋值时，等号右边的就可以认为是字面量<br>jq的核心思想是单例、工厂模式；vue，react的核心思想是观察者、MVVM模式。</p>
+<pre><code>var test = &quot;hello world!&quot;
+</code></pre><p>这里 “hello world!”就是字面量，test是变量名<br>在js中，字面量分为字符串字面量，对象字面量，数组字面量和函数字面量</p>
+<p>##补充</p>
+<ul>
+<li>js中的apply和call的区别，两个方法的第一个参数都是当前调用的函数的调用环境（this），而apply是将所有参数放在一个数组中，但是会自动拆分(只会拆分一次)。而call是有多少个参数就放多少参数，不会自动拆分</li>
+</ul>
+<p>##第二章 语法</p>
+<p>####语句</p>
+<ul>
+<li>在js中会被判断为假的字面量<ol>
+<li>false</li>
+<li>null</li>
+<li>undefined</li>
+<li>空字符串’’</li>
+<li>数字0</li>
+<li>数字NaN<br>####表达式</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>如果函数没有写reture，那么会默认返回undefined</li>
+<li>typeof 会产生的类型 number,string,boolean,object,function,undefined,但是当时一个数组或者使null时，返回的是object,这其实是不对的</li>
+<li>对象字面量就是指包围在一个花括号中的零或多个键值对，对象字面量可以出现在任何允许表达式出现的地方</li>
+<li>检索对象里面包含的值bookinfo[“item”]</li>
+</ul>
+<p>##第三章 对象</p>
+<p>####检索</p>
+<ul>
+<li>javascript的标识符中不能包含连接符（-），但是可以包含下划线（_）</li>
+<li>一个机智的写法 bookinfo.item &amp;&amp; bookinfo.item.child,不会因为item属性不存在而抛出异常</li>
+</ul>
+<p>####引用</p>
+<ul>
+<li>对象通过引用传递，对象永远不会被复制</li>
+</ul>
+<p>####原型</p>
+<ul>
+<li>原型连接在更新时是不起作用的，所以对某个对象作出改变时，不会触及该对象的原型</li>
+<li>委托可以理解为，在一个对象中找某个属性时，如果这个对象没有，那么在它的原型中继续找，如果也没有，那么继续往上找，直到object.prototype</li>
+<li>当我们添加一个新的属性到原型中，那么所有基于这个原型创建的对象对该属性都会可见</li>
+<li>hasOwnProperty方法不会检查原型链，只会检查该对象是否独有这个属性</li>
+</ul>
+<p>####减少全局变量的污染</p>
+<ul>
+<li><p>全局变量削弱了程序的灵活性，应该避免使用，最小化全局变量的方法就是只创建一个唯一的全局变量，这样与其他应用程序或者页面冲突的可能就会明显降低，还有一种有效减少全局变量的方式方式就是闭包。</p>
+<pre><code>var mappy = {};
+</code></pre></li>
+</ul>
+<p>##第四章 函数</p>
+<p>####函数对象和字面量</p>
+<ul>
+<li>函数对象连接到Function.property(改原型对象本身也连接到object.property)</li>
+<li>js的函数被创建时，会有一个调用属性，当你调用函数时，其实是调用了这个‘调用’属性</li>
+<li>通过函数字面量创建的函数对象包含一个连到外部上下文的连接，这被称为闭包</li>
+</ul>
+<p>####函数的调用方式</p>
+<ul>
+<li>函数的四种调用模式,这四种模式在如何初始化关键参数this上存在差异<ol>
+<li>方法调用模式，可以理解为在对象中的属性，这个时候就不是函数，而是方法了，此时this指向当前的对象</li>
+<li>函数调用模式，此时this会绑定到全局（这是语言设计上的一个错误），需要定义一个that变量来存储之前的this</li>
+<li>构造器调用模式，使用new来调用，那么就会创建一个连接到该函数property成员的新对象，同时，this也会绑定到这个新对象上</li>
+<li>apply调用模式，需要两个参数，一个表示要绑定的this值，一个表示传递的参数数组,this传null默认绑定到window变量<br><img src="http://otdc3q7z7.bkt.clouddn.com/78041670-226A-436F-A3F4-EBD65EC76470.png" alt="四种调用模式"></li>
+</ol>
+</li>
+</ul>
+<p>####返回</p>
+<ul>
+<li>函数调用时若用了new，则返回当前的this(该新对象）,若不用new 调用，且函数没有return的话，则返回undefined</li>
+</ul>
+<p>####异常</p>
+<ul>
+<li>在类库混用时，可以用异常进行确保没有该方法时才进行添加</li>
+</ul>
+<p>####作用域</p>
+<ul>
+<li>js不支持块级作用域（任何一对花括号中的代码{}都是一个块，在js中，在块内用var声明的变量可以在块外访问到，但是在es6中，let和const则是支持块级作用域的，let其实也是支持变量提升的，只是提升到函数的顶部，但是没有初始化为undefined，所以在提升的顶部到变量初始化之前的区域都不能使用，这就是暂时性死区），所以使用var的话，最好就是在函数顶部吧变量都声明</li>
+<li>避免在循环中创建函数，这样只会带来无意义的计算并且引起混淆</li>
+</ul>
+<p>####模块</p>
+<ul>
+<li>模块是一个提供接口却隐藏状态与实现的函数或对象（有点类似java类的私有变量）</li>
+<li>可以使用函数和闭包来构建模块</li>
+<li>模块模式的一般形式：定义了私有变量和函数的函数，利用闭包创建可以访问变量和函数的特权函数，最后返回这个特权函数即可。 </li>
+<li>通过模块，几乎可以完全摒弃全局变量的使用。（javascript最糟糕的特性之一 ———— 全局变量）</li>
+</ul>
+<p>####级联</p>
+<ul>
+<li>element.width(‘100px’).height(‘100px’)就是一个级联，每次调用的结果都会被下一次所调用，所以没有必要写太过全能的接口，一个接口没必要一次做太多的事情。</li>
+</ul>
+<p>####记忆</p>
+<ul>
+<li>将先前操作的结果记在某个对象里，从而避免重复的计算<br><img src="http://otdc3q7z7.bkt.clouddn.com/951E1A46-D414-4F89-BE96-8C53BC9F690A.png" alt="example"></li>
+</ul>
+<p>##第五章 继承</p>
+<ul>
+<li><strong>proto</strong>: 这个属性是实例对象的属性，每个实例对象都有一个<strong>proto</strong>属性，这个属性指向实例化该实例的构造函数的原型对象（隐示原型，通过这个属性增加方法的话，需要添加到下面的constructor属性里添加）。</li>
+<li><p><strong>proterty</strong>：这个方法是对象的属性。（据说和一个对象的attr类似，比如dom对象中）</p>
+</li>
+<li><p><strong>prototype</strong>：每个构造函数都有一个prototype对象，这个对象指向该构造函数的原型。(显示原型)</p>
+</li>
+</ul>
+<ul>
+<li>常用的几种继承方式<ol>
+<li>伪类，基于类继承，通过修改子类的prototype去继承父类的属性和方法（在子类的prototype上增加方法和属性不会修改父类的）</li>
+<li>基于原型的继承（不会对父原型改变）<br><img src="http://otdc3q7z7.bkt.clouddn.com/56B16C69-9362-409F-8F1D-E9DD4BA477FC.png" alt="example"></li>
+<li>使用函数化实现集成，运用块模式，实现变量的私有化<br><img src="http://otdc3q7z7.bkt.clouddn.com/CF9D3932-5A14-4DF7-80FF-1B628EF4FB19.png" alt="example"></li>
+</ol>
+</li>
+</ul>
+<h2 id="第六章-数组"><a href="#第六章-数组" class="headerlink" title="第六章 数组"></a>第六章 数组</h2><ul>
+<li>js中没有数组，但是js有一些类数组也行的对象</li>
+</ul>
+<h4 id="长度"><a href="#长度" class="headerlink" title="长度"></a>长度</h4><ul>
+<li>js中的数组的length是没有上届的，若用大于当前数组长度的下标去存储，那么当前数组会自动拓展到那个长度<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4></li>
+<li>使用delete删除之后会在原来的位置保留一个空洞 [1, empty, 1, 1, 1]</li>
+<li>使用splice对数组进行删除，但是这对于大型数组的效率不高<h4 id="容易混淆的地方"><a href="#容易混淆的地方" class="headerlink" title="容易混淆的地方"></a>容易混淆的地方</h4></li>
+<li>js中对于数组和对象的区分并不严格，当属性名是小而连续的时候，应该使用数组，否则，使用对象。</li>
+<li>typeof 数组，结果是‘object’，所以需要自己实现对于当前对象是否是数组的判断</li>
+<li>使用arr.totle=function(){}是可以的而且不会改变arr的length</li>
+<li>使用Object.create()方法对数组是没用的，因为复制出来的对象而不是数组</li>
+</ul>
+<h2 id="第七章-正则表达式（本章基本跳过，没有深入学习）"><a href="#第七章-正则表达式（本章基本跳过，没有深入学习）" class="headerlink" title="第七章 正则表达式（本章基本跳过，没有深入学习）"></a>第七章 正则表达式（本章基本跳过，没有深入学习）</h2><ul>
+<li>可处理正则的几个表达式regexp.exec,regexp.test,string.atch,string.replace,string.search和string.split</li>
+</ul>
+<ul>
+<li>正则表达式的标识<ol>
+<li>g 全局匹配，不通的方法对g标识的处理不太一样，regExp的exec方法和test方法，不建议使用test方法，再比如string的search和match方法，search方法会忽略g</li>
+<li>i 大小写不敏感</li>
+<li>m 多行（^和$匹配行结束符）</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>分支，使用|表示分支，会按顺序进行匹配，只要匹配一个就表示匹配成功</li>
+</ul>
+<h2 id="第八章-方法"><a href="#第八章-方法" class="headerlink" title="第八章 方法"></a>第八章 方法</h2><h4 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h4><ul>
+<li>array.concat(item…),产生一个新数组，包含一份array的浅复制，后面的item会被依次添加</li>
+<li>join</li>
+<li>array.pop（）使得数组像堆栈一样工作，移除数组的最后一个元素并且返回，如果没有最后一个，那么返回undefined</li>
+<li>push 该方法会返回数组的length</li>
+<li>array.reverse（）反转数组并且返回</li>
+<li>array.shift()删除数组的第一个元素，并且返回该元素，如果为空，那么返回undefined，shift通常比pop慢得多（因为删除第一个并且要讲剩下的元素顺序前移）</li>
+<li>array.slice(start,end)字符串的截取，如果其中任何一个是负数的话，那么array.length会和他们相加，如果还是负数，那么返回一个新的空数组，注意个splice方法的区分，直接写一个负数表示取到最后几位</li>
+<li>array.sort()数组的排序，但是因为排序之前会先转换成字符串，所以不能正确的对数字数组进行排序，当然，你可以自己重写排序方法内的逻辑<br><img src="http://otdc3q7z7.bkt.clouddn.com/30A9A8B5-65C3-4045-9637-4441E370D388.png" alt="自带排序和自己重写排序的对比"><br><img src="http://otdc3q7z7.bkt.clouddn.com/D9317FA1-EC2E-4E77-B9C1-B27FD1200132.png" alt="运行结果"></li>
+<li>对象的比较见书P80</li>
+<li>splice(start,count,item….)删除之后，item会替换原来删除位置的元素</li>
+<li>array.unshift(item…)插入元素到数组的开头，并且返回length<h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4></li>
+<li>chartAt(pos)返回pos处的字符，如果没有，返回空</li>
+<li>charCodeAT</li>
+<li>concat</li>
+<li>indexOf</li>
+<li>lastindexOf</li>
+<li>localeCompare(that)类似array.sort，比较两个字符串，小于为-1，等于为0，大于为1</li>
+<li>match（regexp）根据正则表达式进行匹配，根据g表示决定如何匹配</li>
+<li>replace</li>
+<li>replaceAll</li>
+<li>search(regexp)类似indexof，只是接受的是一个正则表达式</li>
+<li>slice（start,end）复制字符串从start到end-1位置的字符，和array.slice类似，没有则返回一个新的空字符串</li>
+<li>split(separator，limit)根据separator对string进行分组，limit是可选参数，表示分组的限制</li>
+<li>substring（start,end）和slice一样，但是不能支持负数，所以建议使用slice，不建议使用substring</li>
+<li>toLocalLowerCase（）用本地规则吧string中的字母转换成小写，主要是用于土耳其语‘I’转换为‘1’</li>
+<li>toLocalUpperCase()用本地规则吧string中的字母转换成大写，主要是用于土耳其语‘i’转换为向量I</li>
+<li>toLowerCase（）转为小写</li>
+<li>toUpperCase（）转为大写</li>
+<li>formChartCode(item….)将一串数字编码（Ascii）返回为一个字符串</li>
+</ul>
+<p>##代码风格（代码不光是给计算机运行的，也是给人看的）</p>
+<ul>
+<li>if while 这样的结构化语句中，要始终使用代码块，很有可能if(a)b;变成了if(a)b;c;一对花括号可以用低廉的成本去防止可能出现的BUG</li>
+<li>使用K&amp;R风格，吧{放在一行的结尾而不是下一行的开头，这样可以避免js return语句的一个可怕的设计错误</li>
+</ul>
+<ul>
+<li>K&amp;R风格<ol>
+<li>在合适的位置换行（比如在一个超长的表达式中，在两个表达式之间断开）</li>
+<li>在二元运算符的位置换行也是可行的</li>
+<li>当参数较多或者参数较长时，多行往往比一行更加直观醒目</li>
+<li>{}写紧凑，{在一行的末尾，}也是</li>
+<li>多个不同意义但是相同类型的变量最好分开定义和注释</li>
+<li>代码不要过于拥挤，注意添加空行</li>
+<li>弹幕运算符一般不需要空格</li>
+<li>双目，三目运算符的操作数之间要加上运算符</li>
+<li>代码要保持好缩进，保证可读性</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>避免那些看起来可能有错误的语法（变量提升，if(a=b)等等）</li>
+<li>减少对于全局变量的使用，随着程序的日益复杂，全局变量的问题会逐渐变得问题重重</li>
+</ul>
+<p>##js中的毒瘤</p>
+<h4 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h4><ul>
+<li>全局变量<ol>
+<li>js中的全局变量是所有程序都可以随时访问和修改的，这是一个很大的问题，也很容易产生BUG</li>
+<li>当两个程序中的全局变量产生了冲突时，会产生BUG，而且这样的问题很难被发现</li>
+<li>js中所有的全局变量在编译后都将载入一个公共的全局变量中</li>
+<li>定义全局变量的三种方法 var foo = value; window.foo = value; foo = value<br>####作用域</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>虽然js是类C语言，但是没有块级作用域，也就是说，在{}外可以访问到{}内定义的变量，但是在es6中let，const可以有效避免这样的问题<br>####（使用模块设计可以有效避免上面的两个问题，减少全局变量的污染和作用域的问题，同时还能提供私有变量）<br>####自动插入分号<br>js中存在自动补全分号的机制，但是别指望他能干什么好事，很多情况下都是产生难以检查的BUG</li>
+</ul>
+<p>####保留字<br>当用保留字进行变量的定义时，需要使用引号</p>
+<p>####typeof<br>    typeof null //object<br>    typeof value  //value为数组,结果为object</p>
+<p>####parseInt<br>parseint将字符串转为int，但是遇到非数字时就会停止，且当为0开头时自动转换为8进制所以当使用这个函数时，最好手动指定转换的进制parseInt(value,10)</p>
+<h4 id=""><a href="#" class="headerlink" title="+"></a>+</h4><p>+号会自动对两个操作数进行类型转换，所以当进行+操作时，请确保两个操作数都是数字</p>
+<p>####NaN<br>坑</p>
+<pre><code>NaN === NaN //false
+NaN !== NaN //true
+</code></pre><ul>
+<li>使用isNaN函数对数字与NaN进行辨别</li>
+<li>使用isFinite函数对是否是数字进行判定，但是它会自动将运算数转为数字</li>
+<li><p>自定义isNumer函数</p>
+<pre><code>var isNumber = function(value){
+    return typeof value === &apos;number&apos; &amp;&amp; isFinite(value)
+}
+</code></pre></li>
+</ul>
+<h4 id="伪数组"><a href="#伪数组" class="headerlink" title="伪数组"></a>伪数组</h4><ul>
+<li><p>要检测一个对象是否是数组，使用typeof是不够的还需要检查他的constructor属性</p>
+<pre><code>//最保险的做法
+if(Object.prototype.toString.apply(my_value) === &apos;[object Array]&apos;）{
+    //my_value确实是一个数组
+}
+</code></pre></li>
+<li>函数自带的arguments参数不是一个数组对象，只是一个有着length成员属性的对象</li>
+</ul>
+<p>####假值</p>
+<ul>
+<li>js中的假值<ol>
+<li>0</li>
+<li>NaN</li>
+<li>‘’</li>
+<li>false</li>
+<li>null</li>
+<li>undefined</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>undefined 和 null并不是常亮，但他们是全局变量（在es5中明确规定为全局变量），在主流的浏览器中都无法改变他们的值，但是ie8及以下可以</li>
+</ul>
+<p>####hasOwnProperty<br>不要替换hasOwnProperty的值</p>
+<p>####对象</p>
+<p>js中因为原型的存在，所有永远不会有空对象，所以在某些情况下判断属性的时候需要注意</p>
+<p>##附录B 糟粕</p>
+<p>####==<br>避免使用==，他会自动对比较的两遍进行转换，比对出很对莫名其妙的结果，这会让你的程序变的有些不可控</p>
+<p>####with<br>和==一样，他会产生一些不可控的结果，所以避免使用</p>
+<p>####eval<br>传递一个字符串给JS编辑器，并执行其结果，使用它会让代码变的难以阅读，因为它需要运行编译器，而且会让jsLint失效，并且会减弱程序的安全性，因为它给了被求值的文本太多的权利，而且还降低了语言的性能，在setTimmeout和setInterval函数中，若传递的是字符串是，会像eval一样去处理，同样也要避免这样的参数传入</p>
+<p>####continue<br>经过测试，代码重构之后，将continue去除，都会使代码的性能得到改善</p>
+<p>####缺少块语句<br>在if while for语句中，尽管只有一行逻辑，也要把{}加上，防止逻辑出错</p>
+<p>####++ –<br>这两种运算符鼓励了一种不够严谨的代码风格，大多数缓冲区溢出错误所造成的安全漏洞都是这样导致的<br>在实践中，使用++和–时，往往会导致代码过于拥挤，复杂和隐晦，这样会让代码变的难以阅读和理解，所以，可以尽量避免使用他们</p>
+<p>####位运算符<br>大多数语言中，位运算符接近于硬件处理，所以非常快，但是js中很少接触到硬件，由于js中没有整数类型，所以位运算符会先转换成整数进行运算再转换回去，而且由于js接触不到硬件，所以位运算符非常慢</p>
+<p>####function语句和function表达式<br>语句 function test(){}  表达式 var foo = function foo(){}</p>
+<p>function语句在解析时会发生被提升的情况,会被移动到定义时所在的作用域的顶层。这样可能会导致混乱</p>
+<p>一个语句不能以一个函数开头，包裹在（）之中就可以了（function()）</p>
+<p>####类型包装对象</p>
+<p>new Boolean(false)会返回一个对象，该对象的valueOf方法会返回包装对象的值，这完全没有必要，包括其他基本类型的new也应该避免</p>
+<h4 id="new"><a href="#new" class="headerlink" title="new"></a>new</h4><p>如果应该是用new初始化而没有的话，那么就是声明一个普通的对象，而且对象中的this就会绑定到全局变量，这样会污染全局变量</p>
+<p>一般使用大写开头来区分构造器函数，但是最好避免使用new来引发混乱</p>
+<p>####void<br>void在js中是一个运算符，接受一个运算数并且返回undefined，这并没有什么用，但会令人困惑</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">一本需要反复阅读的js书籍</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/28/js语言精粹/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-前端知识点小计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/27/前端知识点小计/">前端知识点小计</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/27/前端知识点小计/" class="archive-article-date">
+  	<time datetime="2017-11-27T11:45:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#####HTML5新特性</p>
+<ul>
+<li>用于绘画的canvas元素</li>
+<li>基于SVG、Canvas、WebGL以及CSS的3D功能</li>
+<li>用于媒介回访的video和audio元素</li>
+<li>两个storage，更好的本地存储</li>
+<li>新的特殊内容元素&lt;header&gt;、&lt;nav&gt;、&lt;footer&gt;等等，对于搜索引擎的搜索有一定的好处</li>
+<li>新的表单控件 date、time、email等等给</li>
+<li>本地存储，indexDB</li>
+<li>设备可访问性(DEVICEACCESS),包括地理位置API（获取用户的地理位置，需要权限申请，电脑上可能会获取不到），媒体访问API（麦克风和摄像头），访问联系人及事件（尚未纳入标准），设备方向（重力感应和摇一摇）</li>
+</ul>
+<p>#####HTML5语义化</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/27/前端知识点小计/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-nuxt架构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -708,596 +1449,9 @@ self.addEventListener(&quot;fetch&quot;, function(event){
 
 
   
-    <article id="post-web前端优化（5）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/16/web前端优化（5）/">web前端优化（5）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/16/web前端优化（5）/" class="archive-article-date">
-  	<time datetime="2017-11-16T09:47:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="cookie相关"><a href="#cookie相关" class="headerlink" title="cookie相关"></a>cookie相关</h2><ul>
-<li>cookie的本意是用来与服务端通信，告诉服务端当前调用的人的相关信息，方便服务端及时的知道是那些人在调用后台的数据</li>
-<li>每次发送http请求时，都会自动的吧cookie信息带上</li>
-<li>cookie的大小为4MB</li>
-<li>cookie具有时效性</li>
-<li>在dns服务器上，如果使用cookie来存储信息的话，并且在相同域名下请求静态资源文件，那么因为请求会自动带上cookie这一项而浪费很多的流量，例如京东这样的公司，如果dns服务器进行cookie操作的话，光是对静态资源的请求，就会浪费上亿元的流量费</li>
-<li>cookie并不适合做浏览器端数据的存储</li>
-<li>cookie具有httponly的设置，防止js的恶意读取<h2 id="sessionStorage和LocalStorage"><a href="#sessionStorage和LocalStorage" class="headerlink" title="sessionStorage和LocalStorage"></a>sessionStorage和LocalStorage</h2></li>
-<li>这两个是H5为了浏览器存储而设计的</li>
-<li>仅在客户端使用，不和服务端通信</li>
-<li>5MB大小</li>
-<li>使用storage进行缓存数据，可以减少对于后端的http请求，进行一定的优化</li>
-<li>sessionStorage是会话级别的浏览器存储</li>
-<li>loaclStorage是直接存储在本地</li>
-<li>百度在loaclStorage中存储了很多的信息，包括百度地图的js、函数级别的缓存和css级别的缓存，但是要注意要有一个很好的更新机制</li>
-<li>手淘将很多的小的icon图片都存在loaclstorage中，同样也很好加快了网页的读取速度，用户数据还是放在了cookie中，随请求发送到后端，手淘中将浏览器是否支持webp格式的图片字段放在了sessionStorage中，因为这个字段是会每次随浏览器的改变都会改变</li>
-</ul>
-<h2 id="indexDB浏览器端数据库"><a href="#indexDB浏览器端数据库" class="headerlink" title="indexDB浏览器端数据库"></a>indexDB浏览器端数据库</h2><ul>
-<li>用于客户端存储大量结构化数据，大数据量存储就使用这个</li>
-<li>可以为应用创建离线版本</li>
-</ul>
-<h2 id="Service-Workers"><a href="#Service-Workers" class="headerlink" title="Service Workers"></a>Service Workers</h2><ul>
-<li>Service Worker是一个脚本可以将一些运行时间比较长或者不依赖页面的JS放在后台运行</li>
-<li>Service Worker可以拦截请求，将需要到后台请求资源的请求拦截下来，直接从Service Worker的缓存数据中进行请求（离线应用就是一个比较重要的能力）</li>
-<li>Service Worker可以实现与主页面的通信，可以将大规模的运算放在Service Worker中进行运算，结束之后通过API进行通信</li>
-<li>当前端需要大批量的运算和获取时，使用Service Workers可以避免对UI渲染的堵塞</li>
-<li>在谷歌中，使用chrome://inspect/#/service-workers可以查看当前浏览器有多少service worker在运行</li>
-<li>使用chrome://serviceworker-internals可以查看service-worker的历史，用来查看浏览过的网站，那些使用了service-worker</li>
-<li>目前苹果设备对service-worker的支持不是很好</li>
-<li>service Worker目前只支持https的站点，http的站点不支持，但是对localhost的本地地址进行了过滤<br><img src="http://otdc3q7z7.bkt.clouddn.com/1758B00C-BD65-4FD8-AC81-0ED2A1151E3D.png" alt="Service Work的生命周期"><ul>
-<li><h2 id="PWA-Progressive-Web-Apps"><a href="#PWA-Progressive-Web-Apps" class="headerlink" title="PWA(Progressive Web Apps)"></a>PWA(Progressive Web Apps)</h2></li>
-</ul>
-</li>
-<li>PWA是一种WebApp的新模型，并不是单一的知识点，它通过一系列新的WEB特性，配合优秀的UI交互设计，逐步增强WebApp的用户体验</li>
-<li>渐进式（弱网环境下，是否可以加载出来，没有网的时候能不能加载出来，然后渐进式的提升用体验）</li>
-<li>可靠：在没有网络的情况下也能访问提供的基本页面，而不是出现“没有连接到互联网的提示”</li>
-<li>快速：针对网页渲染和书库访问有较好的优化</li>
-<li>融入：应用可以被增加到手机桌面，并且和普通应用一样有全屏，推送等特性</li>
-</ul>
-<p>##使用lightHouse对页面进行性能检验</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">浏览器存储和缓存</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/16/web前端优化（5）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-web前端优化（4）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/15/web前端优化（4）/">web前端优化（4）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/15/web前端优化（4）/" class="archive-article-date">
-  	<time datetime="2017-11-15T04:37:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="重绘与回流"><a href="#重绘与回流" class="headerlink" title="重绘与回流"></a>重绘与回流</h2><p>####浏览器的重绘与回流的机制</p>
-<ul>
-<li>频繁触发重绘与回流，会导致UI频繁渲染，降低js的运行性能，所以要对css的性能进行提高</li>
-<li>当render tree中的一部分因为元素的规模尺寸、布局、隐藏等改变需要重新构建，就是回流。比如。通过减少会触发回流的css的使用，可以对回流进行优化</li>
-<li>当render-tree中的一些元素需要更新属性，而这些属性只是影响元素的外观、风格。而不影响布局时，就是重绘，比如（background-color）。</li>
-<li>重绘的时候不一定会回流，但是回流一定会引起重绘。</li>
-</ul>
-<ul>
-<li>会触发重绘与回流的css属性<ol>
-<li>触发页面重布局的属性<br><img src="http://otdc3q7z7.bkt.clouddn.com/6BB86E46-CFA6-493C-90BC-319D16AD0FD9.png" alt="触发页面重布局的css属性"></li>
-<li>只触发重绘的属性<br><img src="http://otdc3q7z7.bkt.clouddn.com/202F0A54-AB47-4689-B95E-966B8254F489.png" alt="只触发重绘的属性"></li>
-</ol>
-</li>
-<li>针对重构与回流的优化<ul>
-<li>css维度</li>
-</ul>
-<ul>
-<li>图层维度(chrome创建图层的条件)<ol>
-<li>3D透视变换CSS属性</li>
-<li>使用加速视频解码<video>节点</video></li>
-<li>拥有3D上下文（WEBGL）或者2D（canvas）</li>
-<li>混合插件</li>
-<li>对自己的opcaity做css动画或者使用一个动画webkit变换的元素</li>
-<li>拥有加速CSS过滤器的元素</li>
-<li>元素有一个包含复合层的后代节点（一个元素拥有一个子元素，这个子元素在自己的层里）</li>
-<li>元素有一个z-index较低且包含一个复合层的兄弟元素（就是该元素在复合层上面渲染）</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>尽量避免使用触发重绘、回流的css</li>
-<li>将重绘、回流的范围控制在单独的图层内</li>
-<li>学会使用谷歌浏览器的performance工具来观察网页的性能</li>
-<li>在谷歌的开发和工具中的更多工具中可以看到当前页面的layers的布局，以及为什么会有这么多layers的原因</li>
-<li>谷歌开发者工具中的rendering可以直观的看到当前页面移动之后进行重绘的元素</li>
-<li>为元素添加-webkit-transform:transition3d(0,0,0)或-webkit-transform:translateZ(0);属性都会开启GPU的硬件加速，应为浏览器认为这是3D变换，会自动为其设置图层,或者使用will-chang:transform也可以完成新建图层的操作</li>
-<li>具体案例具体分析，不要盲目的使用图层</li>
-</ul>
-<ul>
-<li>具体的css替换方案<ol>
-<li>使用translate替换top的改变</li>
-<li>使用opacity替换visibility</li>
-<li>DOM样式不要一条条修改，都定义在一个className中，集中修改</li>
-<li>DOM离线修改，将元素设置为display：none，然后对元素修改100次再显示出来，这样之用重绘一次（元素出现的时候重绘）</li>
-<li>DOM节点的属性千万不要放在循环的变量里（offsetHeight，offsetWidth）每获取一次都会刷新dom的缓存，然后需要重新去回流</li>
-<li>不要使用table布局，可能一个很小的改动就会造成整个table的重新布局（30行的table，修改最后一行，回流的时间需要1.15ms，使用div的话只需要0.1ms）</li>
-<li>对gif图使用单独的图层，这样gif图的改变就不会涉及到整个页面的修改了</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li>动画实现速度要与网页的渲染速度相均衡，否则css的渲染可能导致阻塞js的加载</li>
-<li>使用位置变换时，如果使用了3d变换，那么会启用GPU的能力开启硬件加速，代价就是原来的数据从CPU走总线到GPU，如果数据过多，那么传输的损耗也是一个需要权衡的问题<br><img src="http://otdc3q7z7.bkt.clouddn.com/E2526202-CD86-411D-B415-73C8CC7B2482.png" alt="优化点总结"></li>
-<li>以上的优化点都只是理论，一定要针对真实的应用场景来考量，不能乱用<br>注：使用opacity替代visibity的话，opacity一定要在特定的图层中，否则整个页面都会触发重构、回流，反之则都不会触发。<br>图层不要用太多，否则浏览器在图层的合成上就要花费很多的时间</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">重绘与回流相关</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/15/web前端优化（4）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-web前端优化（3）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/14/web前端优化（3）/">web前端优化（3）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/14/web前端优化（3）/" class="archive-article-date">
-  	<time datetime="2017-11-14T10:21:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="浏览器css和js的加载过程"><a href="#浏览器css和js的加载过程" class="headerlink" title="浏览器css和js的加载过程"></a>浏览器css和js的加载过程</h2><p><img src="http://otdc3q7z7.bkt.clouddn.com/css.js%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B.png" alt="css和html的渲染过程"></p>
-<ul>
-<li>浏览器通过网址首先拿到由字节流转变成字符流的HTML文档，HTML文档会被解析器解析成一段段TOKEN，浏览器通过nextToken方法，浏览器会自顶向下对HTML文档进行解析，逐渐生成DOM树，但是此时DOM树并不会在页面上进行显示</li>
-<li>在生成DOM树的过程中，浏览器会对外部资源（CSS、js）进行请求和解析，对于请求的css，浏览器会生成对应的CSSOM,当CSSOM树和DOM树都生成完之后，浏览器才会将这些资源进行合并，生成RenderTree从而对页面进行绘制</li>
-</ul>
-<ul>
-<li>HTML渲染过程中的特点<ul>
-<li>是顺序执行且并发加载的</li>
-<li>对于单个域名，浏览器的并发度是有限的</li>
-<li>是否阻塞（css的加载是否会阻塞js的加载，css的加载是否会阻塞页面的渲染等等等）</li>
-<li>依赖关系（比如css代码再哪里引入的关系，js代码的执行顺序的关系问题）</li>
-<li>引入方式（link,import，script…）</li>
-</ul>
-</li>
-</ul>
-<h2 id="css、js加载过程中的优化点"><a href="#css、js加载过程中的优化点" class="headerlink" title="css、js加载过程中的优化点"></a>css、js加载过程中的优化点</h2><h2 id="懒加载和预加载"><a href="#懒加载和预加载" class="headerlink" title="懒加载和预加载"></a>懒加载和预加载</h2><ul>
-<li>懒加载<ul>
-<li>当页面进入可视区域之后才请求图片，对于图片很多，页面很长的业务场景适用</li>
-<li>可以减少无效资源的加载</li>
-<li>当并发资源过多时，会阻塞js的加载，影响网站的正常使用</li>
-</ul>
-</li>
-<li>预加载<ul>
-<li>网站的静态资源在使用之前进行提前请求</li>
-<li>资源在使用时，可以直接从缓存中加载，提升用户体验</li>
-<li>页面展示的依赖维护关系</li>
-<li>对图片请求过程要求比较高的时候使用预加载可以提升用户体验</li>
-<li>活动展示页面，就需要用预加载将图片都加载出来</li>
-</ul>
-</li>
-<li><p>懒加载lazyload.js实现原理</p>
-<ol>
-<li>首先通过document的clientHeight属性获取当前的可视高度</li>
-<li>选中所有带有懒加载属性的标签，循环遍历</li>
-<li>通过元素的getBoundingClientRect方法获得当前元素的top值</li>
-<li>如果top值小于可视界面的高度，就将设置的懒加载属性去掉，同时将src中的图片读取出来，放置在页面上<br><img src="http://otdc3q7z7.bkt.clouddn.com/F20DE3E5-747E-49B0-9BA8-CB12D242D8D2.png" alt="使用原生js实现的lazyload.js"><br>注:!function这样的写法表示在方法前加上布尔值，表示执行后面的代码，也就是合法实现调用</li>
-</ol>
-</li>
-<li><p>预加载的实现</p>
-<ol>
-<li>对img标签使用display：none，将图片隐藏，但是会加载图片</li>
-<li>使用js的image对象img.src去加载图片，使用的时候直接赋值即可</li>
-<li>使用xmlhttprequest对象去实现,存在跨域问题，但是可以更好的控制预加载的状态</li>
-<li>使用PreloadJS实现预加载</li>
-</ol>
-</li>
-</ul>
-<h2 id="懒加载与预加载案例分析"><a href="#懒加载与预加载案例分析" class="headerlink" title="懒加载与预加载案例分析"></a>懒加载与预加载案例分析</h2><ul>
-<li>手淘的页面就使用的懒加载，只有当图片出现在界面的可视部分时才会加载对应的图片</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css和js部分的优化相关</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/14/web前端优化（3）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-web前端优化（2）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/13/web前端优化（2）/">web前端优化（2）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/13/web前端优化（2）/" class="archive-article-date">
-  	<time datetime="2017-11-13T04:30:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##图片相关优化</p>
-<p>####1.图片相关优化的核心概念</p>
-<p>图片压缩指的是针对图片的情况，舍弃一些相对无关紧要的色彩信息，舍去测部分人眼基本是察觉不出来的。</p>
-<ul>
-<li>有损压缩在压缩过程中会丢失部分图片资源，但是这部分资源对人眼来说是没有区别，所以不是很重要。</li>
-</ul>
-<ul>
-<li>png8/png24/png32的区别<ul>
-<li>png8   256色+支持透明（8bit就可以表示一个颜色）</li>
-<li>png24  2^24色+不支持透明（24bit才可以显示一个像素中的颜色）</li>
-<li>png32  2^24色+支持透明（在24位的基础上增加8位支持透明）</li>
-<li>根据需要选择文件类型，颜色越丰富，所需的空间就越多</li>
-</ul>
-</li>
-<li>不同格式图片常用的业务场景<ul>
-<li>jpg有损压缩，压缩率高，不支持透明</li>
-<li>png支持透明，浏览器兼容性好（如果png8能支持的话，那么文件大小会相对更小）</li>
-<li>webp压缩程度更好，在ios webview有兼容性问题（2010年谷歌提出来的文件格式）</li>
-<li>svg矢量图，代码内嵌，相对较小，图片样式相对简单的场景（svg标签在代码中进行图片的绘制，质量相对较高，iconfont这样的库就可以很好的使用svg图）</li>
-<li>jpg多应用于大部分不需要透明图片的业务场景</li>
-<li>png多应用于大部分需要透明图片的业务场景</li>
-<li>webp多应用于安卓部分</li>
-<li>svg多应用于图片样式相对简单的业务场景</li>
-</ul>
-</li>
-<li>css雪碧图<ul>
-<li>将网站要用的图片都放在一张图片上</li>
-<li>可以减少网站对于图片的http请求，减少网站的请求数量</li>
-<li>当雪碧图比较大时，加载会比较慢</li>
-<li>一旦雪碧图加载失败，那么网站上所有的图标都会消失</li>
-</ul>
-</li>
-<li>svg矢量图的使用<ul>
-<li>svg是html5中一个比较重要的标准</li>
-<li>可以使用几行代码就实现相对复杂的图标，减少页面的体积，增加网页的请求速度</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>image inline 将图片的内容内嵌到html中以减少网站的http请求数量</li>
-<li>image inline会将html文件变大，但是图片不大的话，基本可以忽略，但是可以减少一次http请求，所有小鱼8kb或者4kb的文件，一般是选用image inline将图片内联进来，这样减少网络请求的时间会大大小鱼html文件大小的增加的请求时间</li>
-<li><a href="https://tinypng.com（图片压缩网站）" target="_blank" rel="external">https://tinypng.com（图片压缩网站）</a></li>
-<li><ul>
-<li><a href="https://www.spritecow.com（雪碧图制作网站）" target="_blank" rel="external">https://www.spritecow.com（雪碧图制作网站）</a></li>
-</ul>
-</li>
-</ul>
-<p>####2.facebook和淘宝移动首页案例分析</p>
-<ul>
-<li><p>淘宝移动端首页分析</p>
-<ul>
-<li>淘宝首页会自动判断是否当前浏览器是否支持webp格式图片，若是，则使用webp格式的文件，若是ios类型的浏览器，不支持webp格式的话，则自动换成jpg格式的文件</li>
-<li>部分小图标使用了image inline的方式直接将图片内嵌到网页中，减少http的请求数量。 </li>
-</ul>
-</li>
-<li><p>facebook的实例分析</p>
-<ul>
-<li>facebook的网站上使用的css图标是雪碧图，但是对雪碧图也做了一定的处理，将部分具有相同特性的图标放在一张雪碧图上，这样将雪碧图拆分开，增加了请求数量，但是避免了图片过大对网络的压力</li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图片相关</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/13/web前端优化（2）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-web前端优化（1）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/12/web前端优化（1）/">web前端优化小结（资源合并与压缩）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/12/web前端优化（1）/" class="archive-article-date">
-  	<time datetime="2017-11-12T13:35:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##资源合并与压缩</p>
-<p>####1.WEB前端优化的核心概念以及意义</p>
-<ul>
-<li>不同于C/S架构，用户访问时的软件是访问本地的包，B/S架构是将软件包部署在服务器上， 当用户访问我们的程序时，浏览器才会动态的，增量的去向服务器发起请求。因此，WEB前端的请求是一个动态的，增量的请求过程。在这个过程中，如果我们的资源更少，http请求更快，那么我们的请求响应就会更快，用户体验就会更好。</li>
-</ul>
-<p>####2.HTTP请求的过程中的优化</p>
-<p>*在浏览器层面，可以进行缓存，缓存请求频率比较高的资源，减少对于DNS服务器的请求。</p>
-<p>*带宽层面，可以减少http请求的大小，同时将多次http请求合并成一次，减少对网络信道的损耗</p>
-<p>*dns可以通过缓存减少dns查询的时间</p>
-<p>*对于vue，ng这样的框架，会在浏览器端对代码进行解析，渲染，对于这样的问题，可以使用框架进行ssr（服务端渲染）加快首屏渲染，减少首屏渲染的损耗以及浏览器的压力</p>
-<ul>
-<li>图片和文件层面<ul>
-<li>使用雪碧图</li>
-<li>对于图片使用image inline的方法将图片信息内嵌到html页面中，减少请求数量</li>
-<li>对于代码进行打包压缩合并，减少对于文件的请求数量</li>
-</ul>
-</li>
-</ul>
-<p>####3.压缩与合并</p>
-<p>*压缩与合并可以减少http请求数量，同时也可以减少请求资源的大小</p>
-<p>*html压缩</p>
-<p>*css压缩</p>
-<p>*js压缩和混乱</p>
-<p>*文件合并</p>
-<p>*谷歌在每1MB的请求中减少1字节，每年可以节省流量近500TB，每年可以减少上亿元的支出。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/12/web前端优化（1）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1400,6 +1554,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax知识点整理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">css相关</a>
               </li>
              
@@ -1408,11 +1566,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
+                <a href="javascript:void(0)" class="js-tag color4">js设计模式小计</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">一本需要反复阅读的js书籍</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">常见面试题记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1448,11 +1614,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">浏览器中各种距离的计算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">看vue.js一书所得</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">总的来说，这本书有点脱节了，内容有些老旧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端知识点沉淀</a>
               </li>
             
             <div class="clearfix"></div>

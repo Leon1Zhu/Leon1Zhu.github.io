@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="朱亮的博客">
 <meta property="og:description" content="css全称Cascading style sheet（层叠样式表）样式的权重，见精通css高级Web标准解决方案一书浏览器如何解析对应的选择器 从右往左进行解析（反过来解析，比如 .body div .hello，先找hello这个类，然后找到上面有div的，然后找到上面有body类名的）这样做是出于性能考虑，这样可以直接过滤掉不符合的范围。  伪元素和伪类 伪元素是一个真是存在页面中，可以被显示">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-31T03:57:33.351Z">
+<meta property="og:updated_time" content="2018-03-10T03:15:51.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css视频学习相关(2)">
 <meta name="twitter:description" content="css全称Cascading style sheet（层叠样式表）样式的权重，见精通css高级Web标准解决方案一书浏览器如何解析对应的选择器 从右往左进行解析（反过来解析，比如 .body div .hello，先找hello这个类，然后找到上面有div的，然后找到上面有body类名的）这样做是出于性能考虑，这样可以直接过滤掉不符合的范围。  伪元素和伪类 伪元素是一个真是存在页面中，可以被显示">
@@ -202,6 +202,7 @@
 <li>但是体积会增大1/3，所以适用于小图片 </li>
 </ul>
 <h4 id="行高"><a href="#行高" class="headerlink" title="行高"></a>行高</h4><p>*line-box的高度由内联的inline-box的行高组成<br>行高有line-box组成，line-box的高度由inline-box的高度组成</p>
+<h4 id="解决inline-block的文字间隙问题"><a href="#解决inline-block的文字间隙问题" class="headerlink" title="解决inline-block的文字间隙问题"></a>解决inline-block的文字间隙问题</h4><p> 使用font-size:0;将文字大小改为0，行内元素的间隙就没有了</p>
 
       
 
@@ -323,7 +324,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#css全称Cascading-style-sheet（层叠样式表）"><span class="toc-number">1.</span> <span class="toc-text">css全称Cascading style sheet（层叠样式表）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样式的权重，见精通css高级Web标准解决方案一书"><span class="toc-number">2.</span> <span class="toc-text">样式的权重，见精通css高级Web标准解决方案一书</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器如何解析对应的选择器"><span class="toc-number">3.</span> <span class="toc-text">浏览器如何解析对应的选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#伪元素和伪类"><span class="toc-number">4.</span> <span class="toc-text">伪元素和伪类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#选择器权重"><span class="toc-number">5.</span> <span class="toc-text">选择器权重</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSShack（不合法但是生效的写法）"><span class="toc-number">6.</span> <span class="toc-text">CSShack（不合法但是生效的写法）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#base64"><span class="toc-number">7.</span> <span class="toc-text">base64</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#行高"><span class="toc-number">8.</span> <span class="toc-text">行高</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#css全称Cascading-style-sheet（层叠样式表）"><span class="toc-number">1.</span> <span class="toc-text">css全称Cascading style sheet（层叠样式表）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样式的权重，见精通css高级Web标准解决方案一书"><span class="toc-number">2.</span> <span class="toc-text">样式的权重，见精通css高级Web标准解决方案一书</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器如何解析对应的选择器"><span class="toc-number">3.</span> <span class="toc-text">浏览器如何解析对应的选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#伪元素和伪类"><span class="toc-number">4.</span> <span class="toc-text">伪元素和伪类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#选择器权重"><span class="toc-number">5.</span> <span class="toc-text">选择器权重</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSShack（不合法但是生效的写法）"><span class="toc-number">6.</span> <span class="toc-text">CSShack（不合法但是生效的写法）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#base64"><span class="toc-number">7.</span> <span class="toc-text">base64</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#行高"><span class="toc-number">8.</span> <span class="toc-text">行高</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解决inline-block的文字间隙问题"><span class="toc-number">9.</span> <span class="toc-text">解决inline-block的文字间隙问题</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -481,6 +482,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax知识点整理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">css相关</a>
               </li>
              
@@ -489,11 +494,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
+                <a href="javascript:void(0)" class="js-tag color4">js设计模式小计</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">一本需要反复阅读的js书籍</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">常见面试题记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,11 +542,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">浏览器中各种距离的计算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">看vue.js一书所得</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">总的来说，这本书有点脱节了，内容有些老旧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端知识点沉淀</a>
               </li>
             
             <div class="clearfix"></div>

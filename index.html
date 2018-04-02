@@ -151,6 +151,679 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-前端知识点沉淀" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/25/前端知识点沉淀/">前端知识点沉淀</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/25/前端知识点沉淀/" class="archive-article-date">
+  	<time datetime="2018-03-25T07:59:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>Set的兼容性处理</p>
+<ul>
+<li>babel只是转换语法但是不转换api</li>
+</ul>
+</li>
+<li><p>实现拖拽</p>
+<ul>
+<li>利用mousedown（moveStart） mousemove（moving） mouseup（moved）利用标志位判断是否可以拖动</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>jsdomlist转数组</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"></div><div class="line"> &lt;!--  一般用此方法转换成数组，但是在IE8及更早版本吧nodelist实现成一个COM对象，不能用js对象的方法，所以IE8之前需要枚举所有对象 --&gt;</div><div class="line"><span class="built_in">Array</span>.prototype.slice.call(someNode.childNodes,<span class="number">0</span>);</div><div class="line"></div><div class="line">&lt;!-- 通用的方法 --&gt;</div><div class="line"></div><div class="line">function convertListToArray(nodes) &#123;</div><div class="line">    var array = null;</div><div class="line">    try&#123;</div><div class="line">        array = Array.prototype.slice.call(nodes,0);</div><div class="line">    &#125;catch(ex)&#123;</div><div class="line">        array = new Array();</div><div class="line">        for(var i = 0,len = nodes.length;i &lt; len;i++) &#123;</div><div class="line">            array.push(nodes[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return array;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>css3圆形头像</p>
+<ul>
+<li>相等时，直接用border-radius 50%</li>
+<li>不相等时外层用div border-radius 50%，然后图片border-radius 50% 并且 100%填充</li>
+</ul>
+</li>
+<li><p>js垃圾回收机制</p>
+<ul>
+<li>标记清除模式，分进入环境标记和离开环境标记，然后给在当前执行环境和有引用的去掉标记，剩下带标记的就是要清除的元素</li>
+<li>计数清除模式，声明对象引用的时候+1，减少引用的时候-1，当引用数为0是，回收对象，但是有一个问题就是循环引用，ie9之前就是用的计数清除模式，比如当时的BOM和COM对象还不是js对象，所以使用dom对象和js对象就可能造成循环引用，解决方式是设置为null解除引用</li>
+</ul>
+</li>
+<li><p>[] 和 new Array的区别 </p>
+<ul>
+<li>唯一的区别是[]不会调用构造函数，而new会</li>
+<li>建议使用字面量的形式，可读性好，看起来像可封装的</li>
+</ul>
+</li>
+<li><p>js 堆与栈的区别</p>
+</li>
+</ul>
+<ul>
+<li>1、栈区（stack）—   由编译器自动分配释放   ，存放函数的参数值，局部变量的值等。其<br>操作方式类似于数据结构中的栈。<br>2、堆区（heap）   —   一般由程序员分配释放，   若程序员不释放，程序结束时可能由OS回<br>收   。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表，呵呵。  </li>
+</ul>
+<ul>
+<li><p>js 500 501 502 503 504状态码</p>
+<ul>
+<li>500表示服务器内部错误</li>
+<li>501指服务器不具备请求的功能</li>
+<li>502表示网关地址错误</li>
+<li>503表示服务不可用，一般表示维护</li>
+<li>504表示网关请求超时</li>
+<li>505表示http的版本是不受支持的</li>
+</ul>
+</li>
+<li><p>session和cookie的区别</p>
+<ul>
+<li>cookie和session都是会话技术，cookie运行在客户端，session运行在服务端</li>
+<li>cookie有大小限制，一般是4k,而session一般没有大小限制</li>
+<li>cookie有安全隐患，通过拦截本地文件可以找到cookie进行攻击</li>
+<li>session会在服务器上保留一段时间才消失，session过多会增加服务器压力</li>
+</ul>
+</li>
+<li><p>千位分隔符</p>
+</li>
+</ul>
+<ul>
+<li>charAt和[]下标访问方法的区别，一个是如果超出范围的话，[]返回undefined，而charAt会返回空字符串，而且IE6-8不支持下标访问，charAt则没有此问题</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">toThounds</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> result = <span class="string">''</span>,counter = <span class="number">0</span>;</div><div class="line">  num = (num || <span class="number">0</span>).toString();</div><div class="line">  <span class="keyword">var</span> len = num.length;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=len<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</div><div class="line">    counter++;</div><div class="line">    result = num.charAt(i)+result;</div><div class="line">    <span class="built_in">console</span>.log(result)</div><div class="line">    <span class="keyword">if</span> (!(counter % <span class="number">3</span>) &amp;&amp; i != <span class="number">0</span>) &#123;</div><div class="line"></div><div class="line">        result = <span class="string">','</span> + result;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>函数柯里化</p>
+<ul>
+<li>参数复用、延迟计算、提前返回</li>
+</ul>
+</li>
+<li><p>模块化解决的问题</p>
+<ul>
+<li>命名空间的冲突问题</li>
+<li>文件依赖的问题</li>
+<li>es6的模块化输出一个值的引用，也就是说加载的时候不会执行，而是一个引用，当执行到的时候才会去里面取值，所以值是会随着执行的变化而变化的（有点类似CMD），但是commonjs是输出一个值的拷贝，就是说执行的时候就算改变了也只会输出原值，使用函数才可以取到内部变动的值</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端知识点沉淀</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/25/前端知识点沉淀/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js高级知识点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/18/js高级知识点/">js高级知识点</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/18/js高级知识点/" class="archive-article-date">
+  	<time datetime="2018-03-18T07:59:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="es6相关"><a href="#es6相关" class="headerlink" title="es6相关"></a>es6相关</h2><h4 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h4><ul>
+<li>es6模块化如何使用，开发环境如何打包<ul>
+<li>使用babel来对新语法进行转化，在项目根目录配置.babelrc文件，使用babel 文件名可进行转换</li>
+<li>使用webpack来对模块化进行处理（common.js规范）</li>
+<li>AMD（掌握）慢慢成为标准，require.js（也有CMD）</li>
+<li>commonjs标准是后端的</li>
+<li>es6的出现，想统一现在所有模块化标准</li>
+<li>es6在nodejs里面可以写，浏览器尚未统一</li>
+<li>对模块化统一的期望</li>
+</ul>
+</li>
+</ul>
+<h4 id="Class与js构造函数的区别"><a href="#Class与js构造函数的区别" class="headerlink" title="Class与js构造函数的区别"></a>Class与js构造函数的区别</h4><ul>
+<li>Class和普通构造函数有何区别  <ul>
+<li>js的构造函数和原型继承</li>
+<li>class的属性是不会参加迭代输出的</li>
+<li>class实际上就是构造函数的语法糖（本质上一样的，只是更加简单了）</li>
+<li>class本身实际上就是个函数 typeof 是function</li>
+<li>class必须用new，而构造函数不一定</li>
+<li>class中是不存在变量提升的</li>
+<li>class不提供私有方法，都是public</li>
+<li>static (静态方法可以和非静态方法重名，没有静态属性，只有静态方法) * get set new.target</li>
+</ul>
+</li>
+</ul>
+<h4 id="Promise语法"><a href="#Promise语法" class="headerlink" title="Promise语法"></a>Promise语法</h4><ul>
+<li>Promise的基本使用和原理<ul>
+<li>为了解决callback hell</li>
+<li>三个状态</li>
+<li>all race的区别</li>
+<li>实际上还是callback，只是可以区分了，可以模块化了</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>async await</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"></div><div class="line"> <span class="keyword">const</span> load = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">const</span> result1 = <span class="keyword">await</span> loadImg(XX);</div><div class="line"><span class="keyword">const</span> result2 = <span class="keyword">await</span> loadimg(XX);</div><div class="line">&#125;</div><div class="line">load();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="ES6的其他功能"><a href="#ES6的其他功能" class="headerlink" title="ES6的其他功能"></a>ES6的其他功能</h4><ul>
+<li>es6其他常用功能<ul>
+<li>let/const</li>
+<li>模板变量</li>
+<li>块级作用域</li>
+<li>解构赋值</li>
+<li>函数默认参数</li>
+<li>箭头函数（this相关）</li>
+</ul>
+</li>
+</ul>
+<h2 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h2><h4 id="什么是单线程，和异步有什么关系"><a href="#什么是单线程，和异步有什么关系" class="headerlink" title="什么是单线程，和异步有什么关系"></a>什么是单线程，和异步有什么关系</h4><ul>
+<li>单线程，只有一个线程，一次只能做一件事<ul>
+<li>原因是为了避免DOM渲染的冲突</li>
+<li>解决方案 —— 异步</li>
+</ul>
+</li>
+<li>单线程原因<ul>
+<li>浏览器需要渲染DOM</li>
+<li>js可以修改DOM</li>
+<li>所以JS执行的时候浏览器DOM渲染会暂停</li>
+<li>两端JS也不能同时执行（都修改DOM就冲突了）</li>
+</ul>
+</li>
+</ul>
+<h4 id="什么是event-loop（事件轮循）"><a href="#什么是event-loop（事件轮循）" class="headerlink" title="什么是event-loop（事件轮循）"></a>什么是event-loop（事件轮循）</h4><ul>
+<li>对于那些异步函数，js都是讲他们放在任务队列中，当主线程执行完成之后，会查询任务队列，当任务队列有满足执行条件的函数的时候，就会调用那个函数</li>
+<li></li>
+<li>es6的队列函数是高于任务队列的，当主线程执行完成之后先去查询es6的事件队列，如果有，则先运行</li>
+</ul>
+<h4 id="目前解决js单线程的方案（异步是目前唯一的方案）"><a href="#目前解决js单线程的方案（异步是目前唯一的方案）" class="headerlink" title="目前解决js单线程的方案（异步是目前唯一的方案）"></a>目前解决js单线程的方案（异步是目前唯一的方案）</h4><ul>
+<li>setTimeout</li>
+<li>Promise</li>
+<li>async/await</li>
+</ul>
+<ul>
+<li>jquery Deffered<ul>
+<li>deffered 延迟</li>
+<li>jquery 1.5 添加了Deferred</li>
+<li>后来return dtd.promise()是因为不让函数外部改变promise的执行状态</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>h5 web-work 可以定义多线程，但是不能访问dom</li>
+</ul>
+<h4 id="之用jquery如何解决异步"><a href="#之用jquery如何解决异步" class="headerlink" title="之用jquery如何解决异步"></a>之用jquery如何解决异步</h4><h4 id="Promise的标准"><a href="#Promise的标准" class="headerlink" title="Promise的标准"></a>Promise的标准</h4><h4 id="async-await的使用"><a href="#async-await的使用" class="headerlink" title="async/await的使用"></a>async/await的使用</h4><ul>
+<li>和Promise的区别、联系</li>
+</ul>
+<p>##原型</p>
+<h4 id="原型如何实际应用"><a href="#原型如何实际应用" class="headerlink" title="原型如何实际应用"></a>原型如何实际应用</h4><ul>
+<li>可以直接说jquery和zepto对于原型的应用</li>
+</ul>
+<ul>
+<li>jquery<ul>
+<li>定义jQuery  function，$指向这个函数，并定义jQuery.fn</li>
+<li>return 构造函数 jQuery.fn.init</li>
+<li>在init函数中查找并且初始化</li>
+<li>最后将init的原型指向fn所定义的对象上</li>
+</ul>
+</li>
+<li>zepto<ul>
+<li>通过$函数调用zepto.init</li>
+<li>通过zepto.init选择出对应的元素，并返回zepto.z</li>
+<li>通过zepto.z  new 一个构造函数Z</li>
+<li>Z中填写对应的对象的值</li>
+<li>将构造函数的原型指向$.fn，扩展对应的原型方法</li>
+</ul>
+</li>
+<li>为什么吧原型放在$.fn上<ul>
+<li>只有$会暴露在全局变量，减少变量污染</li>
+<li>将插件拓展统一到$.fn下，方便使用</li>
+<li>一个库最好只暴露一个变量就好了</li>
+</ul>
+</li>
+</ul>
+<h4 id="原型如何满足扩展"><a href="#原型如何满足扩展" class="headerlink" title="原型如何满足扩展"></a>原型如何满足扩展</h4><ul>
+<li>将$.fn开放出来</li>
+</ul>
+<h2 id="Vdom"><a href="#Vdom" class="headerlink" title="Vdom"></a>Vdom</h2><h4 id="什么是vdom，为何使用"><a href="#什么是vdom，为何使用" class="headerlink" title="什么是vdom，为何使用"></a>什么是vdom，为何使用</h4><ul>
+<li>用js模拟dom结构，提高重绘性能</li>
+<li>DOM变换只能在js中实现，因为只有js是可以实现各种逻辑的前端语言（图灵完备语言）</li>
+<li>浏览器的DOM操作是最昂贵的，但是js的运行效率更高</li>
+<li>尽量减少DOM操作，而不是‘推倒重来’</li>
+<li>将DOM对比操作放在js层</li>
+</ul>
+<h4 id="jquery实现，遇到的问题"><a href="#jquery实现，遇到的问题" class="headerlink" title="jquery实现，遇到的问题"></a>jquery实现，遇到的问题</h4><ul>
+<li>用js模拟dom结构</li>
+<li>jquery使用append等方法对dom进行增删改查</li>
+</ul>
+<h4 id="vdom如何使用，核心函数是什么"><a href="#vdom如何使用，核心函数是什么" class="headerlink" title="vdom如何使用，核心函数是什么"></a>vdom如何使用，核心函数是什么</h4><ul>
+<li>介绍snabbdom一个开源的VDOM实现（vue升级2.0的时候借用的snabbdom代码）<ul>
+<li>要改什么就改什么，其他的地方都不用改</li>
+<li>h patch两个核心函数 </li>
+</ul>
+</li>
+</ul>
+<h4 id="了解diff算法"><a href="#了解diff算法" class="headerlink" title="了解diff算法"></a>了解diff算法</h4><ul>
+<li>vdom为什么使用diff算法<ul>
+<li>DOM渲染太昂贵</li>
+<li>找出需要更新的节点，其他的不更新</li>
+<li>这个找出的过程，就是用diff算法</li>
+</ul>
+</li>
+</ul>
+<h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><h4 id="之前使用jquery和现在使用vue或者React框架的区别"><a href="#之前使用jquery和现在使用vue或者React框架的区别" class="headerlink" title="之前使用jquery和现在使用vue或者React框架的区别"></a>之前使用jquery和现在使用vue或者React框架的区别</h4><ul>
+<li>Vue等框架视图和数据分开</li>
+</ul>
+<h4 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h4><ul>
+<li>modeo</li>
+<li>view </li>
+<li>controller（控制器，控制view和model的变换）</li>
+<li>一般是view发生变化，通过controller去修改model</li>
+</ul>
+<h4 id="你如何理解MVVM"><a href="#你如何理解MVVM" class="headerlink" title="你如何理解MVVM"></a>你如何理解MVVM</h4><ul>
+<li>model 通过数据绑定</li>
+<li>view（dom）通过事件绑定</li>
+<li>viewModel(view和model之间的一座桥)</li>
+</ul>
+<h4 id="Vue三要素"><a href="#Vue三要素" class="headerlink" title="Vue三要素"></a>Vue三要素</h4><ul>
+<li>数据响应式</li>
+<li>模板引擎</li>
+<li>渲染<br>####Vue如何实现响应式</li>
+</ul>
+<ul>
+<li>注意点<ul>
+<li>在set监听中，会触发updateComent来触发虚拟dom的更新以及视图的rerender</li>
+<li>如果没有经过get函数，也就是说在模板中是没有使用的，那么set之后就不会发生变换，这样来减少DOM的渲染消耗</li>
+</ul>
+</li>
+</ul>
+<h4 id="Vue如何解析模板"><a href="#Vue如何解析模板" class="headerlink" title="Vue如何解析模板"></a>Vue如何解析模板</h4><h4 id="介绍Vue的实现流程"><a href="#介绍Vue的实现流程" class="headerlink" title="介绍Vue的实现流程"></a>介绍Vue的实现流程</h4>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">常见面试题记录</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/18/js高级知识点/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/14/js设计模式/">js设计模式</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/14/js设计模式/" class="archive-article-date">
+  	<time datetime="2018-03-14T14:26:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">age.name</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">	obj.age = age;</div><div class="line">	obj.name = name;</div><div class="line">	obj.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> obj;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="单体模式"><a href="#单体模式" class="headerlink" title="单体模式"></a>单体模式</h4><p>单体模式的对象只会实例化一次，并且使用代码块，减少全局变量的污染<br>返回的始终是一个对象，所以可以用来做全局组件等</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">//单体模式</span></div><div class="line"><span class="keyword">var</span> createDiv = <span class="function"><span class="keyword">function</span>(<span class="params">html</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.html = html;</div><div class="line">	<span class="keyword">this</span>._init();</div><div class="line">&#125;</div><div class="line">createDiv._init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> divNode = <span class="built_in">document</span>.createElement();</div><div class="line">	div,innerHtml = <span class="keyword">this</span>.html;</div><div class="line">	<span class="built_in">document</span>.body.appendChild(divNode);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> proxyCreate = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> instance = <span class="literal">null</span>;</div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">html</span>)</span>&#123;</div><div class="line">		<span class="keyword">if</span>(!instance)&#123;</div><div class="line">			instance = <span class="keyword">new</span> createDiv(html);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">		    html = html ? html : instance.html</div><div class="line">			instance.html = html;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> instance;</div><div class="line">	&#125;</div><div class="line">&#125;)&#123;&#125;</div></pre></td></tr></table></figure>
+<h4 id="模块模式"><a href="#模块模式" class="headerlink" title="模块模式"></a>模块模式</h4><p>增加私有变量，减少对于全局变量的污染</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> privateA = <span class="string">'a'</span>;  </div><div class="line">    <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">    obj.a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    	<span class="keyword">return</span> privateA;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h4><p>使用代理对象替本体执行，这样当本体实例化比较麻烦或者复杂的时候就可以等到用的时候再进行初始化，可以对代码逻辑进行优化</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">//奶茶妹</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MikeGirl</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.name =<span class="string">'gril'</span>;</div><div class="line">	</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="comment">//京东CEO先生</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ceo</span>(<span class="params">gril</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.gril = gril;</div><div class="line">	<span class="keyword">this</span>.sendMarriageRing = <span class="function"><span class="keyword">function</span>(<span class="params">ring</span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(gril.name + ring);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//CEO助理</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ProxyObj</span>(<span class="params">gril</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.gril = gril;</div><div class="line">	<span class="keyword">this</span>.sendGift = <span class="function"><span class="keyword">function</span>(<span class="params">gift</span>)</span>&#123;</div><div class="line">		(<span class="keyword">new</span> Ceo(<span class="keyword">this</span>.gril)).sendMarriageRing(gift)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">(<span class="keyword">new</span> ProxyObj(<span class="keyword">new</span> MikeGirl())).sendGift(<span class="string">'婚戒'</span>);</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">js设计模式小计</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/14/js设计模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-浏览器距离计算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/13/浏览器距离计算/">浏览器距离计算</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/13/浏览器距离计算/" class="archive-article-date">
+  	<time datetime="2018-03-13T14:13:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="取得元素左和上的偏移量"><a href="#取得元素左和上的偏移量" class="headerlink" title="取得元素左和上的偏移量"></a>取得元素左和上的偏移量</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementLeft</span>(<span class="params">element</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> acLeft = emement.offsetLeft;</div><div class="line">    <span class="keyword">var</span> current = element.offsetParent;</div><div class="line">    <span class="keyword">while</span>(current !== <span class="literal">null</span>)&#123;</div><div class="line">    	acLeft += current.offsetLeft;</div><div class="line">    	current = current.offsetParent;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> acLeft;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementTop</span>(<span class="params">element</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> acTop = element.offsetTop;</div><div class="line">	<span class="keyword">var</span> current = element.offsetParent;</div><div class="line">	<span class="keyword">while</span>(current !== <span class="literal">null</span>)&#123;</div><div class="line">		acTop += current.offsetTop;</div><div class="line">		current = current.offsetParent;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> acTop;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="获取当前页面的大小"><a href="#获取当前页面的大小" class="headerlink" title="获取当前页面的大小"></a>获取当前页面的大小</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getViewClient</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//检测是否在IE的混杂模式下，如果是就要用document.body</span></div><div class="line">    <span class="keyword">if</span>(<span class="built_in">document</span>.compatMode === <span class="string">'BackCompat'</span>)&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">        	<span class="attr">width</span>: <span class="built_in">document</span>.body.clientWidth,</div><div class="line">        	<span class="attr">height</span>: <span class="built_in">document</span>.body.clientHeight</div><div class="line">        &#125;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">    	<span class="keyword">return</span> &#123;</div><div class="line">    		<span class="attr">width</span>: <span class="built_in">document</span>.documentElement.clientWidth;</div><div class="line">    		height: <span class="built_in">document</span>.documentElement.clientHeight</div><div class="line">    	&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="scroll相关"><a href="#scroll相关" class="headerlink" title="scroll相关"></a>scroll相关</h3><ul>
+<li>scrollHeight : 在没有滚动条的情况下，元素的高度总和</li>
+<li>scrollWidth： 在没有滚动条的情况下，元素的宽度总和</li>
+<li>scrollTop： 被隐藏在顶部的元素高度</li>
+<li>scrollLeft： 被隐藏在左边的元素像素数</li>
+</ul>
+<h3 id="获取文档总高度"><a href="#获取文档总高度" class="headerlink" title="获取文档总高度"></a>获取文档总高度</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.documentElement;</div><div class="line"><span class="keyword">if</span>(<span class="built_in">document</span>.compatMode === <span class="string">'BackCompat'</span>)&#123;</div><div class="line">	el = <span class="built_in">document</span>.body</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> docHeight = <span class="built_in">Math</span>.max(el.scrollHeight,el.clientHeight);</div><div class="line"><span class="keyword">var</span> docWidth = <span class="built_in">Math</span>.max(el.scrollWidth,el.clientWidth);</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">浏览器中各种距离的计算</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/13/浏览器距离计算/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ajax知识点小记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/11/ajax知识点小记/">ajax知识点小记</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/11/ajax知识点小记/" class="archive-article-date">
+  	<time datetime="2018-03-11T11:51:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>使用IE7以及之前的版本需要特许处理，具体见书P572，因为组件使用vue，IE版本在IE8+，所以目前不考虑</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">首先 <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    在使用异步请求时，需要检测xhr对象readyState属性，该属性表示请求/响应过程的当前活动阶段</div><div class="line">   <span class="number">0</span>：未初始化。尚未调用open()方法，</div><div class="line">   <span class="number">1</span>：启动，已经调用opend方法，但未收调用send方法</div><div class="line">   <span class="number">2</span>：已经调用send方法，但未接收到响应</div><div class="line">   <span class="number">3</span>：接收，已经接收到部分响应数据</div><div class="line">   <span class="number">4</span>：完成，已经接收到全部数据响应</div><div class="line">   每次readyState的值改变都会触发一次readystatechange事件，通常只对值为<span class="number">4</span>的阶段感兴趣，不过必须在open之前指定readystatechange事件处理程序才能确保跨浏览器兼容性</div><div class="line">   </div><div class="line">   xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span>)&#123;</div><div class="line">       	<span class="keyword">if</span>((xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span>) || xhr.status === <span class="number">304</span> )&#123;</div><div class="line">       		alert(xhr.responseText)</div><div class="line">       	&#125;<span class="keyword">else</span>&#123;</div><div class="line">       	 	alert(<span class="string">'response error'</span>+ xhr.status); </div><div class="line">       	&#125;</div><div class="line">       &#125;</div><div class="line">   &#125;<span class="comment">//这里使用的是dom0级事件，因为并非所有的浏览器都支持dom2级事件</span></div><div class="line">       </div><div class="line">    xhr.open(<span class="string">'get'</span>,url,<span class="literal">true</span>)<span class="comment">//第一个参数表示请求类型，第二个参数表示url，第三个参数表示是否异步</span></div><div class="line">    </div><div class="line">     xhr.send(<span class="literal">null</span>)<span class="comment">//send方法接受一个参数，即作为请求主体发送的数据，如果不需要，则必须传入null</span></div><div class="line">    </div><div class="line">    在收到响应后，会自动填充xhr对象的属性，</div><div class="line">    <span class="number">1.</span>responseText：作为响应返回的文本</div><div class="line">    <span class="number">2.</span>responseXML： 如果响应头设置的是‘text/xml’或者‘application/xml’，这个属性中保存着响应数据的xml文档</div><div class="line">    <span class="number">3.</span>status:响应的http状态</div><div class="line">    <span class="number">4.</span>statusText:HTTP的状态说明</div><div class="line">    </div><div class="line">    在未收到响应之前，可以调用xhr.abort();来取消异步请求</div></pre></td></tr></table></figure>
+<p>在收到响应时，第一步是检查status的响应状态码，一般将200作为成功的标志，此外，304表示请求的资源文件没有被修改，可以直接使用浏览器中的缓存版本，这也意味着响应是有效的，一般这样检查响应</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span>((xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span>) || xhr.status === <span class="number">304</span>)&#123;</div><div class="line">	alert(xhr.responseText)</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">	alert(<span class="string">'response error:'</span>+xhr.status)<span class="comment">//statusText不是很可靠，因为后者在跨域的时候不是很可靠，另外，无论什么内容，都会保存到responseText中</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>有的浏览器会错误的报告http的状态，早期的IE会将204设置为1223，Opera会将204设置为0</p>
+<p>http请求和响应的头部信息</p>
+<ul>
+<li>发送时，会带有下列头部信息<ul>
+<li>Accept 浏览器能够处理的内容类型</li>
+<li>Accept-Charset 浏览器能够显示的字符集</li>
+<li>Accept-Encoding 浏览器能够处理的压缩编码</li>
+<li>Accept-Language 浏览器当前设置的语言</li>
+<li>Connection 浏览器与服务器之间的连接类型</li>
+<li>Cookie 当前页面设置的任何cookie</li>
+<li>Host 发出请求页面所在的域、</li>
+<li>Referer 发出请求页面的URL，Http请求这个头部字段拼写错了，而为了保证与规范的一致性，只能将错就错了</li>
+<li>user-Agent 浏览器的用户代理字段</li>
+</ul>
+</li>
+</ul>
+<p>可以使用setRequestHeader来设置ajax的头部信息</p>
+<p>使用getResponseHeader来获取一个包含所有头部信息的长字符串</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">xhr.setRequestHeader(&apos;Myheader&apos;,&apos;test&apos;)</div></pre></td></tr></table></figure>
+<p>使用getAllResponseHeaders()方法则可以获得如下所示的多行文本内容</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Date: Sun, 14 Nov 2004 18:04:03 GMT</div><div class="line">Server: Apache/1.3.29 (Unix)</div><div class="line">Vary: Accept</div><div class="line">X-Powered-By: PHP//4.3.8</div><div class="line">Connection: close</div><div class="line">Content-Type: text//html; charset=iso-8859-1</div></pre></td></tr></table></figure>
+<p>建议使用自定义的头部信息，不要使用默认的，可能会影响服务器的响应</p>
+<h2 id="请求类型"><a href="#请求类型" class="headerlink" title="请求类型"></a>请求类型</h2><h4 id="get"><a href="#get" class="headerlink" title="get"></a>get</h4><p>必要时，可以将查询字符串参数追加在Url末尾，但是添加的参数必须要经过编码(encodeURLComponent)</p>
+<h4 id="post"><a href="#post" class="headerlink" title="post"></a>post</h4><p>post请求，通常向服务器发送应该被保存的数据，post应该吧数据最为请求的主体进行提交<br>一般程序对post提交和表单提交不会一视同仁，但是我们可以模仿表单提交，首先将Content-Type设置为‘application/x-www-from-urlencoded’,然后使用serialize函数来创建这个字符串</p>
+<p>从传输速度看，post请求浪费的资源比get多一些，get请求速度最快可以达到post的两倍</p>
+<h2 id="XMLHttpRequest2级"><a href="#XMLHttpRequest2级" class="headerlink" title="XMLHttpRequest2级"></a>XMLHttpRequest2级</h2><p> FormData为序列化表单以及创建数据格式相同的数据提供了便利，添加数据使用append方法，键值对添加。</p>
+<p> 使用FormData的方便之处是不用明确的为xhr设置请求头部，xhr能够识别数据类型是formdata的从而设置相应的请求头</p>
+<p> timeout，xhr2级收录了超时属性，使用ontimeout触发，支持性不是很好</p>
+<h4 id="进度事件"><a href="#进度事件" class="headerlink" title="进度事件"></a>进度事件</h4><p> load事件， 表示当前接收到服务器响应，不管状态如何，所以可以替代前面的onreadystatechange函数进行检测state</p>
+<p> onprogress事件，这会在浏览器接收数据期间周期性的触发，event除了target之外有额外的三个属性，lengthComputable、position、totalSize三个属性，lengthComputable是一个表示当前进度信息是否可用的布尔值，position表示已经接收的字节数，totalSize表示根据Content-Length响应头部确定的预期字节数 </p>
+<h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h2><h4 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h4><p>相同的域名、端口、协议</p>
+<h4 id="CSRF-跨站点请求伪造"><a href="#CSRF-跨站点请求伪造" class="headerlink" title="CSRF 跨站点请求伪造"></a>CSRF 跨站点请求伪造</h4><p>未被授权的系统伪造自己是合法的</p>
+<ul>
+<li>使用https连接</li>
+<li>增加token</li>
+<li></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ajax知识点整理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/11/ajax知识点小记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-使用原生js重现LOL新春官网" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -391,6 +1064,7 @@ setInterval永远指向window
 <li>但是体积会增大1/3，所以适用于小图片 </li>
 </ul>
 <h4 id="行高"><a href="#行高" class="headerlink" title="行高"></a>行高</h4><p>*line-box的高度由内联的inline-box的行高组成<br>行高有line-box组成，line-box的高度由inline-box的高度组成</p>
+<h4 id="解决inline-block的文字间隙问题"><a href="#解决inline-block的文字间隙问题" class="headerlink" title="解决inline-block的文字间隙问题"></a>解决inline-block的文字间隙问题</h4><p> 使用font-size:0;将文字大小改为0，行内元素的间隙就没有了</p>
 
       
 
@@ -679,750 +1353,9 @@ setInterval永远指向window
 
 
   
-    <article id="post-css揭秘一书相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/18/css揭秘一书相关/">css揭秘一书相关</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/18/css揭秘一书相关/" class="archive-article-date">
-  	<time datetime="2017-12-18T03:32:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="46-状态平滑的动画"><a href="#46-状态平滑的动画" class="headerlink" title="46 状态平滑的动画"></a>46 状态平滑的动画</h3><ul>
-<li>对于动画，使用animation-play-state属性，指定当前动画的动画状态</li>
-</ul>
-<h3 id="47-沿环形路径平移的动画"><a href="#47-沿环形路径平移的动画" class="headerlink" title="47 沿环形路径平移的动画"></a>47 沿环形路径平移的动画</h3><ul>
-<li>简单实现之后发现旋转的图片也会随之旋转，大大降低了可阅读性，通过一个反方向的旋转，即可解决</li>
-<li>第二种解决方案暂不记录</li>
-<li>玩了一把作者写的相框效果，要活用background-clip,background-origin，以及用box-shadow,效果很漂亮</li>
-<li>background-clip对于图片只是裁剪，多余的部分会被裁减掉，而background-origin则是将图片移动到起始位置</li>
-</ul>
-<h3 id="42-缓动效果"><a href="#42-缓动效果" class="headerlink" title="42 缓动效果"></a>42 缓动效果</h3><ul>
-<li>box-shadow 最后的inset参数可以实现将阴影投入到元素内部</li>
-<li><a href="http://cubic-bezier.com/#.17,.67,.83,.67" target="_blank" rel="external">贝塞尔曲线学习使用网站</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/18/css揭秘一书相关/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-精通css高级Web标准解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/14/精通css高级Web标准解决方案/">精通css高级Web标准解决方案</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/14/精通css高级Web标准解决方案/" class="archive-article-date">
-  	<time datetime="2017-12-14T12:36:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="IE兼容性相关"><a href="#IE兼容性相关" class="headerlink" title="IE兼容性相关"></a>IE兼容性相关</h2><ul>
-<li>IE浏览器的表现和其他浏览器不一样的一个原因就是，显示引擎使用一个称之为引擎的概念，所以布局的概念是IE浏览器上特有的，所以当元素在IE上显示时，如果元素拥有了布局，那么元素的显示就会被限制，就会和其他浏览器上展示的不一样（比如当给浮动元素设置的宽度时，浮动元素拥有布局，就会被限制为矩形，会阻止文本绕元素浮动）</li>
-<li>在其他浏览器上，如果元素的内容大于元素的尺寸，那么会溢出，而IE6或者更低版本中，拥有布局的元素会错误的扩展元素以支持这些多出的内容，剩余的问题列举见书P195</li>
-<li>在html中，可以指定css应用于特定的浏览器，可以使用条件注释指定特定的浏览器，也可以对IE浏览器隐藏某些css文件（见书P196）(&lt;!– [if It IE 6]&gt; &lt;![endif]&gt;)（这就是条件注释，用来兼容IE浏览器）</li>
-<li>IE6不支持锚链接的：focus伪类，ie7忽略:active和:focus</li>
-<li>css2.1和css3的很多高级选择器IE6和更低版本是不支持的（例如属性选择器）</li>
-<li>IE7以上都支持子元素选择器，但是在IE7中有一个BUG，如果选择的元素之间存在html注释，那么就会出问题，相邻同胞</li>
-<li>IE6中，混杂模式时使用的是非标准的盒模型，这时候，元素的width不是内容的宽度，而是内容、内边距和外边框的宽度</li>
-<li>IE8以上支持display:inline-block</li>
-<li>老版本的ie想要支持透明度的话需要专门的适配filter:alpha(opacity=80);（opacity = 0.8）</li>
-<li>在IE6中对PNG的透明度支持也要有专门的代码适配，代码见书P74</li>
-<li>老版本IE不支持对锚元素（a）使用：hover伪类</li>
-<li>IE6及其以下的双外边距BUG，使用display：inline即可修复</li>
-<li>更多的IEBUG请看书199页9.5 </li>
-<li>IE的缺陷不应该阻碍我们尝试各种新技术<h2 id="2、高级选择器"><a href="#2、高级选择器" class="headerlink" title="2、高级选择器"></a>2、高级选择器</h2><ul>
-<li>通用选择器（*）是最强大但是最少用的选择器，匹配所有元素</li>
-<li>子元素选择器（#nav &gt; li）选择所有的后代子元素</li>
-<li>相邻同胞元素选择器（h2 + p），根据一个元素与另外一个元素的相邻关系来选择元素</li>
-<li>选择器的优先级，见书P27页</li>
-<li>导入样式表（link）比导入样式表（@import）要快</li>
-<li>老式浏览器只能从同一个域名同时下载两个文件，也就是说如果有三个css文件，那么要等待前两个下载完才能下载第三个，所以结构良好的单一css文件可以显著提高文件的下载速度</li>
-<li>对代码进行有效的注释是一个很好的习惯</li>
-<li>一般来说，好的编码习惯是对不同的样式进行不同的分组，写在样式表的不同地方</li>
-<li>一般是使用@todo注释表示将要进行修改的工作，使用@workaround表示不完善的权宜之计，用@bugfix表示代码或特定浏览器遇到的问题</li>
-</ul>
-</li>
-</ul>
-<h2 id="可视化格式模型"><a href="#可视化格式模型" class="headerlink" title="可视化格式模型"></a>可视化格式模型</h2><ul>
-<li>css的盒模型由元素的外边距（margin）、边框(border)、内边距(padding)、内容组成(content)</li>
-<li>css3中的box-sizing可以定义要使用哪种盒模型。</li>
-</ul>
-<h4 id="3-1-2外边距叠加"><a href="#3-1-2外边距叠加" class="headerlink" title="3.1.2外边距叠加"></a>3.1.2外边距叠加</h4><ul>
-<li>当两个或者更多的垂直外边距相遇时，它们将形成一个外边距，值等于两个外边距中较大的一个（只有普通文档流的块框的垂直外边距才会发生外边距叠加，行内框，浮动框和绝对定位框之间是不会发生的）</li>
-</ul>
-<h4 id="3-2-1可视化格式模型"><a href="#3-2-1可视化格式模型" class="headerlink" title="3.2.1可视化格式模型"></a>3.2.1可视化格式模型</h4><ul>
-<li>p,h1,div等成为块级元素，这些元素通常显示为一块内容，即‘块框’</li>
-<li>strong、span等元素显示在行中的就是行内元素</li>
-<li>可以通过display改变元素的可视化模型</li>
-<li>使用display:inline-block可以让元素显示为行内元素，但是有块级元素的特性，可以设置各种高度</li>
-<li>绝对定位是相对于已经定位的离他最近的祖先元素，如果都没有，那么直接相对于初始包含快</li>
-</ul>
-<ul>
-<li>清理浮动的几种方法<ul>
-<li>在元素中使用overflow:hidden，会自动清理浮动元素，但是这个方法对页面，因为会隐藏滚动条</li>
-<li>使用clear属性，但是这个方法需要额外增加一个元素</li>
-<li>使用after伪元素加上clear：both，但是这个方法在IE6中不被支持</li>
-</ul>
-</li>
-</ul>
-<h2 id="4-不透明度"><a href="#4-不透明度" class="headerlink" title="4 不透明度"></a>4 不透明度</h2><ul>
-<li>视差效果的实现<ul>
-<li>对于背景图使用repeat-x，将图片水平铺平</li>
-<li>使用background-position：20% 0；让图片水平偏移20%，这样，当视窗移动时，看起来像是图片动了</li>
-<li>使用line-height属性会让文字总是保持在元素的中间，这比使用height好，应为使用height的话需要使用内边距将文字压到中间,但是使用line-height当文本的高度占据两行时，行高就会很高，唯一的方法就是让文本不换行</li>
-<li>css精灵（雪碧图）减少请求，提高可维护性</li>
-</ul>
-</li>
-</ul>
-<h2 id="8-布局"><a href="#8-布局" class="headerlink" title="8 布局"></a>8 布局</h2><ul>
-<li>计划布局<ul>
-<li>先设计，再写页面</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>使用浮动布局时，要做的不是连续的浮动和清理元素，而是浮动几乎所有东西，然后在整个文档的‘战略点’（比如页脚），进行一次清理，也可以使用溢出的方法清理元素</li>
-</ul>
-<ul>
-<li>固定宽度布局<ul>
-<li>固定宽度就是讲布局的宽度定死，但是，随着浏览器尺寸越来越多样，这已经不是一个很好的布局 了</li>
-</ul>
-</li>
-<li>流式布局<ul>
-<li>用百分比数设置元素的尺寸，这样就可以相对浏览器的大小进行伸缩，但是当窗口宽度较小时，行会变的非常窄，难以阅读，所以有必要添加min-height/width等单位进行控制，但是如果设置的太大，又会变的和固定宽度一样</li>
-</ul>
-</li>
-<li>弹性布局<ul>
-<li>使用字号（em,rem）来对元素的宽度进行设置，这样，当修改根元素的字号时，整个页面都会进行有效的缩放</li>
-</ul>
-</li>
-</ul>
-<h2 id="9-捕捉BUG"><a href="#9-捕捉BUG" class="headerlink" title="9 捕捉BUG"></a>9 捕捉BUG</h2><ul>
-<li>外边距叠加问题，出现的原因是因为具有块级子元素的元素计算其高度的原因,通过添加一个垂直边框或内边距，外边距就不再叠加了</li>
-</ul>
-<h2 id="10-实例研究"><a href="#10-实例研究" class="headerlink" title="10 实例研究"></a>10 实例研究</h2><ul>
-<li>reset样式表可以避免和缓解HTML元素默认样式不一致的问题</li>
-</ul>
-<h2 id="11实例研究"><a href="#11实例研究" class="headerlink" title="11实例研究"></a>11实例研究</h2><ul>
-<li>使用:first-letter 或者:first-line，可以选中文本的第一个字母或者第一行</li>
-<li>相邻同胞元素 li + li，匹配与第一个元素相邻的下一个同胞元素，并且元素的父元素必须是相同的，而且第二个元素必须紧挨着第一个元素。</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">总的来说，这本书有点脱节了，内容有些老旧</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/14/精通css高级Web标准解决方案/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-spring-boot引入外部jar" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/12/spring-boot引入外部jar/">spring boot引入外部jar</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/12/spring-boot引入外部jar/" class="archive-article-date">
-  	<time datetime="2017-12-12T02:47:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="前言-由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，没一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来"><a href="#前言-由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，没一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来" class="headerlink" title="前言:由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，没一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来"></a>前言:由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，没一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来</h4><p>首先在新建libs文件夹（根目录或者resource目录下都可以），将需要引入的jar放进去<br><img src="http://otdc3q7z7.bkt.clouddn.com/F423D890-4FC6-4C60-8106-99A81A54E4EB.png" alt="libs文件夹"></p>
-<p>然后再pom中加入如下配置，告诉maven导入本地jar</p>
-<pre><code>   &lt;dependency&gt;
-    &lt;groupId&gt;com.aliyun&lt;/groupId&gt;
-    &lt;artifactId&gt;aliyun-java-sdk-core&lt;/artifactId&gt;
-    &lt;version&gt;3.2.2&lt;/version&gt;
-    &lt;scope&gt;system&lt;/scope&gt;
-    &lt;systemPath&gt;${project.basedir}/libs/aliyun-java-sdk-core-3.3.1.jar&lt;/systemPath&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;com.aliyun&lt;/groupId&gt;
-    &lt;artifactId&gt;aliyun-java-sdk-dysmsapi&lt;/artifactId&gt;
-    &lt;version&gt;1.0.0&lt;/version&gt;
-    &lt;scope&gt;system&lt;/scope&gt;
-    &lt;systemPath&gt;${project.basedir}/libs/aliyun-java-sdk-dysmsapi-1.0.0.jar&lt;/systemPath&gt;
-&lt;/dependency&gt;
-</code></pre><p>其中除了systemPath配置告诉maven引入的本地jar包的位置之外，其他的配置都可以随便写</p>
-<p>划重点！！！敲黑板！！！下面的一步配置也是最重要的一步，网上很多的教程缺了这样一步之后就会导致虽然本地可以运行，但是只要使用maven打包就不行，因为maven没有将本地的jar也打到生成的包中</p>
-<p>在pom中给spring boot的打包插件设置一下includeSystemScope参数即可</p>
-<pre><code>&lt;build&gt;
-    &lt;plugins&gt;
-        &lt;plugin&gt;
-            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
-            &lt;configuration&gt;
-                &lt;includeSystemScope&gt;true&lt;/includeSystemScope&gt;
-            &lt;/configuration&gt;
-        &lt;/plugin&gt;
-    &lt;/plugins&gt;
-&lt;/build&gt;    
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/12/spring-boot引入外部jar/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-js语言精粹" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/28/js语言精粹/">js语言精粹一书整理</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/28/js语言精粹/" class="archive-article-date">
-  	<time datetime="2017-11-28T12:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##表示每一章，####表示每一个小节<br>书 P35的递归方法、书55页部件</p>
-<p>注：字面量表示如何表达这个值，一般除去表达式，给变量赋值时，等号右边的就可以认为是字面量<br>jq的核心思想是单例、工厂模式；vue，react的核心思想是观察者、MVVM模式。</p>
-<pre><code>var test = &quot;hello world!&quot;
-</code></pre><p>这里 “hello world!”就是字面量，test是变量名<br>在js中，字面量分为字符串字面量，对象字面量，数组字面量和函数字面量</p>
-<p>##补充</p>
-<ul>
-<li>js中的apply和call的区别，两个方法的第一个参数都是当前调用的函数的调用环境（this），而apply是将所有参数放在一个数组中，但是会自动拆分(只会拆分一次)。而call是有多少个参数就放多少参数，不会自动拆分</li>
-</ul>
-<p>##第二章 语法</p>
-<p>####语句</p>
-<ul>
-<li>在js中会被判断为假的字面量<ol>
-<li>false</li>
-<li>null</li>
-<li>undefined</li>
-<li>空字符串’’</li>
-<li>数字0</li>
-<li>数字NaN<br>####表达式</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li>如果函数没有写reture，那么会默认返回undefined</li>
-<li>typeof 会产生的类型 number,string,boolean,object,function,undefined,但是当时一个数组或者使null时，返回的是object,这其实是不对的</li>
-<li>对象字面量就是指包围在一个花括号中的零或多个键值对，对象字面量可以出现在任何允许表达式出现的地方</li>
-<li>检索对象里面包含的值bookinfo[“item”]</li>
-</ul>
-<p>##第三章 对象</p>
-<p>####检索</p>
-<ul>
-<li>javascript的标识符中不能包含连接符（-），但是可以包含下划线（_）</li>
-<li>一个机智的写法 bookinfo.item &amp;&amp; bookinfo.item.child,不会因为item属性不存在而抛出异常</li>
-</ul>
-<p>####引用</p>
-<ul>
-<li>对象通过引用传递，对象永远不会被复制</li>
-</ul>
-<p>####原型</p>
-<ul>
-<li>原型连接在更新时是不起作用的，所以对某个对象作出改变时，不会触及该对象的原型</li>
-<li>委托可以理解为，在一个对象中找某个属性时，如果这个对象没有，那么在它的原型中继续找，如果也没有，那么继续往上找，直到object.prototype</li>
-<li>当我们添加一个新的属性到原型中，那么所有基于这个原型创建的对象对该属性都会可见</li>
-<li>hasOwnProperty方法不会检查原型链，只会检查该对象是否独有这个属性</li>
-</ul>
-<p>####减少全局变量的污染</p>
-<ul>
-<li><p>全局变量削弱了程序的灵活性，应该避免使用，最小化全局变量的方法就是只创建一个唯一的全局变量，这样与其他应用程序或者页面冲突的可能就会明显降低，还有一种有效减少全局变量的方式方式就是闭包。</p>
-<pre><code>var mappy = {};
-</code></pre></li>
-</ul>
-<p>##第四章 函数</p>
-<p>####函数对象和字面量</p>
-<ul>
-<li>函数对象连接到Function.property(改原型对象本身也连接到object.property)</li>
-<li>js的函数被创建时，会有一个调用属性，当你调用函数时，其实是调用了这个‘调用’属性</li>
-<li>通过函数字面量创建的函数对象包含一个连到外部上下文的连接，这被称为闭包</li>
-</ul>
-<p>####函数的调用方式</p>
-<ul>
-<li>函数的四种调用模式,这四种模式在如何初始化关键参数this上存在差异<ol>
-<li>方法调用模式，可以理解为在对象中的属性，这个时候就不是函数，而是方法了，此时this指向当前的对象</li>
-<li>函数调用模式，此时this会绑定到全局（这是语言设计上的一个错误），需要定义一个that变量来存储之前的this</li>
-<li>构造器调用模式，使用new来调用，那么就会创建一个连接到该函数property成员的新对象，同时，this也会绑定到这个新对象上</li>
-<li>apply调用模式，需要两个参数，一个表示要绑定的this值，一个表示传递的参数数组,this传null默认绑定到window变量<br><img src="http://otdc3q7z7.bkt.clouddn.com/78041670-226A-436F-A3F4-EBD65EC76470.png" alt="四种调用模式"></li>
-</ol>
-</li>
-</ul>
-<p>####返回</p>
-<ul>
-<li>函数调用时若用了new，则返回当前的this(该新对象）,若不用new 调用，且函数没有return的话，则返回undefined</li>
-</ul>
-<p>####异常</p>
-<ul>
-<li>在类库混用时，可以用异常进行确保没有该方法时才进行添加</li>
-</ul>
-<p>####作用域</p>
-<ul>
-<li>js不支持块级作用域（任何一对花括号中的代码{}都是一个块，在js中，在块内用var声明的变量可以在块外访问到，但是在es6中，let和const则是支持块级作用域的，let其实也是支持变量提升的，只是提升到函数的顶部，但是没有初始化为undefined，所以在提升的顶部到变量初始化之前的区域都不能使用，这就是暂时性死区），所以使用var的话，最好就是在函数顶部吧变量都声明</li>
-<li>避免在循环中创建函数，这样只会带来无意义的计算并且引起混淆</li>
-</ul>
-<p>####模块</p>
-<ul>
-<li>模块是一个提供接口却隐藏状态与实现的函数或对象（有点类似java类的私有变量）</li>
-<li>可以使用函数和闭包来构建模块</li>
-<li>模块模式的一般形式：定义了私有变量和函数的函数，利用闭包创建可以访问变量和函数的特权函数，最后返回这个特权函数即可。 </li>
-<li>通过模块，几乎可以完全摒弃全局变量的使用。（javascript最糟糕的特性之一 ———— 全局变量）</li>
-</ul>
-<p>####级联</p>
-<ul>
-<li>element.width(‘100px’).height(‘100px’)就是一个级联，每次调用的结果都会被下一次所调用，所以没有必要写太过全能的接口，一个接口没必要一次做太多的事情。</li>
-</ul>
-<p>####记忆</p>
-<ul>
-<li>将先前操作的结果记在某个对象里，从而避免重复的计算<br><img src="http://otdc3q7z7.bkt.clouddn.com/951E1A46-D414-4F89-BE96-8C53BC9F690A.png" alt="example"></li>
-</ul>
-<p>##第五章 继承</p>
-<ul>
-<li><strong>proto</strong>: 这个属性是实例对象的属性，每个实例对象都有一个<strong>proto</strong>属性，这个属性指向实例化该实例的构造函数的原型对象（隐示原型，通过这个属性增加方法的话，需要添加到下面的constructor属性里添加）。</li>
-<li><p><strong>proterty</strong>：这个方法是对象的属性。（据说和一个对象的attr类似，比如dom对象中）</p>
-</li>
-<li><p><strong>prototype</strong>：每个构造函数都有一个prototype对象，这个对象指向该构造函数的原型。(显示原型)</p>
-</li>
-</ul>
-<ul>
-<li>常用的几种继承方式<ol>
-<li>伪类，基于类继承，通过修改子类的prototype去继承父类的属性和方法（在子类的prototype上增加方法和属性不会修改父类的）</li>
-<li>基于原型的继承（不会对父原型改变）<br><img src="http://otdc3q7z7.bkt.clouddn.com/56B16C69-9362-409F-8F1D-E9DD4BA477FC.png" alt="example"></li>
-<li>使用函数化实现集成，运用块模式，实现变量的私有化<br><img src="http://otdc3q7z7.bkt.clouddn.com/CF9D3932-5A14-4DF7-80FF-1B628EF4FB19.png" alt="example"></li>
-</ol>
-</li>
-</ul>
-<h2 id="第六章-数组"><a href="#第六章-数组" class="headerlink" title="第六章 数组"></a>第六章 数组</h2><ul>
-<li>js中没有数组，但是js有一些类数组也行的对象</li>
-</ul>
-<h4 id="长度"><a href="#长度" class="headerlink" title="长度"></a>长度</h4><ul>
-<li>js中的数组的length是没有上届的，若用大于当前数组长度的下标去存储，那么当前数组会自动拓展到那个长度<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4></li>
-<li>使用delete删除之后会在原来的位置保留一个空洞 [1, empty, 1, 1, 1]</li>
-<li>使用splice对数组进行删除，但是这对于大型数组的效率不高<h4 id="容易混淆的地方"><a href="#容易混淆的地方" class="headerlink" title="容易混淆的地方"></a>容易混淆的地方</h4></li>
-<li>js中对于数组和对象的区分并不严格，当属性名是小而连续的时候，应该使用数组，否则，使用对象。</li>
-<li>typeof 数组，结果是‘object’，所以需要自己实现对于当前对象是否是数组的判断</li>
-<li>使用arr.totle=function(){}是可以的而且不会改变arr的length</li>
-<li>使用Object.create()方法对数组是没用的，因为复制出来的对象而不是数组</li>
-</ul>
-<h2 id="第七章-正则表达式（本章基本跳过，没有深入学习）"><a href="#第七章-正则表达式（本章基本跳过，没有深入学习）" class="headerlink" title="第七章 正则表达式（本章基本跳过，没有深入学习）"></a>第七章 正则表达式（本章基本跳过，没有深入学习）</h2><ul>
-<li>可处理正则的几个表达式regexp.exec,regexp.test,string.atch,string.replace,string.search和string.split</li>
-</ul>
-<ul>
-<li>正则表达式的标识<ol>
-<li>g 全局匹配，不通的方法对g标识的处理不太一样，regExp的exec方法和test方法，不建议使用test方法，再比如string的search和match方法，search方法会忽略g</li>
-<li>i 大小写不敏感</li>
-<li>m 多行（^和$匹配行结束符）</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li>分支，使用|表示分支，会按顺序进行匹配，只要匹配一个就表示匹配成功</li>
-</ul>
-<h2 id="第八章-方法"><a href="#第八章-方法" class="headerlink" title="第八章 方法"></a>第八章 方法</h2><h4 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h4><ul>
-<li>array.concat(item…),产生一个新数组，包含一份array的浅复制，后面的item会被依次添加</li>
-<li>join</li>
-<li>array.pop（）使得数组像堆栈一样工作，移除数组的最后一个元素并且返回，如果没有最后一个，那么返回undefined</li>
-<li>push 该方法会返回数组的length</li>
-<li>array.reverse（）反转数组并且返回</li>
-<li>array.shift()删除数组的第一个元素，并且返回该元素，如果为空，那么返回undefined，shift通常比pop慢得多（因为删除第一个并且要讲剩下的元素顺序前移）</li>
-<li>array.slice(start,end)字符串的截取，如果其中任何一个是负数的话，那么array.length会和他们相加，如果还是负数，那么返回一个新的空数组，注意个splice方法的区分，直接写一个负数表示取到最后几位</li>
-<li>array.sort()数组的排序，但是因为排序之前会先转换成字符串，所以不能正确的对数字数组进行排序，当然，你可以自己重写排序方法内的逻辑<br><img src="http://otdc3q7z7.bkt.clouddn.com/30A9A8B5-65C3-4045-9637-4441E370D388.png" alt="自带排序和自己重写排序的对比"><br><img src="http://otdc3q7z7.bkt.clouddn.com/D9317FA1-EC2E-4E77-B9C1-B27FD1200132.png" alt="运行结果"></li>
-<li>对象的比较见书P80</li>
-<li>splice(start,count,item….)删除之后，item会替换原来删除位置的元素</li>
-<li>array.unshift(item…)插入元素到数组的开头，并且返回length<h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4></li>
-<li>chartAt(pos)返回pos处的字符，如果没有，返回空</li>
-<li>charCodeAT</li>
-<li>concat</li>
-<li>indexOf</li>
-<li>lastindexOf</li>
-<li>localeCompare(that)类似array.sort，比较两个字符串，小于为-1，等于为0，大于为1</li>
-<li>match（regexp）根据正则表达式进行匹配，根据g表示决定如何匹配</li>
-<li>replace</li>
-<li>replaceAll</li>
-<li>search(regexp)类似indexof，只是接受的是一个正则表达式</li>
-<li>slice（start,end）复制字符串从start到end-1位置的字符，和array.slice类似，没有则返回一个新的空字符串</li>
-<li>split(separator，limit)根据separator对string进行分组，limit是可选参数，表示分组的限制</li>
-<li>substring（start,end）和slice一样，但是不能支持负数，所以建议使用slice，不建议使用substring</li>
-<li>toLocalLowerCase（）用本地规则吧string中的字母转换成小写，主要是用于土耳其语‘I’转换为‘1’</li>
-<li>toLocalUpperCase()用本地规则吧string中的字母转换成大写，主要是用于土耳其语‘i’转换为向量I</li>
-<li>toLowerCase（）转为小写</li>
-<li>toUpperCase（）转为大写</li>
-<li>formChartCode(item….)将一串数字编码（Ascii）返回为一个字符串</li>
-</ul>
-<p>##代码风格（代码不光是给计算机运行的，也是给人看的）</p>
-<ul>
-<li>if while 这样的结构化语句中，要始终使用代码块，很有可能if(a)b;变成了if(a)b;c;一对花括号可以用低廉的成本去防止可能出现的BUG</li>
-<li>使用K&amp;R风格，吧{放在一行的结尾而不是下一行的开头，这样可以避免js return语句的一个可怕的设计错误</li>
-</ul>
-<ul>
-<li>K&amp;R风格<ol>
-<li>在合适的位置换行（比如在一个超长的表达式中，在两个表达式之间断开）</li>
-<li>在二元运算符的位置换行也是可行的</li>
-<li>当参数较多或者参数较长时，多行往往比一行更加直观醒目</li>
-<li>{}写紧凑，{在一行的末尾，}也是</li>
-<li>多个不同意义但是相同类型的变量最好分开定义和注释</li>
-<li>代码不要过于拥挤，注意添加空行</li>
-<li>弹幕运算符一般不需要空格</li>
-<li>双目，三目运算符的操作数之间要加上运算符</li>
-<li>代码要保持好缩进，保证可读性</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li>避免那些看起来可能有错误的语法（变量提升，if(a=b)等等）</li>
-<li>减少对于全局变量的使用，随着程序的日益复杂，全局变量的问题会逐渐变得问题重重</li>
-</ul>
-<p>##js中的毒瘤</p>
-<h4 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h4><ul>
-<li>全局变量<ol>
-<li>js中的全局变量是所有程序都可以随时访问和修改的，这是一个很大的问题，也很容易产生BUG</li>
-<li>当两个程序中的全局变量产生了冲突时，会产生BUG，而且这样的问题很难被发现</li>
-<li>js中所有的全局变量在编译后都将载入一个公共的全局变量中</li>
-<li>定义全局变量的三种方法 var foo = value; window.foo = value; foo = value<br>####作用域</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li>虽然js是类C语言，但是没有块级作用域，也就是说，在{}外可以访问到{}内定义的变量，但是在es6中let，const可以有效避免这样的问题<br>####（使用模块设计可以有效避免上面的两个问题，减少全局变量的污染和作用域的问题，同时还能提供私有变量）<br>####自动插入分号<br>js中存在自动补全分号的机制，但是别指望他能干什么好事，很多情况下都是产生难以检查的BUG</li>
-</ul>
-<p>####保留字<br>当用保留字进行变量的定义时，需要使用引号</p>
-<p>####typeof<br>    typeof null //object<br>    typeof value  //value为数组,结果为object</p>
-<p>####parseInt<br>parseint将字符串转为int，但是遇到非数字时就会停止，且当为0开头时自动转换为8进制所以当使用这个函数时，最好手动指定转换的进制parseInt(value,10)</p>
-<h4 id=""><a href="#" class="headerlink" title="+"></a>+</h4><p>+号会自动对两个操作数进行类型转换，所以当进行+操作时，请确保两个操作数都是数字</p>
-<p>####NaN<br>坑</p>
-<pre><code>NaN === NaN //false
-NaN !== NaN //true
-</code></pre><ul>
-<li>使用isNaN函数对数字与NaN进行辨别</li>
-<li>使用isFinite函数对是否是数字进行判定，但是它会自动将运算数转为数字</li>
-<li><p>自定义isNumer函数</p>
-<pre><code>var isNumber = function(value){
-    return typeof value === &apos;number&apos; &amp;&amp; isFinite(value)
-}
-</code></pre></li>
-</ul>
-<h4 id="伪数组"><a href="#伪数组" class="headerlink" title="伪数组"></a>伪数组</h4><ul>
-<li><p>要检测一个对象是否是数组，使用typeof是不够的还需要检查他的constructor属性</p>
-<pre><code>//最保险的做法
-if(Object.prototype.toString.apply(my_value) === &apos;[object Array]&apos;）{
-    //my_value确实是一个数组
-}
-</code></pre></li>
-<li>函数自带的arguments参数不是一个数组对象，只是一个有着length成员属性的对象</li>
-</ul>
-<p>####假值</p>
-<ul>
-<li>js中的假值<ol>
-<li>0</li>
-<li>NaN</li>
-<li>‘’</li>
-<li>false</li>
-<li>null</li>
-<li>undefined</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li>undefined 和 null并不是常亮，但他们是全局变量（在es5中明确规定为全局变量），在主流的浏览器中都无法改变他们的值，但是ie8及以下可以</li>
-</ul>
-<p>####hasOwnProperty<br>不要替换hasOwnProperty的值</p>
-<p>####对象</p>
-<p>js中因为原型的存在，所有永远不会有空对象，所以在某些情况下判断属性的时候需要注意</p>
-<p>##附录B 糟粕</p>
-<p>####==<br>避免使用==，他会自动对比较的两遍进行转换，比对出很对莫名其妙的结果，这会让你的程序变的有些不可控</p>
-<p>####with<br>和==一样，他会产生一些不可控的结果，所以避免使用</p>
-<p>####eval<br>传递一个字符串给JS编辑器，并执行其结果，使用它会让代码变的难以阅读，因为它需要运行编译器，而且会让jsLint失效，并且会减弱程序的安全性，因为它给了被求值的文本太多的权利，而且还降低了语言的性能，在setTimmeout和setInterval函数中，若传递的是字符串是，会像eval一样去处理，同样也要避免这样的参数传入</p>
-<p>####continue<br>经过测试，代码重构之后，将continue去除，都会使代码的性能得到改善</p>
-<p>####缺少块语句<br>在if while for语句中，尽管只有一行逻辑，也要把{}加上，防止逻辑出错</p>
-<p>####++ –<br>这两种运算符鼓励了一种不够严谨的代码风格，大多数缓冲区溢出错误所造成的安全漏洞都是这样导致的<br>在实践中，使用++和–时，往往会导致代码过于拥挤，复杂和隐晦，这样会让代码变的难以阅读和理解，所以，可以尽量避免使用他们</p>
-<p>####位运算符<br>大多数语言中，位运算符接近于硬件处理，所以非常快，但是js中很少接触到硬件，由于js中没有整数类型，所以位运算符会先转换成整数进行运算再转换回去，而且由于js接触不到硬件，所以位运算符非常慢</p>
-<p>####function语句和function表达式<br>语句 function test(){}  表达式 var foo = function foo(){}</p>
-<p>function语句在解析时会发生被提升的情况,会被移动到定义时所在的作用域的顶层。这样可能会导致混乱</p>
-<p>一个语句不能以一个函数开头，包裹在（）之中就可以了（function()）</p>
-<p>####类型包装对象</p>
-<p>new Boolean(false)会返回一个对象，该对象的valueOf方法会返回包装对象的值，这完全没有必要，包括其他基本类型的new也应该避免</p>
-<h4 id="new"><a href="#new" class="headerlink" title="new"></a>new</h4><p>如果应该是用new初始化而没有的话，那么就是声明一个普通的对象，而且对象中的this就会绑定到全局变量，这样会污染全局变量</p>
-<p>一般使用大写开头来区分构造器函数，但是最好避免使用new来引发混乱</p>
-<p>####void<br>void在js中是一个运算符，接受一个运算数并且返回undefined，这并没有什么用，但会令人困惑</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">一本需要反复阅读的js书籍</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/28/js语言精粹/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-前端知识点小计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/27/前端知识点小计/">前端知识点小计</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/27/前端知识点小计/" class="archive-article-date">
-  	<time datetime="2017-11-27T11:45:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#####HTML5新特性</p>
-<ul>
-<li>用于绘画的canvas元素</li>
-<li>基于SVG、Canvas、WebGL以及CSS的3D功能</li>
-<li>用于媒介回访的video和audio元素</li>
-<li>两个storage，更好的本地存储</li>
-<li>新的特殊内容元素&lt;header&gt;、&lt;nav&gt;、&lt;footer&gt;等等，对于搜索引擎的搜索有一定的好处</li>
-<li>新的表单控件 date、time、email等等给</li>
-<li>本地存储，indexDB</li>
-<li>设备可访问性(DEVICEACCESS),包括地理位置API（获取用户的地理位置，需要权限申请，电脑上可能会获取不到），媒体访问API（麦克风和摄像头），访问联系人及事件（尚未纳入标准），设备方向（重力感应和摇一摇）</li>
-</ul>
-<p>#####HTML5语义化</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/27/前端知识点小计/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1525,6 +1458,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax知识点整理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">css相关</a>
               </li>
              
@@ -1533,11 +1470,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
+                <a href="javascript:void(0)" class="js-tag color4">js设计模式小计</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">一本需要反复阅读的js书籍</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">常见面试题记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1573,11 +1518,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">浏览器中各种距离的计算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">看vue.js一书所得</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">总的来说，这本书有点脱节了，内容有些老旧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端知识点沉淀</a>
               </li>
             
             <div class="clearfix"></div>
