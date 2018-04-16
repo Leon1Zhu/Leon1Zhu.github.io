@@ -171,7 +171,68 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <ul>
+<li>js文件和代码位置尽量放在页面最后</li>
+<li>减少全局变量，多用字面量和局部变量</li>
+<li>闭包中经常访问跨作用域对象建议保存在局部变量中</li>
+<li>innerHTML一般优于document.creatElement(),特别是在老浏览器</li>
+<li>尽量减少使用获取HTML元素集合的方法</li>
+<li>在老版本浏览器中，使用nextsibling比childNodes（也是HTML元素集合）查找元素快</li>
+<li>使用新的queryselectAll获取的是数组元素，不是HTML元素集合所以性能消耗会比较少</li>
+<li>使用获取DOM位置信息的属性或者使用getComputedStyled方法获取计算属性都会触发回流，导致页面的重新计算与排版</li>
+<li>多次css属性的修改最好使用cssText或者class属性来修改</li>
+<li>DOM的批量修改应当先让元素脱离文档流，在修改，再将元素带回文档流</li>
+</ul>
+<h4 id="js文件位置相关"><a href="#js文件位置相关" class="headerlink" title="js文件位置相关"></a>js文件位置相关</h4><ul>
+<li>由于js的单线程限制，所以尽量将js文件和代码放在body标签之后，避免由于加载执行js代码造成的浏览器假死</li>
+</ul>
+<h4 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h4><ul>
+<li>尽量使用字面量和局部变量，相对于数组和对象属性访问，前者更快</li>
+</ul>
+<ul>
+<li>函数作用域相关<ul>
+<li>当一个函数被创建时，就会创建一个该函数的执行环境，每个执行环境都有自己的作用域链</li>
+<li>每个作用域链中初始化当前运行函数的[[scope]]属性中对象，其中的值按照他们在函数中出现的顺序</li>
+<li>当以上过程完成是，一个活动对象就创建完成，包含函数运行的所有变量、参数等变量</li>
+<li>当函数执行完毕时，执行环境和活动对象都会销毁</li>
+<li>也就不难解释循环打印变量为什么是最后一次的值，因为标志位是对象属性，为引用对象，会随着改变而改变</li>
+<li>所以全局变量在最顶端的作用域链，查找比较耗时</li>
+<li>因此当在函数内部需要多次使用全局变量时，请将这个全局变量存储在局部变量里</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">initUI</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> bd = docuemnt.body,</div><div class="line">	links = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"a"</span>),</div><div class="line">	i=<span class="number">0</span>,</div><div class="line">	len = links.length;</div><div class="line">	<span class="built_in">document</span>.getElementById(<span class="string">'go-btn'</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">  </div><div class="line">  这段代码就用了三次<span class="built_in">document</span>，因为是全局变量搜索过程相对于局部变量就更加耗时，所以应当将<span class="built_in">document</span>存储为函数的局部变量</div></pre></td></tr></table></figure>
+<ul>
+<li>闭包相关<ul>
+<li>闭包虽然方便，但是可能会导致函数的活动对象无法被回收，引发内存泄露相关问题，需要在使用之后手动置空</li>
+<li>早期的IE中，因为DOM不是js的原生对象，所以比较容易引发内存泄露的问题</li>
+</ul>
+</li>
+</ul>
+<h4 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h4><ul>
+<li>每一次通过js和DOM进行交互都会消耗性能</li>
+</ul>
+<ul>
+<li><p>DOM相关优化</p>
+<ul>
+<li>innerHTML一般优于document.creatElement(),特别是在老浏览器</li>
+<li>使用获取元素HTML集合的几个方法会消耗大量的性能，因为HTML与文档一直保持连接，会不断的刷新获取，每一次访问都是重新获取document.getelementbytagname  classname等获取元素集合的方法</li>
+<li>在老版本浏览器中，使用nextsibling比childNodes（也是HTML元素集合）查找元素快</li>
+<li>使用新的queryselectAll获取的是数组元素，不是HTML元素集合所以性能消耗会比较少</li>
+</ul>
+<ul>
+<li>重绘与回流</li>
+</ul>
+<ul>
+<li>两棵树 —— DOM树用来表示页面结构，渲染树用来表示DOM节点如何显示</li>
+<li>使用获取DOM位置信息的属性或者使用getComputedStyled方法获取计算属性都会触发回流，导致页面的重新计算与排版</li>
+<li>多次css属性的修改最好使用cssText或者class属性来修改</li>
+<li>DOM的批量修改应当先让元素脱离文档流，在修改，再将元素带回文档流</li>
+<li>对于会触发回流的属性应当进行缓存，不要重新获取</li>
+</ul>
+</li>
+</ul>
+
       
 
       
@@ -184,7 +245,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">高性能javascript阅读笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高性能javascript一书阅读笔记</a>
         		</li>
       		
 		</ul>
@@ -1378,11 +1439,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vuepress学习小计</a>
+                <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">vuepress学习小计</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1394,11 +1455,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">重绘与回流相关</a>
+                <a href="javascript:void(0)" class="js-tag color4">css和js部分的优化相关</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css和js部分的优化相关</a>
+                <a href="javascript:void(0)" class="js-tag color3">重绘与回流相关</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1426,15 +1487,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">高性能javascript阅读笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">看vue.js一书所得</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">总的来说，这本书有点脱节了，内容有些老旧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">高性能javascript阅读笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高性能javascript一书阅读笔记</a>
               </li>
             
             <div class="clearfix"></div>
