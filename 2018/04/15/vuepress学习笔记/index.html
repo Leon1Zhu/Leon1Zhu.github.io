@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="朱亮的博客">
 <meta property="og:description" content="vuepress是尤大大4月12日发布的一个全新的基于vue的静态网站生成器，实际上就是一个vue的spa应用，内置webpack，可以用来写文档。恰好最近需要为一些组件写文档，就动手撸了一波，毕竟刚发布，遇到不少坑，最终还是磕磕碰碰的运行起来了，为了避免大家踩同样的坑，特意将搭建的过程记录下来，分享一波。以下是几个已知的问题 因为util.promisify是在node 8.0之后引入的，所以如">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-17T02:58:00.868Z">
+<meta property="og:updated_time" content="2018-04-19T04:00:12.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vuepress学习笔记">
 <meta name="twitter:description" content="vuepress是尤大大4月12日发布的一个全新的基于vue的静态网站生成器，实际上就是一个vue的spa应用，内置webpack，可以用来写文档。恰好最近需要为一些组件写文档，就动手撸了一波，毕竟刚发布，遇到不少坑，最终还是磕磕碰碰的运行起来了，为了避免大家踩同样的坑，特意将搭建的过程记录下来，分享一波。以下是几个已知的问题 因为util.promisify是在node 8.0之后引入的，所以如">
@@ -174,7 +174,7 @@
         <h3 id="vuepress是尤大大4月12日发布的一个全新的基于vue的静态网站生成器，实际上就是一个vue的spa应用，内置webpack，可以用来写文档。恰好最近需要为一些组件写文档，就动手撸了一波，毕竟刚发布，遇到不少坑，最终还是磕磕碰碰的运行起来了，为了避免大家踩同样的坑，特意将搭建的过程记录下来，分享一波。"><a href="#vuepress是尤大大4月12日发布的一个全新的基于vue的静态网站生成器，实际上就是一个vue的spa应用，内置webpack，可以用来写文档。恰好最近需要为一些组件写文档，就动手撸了一波，毕竟刚发布，遇到不少坑，最终还是磕磕碰碰的运行起来了，为了避免大家踩同样的坑，特意将搭建的过程记录下来，分享一波。" class="headerlink" title="vuepress是尤大大4月12日发布的一个全新的基于vue的静态网站生成器，实际上就是一个vue的spa应用，内置webpack，可以用来写文档。恰好最近需要为一些组件写文档，就动手撸了一波，毕竟刚发布，遇到不少坑，最终还是磕磕碰碰的运行起来了，为了避免大家踩同样的坑，特意将搭建的过程记录下来，分享一波。"></a>vuepress是尤大大4月12日发布的一个全新的基于vue的静态网站生成器，实际上就是一个vue的spa应用，内置webpack，可以用来写文档。恰好最近需要为一些组件写文档，就动手撸了一波，毕竟刚发布，遇到不少坑，最终还是磕磕碰碰的运行起来了，为了避免大家踩同样的坑，特意将搭建的过程记录下来，分享一波。</h3><h5 id="以下是几个已知的问题"><a href="#以下是几个已知的问题" class="headerlink" title="以下是几个已知的问题"></a>以下是几个已知的问题</h5><ul>
 <li><p>因为util.promisify是在node 8.0之后引入的，所以如果你不想像我一样浪费三个小时的时间，请<a href="https://www.cnblogs.com/ae6623/p/6242423.html" target="_blank" rel="external">查看并且更新node版本</a></p>
 </li>
-<li><p>注意不要使用webpack-simple的模板进行试验，否则会各种运行不起来╮(╯▽╰)╭</p>
+<li><p>建议不要使用webpack-simple的模板进行试验，否则会各种运行不起来╮(╯▽╰)╭</p>
 </li>
 <li><p>使用cli的模板如果报错TypeError: Cannot read property ‘vue’ of undefined 是因为vuepress内置的webpack的vueloader使用的版本和你本地的不一样，请将本地的版本更新到稳定最新版本</p>
 </li>
@@ -182,13 +182,15 @@
 </li>
 <li><p>如遇到端口冲突等问题，在docs目录下新建.vuepress文件夹，然后新建config配置文件对prot端口项进行配置即可，具体可参照<a href="https://vuepress.docschina.org/config/" target="_blank" rel="external">官方文档</a></p>
 </li>
+<li><p>全局安装之后项目中再安装的话依赖会冲突，引发Module build failed: CssSyntaxError ，建议写在全局的vuepress</p>
+</li>
 </ul>
-<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><h4 id="使用cli新建一个webpack模板项目"><a href="#使用cli新建一个webpack模板项目" class="headerlink" title="使用cli新建一个webpack模板项目"></a><a href="https://cn.vuejs.org/v2/guide/installation.html" target="_blank" rel="external">使用cli新建一个webpack模板项目</a></h4><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">   //进入项目首先安装依赖</div><div class="line">   npm install</div><div class="line">   </div><div class="line">   //将vue-loader进行版本替换，使其和vuepress内置的webpack里的vue-loader保持一致，否则会报错（不过尤大大已经在解决版本冲突的问题了，版本待发）</div><div class="line">   npm update vue-loader@15.0.0-rc.2 --save-dev</div><div class="line">   </div><div class="line">   //接下来安装vuepress</div><div class="line">npm install -D vuepress</div><div class="line"></div><div class="line">mkdir docs</div><div class="line"></div><div class="line">echo &quot;# Hello VuePress!&quot; &gt; docs/README.md</div><div class="line"></div><div class="line">//最后一步启动vuepress ，进入docs目录，使用vuepress dev命令即可</div><div class="line"></div><div class="line">cd docs</div><div class="line"></div><div class="line">vuepress dev</div><div class="line"></div><div class="line">//使用vuepress build即可完成对项目的打包</div><div class="line"></div><div class="line">//接下来就是按照官方的文档，对你的网站进行各种创造啦</div></pre></td></tr></table></figure>
+<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><h4 id="使用cli新建一个webpack模板项目"><a href="#使用cli新建一个webpack模板项目" class="headerlink" title="使用cli新建一个webpack模板项目"></a><a href="https://cn.vuejs.org/v2/guide/installation.html" target="_blank" rel="external">使用cli新建一个webpack模板项目</a></h4><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">   //进入项目首先安装依赖</div><div class="line">   npm install</div><div class="line">   </div><div class="line">   //将vue-loader进行版本替换，使其和vuepress内置的webpack里的vue-loader保持一致，否则会报错（不过尤大大已经在解决版本冲突的问题了，版本待发）</div><div class="line">   npm install vue-loader@15.0.0-rc.2 --save-dev</div><div class="line">   </div><div class="line">   //接下来安装vuepress</div><div class="line">npm install -D vuepress</div><div class="line"></div><div class="line">mkdir docs</div><div class="line"></div><div class="line">echo &quot;# Hello VuePress&quot; &gt; docs/README.md</div><div class="line"></div><div class="line">//最后一步启动vuepress</div><div class="line">npx vuepress dev docs</div><div class="line"></div><div class="line">//使用vuepress build即可完成对项目的打包</div><div class="line"></div><div class="line">//接下来就是按照官方的文档，对你的网站进行各种创造啦</div></pre></td></tr></table></figure>
 <p>项目部署的话我使用的是github，具体操作请参照<a href="https://vuepress.docschina.org/guide/deploy.html" target="_blank" rel="external">官方文档</a></p>
 <p><a href="https://zhuliangt.github.io/v-alien-upload/" target="_blank" rel="external">示例网站</a></p>
 <p><a href="https://github.com/ZhuLiangT/testVuePress" target="_blank" rel="external">github地址</a></p>
 <p>剩下的主题配置参照<a href="https://vuepress.docschina.org/default-theme-config/" target="_blank" rel="external">官方文档</a>的配置详解就OK了，这里就不在赘述</p>
-
+<h2 id="2-实战开发"><a href="#2-实战开发" class="headerlink" title="2.实战开发"></a>2.实战开发</h2>
       
 
       
@@ -309,7 +311,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vuepress是尤大大4月12日发布的一个全新的基于vue的静态网站生成器，实际上就是一个vue的spa应用，内置webpack，可以用来写文档。恰好最近需要为一些组件写文档，就动手撸了一波，毕竟刚发布，遇到不少坑，最终还是磕磕碰碰的运行起来了，为了避免大家踩同样的坑，特意将搭建的过程记录下来，分享一波。"><span class="toc-number">1.</span> <span class="toc-text">vuepress是尤大大4月12日发布的一个全新的基于vue的静态网站生成器，实际上就是一个vue的spa应用，内置webpack，可以用来写文档。恰好最近需要为一些组件写文档，就动手撸了一波，毕竟刚发布，遇到不少坑，最终还是磕磕碰碰的运行起来了，为了避免大家踩同样的坑，特意将搭建的过程记录下来，分享一波。</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#以下是几个已知的问题"><span class="toc-number">1.0.1.</span> <span class="toc-text">以下是几个已知的问题</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始使用"><span class="toc-number"></span> <span class="toc-text">开始使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用cli新建一个webpack模板项目"><span class="toc-number">0.1.</span> <span class="toc-text">使用cli新建一个webpack模板项目</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vuepress是尤大大4月12日发布的一个全新的基于vue的静态网站生成器，实际上就是一个vue的spa应用，内置webpack，可以用来写文档。恰好最近需要为一些组件写文档，就动手撸了一波，毕竟刚发布，遇到不少坑，最终还是磕磕碰碰的运行起来了，为了避免大家踩同样的坑，特意将搭建的过程记录下来，分享一波。"><span class="toc-number">1.</span> <span class="toc-text">vuepress是尤大大4月12日发布的一个全新的基于vue的静态网站生成器，实际上就是一个vue的spa应用，内置webpack，可以用来写文档。恰好最近需要为一些组件写文档，就动手撸了一波，毕竟刚发布，遇到不少坑，最终还是磕磕碰碰的运行起来了，为了避免大家踩同样的坑，特意将搭建的过程记录下来，分享一波。</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#以下是几个已知的问题"><span class="toc-number">1.0.1.</span> <span class="toc-text">以下是几个已知的问题</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始使用"><span class="toc-number"></span> <span class="toc-text">开始使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用cli新建一个webpack模板项目"><span class="toc-number">0.1.</span> <span class="toc-text">使用cli新建一个webpack模板项目</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-实战开发"><span class="toc-number"></span> <span class="toc-text">2.实战开发</span></a>
                     </div>
                 </span>
             </div>
@@ -467,11 +469,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">css相关</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax知识点整理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax知识点整理</a>
+                <a href="javascript:void(0)" class="js-tag color1">css相关</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -487,11 +489,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">vuepress学习小计</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vuepress学习小计</a>
+                <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -503,10 +505,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">重绘与回流相关</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css和js部分的优化相关</a>
               </li>
              
@@ -515,11 +513,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">service worker实战</a>
+                <a href="javascript:void(0)" class="js-tag color3">重绘与回流相关</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">服务端性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">service worker实战</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,11 +541,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">总的来说，这本书有点脱节了，内容有些老旧</a>
+                <a href="javascript:void(0)" class="js-tag color5">高性能javascript一书阅读笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高性能javascript一书阅读笔记</a>
+                <a href="javascript:void(0)" class="js-tag color1">总的来说，这本书有点脱节了，内容有些老旧</a>
               </li>
             
             <div class="clearfix"></div>
