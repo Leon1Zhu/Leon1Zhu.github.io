@@ -232,7 +232,64 @@
 </ul>
 </li>
 </ul>
-
+<h4 id="算法和流程控制控制"><a href="#算法和流程控制控制" class="headerlink" title="算法和流程控制控制"></a>算法和流程控制控制</h4><ul>
+<li>相对于for，while。for…in循环会慢一些</li>
+<li>当循环复杂度为O（n）时，每次减少迭代的工作量是最有效的，当循环复杂度大于O（n）时，减少迭代的次数是最有效的。</li>
+<li>当循环次数较多时，可以使用<a href="https://www.cnblogs.com/xkfz007/archive/2012/03/27/2420163.html" target="_blank" rel="external">达夫设备（Duff’s Device）</a>来减少循环次数</li>
+</ul>
+<ul>
+<li>条件循环<ul>
+<li>将最有可能出现的条件放在最前面</li>
+<li>嵌套if减少判断（类似二分法）</li>
+<li>是永恒查找表（数组查找）的方法快过switch和if-else</li>
+</ul>
+<ul>
+<li>递归</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>递归次数过多会导致栈溢出</li>
+<li>可以将递归的结果进行缓存，从而避免计算资源的浪费</li>
+</ul>
+<h4 id="字符串和正则表达式"><a href="#字符串和正则表达式" class="headerlink" title="字符串和正则表达式"></a>字符串和正则表达式</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">str = <span class="string">'one'</span> +<span class="string">'two'</span>;<span class="comment">//这样拼接字符串会产生一个中间变量</span></div><div class="line">str = one;str += <span class="string">'two'</span>;<span class="comment">//这样拼接字符串则不会产生中间变量，有利于性能的提升</span></div></pre></td></tr></table></figure>
+<ul>
+<li>正则表达式的核心，回溯法</li>
+</ul>
+<h4 id="快速响应的用户界面"><a href="#快速响应的用户界面" class="headerlink" title="快速响应的用户界面"></a>快速响应的用户界面</h4><ul>
+<li>浏览器限制了js的执行时间，一种是限制大小，一种是限制执行时间。</li>
+<li>一般来说单个js的执行时间最好不要超过100ms，否则用户会认为等待的时间太久与页面失去联系</li>
+</ul>
+<ul>
+<li>定时器<ul>
+<li>使用定时器会刷新所有的浏览器限制，这也是setTimeout，0的意义。</li>
+<li>js定时器的延时通常不太精准，通常会相差几毫秒，所以定时器不能用于精准的定时。</li>
+<li>建议延迟最好有25ms,因为相对于大多数的UI来说，低于25ms渲染的时间不够用。</li>
+<li>在程序中应当限制高频率重复定时器的数量。</li>
+</ul>
+</li>
+<li>web workers(WW)<ul>
+<li>WW能使代码运行且不占用浏览器UI线程时间。能给web带来巨大的性能提升。</li>
+<li>因为WW不能访问UI线程，所有WW是JS的一个子集。</li>
+<li>与WW通信主要是通过PostMessage对象。</li>
+<li>使用importScripts来加载对应的js文件时是阻塞式的，直到所有的文件加载完成之后才会进行下面的动作。</li>
+<li>对于一些复杂的和UI线程无关的操作数据的方法可以考虑使用WW来提升效率。</li>
+</ul>
+</li>
+<li>web workers环境组成<ul>
+<li>navigator 包含四个属性： appName、appVersion、userAgent、platform。</li>
+<li>location,与window.location相同，只不过所有的属性都是只读的。</li>
+<li>self对象，指向全局worker对象</li>
+<li>importScripts()方法，用来加载Worker所有用到的外部的JavaScript文件</li>
+<li>所有的ES对象，如：Object、Array等等</li>
+<li>XMLHtppRequest构造器</li>
+<li>setTimeout和setInterval方法</li>
+<li>close()方法，它能立刻停止Worker的运行</li>
+</ul>
+</li>
+</ul>
+<p>因为WW有着完全不同的全局运行环境，所以无法在js中创建它，需要创建一个完全独立的js文件用来读取和执行对应的WW。而此文件一旦执行，就会创建一个新的线程和新的WW运行环境，该2文件会被异步下载，直达文件下载并执行完成之后才会启动此WW。</p>
+<h4 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h4>
       
 
       
@@ -1442,11 +1499,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">css相关</a>
+                <a href="javascript:void(0)" class="js-tag color4">html相关强化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">html相关强化</a>
+                <a href="javascript:void(0)" class="js-tag color1">css相关</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1458,11 +1515,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vuepress学习小计</a>
+                <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nuxt学习笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">vuepress学习小计</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1470,23 +1527,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片相关</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css和js部分的优化相关</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器存储和缓存</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">重绘与回流相关</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">服务端性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1494,11 +1535,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">代码编写过程中的沉淀</a>
+                <a href="javascript:void(0)" class="js-tag color4">浏览器存储和缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图片相关</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">重绘与回流相关</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端知识点沉淀</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">代码编写过程中的沉淀</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">服务端性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
