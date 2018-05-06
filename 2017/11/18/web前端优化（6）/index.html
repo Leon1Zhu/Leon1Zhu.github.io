@@ -16,6 +16,15 @@
 <meta name="theme-color" content="#222">
 
 
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/946688f7.js","daovoice")
+daovoice('init', {
+  app_id: "946688f7"
+});
+daovoice('update');
+</script>
+
+
+
 
 
 
@@ -55,16 +64,16 @@
 <link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.2.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.2.0" color="#222">
 
 
 
@@ -102,12 +111,14 @@
 
 
 
+
+
   <meta name="description" content="service worker实战 service worker可以做的事 后台消息传递 网络代理，转发请求，伪造响应 离线缓存 消息推送 ……     注册当前的service worker if(navigator.serviceWorker){       navigator.serviceWorker.register(&amp;apos;./service-worker.js&amp;apos;,{sco">
 <meta name="keywords" content="service worker实战">
 <meta property="og:type" content="article">
 <meta property="og:title" content="web前端优化（6）">
 <meta property="og:url" content="http://yoursite.com/2017/11/18/web前端优化（6）/index.html">
-<meta property="og:site_name" content="Leon Zhu的博客">
+<meta property="og:site_name" content="朱亮的博客">
 <meta property="og:description" content="service worker实战 service worker可以做的事 后台消息传递 网络代理，转发请求，伪造响应 离线缓存 消息推送 ……     注册当前的service worker if(navigator.serviceWorker){       navigator.serviceWorker.register(&amp;apos;./service-worker.js&amp;apos;,{sco">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/E0F3B907-EE45-44CA-A140-9B4BDA100ACE.png">
@@ -133,7 +144,7 @@
   };
 </script>
 
-  <title>web前端优化（6） | Leon Zhu的博客</title>
+  <title>web前端优化（6） | 朱亮的博客</title>
   
 
 
@@ -191,7 +202,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Leon Zhu的博客</span>
+        <span class="site-title">朱亮的博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -322,7 +333,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leon Zhu的博客">
+      <meta itemprop="name" content="朱亮的博客">
     </span>
 
     
@@ -386,6 +397,14 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
 
           
@@ -490,11 +509,13 @@ self.addEventListener(&quot;fetch&quot;, function(event){
 
     
 
+    
+
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/service-worker实战/" rel="tag"># service worker实战</a>
+            <a href="/tags/service-worker实战/" rel="tag"><i class="fa fa-tag"></I> service worker实战</a>
           
         </div>
       
@@ -546,6 +567,11 @@ self.addEventListener(&quot;fetch&quot;, function(event){
           
 
   
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjMwMC8xMjgzNQ=="></div>
+    </div>
+
+  
 
 
 
@@ -583,7 +609,7 @@ self.addEventListener(&quot;fetch&quot;, function(event){
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">朱亮</p>
-              <p class="site-description motion-element" itemprop="description">Leon Zhu’s blog | java | vue | jhipster</p>
+              <p class="site-description motion-element" itemprop="description">Leon Zhu’s blog | 爱前端 | 爱生活</p>
           </div>
 
           
@@ -725,11 +751,14 @@ self.addEventListener(&quot;fetch&quot;, function(event){
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">朱亮</span>
+
+
 
   
 
@@ -743,7 +772,27 @@ self.addEventListener(&quot;fetch&quot;, function(event){
 
 
 
+
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      用户总数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+|
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      访问总数<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 
@@ -864,6 +913,17 @@ self.addEventListener(&quot;fetch&quot;, function(event){
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

@@ -16,6 +16,15 @@
 <meta name="theme-color" content="#222">
 
 
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/946688f7.js","daovoice")
+daovoice('init', {
+  app_id: "946688f7"
+});
+daovoice('update');
+</script>
+
+
+
 
 
 
@@ -55,16 +64,16 @@
 <link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.2.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.2.0" color="#222">
 
 
 
@@ -102,12 +111,14 @@
 
 
 
+
+
   <meta name="description" content="vuepress是尤大大4月12日发布的一个全新的基于vue的静态网站生成器，实际上就是一个vue的spa应用，内置webpack，可以用来写文档。恰好最近需要为一些组件写文档，就动手撸了一波，毕竟刚发布，遇到不少坑，最终还是磕磕碰碰的运行起来了，为了避免大家踩同样的坑，特意将搭建的过程记录下来，分享一波。以下是几个已知的问题 因为util.promisify是在node 8.0之后引入的，所以如">
 <meta name="keywords" content="vuepress学习小计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vuepress学习笔记">
 <meta property="og:url" content="http://yoursite.com/2018/04/15/vuepress学习笔记/index.html">
-<meta property="og:site_name" content="Leon Zhu的博客">
+<meta property="og:site_name" content="朱亮的博客">
 <meta property="og:description" content="vuepress是尤大大4月12日发布的一个全新的基于vue的静态网站生成器，实际上就是一个vue的spa应用，内置webpack，可以用来写文档。恰好最近需要为一些组件写文档，就动手撸了一波，毕竟刚发布，遇到不少坑，最终还是磕磕碰碰的运行起来了，为了避免大家踩同样的坑，特意将搭建的过程记录下来，分享一波。以下是几个已知的问题 因为util.promisify是在node 8.0之后引入的，所以如">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-04-19T04:00:12.896Z">
@@ -130,7 +141,7 @@
   };
 </script>
 
-  <title>vuepress学习笔记 | Leon Zhu的博客</title>
+  <title>vuepress学习笔记 | 朱亮的博客</title>
   
 
 
@@ -188,7 +199,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Leon Zhu的博客</span>
+        <span class="site-title">朱亮的博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -319,7 +330,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leon Zhu的博客">
+      <meta itemprop="name" content="朱亮的博客">
     </span>
 
     
@@ -384,6 +395,14 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
 
@@ -437,11 +456,13 @@
 
     
 
+    
+
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/vuepress学习小计/" rel="tag"># vuepress学习小计</a>
+            <a href="/tags/vuepress学习小计/" rel="tag"><i class="fa fa-tag"></I> vuepress学习小计</a>
           
         </div>
       
@@ -493,6 +514,11 @@
           
 
   
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjMwMC8xMjgzNQ=="></div>
+    </div>
+
+  
 
 
 
@@ -530,7 +556,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">朱亮</p>
-              <p class="site-description motion-element" itemprop="description">Leon Zhu’s blog | java | vue | jhipster</p>
+              <p class="site-description motion-element" itemprop="description">Leon Zhu’s blog | 爱前端 | 爱生活</p>
           </div>
 
           
@@ -672,11 +698,14 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">朱亮</span>
+
+
 
   
 
@@ -690,7 +719,27 @@
 
 
 
+
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      用户总数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+|
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      访问总数<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 
@@ -811,6 +860,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

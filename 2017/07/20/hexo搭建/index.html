@@ -16,6 +16,15 @@
 <meta name="theme-color" content="#222">
 
 
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/946688f7.js","daovoice")
+daovoice('init', {
+  app_id: "946688f7"
+});
+daovoice('update');
+</script>
+
+
+
 
 
 
@@ -55,16 +64,16 @@
 <link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.2.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.2.0" color="#222">
 
 
 
@@ -102,11 +111,13 @@
 
 
 
+
+
   <meta name="description" content="一直纠结于要不要写博客，直到最近，手头上事情比较少，有些空闲时间来整理这个事情，花了一上午的时间了解了博客相关的信息，最终决定选用hexo+github来搭建自己的博客，整体过程还是比较顺利，但是过程中还是遇到了不少坑，觉得还是很有必要记录一下整个过程的。 1.环境准备安装Node 直接到Node.js官网现在最新版本，一路安装即可  安装git 这个网上的教程有很多，直接到官网下载安装并且设置下">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo搭建">
 <meta property="og:url" content="http://yoursite.com/2017/07/20/hexo搭建/index.html">
-<meta property="og:site_name" content="Leon Zhu的博客">
+<meta property="og:site_name" content="朱亮的博客">
 <meta property="og:description" content="一直纠结于要不要写博客，直到最近，手头上事情比较少，有些空闲时间来整理这个事情，花了一上午的时间了解了博客相关的信息，最终决定选用hexo+github来搭建自己的博客，整体过程还是比较顺利，但是过程中还是遇到了不少坑，觉得还是很有必要记录一下整个过程的。 1.环境准备安装Node 直接到Node.js官网现在最新版本，一路安装即可  安装git 这个网上的教程有很多，直接到官网下载安装并且设置下">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/BA408E6C-C356-4D7E-8EF7-D2B7873C9797.png">
@@ -131,7 +142,7 @@
   };
 </script>
 
-  <title>hexo搭建 | Leon Zhu的博客</title>
+  <title>hexo搭建 | 朱亮的博客</title>
   
 
 
@@ -189,7 +200,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Leon Zhu的博客</span>
+        <span class="site-title">朱亮的博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -320,7 +331,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leon Zhu的博客">
+      <meta itemprop="name" content="朱亮的博客">
     </span>
 
     
@@ -372,6 +383,14 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
 
           
@@ -445,6 +464,8 @@ git config --global user.name &quot;yourname&quot;
 
     
 
+    
+
     <footer class="post-footer">
       
 
@@ -495,6 +516,11 @@ git config --global user.name &quot;yourname&quot;
           
 
   
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjMwMC8xMjgzNQ=="></div>
+    </div>
+
+  
 
 
 
@@ -532,7 +558,7 @@ git config --global user.name &quot;yourname&quot;
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">朱亮</p>
-              <p class="site-description motion-element" itemprop="description">Leon Zhu’s blog | java | vue | jhipster</p>
+              <p class="site-description motion-element" itemprop="description">Leon Zhu’s blog | 爱前端 | 爱生活</p>
           </div>
 
           
@@ -674,11 +700,14 @@ git config --global user.name &quot;yourname&quot;
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">朱亮</span>
+
+
 
   
 
@@ -692,7 +721,27 @@ git config --global user.name &quot;yourname&quot;
 
 
 
+
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      用户总数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+|
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      访问总数<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 
@@ -813,6 +862,17 @@ git config --global user.name &quot;yourname&quot;
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

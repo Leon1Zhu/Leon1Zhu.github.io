@@ -16,6 +16,15 @@
 <meta name="theme-color" content="#222">
 
 
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/946688f7.js","daovoice")
+daovoice('init', {
+  app_id: "946688f7"
+});
+daovoice('update');
+</script>
+
+
+
 
 
 
@@ -55,16 +64,16 @@
 <link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.2.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.2.0" color="#222">
 
 
 
@@ -102,11 +111,13 @@
 
 
 
+
+
   <meta name="description" content="&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;对于前端开发的码农们，跨域问题一定不陌生，在我还是个新手时，就曾被跨域问题折磨的欲仙欲死。   &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;之前项目开发时，使用了CORS（跨域资源共享），虽然对低版本的IE兼容性有一定的限制，但是胜在方便，能轻松的解决跨域问题。今天突然想起这一茬，决定进行一个详细的记录。   &amp;emsp;&amp;emsp;&amp;ems">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈跨域问题">
 <meta property="og:url" content="http://yoursite.com/2017/09/26/spring的跨域/index.html">
-<meta property="og:site_name" content="Leon Zhu的博客">
+<meta property="og:site_name" content="朱亮的博客">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;对于前端开发的码农们，跨域问题一定不陌生，在我还是个新手时，就曾被跨域问题折磨的欲仙欲死。   &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;之前项目开发时，使用了CORS（跨域资源共享），虽然对低版本的IE兼容性有一定的限制，但是胜在方便，能轻松的解决跨域问题。今天突然想起这一茬，决定进行一个详细的记录。   &amp;emsp;&amp;emsp;&amp;ems">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/D2305456-6299-473D-A20B-FA310F682C57.png">
@@ -132,7 +143,7 @@
   };
 </script>
 
-  <title>浅谈跨域问题 | Leon Zhu的博客</title>
+  <title>浅谈跨域问题 | 朱亮的博客</title>
   
 
 
@@ -190,7 +201,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Leon Zhu的博客</span>
+        <span class="site-title">朱亮的博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -321,7 +332,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leon Zhu的博客">
+      <meta itemprop="name" content="朱亮的博客">
     </span>
 
     
@@ -385,6 +396,14 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
 
           
@@ -482,6 +501,8 @@ xhr.withCredentials = true;
 
     
 
+    
+
     <footer class="post-footer">
       
 
@@ -532,6 +553,11 @@ xhr.withCredentials = true;
           
 
   
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjMwMC8xMjgzNQ=="></div>
+    </div>
+
+  
 
 
 
@@ -569,7 +595,7 @@ xhr.withCredentials = true;
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">朱亮</p>
-              <p class="site-description motion-element" itemprop="description">Leon Zhu’s blog | java | vue | jhipster</p>
+              <p class="site-description motion-element" itemprop="description">Leon Zhu’s blog | 爱前端 | 爱生活</p>
           </div>
 
           
@@ -711,11 +737,14 @@ xhr.withCredentials = true;
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">朱亮</span>
+
+
 
   
 
@@ -729,7 +758,27 @@ xhr.withCredentials = true;
 
 
 
+
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      用户总数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+|
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      访问总数<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 
@@ -850,6 +899,17 @@ xhr.withCredentials = true;
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
