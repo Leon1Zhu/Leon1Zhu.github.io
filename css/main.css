@@ -224,7 +224,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 20px 0 15px;
+  margin: 10px 0;
 }
 h1 {
   font-size: 22px;
@@ -935,18 +935,19 @@ pre .javascript .function {
 }
 .btn {
   display: inline-block;
-  padding: 0 20px;
+  padding: 3px 20px;
   font-size: 14px;
-  color: #fff;
-  background: #222;
   border: 2px solid #222;
   text-decoration: none;
-  border-radius: 0;
   transition-property: background-color;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
   line-height: 2;
+  border-radius: 25px;
+  background: #fff;
+  color: #888;
+  border-color: #888;
 }
 .btn:hover {
   border-color: #222;
@@ -1470,7 +1471,7 @@ pre .javascript .function {
   position: absolute;
   width: 100%;
   height: 2px;
-  bottom: 0;
+  bottom: -5px;
   left: 0;
   background-color: #000;
   visibility: hidden;
@@ -1495,7 +1496,7 @@ pre .javascript .function {
   font-size: 16px;
 }
 .posts-expand .post-meta {
-  margin: 3px 0 60px 0;
+  margin: 3px 0 30px 0;
   color: #999;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 12px;
@@ -1544,7 +1545,7 @@ pre .javascript .function {
   }
 }
 .post-button {
-  margin-top: 40px;
+  margin: 30px 0 10px;
 }
 .posts-expand .post-tags {
   margin-top: 40px;
@@ -1606,12 +1607,8 @@ pre .javascript .function {
   left: auto;
 }
 .posts-expand .post-eof {
-  display: block;
-  margin: 80px auto 60px;
-  width: 8%;
-  height: 1px;
-  background: #ccc;
-  text-align: center;
+  margin: 0px;
+  background-color: rgba(255,255,255,0);
 }
 .post:last-child .post-eof.post-eof.post-eof {
   display: none;
@@ -1933,7 +1930,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fffff6;
+  background: #7d9cff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2695,7 +2692,7 @@ embed {
   display: inline-block;
 }
 .post {
-  margin-top: 60px;
+  background: #fff;
   margin-bottom: 60px;
   padding: 25px;
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
