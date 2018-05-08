@@ -121,7 +121,7 @@ daovoice('update');
 <meta property="og:site_name" content="朱亮的博客">
 <meta property="og:description" content="取得元素左和上的偏移量function getElementLeft(element)&amp;#123;    var acLeft = emement.offsetLeft;    var current = element.offsetParent;    while(current !== null)&amp;#123;    	acLeft += current.offsetLeft;    	curr">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-13T14:35:47.102Z">
+<meta property="og:updated_time" content="2018-05-08T02:51:44.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器距离计算">
 <meta name="twitter:description" content="取得元素左和上的偏移量function getElementLeft(element)&amp;#123;    var acLeft = emement.offsetLeft;    var current = element.offsetParent;    while(current !== null)&amp;#123;    	acLeft += current.offsetLeft;    	curr">
@@ -365,12 +365,24 @@ daovoice('update');
                 
               
 
-              <time title="创建时间：2018-03-13 22:13:51 / 修改时间：22:35:47" itemprop="dateCreated datePublished" datetime="2018-03-13T22:13:51+08:00">2018-03-13</time>
+              <time title="创建时间：2018-03-13 22:13:51" itemprop="dateCreated datePublished" datetime="2018-03-13T22:13:51+08:00">2018-03-13</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-08 10:51:44" itemprop="dateModified" datetime="2018-05-08T10:51:44+08:00">2018-05-08</time>
               
             
           </span>
@@ -425,6 +437,7 @@ daovoice('update');
 
       
         <h3 id="取得元素左和上的偏移量"><a href="#取得元素左和上的偏移量" class="headerlink" title="取得元素左和上的偏移量"></a>取得元素左和上的偏移量</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementLeft</span>(<span class="params">element</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> acLeft = emement.offsetLeft;</div><div class="line">    <span class="keyword">var</span> current = element.offsetParent;</div><div class="line">    <span class="keyword">while</span>(current !== <span class="literal">null</span>)&#123;</div><div class="line">    	acLeft += current.offsetLeft;</div><div class="line">    	current = current.offsetParent;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> acLeft;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementTop</span>(<span class="params">element</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> acTop = element.offsetTop;</div><div class="line">	<span class="keyword">var</span> current = element.offsetParent;</div><div class="line">	<span class="keyword">while</span>(current !== <span class="literal">null</span>)&#123;</div><div class="line">		acTop += current.offsetTop;</div><div class="line">		current = current.offsetParent;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> acTop;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="获取当前页面的大小"><a href="#获取当前页面的大小" class="headerlink" title="获取当前页面的大小"></a>获取当前页面的大小</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getViewClient</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//检测是否在IE的混杂模式下，如果是就要用document.body</span></div><div class="line">    <span class="keyword">if</span>(<span class="built_in">document</span>.compatMode === <span class="string">'BackCompat'</span>)&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">        	<span class="attr">width</span>: <span class="built_in">document</span>.body.clientWidth,</div><div class="line">        	<span class="attr">height</span>: <span class="built_in">document</span>.body.clientHeight</div><div class="line">        &#125;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">    	<span class="keyword">return</span> &#123;</div><div class="line">    		<span class="attr">width</span>: <span class="built_in">document</span>.documentElement.clientWidth;</div><div class="line">    		height: <span class="built_in">document</span>.documentElement.clientHeight</div><div class="line">    	&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="scroll相关"><a href="#scroll相关" class="headerlink" title="scroll相关"></a>scroll相关</h3><ul>
 <li>scrollHeight : 在没有滚动条的情况下，元素的高度总和</li>
@@ -468,8 +481,8 @@ daovoice('update');
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/11/ajax知识点小记/" rel="next" title="ajax知识点小记">
-                <i class="fa fa-chevron-left"></i> ajax知识点小记
+              <a href="/2018/03/12/gitlub私服的搭建/" rel="next" title="gitlub私服的搭建">
+                <i class="fa fa-chevron-left"></i> gitlub私服的搭建
               </a>
             
           </div>
@@ -573,7 +586,7 @@ daovoice('update');
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

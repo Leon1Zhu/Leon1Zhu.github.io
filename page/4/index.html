@@ -322,6 +322,413 @@ daovoice('update');
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/13/web前端优化（2）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="朱亮">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朱亮的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/13/web前端优化（2）/" itemprop="url">
+                  web前端优化（2）
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-11-13 12:30:04" itemprop="dateCreated datePublished" datetime="2017-11-13T12:30:04+08:00">2017-11-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-08 11:02:43" itemprop="dateModified" datetime="2018-05-08T11:02:43+08:00">2018-05-08</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/13/web前端优化（2）/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/11/13/web前端优化（2）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/13/web前端优化（2）/" class="leancloud_visitors" data-flag-title="web前端优化（2）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+
+          
+
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>##图片相关优化</p>
+<p>####1.图片相关优化的核心概念</p>
+<p>图片压缩指的是针对图片的情况，舍弃一些相对无关紧要的色彩信息，舍去测部分人眼基本是察觉不出来的。</p>
+<ul>
+<li>有损压缩在压缩过程中会丢失部分图片资源，但是这部分资源对人眼来说是没有区别，所以不是很重要。</li>
+</ul>
+<ul>
+<li>png8/png24/png32的区别<ul>
+<li>png8   256色+支持透明（8bit就可以表示一个颜色）</li>
+<li>png24  2^24色+不支持透明（24bit才可以显示一个像素中的颜色）</li>
+<li>png32  2^24色+支持透明（在24位的基础上增加8位支持透明）</li>
+<li>根据需要选择文件类型，颜色越丰富，所需的空间就越多</li>
+</ul>
+</li>
+<li>不同格式图片常用的业务场景<ul>
+<li>jpg有损压缩，压缩率高，不支持透明</li>
+<li>png支持透明，浏览器兼容性好（如果png8能支持的话，那么文件大小会相对更小）</li>
+<li>webp压缩程度更好，在ios webview有兼容性问题（2010年谷歌提出来的文件格式）</li>
+<li>svg矢量图，代码内嵌，相对较小，图片样式相对简单的场景（svg标签在代码中进行图片的绘制，质量相对较高，iconfont这样的库就可以很好的使用svg图）</li>
+<li>jpg多应用于大部分不需要透明图片的业务场景</li>
+<li>png多应用于大部分需要透明图片的业务场景</li>
+<li>webp多应用于安卓部分</li>
+<li>svg多应用于图片样式相对简单的业务场景</li>
+</ul>
+</li>
+<li>css雪碧图<ul>
+<li>将网站要用的图片都放在一张图片上</li>
+<li>可以减少网站对于图片的http请求，减少网站的请求数量</li>
+<li>当雪碧图比较大时，加载会比较慢</li>
+<li>一旦雪碧图加载失败，那么网站上所有的图标都会消失</li>
+</ul>
+</li>
+<li>svg矢量图的使用<ul>
+<li>svg是html5中一个比较重要的标准</li>
+<li>可以使用几行代码就实现相对复杂的图标，减少页面的体积，增加网页的请求速度</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>image inline 将图片的内容内嵌到html中以减少网站的http请求数量</li>
+<li>image inline会将html文件变大，但是图片不大的话，基本可以忽略，但是可以减少一次http请求，所有小鱼8kb或者4kb的文件，一般是选用image inline将图片内联进来，这样减少网络请求的时间会大大小鱼html文件大小的增加的请求时间</li>
+<li><a href="https://tinypng.com（图片压缩网站）" target="_blank" rel="external">https://tinypng.com（图片压缩网站）</a></li>
+<li><a href="https://www.spritecow.com（雪碧图制作网站）" target="_blank" rel="external">https://www.spritecow.com（雪碧图制作网站）</a></li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/13/web前端优化（2）/#更多" rel="contents">
+              <span class=read_more_font>阅读全文 <span class="read_more_icon">&raquo;</span></span>
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/12/web前端优化（1）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="朱亮">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朱亮的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/12/web前端优化（1）/" itemprop="url">
+                  web前端优化小结（资源合并与压缩）
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-11-12 21:35:12" itemprop="dateCreated datePublished" datetime="2017-11-12T21:35:12+08:00">2017-11-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-08 11:02:20" itemprop="dateModified" datetime="2018-05-08T11:02:20+08:00">2018-05-08</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/12/web前端优化（1）/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/11/12/web前端优化（1）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/12/web前端优化（1）/" class="leancloud_visitors" data-flag-title="web前端优化小结（资源合并与压缩）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+
+          
+
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>##资源合并与压缩</p>
+<p>####1.WEB前端优化的核心概念以及意义</p>
+<ul>
+<li>不同于C/S架构，用户访问时的软件是访问本地的包，B/S架构是将软件包部署在服务器上， 当用户访问我们的程序时，浏览器才会动态的，增量的去向服务器发起请求。因此，WEB前端的请求是一个动态的，增量的请求过程。在这个过程中，如果我们的资源更少，http请求更快，那么我们的请求响应就会更快，用户体验就会更好。</li>
+</ul>
+<p>####2.HTTP请求的过程中的优化</p>
+<p><em>在浏览器层面，可以进行缓存，缓存请求频率比较高的资源，减少对于DNS服务器的请求。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/12/web前端优化（1）/#更多" rel="contents">
+              <span class=read_more_font>阅读全文 <span class="read_more_icon">&raquo;</span></span>
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/28/基于vue快速搭建开发框架/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -385,7 +792,7 @@ daovoice('update');
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2017-08-06 16:47:22" itemprop="dateModified" datetime="2017-08-06T16:47:22+08:00">2017-08-06</time>
+                <time title="修改时间：2018-05-08 11:06:27" itemprop="dateModified" datetime="2018-05-08T11:06:27+08:00">2018-05-08</time>
               
             
           </span>
@@ -440,8 +847,7 @@ daovoice('update');
 
       
         
-          
-            <p>从去年开始接触vue开发，也从头到尾经历了两个大项目，从搭建项目一点点的也积累了不少经验，也给自己挖了不少的坑。同样的，填的坑也不少。今天就总结一下，如何搭建vue前端开发框架。其中涉及的相关技术有：vue-cli脚手架、vuex作为全局事件、变量的管理，global.js（中小型项目开发时不需要复杂的vuex时使用），vue-router，axios，scss等。</p>
+          <p>从去年开始接触vue开发，也从头到尾经历了两个大项目，从搭建项目一点点的也积累了不少经验，也给自己挖了不少的坑。同样的，填的坑也不少。今天就总结一下，如何搭建vue前端开发框架。其中涉及的相关技术有：vue-cli脚手架、vuex作为全局事件、变量的管理，global.js（中小型项目开发时不需要复杂的vuex时使用），vue-router，axios，scss等。</p>
 <h2 id="1-使用vue-cli生成webpack项目模板"><a href="#1-使用vue-cli生成webpack项目模板" class="headerlink" title="1.使用vue-cli生成webpack项目模板"></a>1.使用vue-cli生成webpack项目模板</h2><ul>
 <li><p>安装node</p>
 <p>首先需要安装node环境，可以直接到中文官网<a href="http://nodejs.cn/" target="_blank" rel="external">http://nodejs.cn/</a>下载安装包。</p>
@@ -453,636 +859,13 @@ daovoice('update');
  <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">npm install -g vue-cli</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>最新的 vue 项目模板中，都带有 webpack 插件，所以这里可以不安装 webpack</p>
-<p>安装完成后，可以使用 vue -V （注意 V 大写）查看是否安装成功。</p>
-<p>如果提示“无法识别 ‘vue’ ” ，有可能是 npm 版本过低，可以使用 npm install -g npm 来更新版本</p>
-<ul>
-<li><p>生成项目</p>
-<p>首先需要在命令行中进入到项目目录，然后输入：</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">vue init webpack Vue-Project</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>  按照提示项进行设置生成项目即可。</p>
-<p>  生成之后使用</p>
-<pre><code class="bash">npm install
-</code></pre>
-<p>  即可安装依赖</p>
-<p>  然后启动项目</p>
-<pre><code class="bash">npm run dev
-</code></pre>
-<p>  至此，项目的生成就完成了</p>
-<h2 id="2-对生成的项目进行配置"><a href="#2-对生成的项目进行配置" class="headerlink" title="2.对生成的项目进行配置"></a>2.对生成的项目进行配置</h2><p>刚生成的项目因为通用的原因，所以没有太多的定制需求，在这里，我们将vuex，axios，axios二次封装,global全局文件等等设置，加速开发。</p>
-<h3 id="（1）axios集成以及二次封装"><a href="#（1）axios集成以及二次封装" class="headerlink" title="（1）axios集成以及二次封装"></a>（1）axios集成以及二次封装</h3><p>  &nbsp;&nbsp;&nbsp;运行如下命令安装axios </p>
-<pre><code>npm install -g axios
-</code></pre><p>  安装完成之后，先不要急于使用，首先在src目录下新建api文件夹，同时在api文件夹下新建index.js文件，对axios进行二次封装，方便请求。完成之后的项目结构以及index.js的文件内容如下图</p>
-<p>  <img src="http://otdc3q7z7.bkt.clouddn.com/jg.png" alt="example"></p>
-<p>  至此，axios的封装也已完成，下面展示如何去调用，以便开发的时候调用层次更加鲜明，逻辑更加清晰。</p>
-<ul>
-<li>在api文件夹下新建一个javascript文件，用于存放接口相关信息和实现逻辑<br><img src="http://otdc3q7z7.bkt.clouddn.com/apidemo.png" alt="example"></li>
-</ul>
-<p>看一下在实际使用中的效果<br>  <img src="http://otdc3q7z7.bkt.clouddn.com/27544414-054C-41E6-85F5-79B36E5CCEEA.png" alt="example"></p>
-<p>  <img src="http://otdc3q7z7.bkt.clouddn.com/853E24F3-D63C-43B5-947B-D149C0654E79.png" alt="example"></p>
-<p> 可以发现使用es6的import和export进行模块化之后，就将api接口请求从界面逻辑中分离出来，单独开发，使得层次更加分明，增加接口的复用率更加方便项目的管理。让后期项目的管理更加容易。</p>
-<h3 id="（2）配置vuex"><a href="#（2）配置vuex" class="headerlink" title="（2）配置vuex"></a>（2）配置vuex</h3><p>当你的项目比较复杂，对项目的状态管理比较复杂时，就需要集成vuex进行项目状态的管理，集成之后的效果如下</p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/5D58CA9C-1888-440A-A2BE-3A6D922B2476.png" alt="example"></p>
-<p>因为官网上都有相关配置，就不做详细说明，需要看文件内具体内容的可以去项目的<a href="https://github.com/ZhuLiangT/vue-template" target="_blank" rel="external"><strong>github地址进行查看</strong></a></p>
-<h3 id="3-global文件以及全局方法文件的创建以及维护"><a href="#3-global文件以及全局方法文件的创建以及维护" class="headerlink" title="(3)global文件以及全局方法文件的创建以及维护"></a>(3)global文件以及全局方法文件的创建以及维护</h3><p>在很多情况下，你的项目都不会那么的复杂，所以使用vuex反而会增加项目的复杂度，降低你的开发效率，这种时候，就需要我们用一个全局的js文件来管理相关的变量（bus），将这些变量统一存放在javascript的全局global下进行管理，再用专门的文件对这些变量进行管理，使得项目更加整洁。</p>
-<ul>
-<li><p>创建global.js用来存放全局变量</p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/02039E49-6D47-40B2-8E22-1063D3F7523A.png" alt="example"></p>
-</li>
-<li><p>创建globalFun.js用来专门管理global中的全局变量</p>
-</li>
-</ul>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/2D881D6C-BBC0-4BF8-AF22-0F519A1D523E.png" alt="example"></p>
-<p>如果项目没有太过复杂的话，这样的两个文件基本可以替代vuex的相关功能，并且这样使用可以很大程度的降低管理的复杂度，相当实用。<br>注：在globalFun.js中import global.js在main.js中引入gloablFun.js</p>
-<ul>
-<li><p>创建mainFun.js文件对全局方法进行管理</p>
-<p>每次开发程序时，总会有很多的全局方法需要管理，所以干脆使用一个专门管理全局方法的文件进行统一管理。</p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/96EBB9DB-3AD0-479D-AC49-99A43FE7BA95.png" alt="example"></p>
-</li>
-</ul>
-<p>至此，一套相当实用的基于vue-cli的开发框架就配置完成，项目已经上传到github上，你也可以到<a href="https://github.com/ZhuLiangT/vue-template" target="_blank" rel="external"><strong>github上进行查看</strong></a>。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/20/gitlub私服的搭建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="朱亮">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="朱亮的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/20/gitlub私服的搭建/" itemprop="url">
-                  gitlub私服的搭建
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-07-20 23:03:34" itemprop="dateCreated datePublished" datetime="2017-07-20T23:03:34+08:00">2017-07-20</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2017-07-28 18:37:15" itemprop="dateModified" datetime="2017-07-28T18:37:15+08:00">2017-07-28</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/07/20/gitlub私服的搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/07/20/gitlub私服的搭建/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/07/20/gitlub私服的搭建/" class="leancloud_visitors" data-flag-title="gitlub私服的搭建">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-
-          
-
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近应公司需求，搭建gitlab私服，在这里做一个简单的记录。</p>
-<h2 id="1-安装和配置必要的依赖"><a href="#1-安装和配置必要的依赖" class="headerlink" title="1.安装和配置必要的依赖"></a>1.安装和配置必要的依赖</h2><pre><code>sudo yum install curl policycoreutils openssh-    server openssh-clients
-sudo systemctl enable sshd
-sudo systemctl start sshd
-sudo yum install postfix
-sudo systemctl enable postfix
-sudo systemctl start postfix
-sudo firewall-cmd --permanent --add-service=http
-sudo systemctl reload firewalld
-</code></pre><h2 id="2-使用国内镜像安装，新建-etc-yum-repos-d-gitlab-ce-repo，添加以下内容，否则下载安装太过缓慢"><a href="#2-使用国内镜像安装，新建-etc-yum-repos-d-gitlab-ce-repo，添加以下内容，否则下载安装太过缓慢" class="headerlink" title="2.使用国内镜像安装，新建 /etc/yum.repos.d/gitlab-ce.repo，添加以下内容，否则下载安装太过缓慢"></a>2.使用国内镜像安装，新建 /etc/yum.repos.d/gitlab-ce.repo，添加以下内容，否则下载安装太过缓慢</h2><pre><code>[gitlab-ce]
-name=gitlab-ce
-baseurl=http://mirrors.tuna.tsinghua.edu.cn/    gitlab-ce/yum/el6
-repo_gpgcheck=0
-gpgcheck=0
-enabled=1
-gpgkey=https://packages.gitlab.com/gpg.key
-</code></pre><h2 id="3-安装并初始化gitlab"><a href="#3-安装并初始化gitlab" class="headerlink" title="3.安装并初始化gitlab"></a>3.安装并初始化gitlab</h2><pre><code># 安装 GitLab 社区版
-sudo yum install gitlab-ce
-# 初始化 GitLab
-sudo gitlab-ctl reconfigure
-</code></pre><p>最后通过ip访问80端口即可（giutlab默认使用80端口）</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/20/hexo搭建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="朱亮">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="朱亮的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/20/hexo搭建/" itemprop="url">
-                  hexo搭建
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-07-20 00:19:27 / 修改时间：12:31:48" itemprop="dateCreated datePublished" datetime="2017-07-20T00:19:27+08:00">2017-07-20</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/07/20/hexo搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/07/20/hexo搭建/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/07/20/hexo搭建/" class="leancloud_visitors" data-flag-title="hexo搭建">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-
-          
-
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>一直纠结于要不要写博客，直到最近，手头上事情比较少，有些空闲时间来整理这个事情，花了一上午的时间了解了博客相关的信息，最终决定选用hexo+github来搭建自己的博客，整体过程还是比较顺利，但是过程中还是遇到了不少坑，觉得还是很有必要记录一下整个过程的。</p>
-<h2 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1.环境准备"></a>1.环境准备</h2><h3 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h3><ul>
-<li>直接到Node.js官网现在最新版本，一路安装即可</li>
-</ul>
-<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><ul>
-<li>这个网上的教程有很多，直接到官网下载安装并且设置下环境变量即可</li>
-</ul>
-<h3 id="GitHub账号和GitHub-Pages"><a href="#GitHub账号和GitHub-Pages" class="headerlink" title="GitHub账号和GitHub Pages"></a>GitHub账号和GitHub Pages</h3><ul>
-<li><p>在自己的GitHub上新建一个仓库（repository），需要注意的是仓库的名称，比如我的账号是ZhuLiangT,那么我的仓库名称就应该是：ZhuLiangT.github.io,创建完成之后直接访问这个地址就是你的个人主页了。</p>
-</li>
-<li><p>添加SSH公钥到『Account settings -&gt; SSH Keys -&gt; Add SSH Key』，步骤如下:</p>
-</li>
-</ul>
-<p>设置你的用户名密码</p>
-<pre><code>git config --global user.email &quot;youremail@XX.com&quot;                   
-git config --global user.name &quot;yourname&quot;
-</code></pre><p> 生成SSH秘钥</p>
-<pre><code>ssh-keygen -t rsa -C &quot;bu.ru@qq.com&quot;
-~/.ssh/id_rsa是生成私钥，~/.ssh/id_rsa.pub是生成公钥
-</code></pre><p>接着打开秘钥文件，复制秘钥</p>
-<pre><code>cat ~/.ssh/id_rsa.pub
-</code></pre><p>这里会得到一段很长的编码：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCuYZIchz3THIcc/wH0ZB5WZYqe2iBVUNqSzfrgxBvJCZkFHWiUZhA/4omNud/27PVT/FADV9qSvrX7ifP05Cbl6mhE4uJjxOQRNoPdQQcsTEFh5vDvOeiJOT1CoFb9WLGg49Xml4yJmFJqv/Kz5hCe7LEWRYJH6tmaVG0qi9nwAZmjfTQpSWu07eAKB9wAbK6stCdnd5JvMq7IsNNylbwDlXf0RQA4RpppO+14oNBqivhi5ftBPjP15+aWKpnXUxkGMVAefKTvwsyw1T0H2sj+ILVFM4d5xpxu3jPHebqh363OwPPLMsoUy9VhQ3YDtMxt4vyOxvpJ9ekMGlDn/9ut youremail@XX.com</div></pre></td></tr></table></figure>
-<p>进入git的Account settings -&gt; SSH Keys -&gt; Add SSH Key将这段秘钥添加进去即可。</p>
-<p><img src="http://otdc3q7z7.bkt.clouddn.com/BA408E6C-C356-4D7E-8EF7-D2B7873C9797.png" alt="example"></p>
-<h2 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2.安装hexo"></a>2.安装hexo</h2><h3 id="全局安装hexo"><a href="#全局安装hexo" class="headerlink" title="全局安装hexo"></a>全局安装hexo</h3><pre><code>npm install -g hexo
-</code></pre><h3 id="初始化hexo，将hexo安装到你指定的目录（到指定目录使用此命令直接进行初始化）"><a href="#初始化hexo，将hexo安装到你指定的目录（到指定目录使用此命令直接进行初始化）" class="headerlink" title="初始化hexo，将hexo安装到你指定的目录（到指定目录使用此命令直接进行初始化）"></a>初始化hexo，将hexo安装到你指定的目录（到指定目录使用此命令直接进行初始化）</h3><pre><code>hexo init
-</code></pre><h3 id="生成hexo的静态页面（到init的目录执行此命令）"><a href="#生成hexo的静态页面（到init的目录执行此命令）" class="headerlink" title="生成hexo的静态页面（到init的目录执行此命令）"></a>生成hexo的静态页面（到init的目录执行此命令）</h3><pre><code>hexo generate
-</code></pre><h3 id="启动hexo本地服务"><a href="#启动hexo本地服务" class="headerlink" title="启动hexo本地服务"></a>启动hexo本地服务</h3><pre><code>hexo server
-</code></pre><p>   浏览器输入<a href="http://localhost:4000就可以看到你的专属博客啦" target="_blank" rel="external">http://localhost:4000就可以看到你的专属博客啦</a></p>
-<p>  至此，hexo的安装也已经完成。</p>
-<h2 id="3-让hexo和github建立联系"><a href="#3-让hexo和github建立联系" class="headerlink" title="3.让hexo和github建立联系"></a>3.让hexo和github建立联系</h2><h3 id="在hexo的安装目录中，找到-config-yml，将Deployment属性做如下修改"><a href="#在hexo的安装目录中，找到-config-yml，将Deployment属性做如下修改" class="headerlink" title="在hexo的安装目录中，找到_config.yml，将Deployment属性做如下修改"></a>在hexo的安装目录中，找到_config.yml，将Deployment属性做如下修改</h3><pre><code>deploy:
-     type: git
-    repo: git@github.com:yourname/yourname.github.io.git
-    branch: master 
-</code></pre><p> 注：在hexo3.0之后要部署到git需要进行如下操作</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">npm install hexo-deployer-git --save </div><div class="line">hexo g(从新生成)</div><div class="line">hexo d（部署到git上）</div></pre></td></tr></table></figure>
-<pre><code>至此，访问刚才部署的git个人页面，就能看到你的私人博客啦。
-</code></pre>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/19/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="朱亮">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="朱亮的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/19/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-07-19 16:41:17" itemprop="dateCreated datePublished" datetime="2017-07-19T16:41:17+08:00">2017-07-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2017-07-20 10:12:02" itemprop="dateModified" datetime="2017-07-20T10:12:02+08:00">2017-07-20</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/07/19/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/07/19/hello-world/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/07/19/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-
-          
-
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">hexo server</div><div class="line">qqq</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/28/基于vue快速搭建开发框架/#更多" rel="contents">
+              <span class=read_more_font>阅读全文 <span class="read_more_icon">&raquo;</span></span>
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1184,7 +967,7 @@ git config --global user.name &quot;yourname&quot;
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

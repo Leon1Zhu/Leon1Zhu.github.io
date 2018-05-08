@@ -113,23 +113,30 @@ daovoice('update');
 
 
 
-  <meta name="description" content="Leon Zhu’s blog | 爱前端 | 爱生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="朱亮的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2017/page/3/index.html">
+  <meta name="description" content="最近在用vue写一个图书馆的项目的时候，因为项目不是很复杂，就没有上vuex，并按照以往的习惯使用global进行全局变量的设置以及管理。按照往常的经验来说，是没有什么问题的。但是万万没想到踩到了自己挖的坑。 1.全局变量的定义以及使用在vue-cli生成的模板项目中，若觉得项目不是很复杂没有必要使用vuex的话，我们一般会使用一个bus.js或者global.js用来定义变量，将变量挂在在js的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue全局变量无法触发视图更新以及解决方案">
+<meta property="og:url" content="http://yoursite.com/2018/03/20/vue全局变量无法触发热更新以及解决方案/index.html">
 <meta property="og:site_name" content="朱亮的博客">
-<meta property="og:description" content="Leon Zhu’s blog | 爱前端 | 爱生活">
+<meta property="og:description" content="最近在用vue写一个图书馆的项目的时候，因为项目不是很复杂，就没有上vuex，并按照以往的习惯使用global进行全局变量的设置以及管理。按照往常的经验来说，是没有什么问题的。但是万万没想到踩到了自己挖的坑。 1.全局变量的定义以及使用在vue-cli生成的模板项目中，若觉得项目不是很复杂没有必要使用vuex的话，我们一般会使用一个bus.js或者global.js用来定义变量，将变量挂在在js的">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/17-10-254.png">
+<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/17-10-253.png">
+<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/2017-10-251.png">
+<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/2017-10-252.png">
+<meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/17-10-261.png">
+<meta property="og:updated_time" content="2018-05-08T03:10:33.860Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="朱亮的博客">
-<meta name="twitter:description" content="Leon Zhu’s blog | 爱前端 | 爱生活">
+<meta name="twitter:title" content="vue全局变量无法触发视图更新以及解决方案">
+<meta name="twitter:description" content="最近在用vue写一个图书馆的项目的时候，因为项目不是很复杂，就没有上vuex，并按照以往的习惯使用global进行全局变量的设置以及管理。按照往常的经验来说，是没有什么问题的。但是万万没想到踩到了自己挖的坑。 1.全局变量的定义以及使用在vue-cli生成的模板项目中，若觉得项目不是很复杂没有必要使用vuex的话，我们一般会使用一个bus.js或者global.js用来定义变量，将变量挂在在js的">
+<meta name="twitter:image" content="http://otdc3q7z7.bkt.clouddn.com/17-10-254.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2017/page/3/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/20/vue全局变量无法触发热更新以及解决方案/"/>
 
 
 
@@ -139,7 +146,7 @@ daovoice('update');
   };
 </script>
 
-  <title>归档 | 朱亮的博客</title>
+  <title>vue全局变量无法触发视图更新以及解决方案 | 朱亮的博客</title>
   
 
 
@@ -188,7 +195,7 @@ daovoice('update');
 
 <script type="text/javascript"  src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/Leon1Zhu/Leon1Zhu.github.io" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,7 +251,7 @@ daovoice('update');
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
@@ -281,31 +288,6 @@ daovoice('update');
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -330,119 +312,223 @@ daovoice('update');
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
-        
-        
-         
-        
-      </span>
-      
+  
 
-      
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/20/vue全局变量无法触发热更新以及解决方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="朱亮">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朱亮的博客">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h2 class="post-title" itemprop="name headline">vue全局变量无法触发视图更新以及解决方案
+              
+            
+          </h2>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-03-20 22:26:06" itemprop="dateCreated datePublished" datetime="2018-03-20T22:26:06+08:00">2018-03-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-08 11:10:33" itemprop="dateModified" datetime="2018-05-08T11:10:33+08:00">2018-05-08</time>
+              
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2017">2017</h2>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/20/vue全局变量无法触发热更新以及解决方案/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/03/20/vue全局变量无法触发热更新以及解决方案/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2018/03/20/vue全局变量无法触发热更新以及解决方案/" class="leancloud_visitors" data-flag-title="vue全局变量无法触发视图更新以及解决方案">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
 
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/20/hexo搭建/" itemprop="url">
-              
-                <span itemprop="name">hexo搭建</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-20T00:19:27+08:00"
-              content="2017-07-20" >
-          07-20
-        </time>
-      </div>
-
-    </header>
-  </article>
+          
 
 
+          
 
-      
+          
 
-        
-        
-        
+        </div>
+      </header>
+    
 
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/19/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-19T16:41:17+08:00"
-              content="2017-07-19" >
-          07-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p>最近在用vue写一个图书馆的项目的时候，因为项目不是很复杂，就没有上vuex，并按照以往的习惯使用global进行全局变量的设置以及管理。按照往常的经验来说，是没有什么问题的。但是万万没想到踩到了自己挖的坑。</p>
+<h2 id="1-全局变量的定义以及使用"><a href="#1-全局变量的定义以及使用" class="headerlink" title="1.全局变量的定义以及使用"></a>1.全局变量的定义以及使用</h2><p>在vue-cli生成的模板项目中，若觉得项目不是很复杂没有必要使用vuex的话，我们一般会使用一个bus.js或者global.js用来定义变量，将变量挂在在js的gloabl上，然后在入口页面直接import这个文件即可成为全局变量，这样即可实现vuex的全局变量的功能</p>
+<p><img src="http://otdc3q7z7.bkt.clouddn.com/17-10-254.png" alt="全局变量定义"></p>
+<p><img src="http://otdc3q7z7.bkt.clouddn.com/17-10-253.png" alt="在组件中的使用"></p>
+<p>在gloabl文件中直接定义，定义完成之后再子组件的文件中，直接使用名称进行访问即可，也可以自己写get/set方法来实现变量的管理。<br><a id="more"></a></p>
+<h2 id="2-问题的产生"><a href="#2-问题的产生" class="headerlink" title="2.问题的产生"></a>2.问题的产生</h2><p>在这次的系统中，有一个需求就是在个人中心的收藏和预定模块展示个人收藏和预定的书籍列表，如下图所示。</p>
+<p><img src="http://otdc3q7z7.bkt.clouddn.com/2017-10-251.png" alt="收藏页面"></p>
+<p><img src="http://otdc3q7z7.bkt.clouddn.com/2017-10-252.png" alt="书籍展示页面"></p>
+<p>当在列表中点击收藏和预定按钮时，我的预定和收藏页面需要能及时刷新。而我又很作死的使用了全局变量来做列表数据存储，更作死的是我还没有用vuex及时通知组件数据的更新。。。。。。。</p>
+<p>当预定列表的收藏列表的全局数组不为空时，一切都很正常，添加删除都很正常，但是当页面加载的时候，若预定和收藏的列表为空，则当用户添加的时候就无法实现双向绑定。这是问题让我很奔溃，一切都正常，只有数组初始化为空的时候无法响应。</p>
+<p>coputed和watch都使用了,通过computed方法，实时打印的话可以发现数组的值已经改变，但是页面就是无法做出响应。</p>
+<h2 id="3-问题的解决"><a href="#3-问题的解决" class="headerlink" title="3.问题的解决"></a>3.问题的解决</h2><p>经过无数次的尝试之后发现，当全局变变量的书籍列表数组初始化为空时，computed计算属性和watch变量都做不到监听的效果。其中，通过打印computed可以发现，数组的值是变化了，但是没有触发computed。</p>
+<p><img src="http://otdc3q7z7.bkt.clouddn.com/17-10-261.png" alt="使用过computed监听"></p>
+<p>最后，我想到既然有数据时是正常的，那么是不是我的数组初始化不为空就可以了，所以我给数组增加了一个默认的变量，这样，即使用户没有收藏的书籍，数组也不会为空。果然，问题也得到了解决。</p>
+<h2 id="4-感想"><a href="#4-感想" class="headerlink" title="4.感想"></a>4.感想</h2><p>或许这种时候使用vuex就不会那么麻烦了吧，总感觉这种解决方案比较low，后续准备继续研究，找出问题的关键所在。</p>
+
+      
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/18/js高级知识点/" rel="next" title="js高级知识点">
+                <i class="fa fa-chevron-left"></i> js高级知识点
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/25/前端知识点沉淀/" rel="prev" title="前端知识点沉淀">
+                前端知识点沉淀 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2017/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/2017/">1</a><a class="page-number" href="/archives/2017/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -477,8 +563,17 @@ daovoice('update');
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -495,7 +590,7 @@ daovoice('update');
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -597,6 +692,22 @@ daovoice('update');
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-全局变量的定义以及使用"><span class="nav-number">1.</span> <span class="nav-text">1.全局变量的定义以及使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-问题的产生"><span class="nav-number">2.</span> <span class="nav-text">2.问题的产生</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-问题的解决"><span class="nav-number">3.</span> <span class="nav-text">3.问题的解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-感想"><span class="nav-number">4.</span> <span class="nav-text">4.感想</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -745,6 +856,10 @@ daovoice('update');
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
 
   
 
