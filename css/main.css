@@ -444,7 +444,7 @@ body {
 }
 .header-inner {
   margin: 0 auto;
-  padding: 100px 0 70px;
+  padding: 90px 0 30px;
   width: 700px;
 }
 @media (min-width: 1600px) {
@@ -2210,7 +2210,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a12175;
+  background: #cc2854;
 }
 .links-of-blogroll {
   font-size: 13px;
