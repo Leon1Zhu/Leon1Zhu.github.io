@@ -325,212 +325,6 @@ daovoice('update');
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/12/gitlub私服的搭建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="朱亮">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="朱亮的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/12/gitlub私服的搭建/" itemprop="url">
-                  gitlub私服的搭建
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-03-12 22:26:06" itemprop="dateCreated datePublished" datetime="2018-03-12T22:26:06+08:00">2018-03-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-09 14:47:42" itemprop="dateModified" datetime="2018-05-09T14:47:42+08:00">2018-05-09</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具使用/" itemprop="url" rel="index"><span itemprop="name">工具使用</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/12/gitlub私服的搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/03/12/gitlub私服的搭建/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/03/12/gitlub私服的搭建/" class="leancloud_visitors" data-flag-title="gitlub私服的搭建">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-
-          
-
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>最近应公司需求，搭建gitlab私服，在这里做一个简单的记录。</p>
-<h2 id="1-安装和配置必要的依赖"><a href="#1-安装和配置必要的依赖" class="headerlink" title="1.安装和配置必要的依赖"></a>1.安装和配置必要的依赖</h2><pre><code>sudo yum install curl policycoreutils openssh-    server openssh-clients
-sudo systemctl enable sshd
-sudo systemctl start sshd
-sudo yum install postfix
-sudo systemctl enable postfix
-sudo systemctl start postfix
-sudo firewall-cmd --permanent --add-service=http
-sudo systemctl reload firewalld
-</code></pre><h2 id="2-使用国内镜像安装，新建-etc-yum-repos-d-gitlab-ce-repo，添加以下内容，否则下载安装太过缓慢"><a href="#2-使用国内镜像安装，新建-etc-yum-repos-d-gitlab-ce-repo，添加以下内容，否则下载安装太过缓慢" class="headerlink" title="2.使用国内镜像安装，新建 /etc/yum.repos.d/gitlab-ce.repo，添加以下内容，否则下载安装太过缓慢"></a>2.使用国内镜像安装，新建 /etc/yum.repos.d/gitlab-ce.repo，添加以下内容，否则下载安装太过缓慢</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/12/gitlub私服的搭建/#更多" rel="contents">
-              <span class=read_more_font>阅读全文 <span class="read_more_icon">&raquo;</span></span>
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/11/ajax知识点小记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -668,7 +462,7 @@ sudo systemctl reload firewalld
       
         
           <h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>使用IE7以及之前的版本需要特许处理，具体见书P572，因为组件使用vue，IE版本在IE8+，所以目前不考虑</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">首先 <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    在使用异步请求时，需要检测xhr对象readyState属性，该属性表示请求/响应过程的当前活动阶段</div><div class="line">   <span class="number">0</span>：未初始化。尚未调用open()方法，</div><div class="line">   <span class="number">1</span>：启动，已经调用opend方法，但未收调用send方法</div><div class="line">   <span class="number">2</span>：已经调用send方法，但未接收到响应</div><div class="line">   <span class="number">3</span>：接收，已经接收到部分响应数据</div><div class="line">   <span class="number">4</span>：完成，已经接收到全部数据响应</div><div class="line">   每次readyState的值改变都会触发一次readystatechange事件，通常只对值为<span class="number">4</span>的阶段感兴趣，不过必须在open之前指定readystatechange事件处理程序才能确保跨浏览器兼容性</div><div class="line">   </div><div class="line">   xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span>)&#123;</div><div class="line">       	<span class="keyword">if</span>((xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span>) || xhr.status === <span class="number">304</span> )&#123;</div><div class="line">       		alert(xhr.responseText)</div><div class="line">       	&#125;<span class="keyword">else</span>&#123;</div><div class="line">       	 	alert(<span class="string">'response error'</span>+ xhr.status); </div><div class="line">       	&#125;</div><div class="line">       &#125;</div><div class="line">   &#125;<span class="comment">//这里使用的是dom0级事件，因为并非所有的浏览器都支持dom2级事件</span></div><div class="line">       </div><div class="line">    xhr.open(<span class="string">'get'</span>,url,<span class="literal">true</span>)<span class="comment">//第一个参数表示请求类型，第二个参数表示url，第三个参数表示是否异步</span></div><div class="line">    </div><div class="line">     xhr.send(<span class="literal">null</span>)<span class="comment">//send方法接受一个参数，即作为请求主体发送的数据，如果不需要，则必须传入null</span></div><div class="line">    </div><div class="line">    在收到响应后，会自动填充xhr对象的属性，</div><div class="line">    <span class="number">1.</span>responseText：作为响应返回的文本</div><div class="line">    <span class="number">2.</span>responseXML： 如果响应头设置的是‘text/xml’或者‘application/xml’，这个属性中保存着响应数据的xml文档</div><div class="line">    <span class="number">3.</span>status:响应的http状态</div><div class="line">    <span class="number">4.</span>statusText:HTTP的状态说明</div><div class="line">    </div><div class="line">    在未收到响应之前，可以调用xhr.abort();来取消异步请求</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">首先 <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    在使用异步请求时，需要检测xhr对象readyState属性，该属性表示请求/响应过程的当前活动阶段</span><br><span class="line">   <span class="number">0</span>：未初始化。尚未调用open()方法，</span><br><span class="line">   <span class="number">1</span>：启动，已经调用opend方法，但未收调用send方法</span><br><span class="line">   <span class="number">2</span>：已经调用send方法，但未接收到响应</span><br><span class="line">   <span class="number">3</span>：接收，已经接收到部分响应数据</span><br><span class="line">   <span class="number">4</span>：完成，已经接收到全部数据响应</span><br><span class="line">   每次readyState的值改变都会触发一次readystatechange事件，通常只对值为<span class="number">4</span>的阶段感兴趣，不过必须在open之前指定readystatechange事件处理程序才能确保跨浏览器兼容性</span><br><span class="line">   </span><br><span class="line">   xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span>)&#123;</span><br><span class="line">       	<span class="keyword">if</span>((xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span>) || xhr.status === <span class="number">304</span> )&#123;</span><br><span class="line">       		alert(xhr.responseText)</span><br><span class="line">       	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">       	 	alert(<span class="string">'response error'</span>+ xhr.status); </span><br><span class="line">       	&#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;<span class="comment">//这里使用的是dom0级事件，因为并非所有的浏览器都支持dom2级事件</span></span><br><span class="line">       </span><br><span class="line">    xhr.open(<span class="string">'get'</span>,url,<span class="literal">true</span>)<span class="comment">//第一个参数表示请求类型，第二个参数表示url，第三个参数表示是否异步</span></span><br><span class="line">    </span><br><span class="line">     xhr.send(<span class="literal">null</span>)<span class="comment">//send方法接受一个参数，即作为请求主体发送的数据，如果不需要，则必须传入null</span></span><br><span class="line">    </span><br><span class="line">    在收到响应后，会自动填充xhr对象的属性，</span><br><span class="line">    <span class="number">1.</span>responseText：作为响应返回的文本</span><br><span class="line">    <span class="number">2.</span>responseXML： 如果响应头设置的是‘text/xml’或者‘application/xml’，这个属性中保存着响应数据的xml文档</span><br><span class="line">    <span class="number">3.</span>status:响应的http状态</span><br><span class="line">    <span class="number">4.</span>statusText:HTTP的状态说明</span><br><span class="line">    </span><br><span class="line">    在未收到响应之前，可以调用xhr.abort();来取消异步请求</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/11/ajax知识点小记/#更多" rel="contents">
@@ -868,9 +662,9 @@ sudo systemctl reload firewalld
           <p>今年过年的时候和小伙伴们看到了LOL的狗年活动官网。不得不感叹，搞IT的看的和别人就是不一样，别人看活动，我看设计、看特效,看完头脑一热，决定用原生js搞一波。。。。</p>
 <p>抽了7、8天的空闲时间，搞的差不多了，在谷歌下显示的还是可以的，其他浏览器的兼容性并没有测试。</p>
 <p>写完之后收获了很多，对于css属性以及css3动画的进一步学习以及应用，对原生js的练习、运用，加强了对于html标签语义化的应用，避免过去对于div的魔性依赖。。。还有就是对于html布局的新理解，自己写的布局到最后总是感觉没有原版写的好（难道是因为我没有设计的原因？？？），最后不得不感叹有一个好的视觉设计师（美工）对于程序员是多么滴重要</p>
-<p><a href="http://www.wlmfang.com:9080/MyLol//index.html" target="_blank" rel="external">git源码地址</a></p>
-<p><a href="http://www.wlmfang.com:9080/MyLol//index.html" target="_blank" rel="external">仿写地址</a></p>
-<p><a href="http://lol.qq.com/act/a20180212spring/index.html" target="_blank" rel="external">官网地址</a><br>
+<p><a href="http://www.wlmfang.com:9080/MyLol//index.html" target="_blank" rel="noopener">git源码地址</a></p>
+<p><a href="http://www.wlmfang.com:9080/MyLol//index.html" target="_blank" rel="noopener">仿写地址</a></p>
+<p><a href="http://lol.qq.com/act/a20180212spring/index.html" target="_blank" rel="noopener">官网地址</a><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/02/08/使用原生js重现LOL新春官网/#更多" rel="contents">
@@ -1905,7 +1699,7 @@ setInterval永远指向window
 </ul>
 <h3 id="42-缓动效果"><a href="#42-缓动效果" class="headerlink" title="42 缓动效果"></a>42 缓动效果</h3><ul>
 <li>box-shadow 最后的inset参数可以实现将阴影投入到元素内部</li>
-<li><a href="http://cubic-bezier.com/#.17,.67,.83,.67" target="_blank" rel="external">贝塞尔曲线学习使用网站</a>
+<li><a href="http://cubic-bezier.com/#.17,.67,.83,.67" target="_blank" rel="noopener">贝塞尔曲线学习使用网站</a>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/18/css揭秘一书相关/#更多" rel="contents">
@@ -2376,6 +2170,222 @@ setInterval永远指向window
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/js语言精粹/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="朱亮">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朱亮的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/28/js语言精粹/" itemprop="url">
+                  js语言精粹一书整理
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-11-28 20:26:14" itemprop="dateCreated datePublished" datetime="2017-11-28T20:26:14+08:00">2017-11-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-09 14:47:42" itemprop="dateModified" datetime="2018-05-09T14:47:42+08:00">2018-05-09</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/js相关/" itemprop="url" rel="index"><span itemprop="name">js相关</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/28/js语言精粹/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/11/28/js语言精粹/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/28/js语言精粹/" class="leancloud_visitors" data-flag-title="js语言精粹一书整理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+
+          
+
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>##表示每一章，####表示每一个小节<br>书 P35的递归方法、书55页部件</p>
+<p>注：字面量表示如何表达这个值，一般除去表达式，给变量赋值时，等号右边的就可以认为是字面量<br>jq的核心思想是单例、工厂模式；vue，react的核心思想是观察者、MVVM模式。</p>
+<pre><code>var test = &quot;hello world!&quot;
+</code></pre><p>这里 “hello world!”就是字面量，test是变量名<br>在js中，字面量分为字符串字面量，对象字面量，数组字面量和函数字面量</p>
+<p>##补充</p>
+<ul>
+<li>js中的apply和call的区别，两个方法的第一个参数都是当前调用的函数的调用环境（this），而apply是将所有参数放在一个数组中，但是会自动拆分(只会拆分一次)。而call是有多少个参数就放多少参数，不会自动拆分</li>
+</ul>
+<p>##第二章 语法</p>
+<p>####语句</p>
+<ul>
+<li><p>在js中会被判断为假的字面量</p>
+<ol>
+<li>false</li>
+<li>null</li>
+<li>undefined</li>
+<li>空字符串’’</li>
+<li>数字0</li>
+<li>数字NaN</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/28/js语言精粹/#更多" rel="contents">
+              <span class=read_more_font>阅读全文 <span class="read_more_icon">&raquo;</span></span>
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2398,7 +2408,7 @@ setInterval永远指向window
 <div class="widget-wrap">
     <div id="myCanvasContainer" class="widget tagcloud" style="text-align:center;">
         <canvas width="400" height="200" id="resCanvas" style="width=100%">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax知识点整理/">ajax知识点整理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css和js部分的优化相关/">css和js部分的优化相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css相关/">css相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html相关强化/">html相关强化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js设计模式小计/">js设计模式小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuxt学习笔记/">nuxt学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service-worker实战/">service worker实战</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuepress学习小计/">vuepress学习小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一本需要反复阅读的js书籍/">一本需要反复阅读的js书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码编写过程中的沉淀/">代码编写过程中的沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端知识点沉淀/">前端知识点沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片相关/">图片相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总的来说，这本书有点脱节了，内容有些老旧/">总的来说，这本书有点脱节了，内容有些老旧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务端性能优化/">服务端性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器中各种距离的计算/">浏览器中各种距离的计算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器存储和缓存/">浏览器存储和缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/看vue-js一书所得/">看vue.js一书所得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存相关/">缓存相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重绘与回流相关/">重绘与回流相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试记录/">面试记录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高性能javascript一书阅读笔记/">高性能javascript一书阅读笔记</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax知识点整理/">ajax知识点整理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css和js部分的优化相关/">css和js部分的优化相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css相关/">css相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html相关强化/">html相关强化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js设计模式小计/">js设计模式小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuxt学习笔记/">nuxt学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service-worker实战/">service worker实战</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuepress学习小计/">vuepress学习小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一本需要反复阅读的js书籍/">一本需要反复阅读的js书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码编写过程中的沉淀/">代码编写过程中的沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端知识点沉淀/">前端知识点沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片相关/">图片相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总的来说，这本书有点脱节了，内容有些老旧/">总的来说，这本书有点脱节了，内容有些老旧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务端性能优化/">服务端性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器中各种距离的计算/">浏览器中各种距离的计算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器存储和缓存/">浏览器存储和缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/看vue-js一书所得/">看vue.js一书所得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存相关/">缓存相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重绘与回流相关/">重绘与回流相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高性能javascript一书阅读笔记/">高性能javascript一书阅读笔记</a><span class="tag-list-count">1</span></li></ul>
         </canvas>
     </div>
 </div>
@@ -2439,7 +2449,7 @@ setInterval永远指向window
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2468,9 +2478,7 @@ setInterval永远指向window
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2523,9 +2531,7 @@ setInterval永远指向window
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>

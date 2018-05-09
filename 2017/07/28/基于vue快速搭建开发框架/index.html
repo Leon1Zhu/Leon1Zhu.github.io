@@ -468,13 +468,13 @@ daovoice('update');
         <p>从去年开始接触vue开发，也从头到尾经历了两个大项目，从搭建项目一点点的也积累了不少经验，也给自己挖了不少的坑。同样的，填的坑也不少。今天就总结一下，如何搭建vue前端开发框架。其中涉及的相关技术有：vue-cli脚手架、vuex作为全局事件、变量的管理，global.js（中小型项目开发时不需要复杂的vuex时使用），vue-router，axios，scss等。</p>
 <h2 id="1-使用vue-cli生成webpack项目模板"><a href="#1-使用vue-cli生成webpack项目模板" class="headerlink" title="1.使用vue-cli生成webpack项目模板"></a>1.使用vue-cli生成webpack项目模板</h2><ul>
 <li><p>安装node</p>
-<p>首先需要安装node环境，可以直接到中文官网<a href="http://nodejs.cn/" target="_blank" rel="external">http://nodejs.cn/</a>下载安装包。</p>
-<p>只是这样安装的 node 是固定版本的，如果需要多版本的 node，可以使用 nvm 安装[<a href="http://blog.csdn.net/s8460049/article/details/52396399" target="_blank" rel="external">http://blog.csdn.net/s8460049/article/details/52396399</a>] (<a href="http://blog.csdn.net/s8460049/article/details/52396399" target="_blank" rel="external">http://blog.csdn.net/s8460049/article/details/52396399</a>)</p>
+<p>首先需要安装node环境，可以直接到中文官网<a href="http://nodejs.cn/" target="_blank" rel="noopener">http://nodejs.cn/</a>下载安装包。</p>
+<p>只是这样安装的 node 是固定版本的，如果需要多版本的 node，可以使用 nvm 安装[<a href="http://blog.csdn.net/s8460049/article/details/52396399]" target="_blank" rel="noopener">http://blog.csdn.net/s8460049/article/details/52396399]</a> (<a href="http://blog.csdn.net/s8460049/article/details/52396399" target="_blank" rel="noopener">http://blog.csdn.net/s8460049/article/details/52396399</a>)</p>
 <p>安装完成后，可以命令行工具中输入 node -v 和 npm -v，如果能显示出版本号，就说明安装成功。</p>
 </li>
 <li><p>安装vue-cli</p>
 <p> 安装好了 node，我们可以直接全局安装 vue-cli：</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">npm install -g vue-cli</div></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g vue-cli</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <a id="more"></a>
@@ -484,7 +484,7 @@ daovoice('update');
 <ul>
 <li><p>生成项目</p>
 <p>首先需要在命令行中进入到项目目录，然后输入：</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">vue init webpack Vue-Project</div></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vue init webpack Vue-Project</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>  按照提示项进行设置生成项目即可。</p>
@@ -510,7 +510,7 @@ daovoice('update');
 <p> 可以发现使用es6的import和export进行模块化之后，就将api接口请求从界面逻辑中分离出来，单独开发，使得层次更加分明，增加接口的复用率更加方便项目的管理。让后期项目的管理更加容易。</p>
 <h3 id="（2）配置vuex"><a href="#（2）配置vuex" class="headerlink" title="（2）配置vuex"></a>（2）配置vuex</h3><p>当你的项目比较复杂，对项目的状态管理比较复杂时，就需要集成vuex进行项目状态的管理，集成之后的效果如下</p>
 <p><img src="http://otdc3q7z7.bkt.clouddn.com/5D58CA9C-1888-440A-A2BE-3A6D922B2476.png" alt="example"></p>
-<p>因为官网上都有相关配置，就不做详细说明，需要看文件内具体内容的可以去项目的<a href="https://github.com/ZhuLiangT/vue-template" target="_blank" rel="external"><strong>github地址进行查看</strong></a></p>
+<p>因为官网上都有相关配置，就不做详细说明，需要看文件内具体内容的可以去项目的<a href="https://github.com/ZhuLiangT/vue-template" target="_blank" rel="noopener"><strong>github地址进行查看</strong></a></p>
 <h3 id="3-global文件以及全局方法文件的创建以及维护"><a href="#3-global文件以及全局方法文件的创建以及维护" class="headerlink" title="(3)global文件以及全局方法文件的创建以及维护"></a>(3)global文件以及全局方法文件的创建以及维护</h3><p>在很多情况下，你的项目都不会那么的复杂，所以使用vuex反而会增加项目的复杂度，降低你的开发效率，这种时候，就需要我们用一个全局的js文件来管理相关的变量（bus），将这些变量统一存放在javascript的全局global下进行管理，再用专门的文件对这些变量进行管理，使得项目更加整洁。</p>
 <ul>
 <li><p>创建global.js用来存放全局变量</p>
@@ -527,7 +527,7 @@ daovoice('update');
 <p><img src="http://otdc3q7z7.bkt.clouddn.com/96EBB9DB-3AD0-479D-AC49-99A43FE7BA95.png" alt="example"></p>
 </li>
 </ul>
-<p>至此，一套相当实用的基于vue-cli的开发框架就配置完成，项目已经上传到github上，你也可以到<a href="https://github.com/ZhuLiangT/vue-template" target="_blank" rel="external"><strong>github上进行查看</strong></a>。</p>
+<p>至此，一套相当实用的基于vue-cli的开发框架就配置完成，项目已经上传到github上，你也可以到<a href="https://github.com/ZhuLiangT/vue-template" target="_blank" rel="noopener"><strong>github上进行查看</strong></a>。</p>
 
       
     </div>
@@ -608,7 +608,7 @@ daovoice('update');
 <div class="widget-wrap">
     <div id="myCanvasContainer" class="widget tagcloud" style="text-align:center;">
         <canvas width="400" height="200" id="resCanvas" style="width=100%">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax知识点整理/">ajax知识点整理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css和js部分的优化相关/">css和js部分的优化相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css相关/">css相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html相关强化/">html相关强化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js设计模式小计/">js设计模式小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuxt学习笔记/">nuxt学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service-worker实战/">service worker实战</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuepress学习小计/">vuepress学习小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一本需要反复阅读的js书籍/">一本需要反复阅读的js书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码编写过程中的沉淀/">代码编写过程中的沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端知识点沉淀/">前端知识点沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片相关/">图片相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总的来说，这本书有点脱节了，内容有些老旧/">总的来说，这本书有点脱节了，内容有些老旧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务端性能优化/">服务端性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器中各种距离的计算/">浏览器中各种距离的计算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器存储和缓存/">浏览器存储和缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/看vue-js一书所得/">看vue.js一书所得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存相关/">缓存相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重绘与回流相关/">重绘与回流相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试记录/">面试记录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高性能javascript一书阅读笔记/">高性能javascript一书阅读笔记</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax知识点整理/">ajax知识点整理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css和js部分的优化相关/">css和js部分的优化相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css相关/">css相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html相关强化/">html相关强化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js设计模式小计/">js设计模式小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuxt学习笔记/">nuxt学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service-worker实战/">service worker实战</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuepress学习小计/">vuepress学习小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一本需要反复阅读的js书籍/">一本需要反复阅读的js书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码编写过程中的沉淀/">代码编写过程中的沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端知识点沉淀/">前端知识点沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片相关/">图片相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总的来说，这本书有点脱节了，内容有些老旧/">总的来说，这本书有点脱节了，内容有些老旧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务端性能优化/">服务端性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器中各种距离的计算/">浏览器中各种距离的计算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器存储和缓存/">浏览器存储和缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/看vue-js一书所得/">看vue.js一书所得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存相关/">缓存相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重绘与回流相关/">重绘与回流相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高性能javascript一书阅读笔记/">高性能javascript一书阅读笔记</a><span class="tag-list-count">1</span></li></ul>
         </canvas>
     </div>
 </div>
@@ -658,7 +658,7 @@ daovoice('update');
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -687,9 +687,7 @@ daovoice('update');
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -742,9 +740,7 @@ daovoice('update');
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>

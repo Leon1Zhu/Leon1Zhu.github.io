@@ -480,21 +480,21 @@ git config --global user.name &quot;yourname&quot;
 </code></pre><p>接着打开秘钥文件，复制秘钥</p>
 <pre><code>cat ~/.ssh/id_rsa.pub
 </code></pre><p>这里会得到一段很长的编码：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCuYZIchz3THIcc/wH0ZB5WZYqe2iBVUNqSzfrgxBvJCZkFHWiUZhA/4omNud/27PVT/FADV9qSvrX7ifP05Cbl6mhE4uJjxOQRNoPdQQcsTEFh5vDvOeiJOT1CoFb9WLGg49Xml4yJmFJqv/Kz5hCe7LEWRYJH6tmaVG0qi9nwAZmjfTQpSWu07eAKB9wAbK6stCdnd5JvMq7IsNNylbwDlXf0RQA4RpppO+14oNBqivhi5ftBPjP15+aWKpnXUxkGMVAefKTvwsyw1T0H2sj+ILVFM4d5xpxu3jPHebqh363OwPPLMsoUy9VhQ3YDtMxt4vyOxvpJ9ekMGlDn/9ut youremail@XX.com</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCuYZIchz3THIcc/wH0ZB5WZYqe2iBVUNqSzfrgxBvJCZkFHWiUZhA/4omNud/27PVT/FADV9qSvrX7ifP05Cbl6mhE4uJjxOQRNoPdQQcsTEFh5vDvOeiJOT1CoFb9WLGg49Xml4yJmFJqv/Kz5hCe7LEWRYJH6tmaVG0qi9nwAZmjfTQpSWu07eAKB9wAbK6stCdnd5JvMq7IsNNylbwDlXf0RQA4RpppO+14oNBqivhi5ftBPjP15+aWKpnXUxkGMVAefKTvwsyw1T0H2sj+ILVFM4d5xpxu3jPHebqh363OwPPLMsoUy9VhQ3YDtMxt4vyOxvpJ9ekMGlDn/9ut youremail@XX.com</span><br></pre></td></tr></table></figure>
 <p>进入git的Account settings -&gt; SSH Keys -&gt; Add SSH Key将这段秘钥添加进去即可。</p>
 <p><img src="http://otdc3q7z7.bkt.clouddn.com/BA408E6C-C356-4D7E-8EF7-D2B7873C9797.png" alt="example"></p>
 <h2 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2.安装hexo"></a>2.安装hexo</h2><h3 id="全局安装hexo"><a href="#全局安装hexo" class="headerlink" title="全局安装hexo"></a>全局安装hexo</h3><pre><code>npm install -g hexo
 </code></pre><h3 id="初始化hexo，将hexo安装到你指定的目录（到指定目录使用此命令直接进行初始化）"><a href="#初始化hexo，将hexo安装到你指定的目录（到指定目录使用此命令直接进行初始化）" class="headerlink" title="初始化hexo，将hexo安装到你指定的目录（到指定目录使用此命令直接进行初始化）"></a>初始化hexo，将hexo安装到你指定的目录（到指定目录使用此命令直接进行初始化）</h3><pre><code>hexo init
 </code></pre><h3 id="生成hexo的静态页面（到init的目录执行此命令）"><a href="#生成hexo的静态页面（到init的目录执行此命令）" class="headerlink" title="生成hexo的静态页面（到init的目录执行此命令）"></a>生成hexo的静态页面（到init的目录执行此命令）</h3><pre><code>hexo generate
 </code></pre><h3 id="启动hexo本地服务"><a href="#启动hexo本地服务" class="headerlink" title="启动hexo本地服务"></a>启动hexo本地服务</h3><pre><code>hexo server
-</code></pre><p>   浏览器输入<a href="http://localhost:4000就可以看到你的专属博客啦" target="_blank" rel="external">http://localhost:4000就可以看到你的专属博客啦</a></p>
+</code></pre><p>   浏览器输入<a href="http://localhost:4000就可以看到你的专属博客啦" target="_blank" rel="noopener">http://localhost:4000就可以看到你的专属博客啦</a></p>
 <p>  至此，hexo的安装也已经完成。</p>
 <h2 id="3-让hexo和github建立联系"><a href="#3-让hexo和github建立联系" class="headerlink" title="3.让hexo和github建立联系"></a>3.让hexo和github建立联系</h2><h3 id="在hexo的安装目录中，找到-config-yml，将Deployment属性做如下修改"><a href="#在hexo的安装目录中，找到-config-yml，将Deployment属性做如下修改" class="headerlink" title="在hexo的安装目录中，找到_config.yml，将Deployment属性做如下修改"></a>在hexo的安装目录中，找到_config.yml，将Deployment属性做如下修改</h3><pre><code>deploy:
      type: git
     repo: git@github.com:yourname/yourname.github.io.git
     branch: master 
 </code></pre><p> 注：在hexo3.0之后要部署到git需要进行如下操作</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">npm install hexo-deployer-git --save </div><div class="line">hexo g(从新生成)</div><div class="line">hexo d（部署到git上）</div></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save </span><br><span class="line">hexo g(从新生成)</span><br><span class="line">hexo d（部署到git上）</span><br></pre></td></tr></table></figure>
 <pre><code>至此，访问刚才部署的git个人页面，就能看到你的私人博客啦。
 </code></pre>
       
@@ -525,8 +525,8 @@ git config --global user.name &quot;yourname&quot;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/13/浏览器距离计算/" rel="next" title="浏览器距离计算">
-                <i class="fa fa-chevron-left"></i> 浏览器距离计算
+              <a href="/2018/03/14/js设计模式/" rel="next" title="js设计模式">
+                <i class="fa fa-chevron-left"></i> js设计模式
               </a>
             
           </div>
@@ -535,8 +535,8 @@ git config --global user.name &quot;yourname&quot;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/14/js设计模式/" rel="prev" title="js设计模式">
-                js设计模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/15/spring的跨域/" rel="prev" title="浅谈跨域问题">
+                浅谈跨域问题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -580,7 +580,7 @@ git config --global user.name &quot;yourname&quot;
 <div class="widget-wrap">
     <div id="myCanvasContainer" class="widget tagcloud" style="text-align:center;">
         <canvas width="400" height="200" id="resCanvas" style="width=100%">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax知识点整理/">ajax知识点整理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css和js部分的优化相关/">css和js部分的优化相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css相关/">css相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html相关强化/">html相关强化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js设计模式小计/">js设计模式小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuxt学习笔记/">nuxt学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service-worker实战/">service worker实战</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuepress学习小计/">vuepress学习小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一本需要反复阅读的js书籍/">一本需要反复阅读的js书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码编写过程中的沉淀/">代码编写过程中的沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端知识点沉淀/">前端知识点沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片相关/">图片相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总的来说，这本书有点脱节了，内容有些老旧/">总的来说，这本书有点脱节了，内容有些老旧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务端性能优化/">服务端性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器中各种距离的计算/">浏览器中各种距离的计算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器存储和缓存/">浏览器存储和缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/看vue-js一书所得/">看vue.js一书所得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存相关/">缓存相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重绘与回流相关/">重绘与回流相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试记录/">面试记录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高性能javascript一书阅读笔记/">高性能javascript一书阅读笔记</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax知识点整理/">ajax知识点整理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css和js部分的优化相关/">css和js部分的优化相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css相关/">css相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html相关强化/">html相关强化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js设计模式小计/">js设计模式小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuxt学习笔记/">nuxt学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service-worker实战/">service worker实战</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuepress学习小计/">vuepress学习小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一本需要反复阅读的js书籍/">一本需要反复阅读的js书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码编写过程中的沉淀/">代码编写过程中的沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端知识点沉淀/">前端知识点沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片相关/">图片相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总的来说，这本书有点脱节了，内容有些老旧/">总的来说，这本书有点脱节了，内容有些老旧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务端性能优化/">服务端性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器中各种距离的计算/">浏览器中各种距离的计算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器存储和缓存/">浏览器存储和缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/看vue-js一书所得/">看vue.js一书所得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存相关/">缓存相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重绘与回流相关/">重绘与回流相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高性能javascript一书阅读笔记/">高性能javascript一书阅读笔记</a><span class="tag-list-count">1</span></li></ul>
         </canvas>
     </div>
 </div>
@@ -630,7 +630,7 @@ git config --global user.name &quot;yourname&quot;
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -659,9 +659,7 @@ git config --global user.name &quot;yourname&quot;
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -714,9 +712,7 @@ git config --global user.name &quot;yourname&quot;
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>

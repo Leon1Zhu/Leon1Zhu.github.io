@@ -458,7 +458,7 @@ daovoice('update');
 
       
         <h3 id="vuepress是尤大大4月12日发布的一个全新的基于vue的静态网站生成器，实际上就是一个vue的spa应用，内置webpack，可以用来写文档。恰好最近需要为一些组件写文档，就动手撸了一波，毕竟刚发布，遇到不少坑，最终还是磕磕碰碰的运行起来了，为了避免大家踩同样的坑，特意将搭建的过程记录下来，分享一波。"><a href="#vuepress是尤大大4月12日发布的一个全新的基于vue的静态网站生成器，实际上就是一个vue的spa应用，内置webpack，可以用来写文档。恰好最近需要为一些组件写文档，就动手撸了一波，毕竟刚发布，遇到不少坑，最终还是磕磕碰碰的运行起来了，为了避免大家踩同样的坑，特意将搭建的过程记录下来，分享一波。" class="headerlink" title="vuepress是尤大大4月12日发布的一个全新的基于vue的静态网站生成器，实际上就是一个vue的spa应用，内置webpack，可以用来写文档。恰好最近需要为一些组件写文档，就动手撸了一波，毕竟刚发布，遇到不少坑，最终还是磕磕碰碰的运行起来了，为了避免大家踩同样的坑，特意将搭建的过程记录下来，分享一波。"></a>vuepress是尤大大4月12日发布的一个全新的基于vue的静态网站生成器，实际上就是一个vue的spa应用，内置webpack，可以用来写文档。恰好最近需要为一些组件写文档，就动手撸了一波，毕竟刚发布，遇到不少坑，最终还是磕磕碰碰的运行起来了，为了避免大家踩同样的坑，特意将搭建的过程记录下来，分享一波。</h3><h5 id="以下是几个已知的问题"><a href="#以下是几个已知的问题" class="headerlink" title="以下是几个已知的问题"></a>以下是几个已知的问题</h5><ul>
-<li><p>因为util.promisify是在node 8.0之后引入的，所以如果你不想像我一样浪费三个小时的时间，请<a href="https://www.cnblogs.com/ae6623/p/6242423.html" target="_blank" rel="external">查看并且更新node版本</a></p>
+<li><p>因为util.promisify是在node 8.0之后引入的，所以如果你不想像我一样浪费三个小时的时间，请<a href="https://www.cnblogs.com/ae6623/p/6242423.html" target="_blank" rel="noopener">查看并且更新node版本</a></p>
 </li>
 <li><p>建议不要使用webpack-simple的模板进行试验，否则会各种运行不起来╮(╯▽╰)╭</p>
 </li>
@@ -466,17 +466,17 @@ daovoice('update');
 </li>
 <li><p>当出现安装官方文档部署之后一直跳转到404的情况时，请使用路由的哈希模式来访问</p>
 </li>
-<li><p>如遇到端口冲突等问题，在docs目录下新建.vuepress文件夹，然后新建config配置文件对prot端口项进行配置即可，具体可参照<a href="https://vuepress.docschina.org/config/" target="_blank" rel="external">官方文档</a></p>
+<li><p>如遇到端口冲突等问题，在docs目录下新建.vuepress文件夹，然后新建config配置文件对prot端口项进行配置即可，具体可参照<a href="https://vuepress.docschina.org/config/" target="_blank" rel="noopener">官方文档</a></p>
 </li>
 <li><p>全局安装之后项目中再安装的话依赖会冲突，引发Module build failed: CssSyntaxError ，建议写在全局的vuepress</p>
 <a id="more"></a>
 </li>
 </ul>
-<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><h4 id="使用cli新建一个webpack模板项目"><a href="#使用cli新建一个webpack模板项目" class="headerlink" title="使用cli新建一个webpack模板项目"></a><a href="https://cn.vuejs.org/v2/guide/installation.html" target="_blank" rel="external">使用cli新建一个webpack模板项目</a></h4><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">   //进入项目首先安装依赖</div><div class="line">   npm install</div><div class="line">   </div><div class="line">   //将vue-loader进行版本替换，使其和vuepress内置的webpack里的vue-loader保持一致，否则会报错（不过尤大大已经在解决版本冲突的问题了，版本待发）</div><div class="line">   npm install vue-loader@15.0.0-rc.2 --save-dev</div><div class="line">   </div><div class="line">   //接下来安装vuepress</div><div class="line">npm install -D vuepress</div><div class="line"></div><div class="line">mkdir docs</div><div class="line"></div><div class="line">echo &quot;# Hello VuePress&quot; &gt; docs/README.md</div><div class="line"></div><div class="line">//最后一步启动vuepress</div><div class="line">npx vuepress dev docs</div><div class="line"></div><div class="line">//使用vuepress build即可完成对项目的打包</div><div class="line"></div><div class="line">//接下来就是按照官方的文档，对你的网站进行各种创造啦</div></pre></td></tr></table></figure>
-<p>项目部署的话我使用的是github，具体操作请参照<a href="https://vuepress.docschina.org/guide/deploy.html" target="_blank" rel="external">官方文档</a></p>
-<p><a href="https://zhuliangt.github.io/v-alien-upload/" target="_blank" rel="external">示例网站</a></p>
-<p><a href="https://github.com/ZhuLiangT/testVuePress" target="_blank" rel="external">github地址</a></p>
-<p>剩下的主题配置参照<a href="https://vuepress.docschina.org/default-theme-config/" target="_blank" rel="external">官方文档</a>的配置详解就OK了，这里就不在赘述</p>
+<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><h4 id="使用cli新建一个webpack模板项目"><a href="#使用cli新建一个webpack模板项目" class="headerlink" title="使用cli新建一个webpack模板项目"></a><a href="https://cn.vuejs.org/v2/guide/installation.html" target="_blank" rel="noopener">使用cli新建一个webpack模板项目</a></h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">   //进入项目首先安装依赖</span><br><span class="line">   npm install</span><br><span class="line">   </span><br><span class="line">   //将vue-loader进行版本替换，使其和vuepress内置的webpack里的vue-loader保持一致，否则会报错（不过尤大大已经在解决版本冲突的问题了，版本待发）</span><br><span class="line">   npm install vue-loader@15.0.0-rc.2 --save-dev</span><br><span class="line">   </span><br><span class="line">   //接下来安装vuepress</span><br><span class="line">npm install -D vuepress</span><br><span class="line"></span><br><span class="line">mkdir docs</span><br><span class="line"></span><br><span class="line">echo &quot;# Hello VuePress&quot; &gt; docs/README.md</span><br><span class="line"></span><br><span class="line">//最后一步启动vuepress</span><br><span class="line">npx vuepress dev docs</span><br><span class="line"></span><br><span class="line">//使用vuepress build即可完成对项目的打包</span><br><span class="line"></span><br><span class="line">//接下来就是按照官方的文档，对你的网站进行各种创造啦</span><br></pre></td></tr></table></figure>
+<p>项目部署的话我使用的是github，具体操作请参照<a href="https://vuepress.docschina.org/guide/deploy.html" target="_blank" rel="noopener">官方文档</a></p>
+<p><a href="https://zhuliangt.github.io/v-alien-upload/" target="_blank" rel="noopener">示例网站</a></p>
+<p><a href="https://github.com/ZhuLiangT/testVuePress" target="_blank" rel="noopener">github地址</a></p>
+<p>剩下的主题配置参照<a href="https://vuepress.docschina.org/default-theme-config/" target="_blank" rel="noopener">官方文档</a>的配置详解就OK了，这里就不在赘述</p>
 <h2 id="2-实战开发"><a href="#2-实战开发" class="headerlink" title="2.实战开发"></a>2.实战开发</h2>
       
     </div>
@@ -567,7 +567,7 @@ daovoice('update');
 <div class="widget-wrap">
     <div id="myCanvasContainer" class="widget tagcloud" style="text-align:center;">
         <canvas width="400" height="200" id="resCanvas" style="width=100%">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax知识点整理/">ajax知识点整理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css和js部分的优化相关/">css和js部分的优化相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css相关/">css相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html相关强化/">html相关强化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js设计模式小计/">js设计模式小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuxt学习笔记/">nuxt学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service-worker实战/">service worker实战</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuepress学习小计/">vuepress学习小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一本需要反复阅读的js书籍/">一本需要反复阅读的js书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码编写过程中的沉淀/">代码编写过程中的沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端知识点沉淀/">前端知识点沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片相关/">图片相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总的来说，这本书有点脱节了，内容有些老旧/">总的来说，这本书有点脱节了，内容有些老旧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务端性能优化/">服务端性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器中各种距离的计算/">浏览器中各种距离的计算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器存储和缓存/">浏览器存储和缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/看vue-js一书所得/">看vue.js一书所得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存相关/">缓存相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重绘与回流相关/">重绘与回流相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试记录/">面试记录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高性能javascript一书阅读笔记/">高性能javascript一书阅读笔记</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax知识点整理/">ajax知识点整理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css和js部分的优化相关/">css和js部分的优化相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css相关/">css相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html相关强化/">html相关强化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js设计模式小计/">js设计模式小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuxt学习笔记/">nuxt学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service-worker实战/">service worker实战</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuepress学习小计/">vuepress学习小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一本需要反复阅读的js书籍/">一本需要反复阅读的js书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码编写过程中的沉淀/">代码编写过程中的沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端知识点沉淀/">前端知识点沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片相关/">图片相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总的来说，这本书有点脱节了，内容有些老旧/">总的来说，这本书有点脱节了，内容有些老旧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务端性能优化/">服务端性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器中各种距离的计算/">浏览器中各种距离的计算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器存储和缓存/">浏览器存储和缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/看vue-js一书所得/">看vue.js一书所得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存相关/">缓存相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重绘与回流相关/">重绘与回流相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高性能javascript一书阅读笔记/">高性能javascript一书阅读笔记</a><span class="tag-list-count">1</span></li></ul>
         </canvas>
     </div>
 </div>
@@ -617,7 +617,7 @@ daovoice('update');
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -646,9 +646,7 @@ daovoice('update');
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -701,9 +699,7 @@ daovoice('update');
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>

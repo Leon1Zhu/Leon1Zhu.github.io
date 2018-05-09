@@ -488,7 +488,7 @@ daovoice('update');
 </ul>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">initUI</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> bd = docuemnt.body,</div><div class="line">	links = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"a"</span>),</div><div class="line">	i=<span class="number">0</span>,</div><div class="line">	len = links.length;</div><div class="line">	<span class="built_in">document</span>.getElementById(<span class="string">'go-btn'</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">  </div><div class="line">  这段代码就用了三次<span class="built_in">document</span>，因为是全局变量搜索过程相对于局部变量就更加耗时，所以应当将<span class="built_in">document</span>存储为函数的局部变量</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initUI</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> bd = docuemnt.body,</span><br><span class="line">	links = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"a"</span>),</span><br><span class="line">	i=<span class="number">0</span>,</span><br><span class="line">	len = links.length;</span><br><span class="line">	<span class="built_in">document</span>.getElementById(<span class="string">'go-btn'</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">  这段代码就用了三次<span class="built_in">document</span>，因为是全局变量搜索过程相对于局部变量就更加耗时，所以应当将<span class="built_in">document</span>存储为函数的局部变量</span><br></pre></td></tr></table></figure>
 <ul>
 <li>闭包相关<ul>
 <li>闭包虽然方便，但是可能会导致函数的活动对象无法被回收，引发内存泄露相关问题，需要在使用之后手动置空</li>
@@ -522,7 +522,7 @@ daovoice('update');
 <h4 id="算法和流程控制控制"><a href="#算法和流程控制控制" class="headerlink" title="算法和流程控制控制"></a>算法和流程控制控制</h4><ul>
 <li>相对于for，while。for…in循环会慢一些</li>
 <li>当循环复杂度为O（n）时，每次减少迭代的工作量是最有效的，当循环复杂度大于O（n）时，减少迭代的次数是最有效的。</li>
-<li>当循环次数较多时，可以使用<a href="https://www.cnblogs.com/xkfz007/archive/2012/03/27/2420163.html" target="_blank" rel="external">达夫设备（Duff’s Device）</a>来减少循环次数</li>
+<li>当循环次数较多时，可以使用<a href="https://www.cnblogs.com/xkfz007/archive/2012/03/27/2420163.html" target="_blank" rel="noopener">达夫设备（Duff’s Device）</a>来减少循环次数</li>
 </ul>
 <ul>
 <li>条件循环<ul>
@@ -539,7 +539,7 @@ daovoice('update');
 <li>递归次数过多会导致栈溢出</li>
 <li>可以将递归的结果进行缓存，从而避免计算资源的浪费</li>
 </ul>
-<h4 id="字符串和正则表达式"><a href="#字符串和正则表达式" class="headerlink" title="字符串和正则表达式"></a>字符串和正则表达式</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">str = <span class="string">'one'</span> +<span class="string">'two'</span>;<span class="comment">//这样拼接字符串会产生一个中间变量</span></div><div class="line">str = one;str += <span class="string">'two'</span>;<span class="comment">//这样拼接字符串则不会产生中间变量，有利于性能的提升</span></div></pre></td></tr></table></figure>
+<h4 id="字符串和正则表达式"><a href="#字符串和正则表达式" class="headerlink" title="字符串和正则表达式"></a>字符串和正则表达式</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">str = <span class="string">'one'</span> +<span class="string">'two'</span>;<span class="comment">//这样拼接字符串会产生一个中间变量</span></span><br><span class="line">str = one;str += <span class="string">'two'</span>;<span class="comment">//这样拼接字符串则不会产生中间变量，有利于性能的提升</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>正则表达式的核心，回溯法</li>
 </ul>
@@ -621,10 +621,6 @@ daovoice('update');
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/25/面筋/" rel="prev" title="面筋">
-                面筋 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
       
@@ -666,7 +662,7 @@ daovoice('update');
 <div class="widget-wrap">
     <div id="myCanvasContainer" class="widget tagcloud" style="text-align:center;">
         <canvas width="400" height="200" id="resCanvas" style="width=100%">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax知识点整理/">ajax知识点整理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css和js部分的优化相关/">css和js部分的优化相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css相关/">css相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html相关强化/">html相关强化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js设计模式小计/">js设计模式小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuxt学习笔记/">nuxt学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service-worker实战/">service worker实战</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuepress学习小计/">vuepress学习小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一本需要反复阅读的js书籍/">一本需要反复阅读的js书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码编写过程中的沉淀/">代码编写过程中的沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端知识点沉淀/">前端知识点沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片相关/">图片相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总的来说，这本书有点脱节了，内容有些老旧/">总的来说，这本书有点脱节了，内容有些老旧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务端性能优化/">服务端性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器中各种距离的计算/">浏览器中各种距离的计算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器存储和缓存/">浏览器存储和缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/看vue-js一书所得/">看vue.js一书所得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存相关/">缓存相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重绘与回流相关/">重绘与回流相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试记录/">面试记录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高性能javascript一书阅读笔记/">高性能javascript一书阅读笔记</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax知识点整理/">ajax知识点整理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css和js部分的优化相关/">css和js部分的优化相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css相关/">css相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html相关强化/">html相关强化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js设计模式小计/">js设计模式小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuxt学习笔记/">nuxt学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service-worker实战/">service worker实战</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuepress学习小计/">vuepress学习小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一本需要反复阅读的js书籍/">一本需要反复阅读的js书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码编写过程中的沉淀/">代码编写过程中的沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端知识点沉淀/">前端知识点沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片相关/">图片相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总的来说，这本书有点脱节了，内容有些老旧/">总的来说，这本书有点脱节了，内容有些老旧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务端性能优化/">服务端性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器中各种距离的计算/">浏览器中各种距离的计算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器存储和缓存/">浏览器存储和缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/看vue-js一书所得/">看vue.js一书所得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存相关/">缓存相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重绘与回流相关/">重绘与回流相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高性能javascript一书阅读笔记/">高性能javascript一书阅读笔记</a><span class="tag-list-count">1</span></li></ul>
         </canvas>
     </div>
 </div>
@@ -716,7 +712,7 @@ daovoice('update');
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -745,9 +741,7 @@ daovoice('update');
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -800,9 +794,7 @@ daovoice('update');
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
