@@ -25,6 +25,17 @@ daovoice('update');
 </script>
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -325,6 +336,855 @@ daovoice('update');
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/18/css揭秘一书相关/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="朱亮">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朱亮的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/18/css揭秘一书相关/" itemprop="url">
+                  css揭秘一书相关
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-12-18 11:32:46" itemprop="dateCreated datePublished" datetime="2017-12-18T11:32:46+08:00">2017-12-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-09 14:47:42" itemprop="dateModified" datetime="2018-05-09T14:47:42+08:00">2018-05-09</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读后感/" itemprop="url" rel="index"><span itemprop="name">读后感</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/18/css揭秘一书相关/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/12/18/css揭秘一书相关/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/12/18/css揭秘一书相关/" class="leancloud_visitors" data-flag-title="css揭秘一书相关">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+
+          
+
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="46-状态平滑的动画"><a href="#46-状态平滑的动画" class="headerlink" title="46 状态平滑的动画"></a>46 状态平滑的动画</h3><ul>
+<li>对于动画，使用animation-play-state属性，指定当前动画的动画状态</li>
+</ul>
+<h3 id="47-沿环形路径平移的动画"><a href="#47-沿环形路径平移的动画" class="headerlink" title="47 沿环形路径平移的动画"></a>47 沿环形路径平移的动画</h3><ul>
+<li>简单实现之后发现旋转的图片也会随之旋转，大大降低了可阅读性，通过一个反方向的旋转，即可解决</li>
+<li>第二种解决方案暂不记录</li>
+<li>玩了一把作者写的相框效果，要活用background-clip,background-origin，以及用box-shadow,效果很漂亮</li>
+<li>background-clip对于图片只是裁剪，多余的部分会被裁减掉，而background-origin则是将图片移动到起始位置</li>
+</ul>
+<h3 id="42-缓动效果"><a href="#42-缓动效果" class="headerlink" title="42 缓动效果"></a>42 缓动效果</h3><ul>
+<li>box-shadow 最后的inset参数可以实现将阴影投入到元素内部</li>
+<li><a href="http://cubic-bezier.com/#.17,.67,.83,.67" target="_blank" rel="noopener">贝塞尔曲线学习使用网站</a>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/18/css揭秘一书相关/#更多" rel="contents">
+              <span class=read_more_font>阅读全文 <span class="read_more_icon">&raquo;</span></span>
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/14/精通css高级Web标准解决方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="朱亮">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朱亮的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/14/精通css高级Web标准解决方案/" itemprop="url">
+                  精通css高级Web标准解决方案
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-12-14 20:36:08" itemprop="dateCreated datePublished" datetime="2017-12-14T20:36:08+08:00">2017-12-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-09 14:40:38" itemprop="dateModified" datetime="2018-05-09T14:40:38+08:00">2018-05-09</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读后感/" itemprop="url" rel="index"><span itemprop="name">读后感</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/14/精通css高级Web标准解决方案/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/12/14/精通css高级Web标准解决方案/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/12/14/精通css高级Web标准解决方案/" class="leancloud_visitors" data-flag-title="精通css高级Web标准解决方案">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+
+          
+
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="IE兼容性相关"><a href="#IE兼容性相关" class="headerlink" title="IE兼容性相关"></a>IE兼容性相关</h2><ul>
+<li>IE浏览器的表现和其他浏览器不一样的一个原因就是，显示引擎使用一个称之为引擎的概念，所以布局的概念是IE浏览器上特有的，所以当元素在IE上显示时，如果元素拥有了布局，那么元素的显示就会被限制，就会和其他浏览器上展示的不一样（比如当给浮动元素设置的宽度时，浮动元素拥有布局，就会被限制为矩形，会阻止文本绕元素浮动）</li>
+<li>在其他浏览器上，如果元素的内容大于元素的尺寸，那么会溢出，而IE6或者更低版本中，拥有布局的元素会错误的扩展元素以支持这些多出的内容，剩余的问题列举见书P195</li>
+<li>在html中，可以指定css应用于特定的浏览器，可以使用条件注释指定特定的浏览器，也可以对IE浏览器隐藏某些css文件（见书P196）(&lt;!– [if It IE 6]&gt; &lt;![endif]&gt;)（这就是条件注释，用来兼容IE浏览器）</li>
+<li>IE6不支持锚链接的：focus伪类，ie7忽略:active和:focus</li>
+<li>css2.1和css3的很多高级选择器IE6和更低版本是不支持的（例如属性选择器）</li>
+<li>IE7以上都支持子元素选择器，但是在IE7中有一个BUG，如果选择的元素之间存在html注释，那么就会出问题，相邻同胞</li>
+<li>IE6中，混杂模式时使用的是非标准的盒模型，这时候，元素的width不是内容的宽度，而是内容、内边距和外边框的宽度</li>
+<li>IE8以上支持display:inline-block</li>
+<li>老版本的ie想要支持透明度的话需要专门的适配filter:alpha(opacity=80);（opacity = 0.8）</li>
+<li>在IE6中对PNG的透明度支持也要有专门的代码适配，代码见书P74</li>
+<li>老版本IE不支持对锚元素（a）使用：hover伪类</li>
+<li>IE6及其以下的双外边距BUG，使用display：inline即可修复</li>
+<li>更多的IEBUG请看书199页9.5 </li>
+<li><p>IE的缺陷不应该阻碍我们尝试各种新技术</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/14/精通css高级Web标准解决方案/#更多" rel="contents">
+              <span class=read_more_font>阅读全文 <span class="read_more_icon">&raquo;</span></span>
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/12/spring-boot引入外部jar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="朱亮">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朱亮的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/12/spring-boot引入外部jar/" itemprop="url">
+                  spring boot引入外部jar
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-12-12 10:47:23" itemprop="dateCreated datePublished" datetime="2017-12-12T10:47:23+08:00">2017-12-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-13 11:11:58" itemprop="dateModified" datetime="2018-05-13T11:11:58+08:00">2018-05-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/12/spring-boot引入外部jar/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/12/12/spring-boot引入外部jar/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/12/12/spring-boot引入外部jar/" class="leancloud_visitors" data-flag-title="spring boot引入外部jar">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+
+          
+
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="前言-由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，没一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来"><a href="#前言-由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，没一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来" class="headerlink" title="前言:由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，没一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来"></a>前言:由于项目需求，短信验证码的接口需要换成阿里大于的，但是尴尬的发现阿里大于的jar包没有maven版本的，于是便开始了一上午的操蛋引包之路。按照套路来说，自然应该是百度一波，但是百度了好久，找了好多方案之后发现，没一个有用的，而且文章的抄袭、拷贝十分严重，试了N种方案，都是错的，都没有将外部jar包打包到BOOK-INF文件夹下。最终，在第N次尝试之后，终于在打的jar包里将外部的jar包导入进来</h4><p>首先在新建libs文件夹（根目录或者resource目录下都可以），将需要引入的jar放进去<br><img src="http://otdc3q7z7.bkt.clouddn.com/F423D890-4FC6-4C60-8106-99A81A54E4EB.png" alt="libs文件夹"></p>
+<p>然后再pom中加入如下配置，告诉maven导入本地jar</p>
+<pre><code>   &lt;dependency&gt;
+    &lt;groupId&gt;com.aliyun&lt;/groupId&gt;
+    &lt;artifactId&gt;aliyun-java-sdk-core&lt;/artifactId&gt;
+    &lt;version&gt;3.2.2&lt;/version&gt;
+    &lt;scope&gt;system&lt;/scope&gt;
+    &lt;systemPath&gt;${project.basedir}/libs/aliyun-java-sdk-core-3.3.1.jar&lt;/systemPath&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.aliyun&lt;/groupId&gt;
+    &lt;artifactId&gt;aliyun-java-sdk-dysmsapi&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+    &lt;scope&gt;system&lt;/scope&gt;
+    &lt;systemPath&gt;${project.basedir}/libs/aliyun-java-sdk-dysmsapi-1.0.0.jar&lt;/systemPath&gt;
+&lt;/dependency&gt;
+</code></pre><p>其中除了systemPath配置告诉maven引入的本地jar包的位置之外，其他的配置都可以随便写</p>
+<p>划重点！！！敲黑板！！！下面的一步配置也是最重要的一步，网上很多的教程缺了这样一步之后就会导致虽然本地可以运行，但是只要使用maven打包就不行，因为maven没有将本地的jar也打到生成的包中<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/12/spring-boot引入外部jar/#更多" rel="contents">
+              <span class=read_more_font>阅读全文 <span class="read_more_icon">&raquo;</span></span>
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/js语言精粹/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="朱亮">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朱亮的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/28/js语言精粹/" itemprop="url">
+                  js语言精粹一书整理
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-11-28 20:26:14" itemprop="dateCreated datePublished" datetime="2017-11-28T20:26:14+08:00">2017-11-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-13 11:11:58" itemprop="dateModified" datetime="2018-05-13T11:11:58+08:00">2018-05-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/28/js语言精粹/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/11/28/js语言精粹/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/28/js语言精粹/" class="leancloud_visitors" data-flag-title="js语言精粹一书整理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+
+          
+
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>##表示每一章，####表示每一个小节<br>书 P35的递归方法、书55页部件</p>
+<p>注：字面量表示如何表达这个值，一般除去表达式，给变量赋值时，等号右边的就可以认为是字面量<br>jq的核心思想是单例、工厂模式；vue，react的核心思想是观察者、MVVM模式。</p>
+<pre><code>var test = &quot;hello world!&quot;
+</code></pre><p>这里 “hello world!”就是字面量，test是变量名<br>在js中，字面量分为字符串字面量，对象字面量，数组字面量和函数字面量</p>
+<p>##补充</p>
+<ul>
+<li>js中的apply和call的区别，两个方法的第一个参数都是当前调用的函数的调用环境（this），而apply是将所有参数放在一个数组中，但是会自动拆分(只会拆分一次)。而call是有多少个参数就放多少参数，不会自动拆分</li>
+</ul>
+<p>##第二章 语法</p>
+<p>####语句</p>
+<ul>
+<li><p>在js中会被判断为假的字面量</p>
+<ol>
+<li>false</li>
+<li>null</li>
+<li>undefined</li>
+<li>空字符串’’</li>
+<li>数字0</li>
+<li>数字NaN</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/28/js语言精粹/#更多" rel="contents">
+              <span class=read_more_font>阅读全文 <span class="read_more_icon">&raquo;</span></span>
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/27/前端知识点小计/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -388,7 +1248,7 @@ daovoice('update');
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-09 14:42:56" itemprop="dateModified" datetime="2018-05-09T14:42:56+08:00">2018-05-09</time>
+                <time title="修改时间：2018-05-13 11:11:58" itemprop="dateModified" datetime="2018-05-13T11:11:58+08:00">2018-05-13</time>
               
             
           </span>
@@ -405,7 +1265,7 @@ daovoice('update');
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/js相关/" itemprop="url" rel="index"><span itemprop="name">js相关</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a></span>
 
                 
                 
@@ -596,7 +1456,7 @@ daovoice('update');
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-09 14:47:42" itemprop="dateModified" datetime="2018-05-09T14:47:42+08:00">2018-05-09</time>
+                <time title="修改时间：2018-05-13 11:11:58" itemprop="dateModified" datetime="2018-05-13T11:11:58+08:00">2018-05-13</time>
               
             
           </span>
@@ -613,7 +1473,7 @@ daovoice('update');
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue相关/" itemprop="url" rel="index"><span itemprop="name">vue相关</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
 
                 
                 
@@ -1021,7 +1881,7 @@ npm install
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-09 14:42:56" itemprop="dateModified" datetime="2018-05-09T14:42:56+08:00">2018-05-09</time>
+                <time title="修改时间：2018-05-13 11:11:58" itemprop="dateModified" datetime="2018-05-13T11:11:58+08:00">2018-05-13</time>
               
             
           </span>
@@ -1038,7 +1898,7 @@ npm install
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/性能优化/" itemprop="url" rel="index"><span itemprop="name">性能优化</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端性能优化/" itemprop="url" rel="index"><span itemprop="name">前端性能优化</span></a></span>
 
                 
                 
@@ -1227,7 +2087,7 @@ npm install
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-09 14:42:56" itemprop="dateModified" datetime="2018-05-09T14:42:56+08:00">2018-05-09</time>
+                <time title="修改时间：2018-05-13 11:11:58" itemprop="dateModified" datetime="2018-05-13T11:11:58+08:00">2018-05-13</time>
               
             
           </span>
@@ -1244,7 +2104,7 @@ npm install
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/性能优化/" itemprop="url" rel="index"><span itemprop="name">性能优化</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端性能优化/" itemprop="url" rel="index"><span itemprop="name">前端性能优化</span></a></span>
 
                 
                 
@@ -1439,7 +2299,7 @@ npm install
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-09 14:42:56" itemprop="dateModified" datetime="2018-05-09T14:42:56+08:00">2018-05-09</time>
+                <time title="修改时间：2018-05-13 11:11:58" itemprop="dateModified" datetime="2018-05-13T11:11:58+08:00">2018-05-13</time>
               
             
           </span>
@@ -1456,7 +2316,7 @@ npm install
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/性能优化/" itemprop="url" rel="index"><span itemprop="name">性能优化</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端性能优化/" itemprop="url" rel="index"><span itemprop="name">前端性能优化</span></a></span>
 
                 
                 
@@ -1580,877 +2440,6 @@ npm install
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/16/web前端优化（5）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="朱亮">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="朱亮的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/16/web前端优化（5）/" itemprop="url">
-                  web前端优化（5）
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-11-16 17:47:27" itemprop="dateCreated datePublished" datetime="2017-11-16T17:47:27+08:00">2017-11-16</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-09 14:42:56" itemprop="dateModified" datetime="2018-05-09T14:42:56+08:00">2018-05-09</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/性能优化/" itemprop="url" rel="index"><span itemprop="name">性能优化</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/16/web前端优化（5）/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/11/16/web前端优化（5）/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/11/16/web前端优化（5）/" class="leancloud_visitors" data-flag-title="web前端优化（5）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-
-          
-
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="cookie相关"><a href="#cookie相关" class="headerlink" title="cookie相关"></a>cookie相关</h2><ul>
-<li>cookie的本意是用来与服务端通信，告诉服务端当前调用的人的相关信息，方便服务端及时的知道是那些人在调用后台的数据</li>
-<li>每次发送http请求时，都会自动的吧cookie信息带上</li>
-<li>cookie的大小为4MB</li>
-<li>cookie具有时效性</li>
-<li>在dns服务器上，如果使用cookie来存储信息的话，并且在相同域名下请求静态资源文件，那么因为请求会自动带上cookie这一项而浪费很多的流量，例如京东这样的公司，如果dns服务器进行cookie操作的话，光是对静态资源的请求，就会浪费上亿元的流量费</li>
-<li>cookie并不适合做浏览器端数据的存储</li>
-<li>cookie具有httponly的设置，防止js的恶意读取<h2 id="sessionStorage和LocalStorage"><a href="#sessionStorage和LocalStorage" class="headerlink" title="sessionStorage和LocalStorage"></a>sessionStorage和LocalStorage</h2></li>
-<li>这两个是H5为了浏览器存储而设计的</li>
-<li>仅在客户端使用，不和服务端通信</li>
-<li>5MB大小</li>
-<li>使用storage进行缓存数据，可以减少对于后端的http请求，进行一定的优化</li>
-<li>sessionStorage是会话级别的浏览器存储</li>
-<li>loaclStorage是直接存储在本地</li>
-<li>百度在loaclStorage中存储了很多的信息，包括百度地图的js、函数级别的缓存和css级别的缓存，但是要注意要有一个很好的更新机制</li>
-<li><p>手淘将很多的小的icon图片都存在loaclstorage中，同样也很好加快了网页的读取速度，用户数据还是放在了cookie中，随请求发送到后端，手淘中将浏览器是否支持webp格式的图片字段放在了sessionStorage中，因为这个字段是会每次随浏览器的改变都会改变</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/16/web前端优化（5）/#更多" rel="contents">
-              <span class=read_more_font>阅读全文 <span class="read_more_icon">&raquo;</span></span>
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/15/web前端优化（4）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="朱亮">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="朱亮的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/15/web前端优化（4）/" itemprop="url">
-                  web前端优化（4）
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-11-15 12:37:53" itemprop="dateCreated datePublished" datetime="2017-11-15T12:37:53+08:00">2017-11-15</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-09 14:42:56" itemprop="dateModified" datetime="2018-05-09T14:42:56+08:00">2018-05-09</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/性能优化/" itemprop="url" rel="index"><span itemprop="name">性能优化</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/15/web前端优化（4）/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/11/15/web前端优化（4）/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/11/15/web前端优化（4）/" class="leancloud_visitors" data-flag-title="web前端优化（4）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-
-          
-
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="重绘与回流"><a href="#重绘与回流" class="headerlink" title="重绘与回流"></a>重绘与回流</h2><p>####浏览器的重绘与回流的机制</p>
-<ul>
-<li>频繁触发重绘与回流，会导致UI频繁渲染，降低js的运行性能，所以要对css的性能进行提高</li>
-<li>当render tree中的一部分因为元素的规模尺寸、布局、隐藏等改变需要重新构建，就是回流。比如。通过减少会触发回流的css的使用，可以对回流进行优化</li>
-<li>当render-tree中的一些元素需要更新属性，而这些属性只是影响元素的外观、风格。而不影响布局时，就是重绘，比如（background-color）。</li>
-<li>重绘的时候不一定会回流，但是回流一定会引起重绘。</li>
-</ul>
-<ul>
-<li><p>会触发重绘与回流的css属性</p>
-<ol>
-<li><p>触发页面重布局的属性<br><img src="http://otdc3q7z7.bkt.clouddn.com/6BB86E46-CFA6-493C-90BC-319D16AD0FD9.png" alt="触发页面重布局的css属性"></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/15/web前端优化（4）/#更多" rel="contents">
-              <span class=read_more_font>阅读全文 <span class="read_more_icon">&raquo;</span></span>
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/web前端优化（3）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="朱亮">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="朱亮的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/14/web前端优化（3）/" itemprop="url">
-                  web前端优化（3）
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-11-14 18:21:45" itemprop="dateCreated datePublished" datetime="2017-11-14T18:21:45+08:00">2017-11-14</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-09 14:42:56" itemprop="dateModified" datetime="2018-05-09T14:42:56+08:00">2018-05-09</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/性能优化/" itemprop="url" rel="index"><span itemprop="name">性能优化</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/14/web前端优化（3）/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/11/14/web前端优化（3）/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/11/14/web前端优化（3）/" class="leancloud_visitors" data-flag-title="web前端优化（3）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-
-          
-
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="浏览器css和js的加载过程"><a href="#浏览器css和js的加载过程" class="headerlink" title="浏览器css和js的加载过程"></a>浏览器css和js的加载过程</h2><p><img src="http://otdc3q7z7.bkt.clouddn.com/css.js%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B.png" alt="css和html的渲染过程"></p>
-<ul>
-<li>浏览器通过网址首先拿到由字节流转变成字符流的HTML文档，HTML文档会被解析器解析成一段段TOKEN，浏览器通过nextToken方法，浏览器会自顶向下对HTML文档进行解析，逐渐生成DOM树，但是此时DOM树并不会在页面上进行显示</li>
-<li>在生成DOM树的过程中，浏览器会对外部资源（CSS、js）进行请求和解析，对于请求的css，浏览器会生成对应的CSSOM,当CSSOM树和DOM树都生成完之后，浏览器才会将这些资源进行合并，生成RenderTree从而对页面进行绘制</li>
-</ul>
-<ul>
-<li>HTML渲染过程中的特点<ul>
-<li>是顺序执行且并发加载的</li>
-<li>对于单个域名，浏览器的并发度是有限的</li>
-<li>是否阻塞（css的加载是否会阻塞js的加载，css的加载是否会阻塞页面的渲染等等等）</li>
-<li>依赖关系（比如css代码再哪里引入的关系，js代码的执行顺序的关系问题）</li>
-<li>引入方式（link,import，script…）</li>
-</ul>
-</li>
-</ul>
-<h2 id="css、js加载过程中的优化点"><a href="#css、js加载过程中的优化点" class="headerlink" title="css、js加载过程中的优化点"></a>css、js加载过程中的优化点</h2><h2 id="懒加载和预加载"><a href="#懒加载和预加载" class="headerlink" title="懒加载和预加载"></a>懒加载和预加载</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/14/web前端优化（3）/#更多" rel="contents">
-              <span class=read_more_font>阅读全文 <span class="read_more_icon">&raquo;</span></span>
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/13/web前端优化（2）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="朱亮">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="朱亮的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/13/web前端优化（2）/" itemprop="url">
-                  web前端优化（2）
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-11-13 12:30:04" itemprop="dateCreated datePublished" datetime="2017-11-13T12:30:04+08:00">2017-11-13</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-09 14:42:56" itemprop="dateModified" datetime="2018-05-09T14:42:56+08:00">2018-05-09</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/性能优化/" itemprop="url" rel="index"><span itemprop="name">性能优化</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/13/web前端优化（2）/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/11/13/web前端优化（2）/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/11/13/web前端优化（2）/" class="leancloud_visitors" data-flag-title="web前端优化（2）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-
-          
-
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>##图片相关优化</p>
-<p>####1.图片相关优化的核心概念</p>
-<p>图片压缩指的是针对图片的情况，舍弃一些相对无关紧要的色彩信息，舍去测部分人眼基本是察觉不出来的。</p>
-<ul>
-<li>有损压缩在压缩过程中会丢失部分图片资源，但是这部分资源对人眼来说是没有区别，所以不是很重要。</li>
-</ul>
-<ul>
-<li>png8/png24/png32的区别<ul>
-<li>png8   256色+支持透明（8bit就可以表示一个颜色）</li>
-<li>png24  2^24色+不支持透明（24bit才可以显示一个像素中的颜色）</li>
-<li>png32  2^24色+支持透明（在24位的基础上增加8位支持透明）</li>
-<li>根据需要选择文件类型，颜色越丰富，所需的空间就越多</li>
-</ul>
-</li>
-<li>不同格式图片常用的业务场景<ul>
-<li>jpg有损压缩，压缩率高，不支持透明</li>
-<li>png支持透明，浏览器兼容性好（如果png8能支持的话，那么文件大小会相对更小）</li>
-<li>webp压缩程度更好，在ios webview有兼容性问题（2010年谷歌提出来的文件格式）</li>
-<li>svg矢量图，代码内嵌，相对较小，图片样式相对简单的场景（svg标签在代码中进行图片的绘制，质量相对较高，iconfont这样的库就可以很好的使用svg图）</li>
-<li>jpg多应用于大部分不需要透明图片的业务场景</li>
-<li>png多应用于大部分需要透明图片的业务场景</li>
-<li>webp多应用于安卓部分</li>
-<li>svg多应用于图片样式相对简单的业务场景</li>
-</ul>
-</li>
-<li>css雪碧图<ul>
-<li>将网站要用的图片都放在一张图片上</li>
-<li>可以减少网站对于图片的http请求，减少网站的请求数量</li>
-<li>当雪碧图比较大时，加载会比较慢</li>
-<li>一旦雪碧图加载失败，那么网站上所有的图标都会消失</li>
-</ul>
-</li>
-<li>svg矢量图的使用<ul>
-<li>svg是html5中一个比较重要的标准</li>
-<li>可以使用几行代码就实现相对复杂的图标，减少页面的体积，增加网页的请求速度</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>image inline 将图片的内容内嵌到html中以减少网站的http请求数量</li>
-<li>image inline会将html文件变大，但是图片不大的话，基本可以忽略，但是可以减少一次http请求，所有小鱼8kb或者4kb的文件，一般是选用image inline将图片内联进来，这样减少网络请求的时间会大大小鱼html文件大小的增加的请求时间</li>
-<li><a href="https://tinypng.com（图片压缩网站）" target="_blank" rel="noopener">https://tinypng.com（图片压缩网站）</a></li>
-<li><a href="https://www.spritecow.com（雪碧图制作网站）" target="_blank" rel="noopener">https://www.spritecow.com（雪碧图制作网站）</a></li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/13/web前端优化（2）/#更多" rel="contents">
-              <span class=read_more_font>阅读全文 <span class="read_more_icon">&raquo;</span></span>
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2473,7 +2462,7 @@ npm install
 <div class="widget-wrap">
     <div id="myCanvasContainer" class="widget tagcloud" style="text-align:center;">
         <canvas width="400" height="200" id="resCanvas" style="width=100%">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax知识点整理/">ajax知识点整理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css和js部分的优化相关/">css和js部分的优化相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css相关/">css相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html相关强化/">html相关强化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js设计模式小计/">js设计模式小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuxt学习笔记/">nuxt学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service-worker实战/">service worker实战</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuepress学习小计/">vuepress学习小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一本需要反复阅读的js书籍/">一本需要反复阅读的js书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码编写过程中的沉淀/">代码编写过程中的沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端知识点沉淀/">前端知识点沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片相关/">图片相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总的来说，这本书有点脱节了，内容有些老旧/">总的来说，这本书有点脱节了，内容有些老旧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务端性能优化/">服务端性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器中各种距离的计算/">浏览器中各种距离的计算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器存储和缓存/">浏览器存储和缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/看vue-js一书所得/">看vue.js一书所得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存相关/">缓存相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重绘与回流相关/">重绘与回流相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高性能javascript一书阅读笔记/">高性能javascript一书阅读笔记</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax知识点整理/">ajax知识点整理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular视频学习记录/">angular视频学习记录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css和js部分的优化相关/">css和js部分的优化相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css相关/">css相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html相关强化/">html相关强化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js设计模式小计/">js设计模式小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuxt学习笔记/">nuxt学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service-worker实战/">service worker实战</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript相关学习/">typescript相关学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuepress学习小计/">vuepress学习小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一本需要反复阅读的js书籍/">一本需要反复阅读的js书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码编写过程中的沉淀/">代码编写过程中的沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端知识点沉淀/">前端知识点沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片相关/">图片相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总的来说，这本书有点脱节了，内容有些老旧/">总的来说，这本书有点脱节了，内容有些老旧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务端性能优化/">服务端性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器中各种距离的计算/">浏览器中各种距离的计算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器存储和缓存/">浏览器存储和缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/看vue-js一书所得/">看vue.js一书所得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存相关/">缓存相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重绘与回流相关/">重绘与回流相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试记录/">面试记录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高性能javascript一书阅读笔记/">高性能javascript一书阅读笔记</a><span class="tag-list-count">1</span></li></ul>
         </canvas>
     </div>
 </div>
@@ -2514,7 +2503,7 @@ npm install
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2543,7 +2532,19 @@ npm install
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2596,7 +2597,15 @@ npm install
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
