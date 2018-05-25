@@ -32,14 +32,6 @@ daovoice('update');
 
 
 
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
-
-
 
 
 
@@ -336,6 +328,207 @@ daovoice('update');
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/24/co模块/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="朱亮">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朱亮的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/24/co模块/" itemprop="url">
+                  js异步编程
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-24 09:36:08" itemprop="dateCreated datePublished" datetime="2018-05-24T09:36:08+08:00">2018-05-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-25 10:15:24" itemprop="dateModified" datetime="2018-05-25T10:15:24+08:00">2018-05-25</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/node-js/" itemprop="url" rel="index"><span itemprop="name">node.js</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/24/co模块/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/05/24/co模块/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/05/24/co模块/" class="leancloud_visitors" data-flag-title="js异步编程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+
+          
+
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>使用js编程，回调再常见不过。因为单线程，所以要异步，因为异步，所以要有回调。随着逻辑的越来越复杂，回调也越来越多，<br>尤其是在node.js中，经常会发生回调层层去嵌套的情况。<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$.get(<span class="regexp">/XXX,function()&#123;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/.....</span></span><br><span class="line"><span class="regexp">    $.get(/</span>XXX2,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        /....</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>不难发现，因为XXX2需要XXX的回调数据所以只能写在XXX的回调完成之后，这样的逻辑一多之后就会十分酸爽，形成回调地域。</p>
+<p>后来出现了promise，很大程度上解决了以上的问题，并且已经成为es6标准的一部分（由jq的promise演化而来）<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">api.get(<span class="regexp">/XXX).then(response =&gt; &#123;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/......</span></span><br><span class="line"><span class="regexp">    return api.get(/</span>XXX2)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">   <span class="comment">//......</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>不难发现，同样的需求，使用promise之后，极大地提高了代码的可阅读性。但是说到底promose，还是一个异步的写法，但是使用generator之后就可以用同步的写法来实现异步了</p>
+<p>所以，在node中出现了co模块，让我们可以用同步的方式去编写异步代码。使用co自动执行next方法，无需人工干预</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">co(<span class="function"><span class="keyword">function</span> *(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> data = <span class="keyword">yield</span> api.get(<span class="regexp">/XXX)</span></span><br><span class="line"><span class="regexp">    console.log(data)</span></span><br><span class="line"><span class="regexp">    var user = yield api.get(/</span>XXX2)</span><br><span class="line">    <span class="built_in">console</span>.log(user)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>执行后不难发现，data和user顺序打印，看起来完全像同步</p>
+<p>在es7中提出了async await，实际上就是generator的语法糖，但是他是真正的异步解决方案，有了它，也就不需要co模块了</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="keyword">var</span> a = <span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span>&#123;</span><br><span class="line">       setTimeout(<span class="function"><span class="params">()</span> =&gt;</span>&#123;</span><br><span class="line">           resolve(<span class="number">1</span>）</span><br><span class="line">       &#125;)</span><br><span class="line">   &#125;)</span><br><span class="line">   </span><br><span class="line">   <span class="built_in">console</span>.log(a);<span class="comment">//两秒后打印，相当于同步执行</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">try</span>&#123;</span><br><span class="line">       <span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>) =&gt;</span> &#123;</span><br><span class="line">           setTimeout(<span class="function"><span class="params">()</span> =&gt;</span>&#123;</span><br><span class="line">               reject(<span class="number">2</span>)</span><br><span class="line">           &#125;)</span><br><span class="line">       &#125;)</span><br><span class="line">   &#125;.catch(e)&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(e)<span class="comment">//第三秒时打印2</span></span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/23/门诊代码阅读小计/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -382,12 +575,24 @@ daovoice('update');
                 
               
 
-              <time title="创建时间：2018-05-23 15:36:08 / 修改时间：15:39:02" itemprop="dateCreated datePublished" datetime="2018-05-23T15:36:08+08:00">2018-05-23</time>
+              <time title="创建时间：2018-05-23 15:36:08" itemprop="dateCreated datePublished" datetime="2018-05-23T15:36:08+08:00">2018-05-23</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-25 11:48:57" itemprop="dateModified" datetime="2018-05-25T11:48:57+08:00">2018-05-25</time>
               
             
           </span>
@@ -460,8 +665,112 @@ daovoice('update');
 
       
         
-          <p>1111</p>
-<p>1<br>21<br>31<br>23<br>124<br>234<br>12<br>34<br>345<br>234<br>5<br>6</p>
+          <h5 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h5><p>  简单的看了下医生端的vue和node代码，第一感觉是自己还需要打磨，还有很长的路要走，包括但不限于webpack多页的配置项和node.js相关开发。<br>单从vue的代码来看，差距还是不小的，同样是用vue的脚手架，对比以前自己写的代码，医生客户端的代码总能让人眼前一亮。比如更加解耦的写代码方式、<br>一些更棒的封装以及更加规范的开发方式等等，都让我深刻的认识到以前开发的错误。不过遗憾的是因为开发环境的限制，没能本地运行起来查看相关的界面。</p>
+<h3 id="医生客户端代码阅读小计"><a href="#医生客户端代码阅读小计" class="headerlink" title="医生客户端代码阅读小计"></a>医生客户端代码阅读小计</h3><h3 id="医生服务端代码阅读小计"><a href="#医生服务端代码阅读小计" class="headerlink" title="医生服务端代码阅读小计"></a>医生服务端代码阅读小计</h3><p>首先因为node开发经验的匮乏，请教了童导师相关的结构。在导师耐心的讲解下，有了一些理解和思考</p>
+<h4 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h4><ul>
+<li>config<ul>
+<li>这一层主要是项目的配置信息相关，不多做赘述</li>
+</ul>
+</li>
+<li><p>controllers</p>
+<ul>
+<li>控制层，主要负责对客户端来的请求进行转发和处理</li>
+</ul>
+<ul>
+<li>api<ul>
+<li>这一层是对外开放的api接口，统一放在api文件夹下，方便阅读</li>
+</ul>
+<ul>
+<li>doctor<ul>
+<li>主要是获取医生自己的相关信息和修改在线状态等操作</li>
+</ul>
+</li>
+<li>patient<ul>
+<li>主要是医生获取患者信息或者对患者进项相关操作的接口</li>
+</ul>
+</li>
+<li>profile<ul>
+<li>对于医生的其他操作</li>
+</ul>
+</li>
+<li>wechat<ul>
+<li>获取到医院的相关信息和url参数，然后获取jssdk签名信息返回</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>剩下的几个目录就是对应相对页面的路由</li>
+</ul>
+</li>
+<li>controllers-common<ul>
+<li>该目录下主要存放一些通用的处理逻辑，区别于controller存放</li>
+</ul>
+<ul>
+<li>auth<ul>
+<li>存放微信授权返回之后的逻辑，首先是对医生的状态进行判断，通过之后对登陆表进行操作</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>libs</p>
+<ul>
+<li>用来存放中间件，工具类等</li>
+</ul>
+<ul>
+<li>middlewares<ul>
+<li>主要用来存放中间件</li>
+</ul>
+<ul>
+<li>extend-req <ul>
+<li>对请求的request和response参数进行配置</li>
+</ul>
+</li>
+<li>filter-scan</li>
+<li>login-check<ul>
+<li>对当前登录状态的处理进行封装</li>
+<li>翻阅代码之后发现代码的健壮性比我之前写的版本好了很多，之前自己写的时候可能只是按照api文档写下去，并没有考虑那么多情况，所以健壮性方面还有待提升。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>utils<ul>
+<li>该目录主要是存放项目中的一些工具类包括跳转微信授权URL、对json、html格式输出处理、日志打印等工具。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>models </p>
+<ul>
+<li>该目录是使用sequelize之后需要的创建文件和数据库的表一一对应。</li>
+</ul>
+</li>
+<li>rpc（远程过程调用）<ul>
+<li>因为项目是部署在docker容器中，所以该模块是用来和其他项目进行通信的。</li>
+</ul>
+</li>
+<li>service<ul>
+<li>这一层主要进行业务逻辑的相关操作，对数据库进行存取</li>
+<li>使用base-service对对返回值进行封装，统一调用，相对于之前写后台每个返回都要写一遍的做法方便了很多，也更加规范。</li>
+</ul>
+</li>
+<li>template<ul>
+<li>这一层是放模板界面，使用ejs语法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h4><pre><code>在导师的讲解之后发现，同为后端，node和java相通的地方还是比较多的，所以很多技术通过联想之前java开发的时候使用的技术
+都可以很快的理解。例如controller和service层可以通过之前的spring mvc进行理解，templates里面的写法可以通过之前的
+jsp进行理解、sequelize可以通过jpa来理解等等。可能因为以前有过一些开发基础，所以总体听下来还是比较清晰的，对整个项目
+也有了一定的认识。
+</code></pre><h4 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h4><pre><code>  通过这一系列的对比，让我认识到了语言的互通性，不一定非要说精通所有东西，或许专精一样会更好，尽管领域不同，或多或少的
+还会有一些相通的特性。并且业务代码的高度解耦，对我也有很大的启发，以前写业务代码的时候，因为组内人比较少，业务也不是很复杂，
+一般都是想到哪里写到哪里，等到最后写完需要回去修改的时候才发现是多么的不方便，以后写代码的时候一定要充分考虑到这些因素，
+最大程度上实现代码的解耦。进一步提升自己的编码水平。
+  总会感觉自己的知识面还是太窄，虽然能理解是什么，但是一下子看到这么多没用过的技术还是有点慌的，或许是自己平时的积累少了
+，应该抓紧时间去弥补这些不足
+</code></pre>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/05/23/门诊代码阅读小计/#more" rel="contents">
@@ -2145,227 +2454,6 @@ daovoice('update');
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/18/js高级知识点/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="朱亮">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="朱亮的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/18/js高级知识点/" itemprop="url">
-                  js高级知识点
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-03-18 15:59:42" itemprop="dateCreated datePublished" datetime="2018-03-18T15:59:42+08:00">2018-03-18</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-13 11:11:58" itemprop="dateModified" datetime="2018-05-13T11:11:58+08:00">2018-05-13</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/18/js高级知识点/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/03/18/js高级知识点/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/03/18/js高级知识点/" class="leancloud_visitors" data-flag-title="js高级知识点">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-
-          
-
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="es6相关"><a href="#es6相关" class="headerlink" title="es6相关"></a>es6相关</h2><h4 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h4><ul>
-<li>es6模块化如何使用，开发环境如何打包<ul>
-<li>使用babel来对新语法进行转化，在项目根目录配置.babelrc文件，使用babel 文件名可进行转换</li>
-<li>使用webpack来对模块化进行处理（common.js规范）</li>
-<li>AMD（掌握）慢慢成为标准，require.js（也有CMD）</li>
-<li>commonjs标准是后端的</li>
-<li>es6的出现，想统一现在所有模块化标准</li>
-<li>es6在nodejs里面可以写，浏览器尚未统一</li>
-<li>对模块化统一的期望</li>
-</ul>
-</li>
-</ul>
-<h4 id="Class与js构造函数的区别"><a href="#Class与js构造函数的区别" class="headerlink" title="Class与js构造函数的区别"></a>Class与js构造函数的区别</h4><ul>
-<li>Class和普通构造函数有何区别  <ul>
-<li>js的构造函数和原型继承</li>
-<li>class的属性是不会参加迭代输出的</li>
-<li>class实际上就是构造函数的语法糖（本质上一样的，只是更加简单了）</li>
-<li>class本身实际上就是个函数 typeof 是function</li>
-<li>class必须用new，而构造函数不一定</li>
-<li>class中是不存在变量提升的</li>
-<li>class不提供私有方法，都是public</li>
-<li>static (静态方法可以和非静态方法重名，没有静态属性，只有静态方法) * get set new.target</li>
-</ul>
-</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/18/js高级知识点/#more" rel="contents">
-              <span class=read_more_font>阅读全文 <span class="read_more_icon">&raquo;</span></span>
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2429,7 +2517,7 @@ daovoice('update');
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2472,7 +2560,9 @@ daovoice('update');
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
