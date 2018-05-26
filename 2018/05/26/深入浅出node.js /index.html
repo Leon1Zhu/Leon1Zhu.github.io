@@ -127,7 +127,7 @@ daovoice('update');
 <meta property="og:site_name" content="朱亮的博客">
 <meta property="og:description" content="第一章（简介）ndoe.js特点 单线程  优点 无需像多线程那样处处在意状态的同步问题 没有死锁的存在 不会有线程上下文交换所带来的性能上的开销   缺点 无法利用多核CPU 一旦发生错误会导致整个应用退出，健壮性值得考研 大量计算占用CPU导致无法继续调用异步I/O在node中，长时间的CPU占用会导致后续的异步I/O发不出调用，已完成的异步I/O的回调函数也不会及时执行（使用webwork可">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-26T11:33:23.140Z">
+<meta property="og:updated_time" content="2018-05-26T11:53:32.852Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器距离计算">
 <meta name="twitter:description" content="第一章（简介）ndoe.js特点 单线程  优点 无需像多线程那样处处在意状态的同步问题 没有死锁的存在 不会有线程上下文交换所带来的性能上的开销   缺点 无法利用多核CPU 一旦发生错误会导致整个应用退出，健壮性值得考研 大量计算占用CPU导致无法继续调用异步I/O在node中，长时间的CPU占用会导致后续的异步I/O发不出调用，已完成的异步I/O的回调函数也不会及时执行（使用webwork可">
@@ -371,7 +371,7 @@ daovoice('update');
                 
               
 
-              <time title="创建时间：2018-05-26 16:30:51 / 修改时间：19:33:23" itemprop="dateCreated datePublished" datetime="2018-05-26T16:30:51+08:00">2018-05-26</time>
+              <time title="创建时间：2018-05-26 16:30:51 / 修改时间：19:53:32" itemprop="dateCreated datePublished" datetime="2018-05-26T16:30:51+08:00">2018-05-26</time>
             
 
             
@@ -544,7 +544,45 @@ daovoice('update');
 </ul>
 </li>
 </ul>
-<h4 id="第四章-异步编程"><a href="#第四章-异步编程" class="headerlink" title="第四章 (异步编程)"></a>第四章 (异步编程)</h4>
+<h4 id="第四章-异步编程"><a href="#第四章-异步编程" class="headerlink" title="第四章 (异步编程)"></a>第四章 (异步编程)</h4><ul>
+<li><p>偏函数</p>
+<ul>
+<li><p>至通过指定部分参数来产生一个新的定制函数的形式</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> toString = <span class="built_in">Object</span>.prototype.toString;</span><br><span class="line"><span class="keyword">var</span> isType = <span class="function"><span class="keyword">function</span>(<span class="params">type</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> toString.call(type) === <span class="string">'[object '</span> + type + <span class="string">']'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>比如上面的函数，当有多个类型需要检查的时候就不需要一个一个的去重复写了，直接改变参数就能达到相同的目的。</p>
+</li>
+</ul>
+</li>
+<li><p>异步编程的优势与缺点</p>
+<ul>
+<li>优势<ul>
+<li>非阻塞I/O可以使CPU与I/O并不互相依赖，让资源更好的利用。</li>
+<li>对于网络而言，并行带来的想象空间更大，延展而开的是分布式和云，并行使得各个单点之间能够更有效地组织起来。，所以Node在云计算厂商中广受青睐。</li>
+<li>对于海量请求同时作用于单线程上时，就要防止任何一个计算耗费过多的时间片。建议对CPU的耗时不要超过10ms，将大量的计算分解为诸多的小量计算，通过setImmediate()进行调度。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>难点<ul>
+<li>异常处理，因为是异步，所以会比较难定位到错误的流程。</li>
+<li>函数且套过深（回调地狱）</li>
+<li>阻塞代码（单线程）</li>
+<li>异步转同步（async await）</li>
+</ul>
+</li>
+<li><p>异步编程的解决方案</p>
+<ul>
+<li><p>事件发布/订阅模式</p>
+</li>
+<li><p>Promise/Deferred模式</p>
+</li>
+<li><p>流程控制库</p>
+</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
 
