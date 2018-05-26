@@ -374,7 +374,7 @@ daovoice('update');
                 
               
 
-              <time title="创建时间：2018-05-26 16:30:51 / 修改时间：19:53:32" itemprop="dateCreated datePublished" datetime="2018-05-26T16:30:51+08:00">2018-05-26</time>
+              <time title="创建时间：2018-05-26 16:30:51 / 修改时间：22:18:02" itemprop="dateCreated datePublished" datetime="2018-05-26T16:30:51+08:00">2018-05-26</time>
             
 
             
@@ -452,143 +452,15 @@ daovoice('update');
 
       
         
-          
-            <h3 id="第一章（简介）"><a href="#第一章（简介）" class="headerlink" title="第一章（简介）"></a>第一章（简介）</h3><h4 id="ndoe-js特点"><a href="#ndoe-js特点" class="headerlink" title="ndoe.js特点"></a>ndoe.js特点</h4><ul>
-<li><p>单线程</p>
-<ul>
-<li>优点<ul>
-<li>无需像多线程那样处处在意状态的同步问题</li>
-<li>没有死锁的存在</li>
-<li>不会有线程上下文交换所带来的性能上的开销</li>
-</ul>
-</li>
-<li>缺点<ul>
-<li>无法利用多核CPU</li>
-<li>一旦发生错误会导致整个应用退出，健壮性值得考研</li>
-<li>大量计算占用CPU导致无法继续调用异步I/O<br>在node中，长时间的CPU占用会导致后续的异步I/O发不出调用，已完成的异步I/O的回调函数也不会及时执行（使用webwork可以解决这个问题，把大量的计算任务丢到另外一个线程去运行即可)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>node.js的适用场景</p>
-<ul>
-<li>I/O密集型</li>
-<li>CPU密集型应用也可以胜任（需要通过编写C/C++拓展或者通过子进程的方式来充分利用CPU）</li>
-<li>分布式应用</li>
-</ul>
-</li>
-</ul>
-<p>第一章主要是对node.js的一些简单介绍，后面都会进行详细的描述，所以这里就不做过多的叙述</p>
-<h3 id="第二章（模块机制）"><a href="#第二章（模块机制）" class="headerlink" title="第二章（模块机制）"></a>第二章（模块机制）</h3><h4 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h4><ul>
-<li><p>模块定义</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">exports.add = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="comment">//......</span></span><br><span class="line">   <span class="keyword">return</span>  XX;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>模块引用</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> math = <span class="built_in">require</span>(<span class="string">'math'</span>);</span><br><span class="line"><span class="keyword">return</span> math.add();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>模块标识</p>
-<ul>
-<li>标识其实就是传递给require方法的参数，必须符合驼峰命名的字符串，或者是.、..开头的相对路径，或者是绝对路径，可以没有后缀名称</li>
-</ul>
-</li>
-</ul>
-<h5 id="但是在node-js中对模块的实现并不是完全按照commonJS的规范来的，而是对规范进行了一定的取舍，具体的实现分为三个步骤"><a href="#但是在node-js中对模块的实现并不是完全按照commonJS的规范来的，而是对规范进行了一定的取舍，具体的实现分为三个步骤" class="headerlink" title="但是在node.js中对模块的实现并不是完全按照commonJS的规范来的，而是对规范进行了一定的取舍，具体的实现分为三个步骤"></a>但是在node.js中对模块的实现并不是完全按照commonJS的规范来的，而是对规范进行了一定的取舍，具体的实现分为三个步骤</h5><ul>
-<li>路径分析(分析文件所在路径)<ul>
-<li>不要让自定义的模块名称和核心模块的名称冲突，这样会加载出错。</li>
-<li>自定义模块的路径路径分析生成路径名称的方式和原型有点像，一层层往上找，知道找到为止，这也是为什么自定义模块加载慢的原因。</li>
-</ul>
-</li>
-<li>文件定位（找到文件)<ul>
-<li>当不写拓展名是，Node会自动按照js、json、node的次序去补足拓展名，同时会阻塞式的判断文件是否存在（因为js是单线程的），所以json和node文件带上后缀名会快一些</li>
-</ul>
-</li>
-<li><p>编译执行（对模块进行编译执行）</p>
-<ul>
-<li>不同的文件Node的载入方法是不同的<ul>
-<li>.js文件，通过fs模块同步读取文件后编译执行</li>
-<li>.node文件，通过dlopen()方法加载最后编译生成的文件</li>
-<li>.json文件，通过fs模块同步读取文件之后，用JOSN.parse()解析结果返回</li>
-<li>其他文件，都被当做.js文件载入</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>每一个编译成功的模块都会将其文件路径作为索引存在缓存上，以提高二次载入的性能</p>
-</li>
-<li><p>JS模块的编译中，Node对js的内容进行了头尾包装，用闭包作用域将每个模块进行隔离，包装过后通过VM模块进行执行，只是具有明确的上下文，不污染全局，返回一个具体的function对象。</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>Node对模块都会进行缓存，并且优先从缓存加载，当从缓存加载模块时，不需要路径分析和文件定位，大大提高了速度。</p>
-<p>Node中模块分为两类，一类是Node本身的模块成为核心模块（http、fs、path等，省略文件定位和编译执行，并且路径分析优先，所以执行最快），另一类是其他用户编写的模块，称为文件模块。</p>
-<p>通常不建议文件模块直接滴啊用内建模块，直接调用核心模块即可。</p>
-<h3 id="第三章-异步I-O"><a href="#第三章-异步I-O" class="headerlink" title="第三章(异步I/O)"></a>第三章(异步I/O)</h3><h5 id="js的单线程特点决定一定要有异步I-O，窦泽用户体验将会十分糟糕，并且将等在请求的资源分配给其他业务去执行"><a href="#js的单线程特点决定一定要有异步I-O，窦泽用户体验将会十分糟糕，并且将等在请求的资源分配给其他业务去执行" class="headerlink" title="js的单线程特点决定一定要有异步I/O，窦泽用户体验将会十分糟糕，并且将等在请求的资源分配给其他业务去执行"></a>js的单线程特点决定一定要有异步I/O，窦泽用户体验将会十分糟糕，并且将等在请求的资源分配给其他业务去执行</h5><ul>
-<li><p>异步/同步I/O   阻塞/非阻塞I/O</p>
-<ul>
-<li>阻塞造成CPU等待浪费，非阻塞的轮询造成CPU资源浪费</li>
-</ul>
-</li>
-<li><p>Node的I/O</p>
-<ul>
-<li>事件轮询机制，在进程中，Node会创建一个类似于while(true)的循环，不断的去询问是否有请求执行完成，需要处理，如果有就执行，如果没有就继续下一轮新循环。</li>
-</ul>
-</li>
-<li><p>setTimeout setInterval</p>
-</li>
-<li><p>process.nextTick()</p>
-<ul>
-<li>相对于setTimeout(function(){},0)调用红黑树去立即执行异步函数的做法，process.nextTick()只是将回调函数放入队列中，等待下一次的轮询调用，但是时间复杂度是O(1)而前者的时间复杂度是O(lg(n))</li>
-</ul>
-</li>
-<li><p>setImmediate()</p>
-<ul>
-<li>和process.nextTick()差不多，有细微的差别</li>
-<li>优先级低于process.nextTick()</li>
-<li>当一个回调执行之后，并不会立即执行下一个，而是放到下一次事件轮询。，这是为了保证每次轮询能够比较快的执行结束。</li>
-</ul>
-</li>
-</ul>
-<h4 id="第四章-异步编程"><a href="#第四章-异步编程" class="headerlink" title="第四章 (异步编程)"></a>第四章 (异步编程)</h4><ul>
-<li><p>偏函数</p>
-<ul>
-<li><p>至通过指定部分参数来产生一个新的定制函数的形式</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> toString = <span class="built_in">Object</span>.prototype.toString;</span><br><span class="line"><span class="keyword">var</span> isType = <span class="function"><span class="keyword">function</span>(<span class="params">type</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> toString.call(type) === <span class="string">'[object '</span> + type + <span class="string">']'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>比如上面的函数，当有多个类型需要检查的时候就不需要一个一个的去重复写了，直接改变参数就能达到相同的目的。</p>
-</li>
-</ul>
-</li>
-<li><p>异步编程的优势与缺点</p>
-<ul>
-<li>优势<ul>
-<li>非阻塞I/O可以使CPU与I/O并不互相依赖，让资源更好的利用。</li>
-<li>对于网络而言，并行带来的想象空间更大，延展而开的是分布式和云，并行使得各个单点之间能够更有效地组织起来。，所以Node在云计算厂商中广受青睐。</li>
-<li>对于海量请求同时作用于单线程上时，就要防止任何一个计算耗费过多的时间片。建议对CPU的耗时不要超过10ms，将大量的计算分解为诸多的小量计算，通过setImmediate()进行调度。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>难点<ul>
-<li>异常处理，因为是异步，所以会比较难定位到错误的流程。</li>
-<li>函数且套过深（回调地狱）</li>
-<li>阻塞代码（单线程）</li>
-<li>异步转同步（async await）</li>
-</ul>
-</li>
-<li><p>异步编程的解决方案</p>
-<ul>
-<li><p>事件发布/订阅模式</p>
-</li>
-<li><p>Promise/Deferred模式</p>
-</li>
-<li><p>流程控制库</p>
-</li>
-</ul>
-</li>
-</ul>
-
-          
+          <p><img src="http://otdc3q7z7.bkt.clouddn.com/8FEC2E9FF1FADB48B2665EF42FF46FF9.jpg" alt="封面"></p>
+<h3 id="第一章（简介）"><a href="#第一章（简介）" class="headerlink" title="第一章（简介）"></a>第一章（简介）</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/26/深入浅出node.js /#more" rel="contents">
+              <span class=read_more_font>阅读全文 <span class="read_more_icon">&raquo;</span></span>
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
