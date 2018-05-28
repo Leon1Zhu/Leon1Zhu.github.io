@@ -127,7 +127,7 @@ daovoice('update');
 <meta property="og:description" content="写在前面">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://otdc3q7z7.bkt.clouddn.com/9DEC74F7655E3F8CE61071E1E4123362.jpg">
-<meta property="og:updated_time" content="2018-05-27T13:52:43.869Z">
+<meta property="og:updated_time" content="2018-05-28T09:13:33.817Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="问诊代码阅读小记">
 <meta name="twitter:description" content="写在前面">
@@ -389,7 +389,7 @@ daovoice('update');
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-27 21:52:43" itemprop="dateModified" datetime="2018-05-27T21:52:43+08:00">2018-05-27</time>
+                <time title="修改时间：2018-05-28 17:13:33" itemprop="dateModified" datetime="2018-05-28T17:13:33+08:00">2018-05-28</time>
               
             
           </span>
@@ -463,7 +463,7 @@ daovoice('update');
       
         <p><img src="http://otdc3q7z7.bkt.clouddn.com/9DEC74F7655E3F8CE61071E1E4123362.jpg" alt="问诊代码阅读小记"></p>
 <h5 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h5><a id="more"></a> 
-<p>  短短的几天，我收货颇丰<br>  js的异步回调处理（co）<br>  初识node.js，并且对node.js的开发模式有了一定的了解<br>  阅读深入浅出Node.js前四章<br>  学会webpack多页配置<br>  api接口调用的方式转换<br>  对于第三方组件的态度<br>  知道并且了解新的数据传输格式Protobuf，用于不同服务之间的通信，更少的体积和带宽损耗</p>
+<p>  短短的几天，我收货颇丰<br>  js的异步回调处理（co）<br>  初识node.js，并且对node.js的开发模式有了一定的了解<br>  阅读深入浅出Node.js前四章<br>  学会webpack多页配置<br>  api接口调用的方式转换<br>  对于第三方组件认识<br>  知道并且了解新的数据传输格式Protobuf，用于不同服务之间的通信，更少的体积和带宽损耗<br>  低耦合，高复用！<br>  编程的边界情况要尽量多的去考虑<br>  设计模式（单例模式、装饰者模式，观察者模式）</p>
 <p>  简单的看了下医生端的vue和node代码，压力很大。第一感觉是自己还需要打磨，还有很长的路要走，包括但不限于webpack多页的配置项和node.js相关开发。<br>单从vue的代码来看，差距还是不小的，同样是用vue的脚手架，对比以前自己写的代码，医生客户端的代码总能让人眼前一亮。比如更加解耦的写代码方式、<br>一些更棒的封装以及更加规范的开发方式等等，都让我深刻的认识到以前开发的错误。不过遗憾的是因为开发环境的限制，没能本地运行起来查看相关的界面。</p>
 <h3 id="医生客户端代码阅读小记"><a href="#医生客户端代码阅读小记" class="headerlink" title="医生客户端代码阅读小记"></a>医生客户端代码阅读小记</h3><p>  因为对于vue脚手架的项目架构比较熟悉，这里就不一一列举了，仅记录一些知识点</p>
 <h5 id="webpack多页面输出"><a href="#webpack多页面输出" class="headerlink" title="webpack多页面输出"></a>webpack多页面输出</h5><p>   一直以为脚手架的单页改多页是比较困难的事，但是今天阅读了代码才知道其实并不是想象中的那么麻烦。给对应的页面增加一段entry入口，<br>   然后在相关目录中存放每个页面对应的HtmlWebpackPlugin处理文件，去定义如何打包页面，在prod和dev的webpack配置中相应的merge将<br>   配置合并进去即可。</p>
@@ -473,7 +473,12 @@ daovoice('update');
 <p>   尽量将代码掌握在自己手中，减少第三方插件的使用</p>
 <p>   fetch-api中do-false?</p>
 <p>   api层使用async await对方法进行调用，异步转同步的方式更加符合编程习惯</p>
+<p> #####<br>   客户端的组件里props基本都直接是字符串，这样如果没有props验证的话，其他人调用是不是可能会传错参数或者参数类型之类的。</p>
+<p>   load-more组件如果不指定type就会报错</p>
+<p>   评价的星级感觉可以封装成一个组件</p>
 <h3 id="医生服务端代码阅读小记"><a href="#医生服务端代码阅读小记" class="headerlink" title="医生服务端代码阅读小记"></a>医生服务端代码阅读小记</h3><p>首先因为node开发经验的匮乏，请教了童导师相关的结构。在导师耐心的讲解下，也有了一些理解和思考</p>
+<p>为什么使用co而不是async await来直接进行异步</p>
+<p>很多方法中都是一个方法做了很多事，是不是可以将其进行拆分。</p>
 <h4 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h4><ul>
 <li>config<ul>
 <li>这一层主要是项目的配置信息相关，不多做赘述</li>
@@ -579,7 +584,48 @@ daovoice('update');
 定要充分考虑到这些因素，最大程度上实现代码的解耦。进一步提升自己的编码水平。总会感觉
 自己的知识面还是太窄，虽然能理解是什么，但是一下子看到这么多没用过的技术还是有点慌的，
 或许是自己平时的积累少了，应该抓紧时间去弥补这些不足
-</code></pre>
+</code></pre><h3 id="wenzhen-serve阅读小记"><a href="#wenzhen-serve阅读小记" class="headerlink" title="wenzhen-serve阅读小记"></a>wenzhen-serve阅读小记</h3><h5 id="和医生端服务端的代码又一些重合的地方，所以这里只是简单的坐下记录"><a href="#和医生端服务端的代码又一些重合的地方，所以这里只是简单的坐下记录" class="headerlink" title="和医生端服务端的代码又一些重合的地方，所以这里只是简单的坐下记录"></a>和医生端服务端的代码又一些重合的地方，所以这里只是简单的坐下记录</h5><h4 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4><ul>
+<li>doc<ul>
+<li>rpc数据交换格式存储目录(使用jec格式的文件更加适合网络上的存储和交换，因为空间小，所以占用的带宽更加小)</li>
+</ul>
+</li>
+<li>src<ul>
+<li>config<ul>
+<li>主要存放项目的配置文件，比如数据库、微信、rpc、基础页面设置等配置</li>
+</ul>
+</li>
+<li>contollers<ul>
+<li>控制层，主要是对业务流程模块的控制，在这里调用service接口和用来控制对应的界面跳转</li>
+</ul>
+</li>
+<li>decorators<ul>
+<li>通过装饰者模式增加用户认证和获取模板页功能</li>
+</ul>
+</li>
+<li>middlewares<ul>
+<li>存放日志打印、文件上传、url检测等中间件</li>
+</ul>
+</li>
+<li>models<ul>
+<li>主要对应数据库设置和文件映射</li>
+</ul>
+</li>
+<li>proxy<ul>
+<li>对于之前的jce文件的js生成版本</li>
+</ul>
+</li>
+<li>schedule<ul>
+<li>一些定时任务，比如</li>
+</ul>
+</li>
+<li>service<ul>
+<li>业务逻辑层，主要用来处理相关的业务逻辑</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
 
@@ -876,7 +922,7 @@ daovoice('update');
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#医生客户端代码阅读小记"><span class="nav-number"></span> <span class="nav-text">医生客户端代码阅读小记</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#webpack多页面输出"><span class="nav-number">1.</span> <span class="nav-text">webpack多页面输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对于组件的封装方面"><span class="nav-number">2.</span> <span class="nav-text">对于组件的封装方面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#医生服务端代码阅读小记"><span class="nav-number"></span> <span class="nav-text">医生服务端代码阅读小记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目结构"><span class="nav-number"></span> <span class="nav-text">项目结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#理解"><span class="nav-number"></span> <span class="nav-text">理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思考"><span class="nav-number"></span> <span class="nav-text">思考</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#医生客户端代码阅读小记"><span class="nav-number"></span> <span class="nav-text">医生客户端代码阅读小记</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#webpack多页面输出"><span class="nav-number">1.</span> <span class="nav-text">webpack多页面输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对于组件的封装方面"><span class="nav-number">2.</span> <span class="nav-text">对于组件的封装方面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#医生服务端代码阅读小记"><span class="nav-number"></span> <span class="nav-text">医生服务端代码阅读小记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目结构"><span class="nav-number"></span> <span class="nav-text">项目结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#理解"><span class="nav-number"></span> <span class="nav-text">理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思考"><span class="nav-number"></span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wenzhen-serve阅读小记"><span class="nav-number"></span> <span class="nav-text">wenzhen-serve阅读小记</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#和医生端服务端的代码又一些重合的地方，所以这里只是简单的坐下记录"><span class="nav-number">1.</span> <span class="nav-text">和医生端服务端的代码又一些重合的地方，所以这里只是简单的坐下记录</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#目录结构"><span class="nav-number"></span> <span class="nav-text">目录结构</span></a></div>
             
 
           </div>
