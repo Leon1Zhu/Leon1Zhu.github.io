@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/07/01/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E5%8F%8A%E7%AD%94%E6%A1%88/</loc>
+    <lastmod>2018-08-24T15:50:59.050Z</lastmod>
+    <data>
+        <display>
+        <title>小结</title>
+        <pubTime>2018-07-01T14:44:02.000Z</pubTime>
+        
+        <tag>总结</tag>
+         
+         
+           
+             
+              <breadCrumb title="面试经验" url="http://yoursite.com/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/07/29/Vue%E4%B8%8EAngular%E7%89%B9%E6%80%A7%E5%AF%B9%E6%AF%94/</loc>
-    <lastmod>2018-08-20T18:50:44.010Z</lastmod>
+    <lastmod>2018-08-20T18:50:44.000Z</lastmod>
     <data>
         <display>
         <title>Vue与Angular特性对比</title>
@@ -183,13 +203,15 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/02/06/alien-menu%E7%BB%84%E4%BB%B6%E5%B0%81%E8%A3%85hexo-new-%E2%80%98alien-menu%E7%BB%84%E4%BB%B6%E5%B0%81%E8%A3%85/</loc>
+    <loc>http://yoursite.com/2018/03/11/ajax%E7%9F%A5%E8%AF%86%E7%82%B9%E5%B0%8F%E8%AE%B0/</loc>
     <lastmod>2018-05-13T03:11:58.000Z</lastmod>
     <data>
         <display>
-        <title>alien-menu组件封装</title>
-        <pubTime>2018-02-06T01:53:00.000Z</pubTime>
+        <title>ajax知识点小记</title>
+        <pubTime>2018-03-11T11:51:20.000Z</pubTime>
         
+        <tag>ajax知识点整理</tag>
+         
          
            
              
@@ -221,50 +243,30 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/07/28/%E5%9F%BA%E4%BA%8Evue%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/</loc>
-    <lastmod>2018-05-13T03:11:58.000Z</lastmod>
-    <data>
-        <display>
-        <title>基于vue快速搭建开发框架</title>
-        <pubTime>2017-07-28T14:34:06.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="vue" url="http://yoursite.com/categories/vue/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/11/13/web%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96%EF%BC%882%EF%BC%89/</loc>
-    <lastmod>2018-05-13T03:11:58.000Z</lastmod>
-    <data>
-        <display>
-        <title>web前端优化（2）</title>
-        <pubTime>2017-11-13T04:30:04.000Z</pubTime>
-        
-        <tag>图片相关</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端性能优化" url="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2018/03/18/js%E9%AB%98%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
     <lastmod>2018-05-13T03:11:58.000Z</lastmod>
     <data>
         <display>
         <title>js高级知识点</title>
         <pubTime>2018-03-18T07:59:42.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="js" url="http://yoursite.com/categories/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/02/06/alien-menu%E7%BB%84%E4%BB%B6%E5%B0%81%E8%A3%85hexo-new-%E2%80%98alien-menu%E7%BB%84%E4%BB%B6%E5%B0%81%E8%A3%85/</loc>
+    <lastmod>2018-05-13T03:11:58.000Z</lastmod>
+    <data>
+        <display>
+        <title>alien-menu组件封装</title>
+        <pubTime>2018-02-06T01:53:00.000Z</pubTime>
         
          
            
@@ -373,17 +375,17 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/11/27/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%82%B9%E5%B0%8F%E8%AE%A1/</loc>
+    <loc>http://yoursite.com/2017/07/28/%E5%9F%BA%E4%BA%8Evue%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/</loc>
     <lastmod>2018-05-13T03:11:58.000Z</lastmod>
     <data>
         <display>
-        <title>前端知识点小计</title>
-        <pubTime>2017-11-27T11:45:57.000Z</pubTime>
+        <title>基于vue快速搭建开发框架</title>
+        <pubTime>2017-07-28T14:34:06.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="js" url="http://yoursite.com/categories/js/"/>
+              <breadCrumb title="vue" url="http://yoursite.com/categories/vue/"/>
           
         </display>
     </data>
@@ -429,19 +431,19 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/03/11/ajax%E7%9F%A5%E8%AF%86%E7%82%B9%E5%B0%8F%E8%AE%B0/</loc>
+    <loc>http://yoursite.com/2018/01/30/css%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2018-05-13T03:11:58.000Z</lastmod>
     <data>
         <display>
-        <title>ajax知识点小记</title>
-        <pubTime>2018-03-11T11:51:20.000Z</pubTime>
+        <title>css视频学习相关（1）</title>
+        <pubTime>2018-01-30T02:52:00.000Z</pubTime>
         
-        <tag>ajax知识点整理</tag>
+        <tag>html相关强化</tag>
          
          
            
              
-              <breadCrumb title="js" url="http://yoursite.com/categories/js/"/>
+              <breadCrumb title="css" url="http://yoursite.com/categories/css/"/>
           
         </display>
     </data>
@@ -477,26 +479,6 @@
         <pubTime>2017-11-15T04:37:53.000Z</pubTime>
         
         <tag>重绘与回流相关</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端性能优化" url="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/11/18/web%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96%EF%BC%886%EF%BC%89/</loc>
-    <lastmod>2018-05-13T03:11:58.000Z</lastmod>
-    <data>
-        <display>
-        <title>web前端优化（6）</title>
-        <pubTime>2017-11-18T11:32:12.000Z</pubTime>
-        
-        <tag>service worker实战</tag>
          
          
            
@@ -549,19 +531,39 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/01/30/css%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E7%9B%B8%E5%85%B3/</loc>
+    <loc>http://yoursite.com/2017/11/18/web%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96%EF%BC%886%EF%BC%89/</loc>
     <lastmod>2018-05-13T03:11:58.000Z</lastmod>
     <data>
         <display>
-        <title>css视频学习相关（1）</title>
-        <pubTime>2018-01-30T02:52:00.000Z</pubTime>
+        <title>web前端优化（6）</title>
+        <pubTime>2017-11-18T11:32:12.000Z</pubTime>
         
-        <tag>html相关强化</tag>
+        <tag>service worker实战</tag>
          
          
            
              
-              <breadCrumb title="css" url="http://yoursite.com/categories/css/"/>
+              <breadCrumb title="前端性能优化" url="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/11/13/web%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96%EF%BC%882%EF%BC%89/</loc>
+    <lastmod>2018-05-13T03:11:58.000Z</lastmod>
+    <data>
+        <display>
+        <title>web前端优化（2）</title>
+        <pubTime>2017-11-13T04:30:04.000Z</pubTime>
+        
+        <tag>图片相关</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端性能优化" url="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
           
         </display>
     </data>
@@ -578,6 +580,24 @@
         
         <tag>前端知识点沉淀</tag>
          
+         
+           
+             
+              <breadCrumb title="js" url="http://yoursite.com/categories/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/11/27/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%82%B9%E5%B0%8F%E8%AE%A1/</loc>
+    <lastmod>2018-05-13T03:11:58.000Z</lastmod>
+    <data>
+        <display>
+        <title>前端知识点小计</title>
+        <pubTime>2017-11-27T11:45:57.000Z</pubTime>
+        
          
            
              
@@ -701,14 +721,14 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/11/23/%E7%9C%8Bvue-js%E5%AE%9E%E6%88%98%E4%B8%AD%E4%B8%80%E4%B9%A6%E7%9A%84%E6%80%BB%E7%BB%93/</loc>
+    <loc>http://yoursite.com/2017/12/14/%E7%B2%BE%E9%80%9Acss%E9%AB%98%E7%BA%A7Web%E6%A0%87%E5%87%86%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
     <lastmod>2018-05-09T06:40:38.000Z</lastmod>
     <data>
         <display>
-        <title>看vue.js实战中一书的总结</title>
-        <pubTime>2017-11-23T11:30:43.000Z</pubTime>
+        <title>精通css高级Web标准解决方案</title>
+        <pubTime>2017-12-14T12:36:08.000Z</pubTime>
         
-        <tag>看vue.js一书所得</tag>
+        <tag>总的来说，这本书有点脱节了，内容有些老旧</tag>
          
          
            
@@ -721,14 +741,14 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/12/14/%E7%B2%BE%E9%80%9Acss%E9%AB%98%E7%BA%A7Web%E6%A0%87%E5%87%86%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
+    <loc>http://yoursite.com/2017/11/23/%E7%9C%8Bvue-js%E5%AE%9E%E6%88%98%E4%B8%AD%E4%B8%80%E4%B9%A6%E7%9A%84%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2018-05-09T06:40:38.000Z</lastmod>
     <data>
         <display>
-        <title>精通css高级Web标准解决方案</title>
-        <pubTime>2017-12-14T12:36:08.000Z</pubTime>
+        <title>看vue.js实战中一书的总结</title>
+        <pubTime>2017-11-23T11:30:43.000Z</pubTime>
         
-        <tag>总的来说，这本书有点脱节了，内容有些老旧</tag>
+        <tag>看vue.js一书所得</tag>
          
          
            
