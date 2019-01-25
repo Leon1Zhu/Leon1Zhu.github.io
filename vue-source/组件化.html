@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="s8Pe1TBqyy">
+
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/946688f7.js","daovoice")
+daovoice('init', {
+  app_id: "946688f7"
+});
+daovoice('update');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="s8Pe1TBqyy">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+
+
+  <meta name="description" content="什么是组件化 组件化是Vue.js的另一个核心思想。所谓组件化，就是把页面拆分成多个组件，每个组件以来的css、js、模板、图片等资源放在一起开发和维护。组件是资源独立的，组件在系统内部可复用，组件和组件之间可以不嵌套。  在使劲的项目开发中，就像是搭积木一样，编写一堆组件拼装生成页面。   组件VNode的创建过程 之前分析过create-element方法，这里因为组件对象传入的是组件对象，多">
+<meta property="og:type" content="website">
+<meta property="og:title" content="朱亮的博客">
+<meta property="og:url" content="http://yoursite.com/vue-source/组件化.html">
+<meta property="og:site_name" content="朱亮的博客">
+<meta property="og:description" content="什么是组件化 组件化是Vue.js的另一个核心思想。所谓组件化，就是把页面拆分成多个组件，每个组件以来的css、js、模板、图片等资源放在一起开发和维护。组件是资源独立的，组件在系统内部可复用，组件和组件之间可以不嵌套。  在使劲的项目开发中，就像是搭积木一样，编写一堆组件拼装生成页面。   组件VNode的创建过程 之前分析过create-element方法，这里因为组件对象传入的是组件对象，多">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-01T12:20:35.553Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="朱亮的博客">
+<meta name="twitter:description" content="什么是组件化 组件化是Vue.js的另一个核心思想。所谓组件化，就是把页面拆分成多个组件，每个组件以来的css、js、模板、图片等资源放在一起开发和维护。组件是资源独立的，组件在系统内部可复用，组件和组件之间可以不嵌套。  在使劲的项目开发中，就像是搭积木一样，编写一堆组件拼装生成页面。   组件VNode的创建过程 之前分析过create-element方法，这里因为组件对象传入的是组件对象，多">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/vue-source/组件化.html">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | 朱亮的博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+<script type="text/javascript" src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/Leon1Zhu/Leon1Zhu.github.io" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">朱亮的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">码农，程序猿，未来的昏析师</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-vuesourcecode">
+    <a href="/vueSourceCode/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-file-code-o"></i> <br>vue源码解析</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>留言板</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h2 class="post-title" itemprop="name headline"></h2>
+
+<div class="post-meta">
+  
+  
+
+
+
+</div>
+<script>
+    (function(){
+     console.log(page.password)
+     console.log(page)
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h3 id="什么是组件化"><a href="#什么是组件化" class="headerlink" title="什么是组件化"></a>什么是组件化</h3><ul>
+<li><p>组件化是Vue.js的另一个核心思想。所谓组件化，就是把页面拆分成多个组件，每个组件以来的css、js、模板、图片等资源放在一起开发和维护。组件是资源独立的，组件在系统内部可复用，组件和组件之间可以不嵌套。</p>
+</li>
+<li><p>在使劲的项目开发中，就像是搭积木一样，编写一堆组件拼装生成页面。</p>
+</li>
+</ul>
+<h3 id="组件VNode的创建过程"><a href="#组件VNode的创建过程" class="headerlink" title="组件VNode的创建过程"></a>组件VNode的创建过程</h3><ul>
+<li><p>之前分析过create-element方法，这里因为组件对象传入的是组件对象，多以会直接走到else分支</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">vnode = createComponent(tag, data, context, children)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接下来我们分析下<code>createComponent</code>方法</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createComponent</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  Ctor: Class&lt;Component&gt; | Function | Object | void,</span></span></span><br><span class="line"><span class="function"><span class="params">  data: ?VNodeData,</span></span></span><br><span class="line"><span class="function"><span class="params">  context: Component,</span></span></span><br><span class="line"><span class="function"><span class="params">  children: ?Array&lt;VNode&gt;,</span></span></span><br><span class="line"><span class="function"><span class="params">  tag?: string</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">VNode</span> | <span class="title">Array</span>&lt;<span class="title">VNode</span>&gt; | <span class="title">void</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (isUndef(Ctor)) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 这里的_base就是Vue,再初始化的时候制定的</span></span><br><span class="line">  <span class="keyword">const</span> baseCtor = context.$options._base</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 拷贝对象</span></span><br><span class="line">  <span class="keyword">if</span> (isObject(Ctor)) &#123;</span><br><span class="line">    Ctor = baseCtor.extend(Ctor)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// if at this stage it's not a constructor or an async component factory,</span></span><br><span class="line">  <span class="comment">// reject.</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> Ctor !== <span class="string">'function'</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">      warn(<span class="string">`Invalid Component definition: <span class="subst">$&#123;<span class="built_in">String</span>(Ctor)&#125;</span>`</span>, context)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// async component</span></span><br><span class="line">  <span class="keyword">let</span> asyncFactory</span><br><span class="line">  <span class="keyword">if</span> (isUndef(Ctor.cid)) &#123;</span><br><span class="line">    asyncFactory = Ctor</span><br><span class="line">    Ctor = resolveAsyncComponent(asyncFactory, baseCtor, context)</span><br><span class="line">    <span class="keyword">if</span> (Ctor === <span class="literal">undefined</span>) &#123;</span><br><span class="line">      <span class="comment">// return a placeholder node for async component, which is rendered</span></span><br><span class="line">      <span class="comment">// as a comment node but preserves all the raw information for the node.</span></span><br><span class="line">      <span class="comment">// the information will be used for async server-rendering and hydration.</span></span><br><span class="line">      <span class="keyword">return</span> createAsyncPlaceholder(</span><br><span class="line">        asyncFactory,</span><br><span class="line">        data,</span><br><span class="line">        context,</span><br><span class="line">        children,</span><br><span class="line">        tag</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  data = data || &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// resolve constructor options in case global mixins are applied after</span></span><br><span class="line">  <span class="comment">// component constructor creation</span></span><br><span class="line">  resolveConstructorOptions(Ctor)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// transform component v-model data into props &amp; events</span></span><br><span class="line">  <span class="keyword">if</span> (isDef(data.model)) &#123;</span><br><span class="line">    transformModel(Ctor.options, data)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 对props data进行处理</span></span><br><span class="line">  <span class="keyword">const</span> propsData = extractPropsFromVNodeData(data, Ctor, tag)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 对函数处理</span></span><br><span class="line">  <span class="keyword">if</span> (isTrue(Ctor.options.functional)) &#123;</span><br><span class="line">    <span class="keyword">return</span> createFunctionalComponent(Ctor, propsData, data, context, children)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// extract listeners, since these needs to be treated as</span></span><br><span class="line">  <span class="comment">// child component listeners instead of DOM listeners</span></span><br><span class="line">  <span class="keyword">const</span> listeners = data.on</span><br><span class="line">  <span class="comment">// replace with listeners with .native modifier</span></span><br><span class="line">  <span class="comment">// so it gets processed during parent component patch.</span></span><br><span class="line">  data.on = data.nativeOn</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (isTrue(Ctor.options.abstract)) &#123;</span><br><span class="line">    <span class="comment">// abstract components do not keep anything</span></span><br><span class="line">    <span class="comment">// other than props &amp; listeners &amp; slot</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// work around flow</span></span><br><span class="line">    <span class="keyword">const</span> slot = data.slot</span><br><span class="line">    data = &#123;&#125;</span><br><span class="line">    <span class="keyword">if</span> (slot) &#123;</span><br><span class="line">      data.slot = slot</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 此处安装一些组件的钩子</span></span><br><span class="line">  <span class="comment">// 此处的合并策略是先执行组件原本的钩子，再执行用户写的重名函数。</span></span><br><span class="line">  installComponentHooks(data)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 返回组件的VNode，组件的children是空。但是最后的componentOption里面是有children的</span></span><br><span class="line">  <span class="keyword">const</span> name = Ctor.options.name || tag</span><br><span class="line">  <span class="keyword">const</span> vnode = <span class="keyword">new</span> VNode(</span><br><span class="line">    <span class="string">`vue-component-<span class="subst">$&#123;Ctor.cid&#125;</span><span class="subst">$&#123;name ? <span class="string">`-<span class="subst">$&#123;name&#125;</span>`</span> : <span class="string">''</span>&#125;</span>`</span>,</span><br><span class="line">    data, <span class="literal">undefined</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>, context,</span><br><span class="line">    &#123; Ctor, propsData, listeners, tag, children &#125;,</span><br><span class="line">    asyncFactory</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Weex specific: invoke recycle-list optimized @render function for</span></span><br><span class="line">  <span class="comment">// extracting cell-slot template.</span></span><br><span class="line">  <span class="comment">// https://github.com/Hanks10100/weex-native-directive/tree/master/component</span></span><br><span class="line">  <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">  <span class="keyword">if</span> (__WEEX__ &amp;&amp; isRecyclableComponent(vnode)) &#123;</span><br><span class="line">    <span class="keyword">return</span> renderRecyclableComponentTemplate(vnode)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> vnode</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 接下来就是对VNode patch的过程</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="组件patch"><a href="#组件patch" class="headerlink" title="组件patch"></a>组件patch</h3><ul>
+<li><p>组件的pathch会直接判断 <code>createComponent(vnode, insertedVnodeQueue, parentElm, refElm)</code>是否为true,如果是，则直接返回，现在我们来看一下createComponent中具体都做了什么。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createComponent</span> (<span class="params">vnode, insertedVnodeQueue, parentElm, refElm</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> i = vnode.data</span><br><span class="line">  <span class="keyword">if</span> (isDef(i)) &#123;</span><br><span class="line">    <span class="keyword">const</span> isReactivated = isDef(vnode.componentInstance) &amp;&amp; i.keepAlive</span><br><span class="line">    <span class="comment">// 这里获取到组件的钩子函数并调用。</span></span><br><span class="line">    <span class="keyword">if</span> (isDef(i = i.hook) &amp;&amp; isDef(i = i.init)) &#123;</span><br><span class="line">      i(vnode, <span class="literal">false</span> <span class="comment">/* hydrating */</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// after calling the init hook, if the vnode is a child component</span></span><br><span class="line">    <span class="comment">// it should've created a child instance and mounted it. the child</span></span><br><span class="line">    <span class="comment">// component also has set the placeholder vnode's elm.</span></span><br><span class="line">    <span class="comment">// in that case we can just return the element and be done.</span></span><br><span class="line">    <span class="keyword">if</span> (isDef(vnode.componentInstance)) &#123;</span><br><span class="line">      initComponent(vnode, insertedVnodeQueue)</span><br><span class="line">      insert(parentElm, vnode.elm, refElm)</span><br><span class="line">      <span class="keyword">if</span> (isTrue(isReactivated)) &#123;</span><br><span class="line">        reactivateComponent(vnode, insertedVnodeQueue, parentElm, refElm)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以下就是Vue中定义的组件的钩子</span></span><br><span class="line"><span class="keyword">const</span> componentVNodeHooks = &#123;</span><br><span class="line">  init (vnode: VNodeWithData, <span class="attr">hydrating</span>: boolean): ?boolean &#123;</span><br><span class="line">    <span class="keyword">if</span> (</span><br><span class="line">      vnode.componentInstance &amp;&amp;</span><br><span class="line">      !vnode.componentInstance._isDestroyed &amp;&amp;</span><br><span class="line">      vnode.data.keepAlive</span><br><span class="line">    ) &#123;</span><br><span class="line">      <span class="comment">// kept-alive components, treat as a patch</span></span><br><span class="line">      <span class="keyword">const</span> mountedNode: any = vnode <span class="comment">// work around flow</span></span><br><span class="line">      componentVNodeHooks.prepatch(mountedNode, mountedNode)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> child = vnode.componentInstance = createComponentInstanceForVnode(</span><br><span class="line">        vnode,</span><br><span class="line">        activeInstance</span><br><span class="line">      )</span><br><span class="line">      child.$mount(hydrating ? vnode.elm : <span class="literal">undefined</span>, hydrating)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  prepatch (oldVnode: MountedComponentVNode, <span class="attr">vnode</span>: MountedComponentVNode) &#123;</span><br><span class="line">    <span class="keyword">const</span> options = vnode.componentOptions</span><br><span class="line">    <span class="keyword">const</span> child = vnode.componentInstance = oldVnode.componentInstance</span><br><span class="line">    updateChildComponent(</span><br><span class="line">      child,</span><br><span class="line">      options.propsData, <span class="comment">// updated props</span></span><br><span class="line">      options.listeners, <span class="comment">// updated listeners</span></span><br><span class="line">      vnode, <span class="comment">// new parent vnode</span></span><br><span class="line">      options.children <span class="comment">// new children</span></span><br><span class="line">    )</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  insert (vnode: MountedComponentVNode) &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; context, componentInstance &#125; = vnode</span><br><span class="line">    <span class="keyword">if</span> (!componentInstance._isMounted) &#123;</span><br><span class="line">      componentInstance._isMounted = <span class="literal">true</span></span><br><span class="line">      callHook(componentInstance, <span class="string">'mounted'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (vnode.data.keepAlive) &#123;</span><br><span class="line">      <span class="keyword">if</span> (context._isMounted) &#123;</span><br><span class="line">        queueActivatedComponent(componentInstance)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        activateChildComponent(componentInstance, <span class="literal">true</span> <span class="comment">/* direct */</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  destroy (vnode: MountedComponentVNode) &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; componentInstance &#125; = vnode</span><br><span class="line">    <span class="keyword">if</span> (!componentInstance._isDestroyed) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!vnode.data.keepAlive) &#123;</span><br><span class="line">        componentInstance.$destroy()</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        deactivateChildComponent(componentInstance, <span class="literal">true</span> <span class="comment">/* direct */</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在执行init函数的时候，组件就已经通过createComponentInstanceForVnode去实例化组件的Vnode</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createComponentInstanceForVnode</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  vnode: any, <span class="regexp">//</span> we know it<span class="string">'s MountedComponentVNode but flow doesn'</span>t</span></span></span><br><span class="line"><span class="function"><span class="params">  parent: any, <span class="regexp">//</span> activeInstance in lifecycle state</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> options: InternalComponentOptions = &#123;</span><br><span class="line">    _isComponent: <span class="literal">true</span>,</span><br><span class="line">    _parentVnode: vnode,</span><br><span class="line">    parent</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// check inline-template render functions</span></span><br><span class="line">  <span class="keyword">const</span> inlineTemplate = vnode.data.inlineTemplate</span><br><span class="line">  <span class="keyword">if</span> (isDef(inlineTemplate)) &#123;</span><br><span class="line">    options.render = inlineTemplate.render</span><br><span class="line">    options.staticRenderFns = inlineTemplate.staticRenderFns</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 这里就是子组件的构造函数，这里实际上是继承于Vue的构造器Sub，相当于new Sub(options),其中_isCompoent为true表示它是一个组件，parent表示当前激活的组件实例。所以子组件会在这里实例化并且执行实例的_init方法，代码在 src/core/instance/init.js 中</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> vnode.componentOptions.Ctor(options)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在实例化方法_init中，首先是合并options，因为是组件，_isComponent为true，所以会走到<code>* 在实例化方法_init中，首先是合并options，因为是组件，_isComponent为true，所以会走到`</code>initInternalComponent`中，接下来我们看一下这个方法</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">initInternalComponent</span> (<span class="params">vm: Component, options: InternalComponentOptions</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> opts = vm.$options = <span class="built_in">Object</span>.create(vm.constructor.options)</span><br><span class="line">  <span class="comment">// 这里主要是将之前通过createCompoentInstanceForVnode函数传入的参数合并到内部选项里</span></span><br><span class="line">  <span class="keyword">const</span> parentVnode = options._parentVnode</span><br><span class="line">  opts.parent = options.parent</span><br><span class="line">  opts._parentVnode = parentVnode</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> vnodeComponentOptions = parentVnode.componentOptions</span><br><span class="line">  opts.propsData = vnodeComponentOptions.propsData</span><br><span class="line">  opts._parentListeners = vnodeComponentOptions.listeners</span><br><span class="line">  opts._renderChildren = vnodeComponentOptions.children</span><br><span class="line">  opts._componentTag = vnodeComponentOptions.tag</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (options.render) &#123;</span><br><span class="line">    opts.render = options.render</span><br><span class="line">    opts.staticRenderFns = options.staticRenderFns</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 在_init的最后有如下代码，组件是没有el属性的，所以这里会跳过。组件在执行init钩子函数的时候，会接着会执行child.$mount(hydrating ? vnode.elm : undefined, hydrating)，这里的// 在_init的最后有如下代码，组件是没有el属性的，所以这里会跳过。</span></span><br><span class="line"><span class="comment">// 组件在执行init钩子函数的时候，会接着会执行child.$mount(hydrating ? vnode.elm : undefined, hydrating)，这里的$mount相当于执行child.$mount(undefined, false)，最终会调用mountComponent方法，进而执行vm._render()方法。</span></span><br><span class="line"><span class="keyword">if</span> (vm.$options.el) &#123;vm.$mount(vm.$options.el)&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.prototype._render = <span class="function"><span class="keyword">function</span> (<span class="params"></span>): <span class="title">VNode</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> vm: Component = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">const</span> &#123; render, _parentVnode &#125; = vm.$options</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// set parent vnode. this allows render functions to have access</span></span><br><span class="line">  <span class="comment">// to the data on the placeholder node.</span></span><br><span class="line">  vm.$vnode = _parentVnode</span><br><span class="line">  <span class="comment">// render self</span></span><br><span class="line">  <span class="keyword">let</span> vnode</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    vnode = render.call(vm._renderProxy, vm.$createElement)</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// set parent</span></span><br><span class="line">  vnode.parent = _parentVnode</span><br><span class="line">  <span class="keyword">return</span> vnode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们只保留关键部分的代码，这里的 <code>_parentVnode</code> 就是当前组件的父 VNode，而 <code>render</code> 函数生成的 <code>vnode</code> 当前组件的渲染 <code>vnode</code>，<code>vnode</code> 的 <code>parent</code> 指向了 <code>_parentVnode</code>，也就是 <code>vm.$vnode</code>，它们是一种父子的关系。</p>
+<p>我们知道在执行完 <code>vm._render</code> 生成 VNode 后，接下来就要执行 <code>vm._update</code> 去渲染 VNode 了。来看一下组件渲染的过程中有哪些需要注意的，<code>vm._update</code> 的定义在 <code>src/core/instance/lifecycle.js</code> 中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> activeInstance: any = <span class="literal">null</span></span><br><span class="line">Vue.prototype._update = <span class="function"><span class="keyword">function</span> (<span class="params">vnode: VNode, hydrating?: boolean</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> vm: Component = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">const</span> prevEl = vm.$el</span><br><span class="line">  <span class="keyword">const</span> prevVnode = vm._vnode</span><br><span class="line">  <span class="keyword">const</span> prevActiveInstance = activeInstance</span><br><span class="line">  activeInstance = vm</span><br><span class="line">  vm._vnode = vnode</span><br><span class="line">  <span class="comment">// Vue.prototype.__patch__ is injected in entry points</span></span><br><span class="line">  <span class="comment">// based on the rendering backend used.</span></span><br><span class="line">  <span class="keyword">if</span> (!prevVnode) &#123;</span><br><span class="line">    <span class="comment">// initial render</span></span><br><span class="line">    vm.$el = vm.__patch__(vm.$el, vnode, hydrating, <span class="literal">false</span> <span class="comment">/* removeOnly */</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// updates</span></span><br><span class="line">    vm.$el = vm.__patch__(prevVnode, vnode)</span><br><span class="line">  &#125;</span><br><span class="line">  activeInstance = prevActiveInstance</span><br><span class="line">  <span class="comment">// update __vue__ reference</span></span><br><span class="line">  <span class="keyword">if</span> (prevEl) &#123;</span><br><span class="line">    prevEl.__vue__ = <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (vm.$el) &#123;</span><br><span class="line">    vm.$el.__vue__ = vm</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// if parent is an HOC, update its $el as well</span></span><br><span class="line">  <span class="keyword">if</span> (vm.$vnode &amp;&amp; vm.$parent &amp;&amp; vm.$vnode === vm.$parent._vnode) &#123;</span><br><span class="line">    vm.$parent.$el = vm.$el</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// updated hook is called by the scheduler to ensure that children are</span></span><br><span class="line">  <span class="comment">// updated in a parent's updated hook.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>_update</code> 过程中有几个关键的代码，首先 <code>vm._vnode = vnode</code> 的逻辑，这个 <code>vnode</code> 是通过 <code>vm._render()</code> 返回的组件渲染 VNode，<code>vm._vnode</code> 和 <code>vm.$vnode</code> 的关系就是一种父子关系，用代码表达就是 <code>vm._vnode.parent === vm.$vnode</code>。还有一段比较有意思的代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> activeInstance: any = <span class="literal">null</span></span><br><span class="line">Vue.prototype._update = <span class="function"><span class="keyword">function</span> (<span class="params">vnode: VNode, hydrating?: boolean</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">const</span> prevActiveInstance = activeInstance</span><br><span class="line">    activeInstance = vm</span><br><span class="line">    <span class="keyword">if</span> (!prevVnode) &#123;</span><br><span class="line">      <span class="comment">// initial render</span></span><br><span class="line">      vm.$el = vm.__patch__(vm.$el, vnode, hydrating, <span class="literal">false</span> <span class="comment">/* removeOnly */</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// updates</span></span><br><span class="line">      vm.$el = vm.__patch__(prevVnode, vnode)</span><br><span class="line">    &#125;</span><br><span class="line">    activeInstance = prevActiveInstance</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>这个 <code>activeInstance</code> 作用就是保持当前上下文的 Vue 实例，它是在 <code>lifecycle</code> 模块的全局变量，定义是 <code>export let activeInstance: any = null</code>，并且在之前我们调用 <code>createComponentInstanceForVnode</code> 方法的时候从 <code>lifecycle</code> 模块获取，并且作为参数传入的。因为实际上 JavaScript 是一个单线程，Vue 整个初始化是一个深度遍历的过程，在实例化子组件的过程中，它需要知道当前上下文的 Vue 实例是什么，并把它作为子组件的父 Vue 实例。之前我们提到过对子组件的实例化过程先会调用 <code>initInternalComponent(vm, options)</code> 合并 <code>options</code>，把 <code>parent</code> 存储在 <code>vm.$options</code> 中，在 <code>$mount</code> 之前会调用 <code>initLifecycle(vm)</code> 方法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">initLifecycle</span> (<span class="params">vm: Component</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> options = vm.$options</span><br><span class="line"></span><br><span class="line">  <span class="comment">// locate first non-abstract parent</span></span><br><span class="line">  <span class="keyword">let</span> parent = options.parent</span><br><span class="line">  <span class="keyword">if</span> (parent &amp;&amp; !options.abstract) &#123;</span><br><span class="line">    <span class="keyword">while</span> (parent.$options.abstract &amp;&amp; parent.$parent) &#123;</span><br><span class="line">      parent = parent.$parent</span><br><span class="line">    &#125;</span><br><span class="line">    parent.$children.push(vm)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  vm.$parent = parent</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到 <code>vm.$parent</code> 就是用来保留当前 <code>vm</code> 的父实例，并且通过 <code>parent.$children.push(vm)</code> 来把当前的 <code>vm</code> 存储到父实例的 <code>$children</code> 中。</p>
+<p>在 <code>vm._update</code> 的过程中，把当前的 <code>vm</code> 赋值给 <code>activeInstance</code>，同时通过 <code>const prevActiveInstance = activeInstance</code> 用 <code>prevActiveInstance</code> 保留上一次的 <code>activeInstance</code>。实际上，<code>prevActiveInstance</code> 和当前的 <code>vm</code> 是一个父子关系，当一个 <code>vm</code> 实例完成它的所有子树的 patch 或者 update 过程后，<code>activeInstance</code> 会回到它的父实例，这样就完美地保证了 <code>createComponentInstanceForVnode</code> 整个深度遍历过程中，我们在实例化子组件的时候能传入当前子组件的父 Vue 实例，并在 <code>_init</code> 的过程中，通过 <code>vm.$parent</code> 把这个父子关系保留。</p>
+<p>那么回到 <code>_update</code>，最后就是调用 <code>__patch__</code> 渲染 VNode 了。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.$el = vm.__patch__(vm.$el, vnode, hydrating, <span class="literal">false</span> <span class="comment">/* removeOnly */</span>)</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">patch</span> (<span class="params">oldVnode, vnode, hydrating, removeOnly</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">let</span> isInitialPatch = <span class="literal">false</span></span><br><span class="line">  <span class="keyword">const</span> insertedVnodeQueue = []</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (isUndef(oldVnode)) &#123;</span><br><span class="line">    <span class="comment">// empty mount (likely as component), create new root element</span></span><br><span class="line">    isInitialPatch = <span class="literal">true</span></span><br><span class="line">    createElm(vnode, insertedVnodeQueue)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里又回到了本节开始的过程，之前分析过负责渲染成 DOM 的函数是 <code>createElm</code>，注意这里我们只传了 2 个参数，所以对应的 <code>parentElm</code> 是 <code>undefined</code>。我们再来看看它的定义：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createElm</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  vnode,</span></span></span><br><span class="line"><span class="function"><span class="params">  insertedVnodeQueue,</span></span></span><br><span class="line"><span class="function"><span class="params">  parentElm,</span></span></span><br><span class="line"><span class="function"><span class="params">  refElm,</span></span></span><br><span class="line"><span class="function"><span class="params">  nested,</span></span></span><br><span class="line"><span class="function"><span class="params">  ownerArray,</span></span></span><br><span class="line"><span class="function"><span class="params">  index</span></span></span><br><span class="line"><span class="function"><span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">if</span> (createComponent(vnode, insertedVnodeQueue, parentElm, refElm)) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> data = vnode.data</span><br><span class="line">  <span class="keyword">const</span> children = vnode.children</span><br><span class="line">  <span class="keyword">const</span> tag = vnode.tag</span><br><span class="line">  <span class="keyword">if</span> (isDef(tag)) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    vnode.elm = vnode.ns</span><br><span class="line">      ? nodeOps.createElementNS(vnode.ns, tag)</span><br><span class="line">      : nodeOps.createElement(tag, vnode)</span><br><span class="line">    setScope(vnode)</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">    <span class="keyword">if</span> (__WEEX__) &#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      createChildren(vnode, children, insertedVnodeQueue)</span><br><span class="line">      <span class="keyword">if</span> (isDef(data)) &#123;</span><br><span class="line">        invokeCreateHooks(vnode, insertedVnodeQueue)</span><br><span class="line">      &#125;</span><br><span class="line">      insert(parentElm, vnode.elm, refElm)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (isTrue(vnode.isComment)) &#123;</span><br><span class="line">    vnode.elm = nodeOps.createComment(vnode.text)</span><br><span class="line">    insert(parentElm, vnode.elm, refElm)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    vnode.elm = nodeOps.createTextNode(vnode.text)</span><br><span class="line">    insert(parentElm, vnode.elm, refElm)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，这里我们传入的 <code>vnode</code> 是组件渲染的 <code>vnode</code>，也就是我们之前说的 <code>vm._vnode</code>，如果组件的根节点是个普通元素，那么 <code>vm._vnode</code> 也是普通的 <code>vnode</code>，这里 <code>createComponent(vnode, insertedVnodeQueue, parentElm, refElm)</code> 的返回值是 false。接下来的过程就和我们上一章一样了，先创建一个父节点占位符，然后再遍历所有子 VNode 递归调用 <code>createElm</code>，在遍历的过程中，如果遇到子 VNode 是一个组件的 VNode，则重复本节开始的过程，这样通过一个递归的方式就可以完整地构建了整个组件树。</p>
+<p>由于我们这个时候传入的 <code>parentElm</code> 是空，所以对组件的插入，在 <code>createComponent</code> 有这么一段逻辑：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createComponent</span> (<span class="params">vnode, insertedVnodeQueue, parentElm, refElm</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> i = vnode.data</span><br><span class="line">  <span class="keyword">if</span> (isDef(i)) &#123;</span><br><span class="line">    <span class="comment">// ....</span></span><br><span class="line">    <span class="keyword">if</span> (isDef(i = i.hook) &amp;&amp; isDef(i = i.init)) &#123;</span><br><span class="line">      i(vnode, <span class="literal">false</span> <span class="comment">/* hydrating */</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">if</span> (isDef(vnode.componentInstance)) &#123;</span><br><span class="line">      initComponent(vnode, insertedVnodeQueue)</span><br><span class="line">      insert(parentElm, vnode.elm, refElm)</span><br><span class="line">      <span class="keyword">if</span> (isTrue(isReactivated)) &#123;</span><br><span class="line">        reactivateComponent(vnode, insertedVnodeQueue, parentElm, refElm)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在完成组件的整个 <code>patch</code> 过程后，最后执行 <code>insert(parentElm, vnode.elm, refElm)</code> 完成组件的 DOM 插入，如果组件 <code>patch</code> 过程中又创建了子组件，那么DOM 的插入顺序是先子后父。</p>
+<h4 id="组件patch总结"><a href="#组件patch总结" class="headerlink" title="组件patch总结"></a>组件patch总结</h4><ul>
+<li><p>path的整体流程：createCommponent -&gt; 子组件初始化 -&gt; 子组件render -&gt; 子组件patch</p>
+</li>
+<li><p>activeInstance为激活的vm实例；vm.$vnode为组件的占位vnode;vm._vnode为组件的渲染vnode</p>
+</li>
+<li><p>嵌套组件的插入顺序为先子后父</p>
+</li>
+</ul>
+<h3 id="组件合并配置"><a href="#组件合并配置" class="headerlink" title="组件合并配置"></a>组件合并配置</h3><p><code>new Vue</code> 的过程通常有 2 种场景，一种是外部我们的代码主动调用 <code>new Vue(options)</code> 的方式实例化一个 Vue 对象；另一种是内部通过 <code>new Vue(options)</code> 实例化子组件。</p>
+<p>无论哪种场景，都会执行实例的 <code>_init(options)</code> 方法，它首先会执行一个 <code>merge options</code> 的逻辑，相关的代码在 <code>src/core/instance/init.js</code> 中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.prototype._init = <span class="function"><span class="keyword">function</span> (<span class="params">options?: Object</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// merge options</span></span><br><span class="line">  <span class="keyword">if</span> (options &amp;&amp; options._isComponent) &#123;</span><br><span class="line">    <span class="comment">// optimize internal component instantiation</span></span><br><span class="line">    <span class="comment">// since dynamic options merging is pretty slow, and none of the</span></span><br><span class="line">    <span class="comment">// internal component options needs special treatment.</span></span><br><span class="line">    initInternalComponent(vm, options)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    vm.$options = mergeOptions(</span><br><span class="line">      resolveConstructorOptions(vm.constructor),</span><br><span class="line">      options || &#123;&#125;,</span><br><span class="line">      vm</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到不同场景对于 <code>options</code> 的合并逻辑是不一样的，并且传入的 <code>options</code> 值也有非常大的不同，接下来分开介绍 2 种场景的 options 合并过程。</p>
+<p>为了更直观，我们可以举个简单的示例：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> childComp = &#123;</span><br><span class="line">  template: <span class="string">'&lt;div&gt;&#123;&#123;msg&#125;&#125;&lt;/div&gt;'</span>,</span><br><span class="line">  created() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'child created'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'child mounted'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      msg: <span class="string">'Hello Vue'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Vue.mixin(&#123;</span><br><span class="line">  created() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'parent created'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  render: <span class="function"><span class="params">h</span> =&gt;</span> h(childComp)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="外部调用场景"><a href="#外部调用场景" class="headerlink" title="外部调用场景"></a>外部调用场景</h2><p>当执行 <code>new Vue</code> 的时候，在执行 <code>this._init(options)</code> 的时候，就会执行如下逻辑去合并 <code>options</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.$options = mergeOptions(</span><br><span class="line">  resolveConstructorOptions(vm.constructor),</span><br><span class="line">  options || &#123;&#125;,</span><br><span class="line">  vm</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>这里通过调用 <code>mergeOptions</code> 方法来合并，它实际上就是把 <code>resolveConstructorOptions(vm.constructor)</code> 的返回值和 <code>options</code> 做合并，<code>resolveConstructorOptions</code> 的实现先不考虑，在我们这个场景下，它还是简单返回 <code>vm.constructor.options</code>，相当于 <code>Vue.options</code>，那么这个值又是什么呢，其实在 <code>initGlobalAPI(Vue)</code> 的时候定义了这个值，代码在 <code>src/core/global-api/index.js</code> 中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">initGlobalAPI</span> (<span class="params">Vue: GlobalAPI</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  Vue.options = <span class="built_in">Object</span>.create(<span class="literal">null</span>)</span><br><span class="line">  ASSET_TYPES.forEach(<span class="function"><span class="params">type</span> =&gt;</span> &#123;</span><br><span class="line">    Vue.options[type + <span class="string">'s'</span>] = <span class="built_in">Object</span>.create(<span class="literal">null</span>)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// this is used to identify the "base" constructor to extend all plain-object</span></span><br><span class="line">  <span class="comment">// components with in Weex's multi-instance scenarios.</span></span><br><span class="line">  Vue.options._base = Vue</span><br><span class="line"></span><br><span class="line">  extend(Vue.options.components, builtInComponents)</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先通过 <code>Vue.options = Object.create(null)</code> 创建一个空对象，然后遍历 <code>ASSET_TYPES</code>，<code>ASSET_TYPES</code> 的定义在 <code>src/shared/constants.js</code> 中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ASSET_TYPES = [</span><br><span class="line">  <span class="string">'component'</span>,</span><br><span class="line">  <span class="string">'directive'</span>,</span><br><span class="line">  <span class="string">'filter'</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>所以上面遍历 <code>ASSET_TYPES</code> 后的代码相当于：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.options.components = &#123;&#125;</span><br><span class="line">Vue.options.directives = &#123;&#125;</span><br><span class="line">Vue.options.filters = &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>接着执行了 <code>Vue.options._base = Vue</code>，它的作用在我们上节实例化子组件的时候介绍了。</p>
+<p>最后通过 <code>extend(Vue.options.components, builtInComponents)</code> 把一些内置组件扩展到 <code>Vue.options.components</code> 上，Vue 的内置组件目前有 <code>&lt;keep-alive&gt;</code>、<code>&lt;transition&gt;</code> 和 <code>&lt;transition-group&gt;</code> 组件，这也就是为什么我们在其它组件中使用 <code>&lt;keep-alive&gt;</code> 组件不需要注册的原因，这块儿后续我们介绍 <code>&lt;keep-alive&gt;</code> 组件的时候会详细讲。</p>
+<p>那么回到 <code>mergeOptions</code> 这个函数，它的定义在 <code>src/core/util/options.js</code> 中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Merge two option objects into a new one.</span></span><br><span class="line"><span class="comment"> * Core utility used in both instantiation and inheritance.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">mergeOptions</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  parent: Object,</span></span></span><br><span class="line"><span class="function"><span class="params">  child: Object,</span></span></span><br><span class="line"><span class="function"><span class="params">  vm?: Component</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">Object</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">    checkComponents(child)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> child === <span class="string">'function'</span>) &#123;</span><br><span class="line">    child = child.options</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  normalizeProps(child, vm)</span><br><span class="line">  normalizeInject(child, vm)</span><br><span class="line">  normalizeDirectives(child)</span><br><span class="line">  <span class="keyword">const</span> extendsFrom = child.extends</span><br><span class="line">  <span class="keyword">if</span> (extendsFrom) &#123;</span><br><span class="line">    parent = mergeOptions(parent, extendsFrom, vm)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (child.mixins) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, l = child.mixins.length; i &lt; l; i++) &#123;</span><br><span class="line">      parent = mergeOptions(parent, child.mixins[i], vm)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> options = &#123;&#125;</span><br><span class="line">  <span class="keyword">let</span> key</span><br><span class="line">  <span class="keyword">for</span> (key <span class="keyword">in</span> parent) &#123;</span><br><span class="line">    mergeField(key)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (key <span class="keyword">in</span> child) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!hasOwn(parent, key)) &#123;</span><br><span class="line">      mergeField(key)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">mergeField</span> (<span class="params">key</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> strat = strats[key] || defaultStrat</span><br><span class="line">    options[key] = strat(parent[key], child[key], vm, key)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> options</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>mergeOptions</code> 主要功能就是把 <code>parent</code> 和 <code>child</code> 这两个对象根据一些合并策略，合并成一个新对象并返回。比较核心的几步，先递归把 <code>extends</code> 和 <code>mixixns</code> 合并到 <code>parent</code> 上，然后遍历 <code>parent</code>，调用 <code>mergeField</code>，然后再遍历 <code>child</code>，如果 <code>key</code> 不在 <code>perent</code> 的自身属性上，则调用 <code>mergeField</code>。</p>
+<p>这里有意思的是 <code>mergeField</code> 函数，它对不同的 <code>key</code> 有着不同的合并策略。举例来说，对于生命周期函数，它的合并策略是这样的：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeHook</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  parentVal: ?Array&lt;Function&gt;,</span></span></span><br><span class="line"><span class="function"><span class="params">  childVal: ?Function | ?Array&lt;Function&gt;</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): ?<span class="title">Array</span>&lt;<span class="title">Function</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> childVal</span><br><span class="line">    ? parentVal</span><br><span class="line">      ? parentVal.concat(childVal)</span><br><span class="line">      : <span class="built_in">Array</span>.isArray(childVal)</span><br><span class="line">        ? childVal</span><br><span class="line">        : [childVal]</span><br><span class="line">    : parentVal</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">LIFECYCLE_HOOKS.forEach(<span class="function"><span class="params">hook</span> =&gt;</span> &#123;</span><br><span class="line">  strats[hook] = mergeHook</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这其中的 <code>LIFECYCLE_HOOKS</code> 的定义在 <code>src/shared/constants.js</code> 中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> LIFECYCLE_HOOKS = [</span><br><span class="line">  <span class="string">'beforeCreate'</span>,</span><br><span class="line">  <span class="string">'created'</span>,</span><br><span class="line">  <span class="string">'beforeMount'</span>,</span><br><span class="line">  <span class="string">'mounted'</span>,</span><br><span class="line">  <span class="string">'beforeUpdate'</span>,</span><br><span class="line">  <span class="string">'updated'</span>,</span><br><span class="line">  <span class="string">'beforeDestroy'</span>,</span><br><span class="line">  <span class="string">'destroyed'</span>,</span><br><span class="line">  <span class="string">'activated'</span>,</span><br><span class="line">  <span class="string">'deactivated'</span>,</span><br><span class="line">  <span class="string">'errorCaptured'</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>这里定义了 Vue.js 所有的钩子函数名称，所以对于钩子函数，他们的合并策略都是 <code>mergeHook</code> 函数。这个函数的实现也非常有意思，用了一个多层 3 元运算符，逻辑就是如果不存在 <code>childVal</code> ，就返回 <code>parentVal</code>；否则再判断是否存在 <code>parentVal</code>，如果存在就把 <code>childVal</code> 添加到 <code>parentVal</code> 后返回新数组；否则返回 <code>childVal</code> 的数组。所以回到 <code>mergeOptions</code> 函数，一旦 <code>parent</code> 和 <code>child</code> 都定义了相同的钩子函数，那么它们会把 2 个钩子函数合并成一个数组。</p>
+<p>关于其它属性的合并策略的定义都可以在 <code>src/core/util/options.js</code> 文件中看到，这里不一一介绍了，感兴趣的同学可以自己看。</p>
+<p>通过执行 <code>mergeField</code> 函数，把合并后的结果保存到 <code>options</code> 对象中，最终返回它。</p>
+<p>因此，在我们当前这个 case 下，执行完如下合并后：<br><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.$options = mergeOptions(</span><br><span class="line">  resolveConstructorOptions(vm.constructor),</span><br><span class="line">  options || &#123;&#125;,</span><br><span class="line">  vm</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p><code>vm.$options</code> 的值差不多是如下这样：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.$options = &#123;</span><br><span class="line">  components: &#123; &#125;,</span><br><span class="line">  created: [</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">created</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'parent created'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  directives: &#123; &#125;,</span><br><span class="line">  filters: &#123; &#125;,</span><br><span class="line">  _base: <span class="function"><span class="keyword">function</span> <span class="title">Vue</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;,</span><br><span class="line">  el: <span class="string">"#app"</span>,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">h</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="组件场景"><a href="#组件场景" class="headerlink" title="组件场景"></a>组件场景</h2><p>由于组件的构造函数是通过 <code>Vue.extend</code> 继承自 <code>Vue</code> 的，先回看一下extend方法，代码定义在 <code>src/core/global-api/extend.js</code> 中。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Class inheritance</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">Vue.extend = <span class="function"><span class="keyword">function</span> (<span class="params">extendOptions: Object</span>): <span class="title">Function</span> </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  Sub.options = mergeOptions(</span><br><span class="line">    Super.options,</span><br><span class="line">    extendOptions</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="comment">// keep a reference to the super options at extension time.</span></span><br><span class="line">  <span class="comment">// later at instantiation we can check if Super's options have</span></span><br><span class="line">  <span class="comment">// been updated.</span></span><br><span class="line">  Sub.superOptions = Super.options</span><br><span class="line">  Sub.extendOptions = extendOptions</span><br><span class="line">  Sub.sealedOptions = extend(&#123;&#125;, Sub.options)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">return</span> Sub</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里只保留关键逻辑，这里的 <code>extendOptions</code> 对应的就是前面定义的组件对象，它会和 <code>Vue.options</code> 合并到 <code>Sub.opitons</code> 中。</p>
+<p>接下来再回忆一下子组件的初始化过程，代码定义在 <code>src/core/vdom/create-component.js</code> 中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createComponentInstanceForVnode</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  vnode: any, <span class="regexp">//</span> we know it<span class="string">'s MountedComponentVNode but flow doesn'</span>t</span></span></span><br><span class="line"><span class="function"><span class="params">  parent: any, <span class="regexp">//</span> activeInstance in lifecycle state</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> options: InternalComponentOptions = &#123;</span><br><span class="line">    _isComponent: <span class="literal">true</span>,</span><br><span class="line">    _parentVnode: vnode,</span><br><span class="line">    parent</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> vnode.componentOptions.Ctor(options)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的 <code>vnode.componentOptions.Ctor</code> 就是指向 <code>Vue.extend</code> 的返回值 <code>Sub</code>， 所以 执行 <code>new vnode.componentOptions.Ctor(options)</code> 接着执行 <code>this._init(options)</code>，因为 <code>options._isComponent</code> 为 true，那么合并 <code>options</code> 的过程走到了 <code>initInternalComponent(vm, options)</code> 逻辑。先来看一下它的代码实现，在 <code>src/core/instance/init.js</code> 中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">initInternalComponent</span> (<span class="params">vm: Component, options: InternalComponentOptions</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> opts = vm.$options = <span class="built_in">Object</span>.create(vm.constructor.options)</span><br><span class="line">  <span class="comment">// doing this because it's faster than dynamic enumeration.</span></span><br><span class="line">  <span class="keyword">const</span> parentVnode = options._parentVnode</span><br><span class="line">  opts.parent = options.parent</span><br><span class="line">  opts._parentVnode = parentVnode</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> vnodeComponentOptions = parentVnode.componentOptions</span><br><span class="line">  opts.propsData = vnodeComponentOptions.propsData</span><br><span class="line">  opts._parentListeners = vnodeComponentOptions.listeners</span><br><span class="line">  opts._renderChildren = vnodeComponentOptions.children</span><br><span class="line">  opts._componentTag = vnodeComponentOptions.tag</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (options.render) &#123;</span><br><span class="line">    opts.render = options.render</span><br><span class="line">    opts.staticRenderFns = options.staticRenderFns</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>initInternalComponent</code> 方法首先执行 <code>const opts = vm.$options = Object.create(vm.constructor.options)</code>，这里的 <code>vm.construction</code> 就是子组件的构造函数 <code>Sub</code>，相当于 <code>vm.$options = Object.create(Sub.options)</code>。</p>
+<p>接着又把实例化子组件传入的子组件父 VNode 实例 <code>parentVnode</code>、子组件的父 Vue 实例 <code>parent</code> 保存到 <code>vm.$options</code> 中，另外还保留了 <code>parentVnode</code> 配置中的如 <code>propsData</code> 等其它的属性。</p>
+<p>这么看来，<code>initInternalComponent</code> 只是做了简单一层对象赋值，并不涉及到递归、合并策略等复杂逻辑。</p>
+<p>因此，在我们当前这个 case 下，执行完如下合并后：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">initInternalComponent(vm, options)</span><br></pre></td></tr></table></figure>
+<p><code>vm.$options</code> 的值差不多是如下这样：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.$options = &#123;</span><br><span class="line">  parent: Vue <span class="comment">/*父Vue实例*/</span>,</span><br><span class="line">  propsData: <span class="literal">undefined</span>,</span><br><span class="line">  _componentTag: <span class="literal">undefined</span>,</span><br><span class="line">  _parentVnode: VNode <span class="comment">/*父VNode实例*/</span>,</span><br><span class="line">  _renderChildren:<span class="literal">undefined</span>,</span><br><span class="line">  __proto__: &#123;</span><br><span class="line">    components: &#123; &#125;,</span><br><span class="line">    directives: &#123; &#125;,</span><br><span class="line">    filters: &#123; &#125;,</span><br><span class="line">    _base: <span class="function"><span class="keyword">function</span> <span class="title">Vue</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;,</span><br><span class="line">    _Ctor: &#123;&#125;,</span><br><span class="line">    created: [</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">created</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'parent created'</span>)</span><br><span class="line">      &#125;, <span class="function"><span class="keyword">function</span> <span class="title">created</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'child created'</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    mounted: [</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">mounted</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'child mounted'</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    data() &#123;</span><br><span class="line">       <span class="keyword">return</span> &#123;</span><br><span class="line">         msg: <span class="string">'Hello Vue'</span>,</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    template: <span class="string">'&lt;div&gt;&#123;&#123;msg&#125;&#125;&lt;/div&gt;'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="合并配置总结"><a href="#合并配置总结" class="headerlink" title="合并配置总结"></a>合并配置总结</h4><p>那么至此，Vue 初始化阶段对于 <code>options</code> 的合并过程大抵如上，对于 <code>options</code> 的合并有 2 种方式，子组件初始化过程通过 <code>initInternalComponent</code> 方式要比外部初始化 Vue 通过 <code>mergeOptions</code> 的过程要快，合并完的结果保留在 <code>vm.$options</code> 中。</p>
+<p>纵观一些库、框架的设计几乎都是类似的，自身定义了一些默认配置，同时又可以在初始化阶段传入一些定义配置，然后去 merge 默认配置，来达到定制化不同需求的目的。只不过在 Vue 的场景下，会对 merge 的过程做一些精细化控制。</p>
+<h3 id="组件注册"><a href="#组件注册" class="headerlink" title="组件注册"></a>组件注册</h3><p>在 Vue.js 中，除了它内置的组件如 <code>keep-alive</code>、<code>component</code>、<code>transition</code>、<code>transition-group</code> 等，其它用户自定义组件在使用前必须注册。很多同学在开发过程中可能会遇到如下报错信息：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&apos;Unknown custom element: &lt;xxx&gt; - did you register the component correctly?</span><br><span class="line"> For recursive components, make sure to provide the &quot;name&quot; option.&apos;</span><br></pre></td></tr></table></figure>
+<p>一般报这个错的原因都是我们使用了未注册的组件。Vue.js 提供了 2 种组件的注册方式，全局注册和局部注册。接下来我们从源码分析的角度来分析这两种注册方式。</p>
+<h4 id="全局注册"><a href="#全局注册" class="headerlink" title="全局注册"></a>全局注册</h4><p>要注册一个全局组件，可以使用 <code>Vue.component(tagName, options)</code>。例如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</span><br><span class="line">  <span class="comment">// 选项</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><code>Vue.component</code> 的定义过程发生在最开始初始化 Vue 的全局函数的时候，代码在 <code>src/core/global-api/assets.js</code> 中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ASSET_TYPES &#125; <span class="keyword">from</span> <span class="string">'shared/constants'</span></span><br><span class="line"><span class="keyword">import</span> &#123; isPlainObject, validateComponentName &#125; <span class="keyword">from</span> <span class="string">'../util/index'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">initAssetRegisters</span> (<span class="params">Vue: GlobalAPI</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Create asset registration methods.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  ASSET_TYPES.forEach(<span class="function"><span class="params">type</span> =&gt;</span> &#123;</span><br><span class="line">    Vue[type] = <span class="function"><span class="keyword">function</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">      id: string,</span></span></span><br><span class="line"><span class="function"><span class="params">      definition: Function | Object</span></span></span><br><span class="line"><span class="function"><span class="params">    </span>): <span class="title">Function</span> | <span class="title">Object</span> | <span class="title">void</span> </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (!definition) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.options[type + <span class="string">'s'</span>][id]</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">        <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; type === <span class="string">'component'</span>) &#123;</span><br><span class="line">          validateComponentName(id)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (type === <span class="string">'component'</span> &amp;&amp; isPlainObject(definition)) &#123;</span><br><span class="line">          definition.name = definition.name || id</span><br><span class="line">          definition = <span class="keyword">this</span>.options._base.extend(definition)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (type === <span class="string">'directive'</span> &amp;&amp; <span class="keyword">typeof</span> definition === <span class="string">'function'</span>) &#123;</span><br><span class="line">          definition = &#123; <span class="attr">bind</span>: definition, <span class="attr">update</span>: definition &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.options[type + <span class="string">'s'</span>][id] = definition</span><br><span class="line">        <span class="keyword">return</span> definition</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数首先遍历 <code>ASSET_TYPES</code>，得到 <code>type</code> 后挂载到 Vue 上 。<code>ASSET_TYPES</code> 的定义在 <code>src/shared/constants.js</code> 中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ASSET_TYPES = [</span><br><span class="line">  <span class="string">'component'</span>,</span><br><span class="line">  <span class="string">'directive'</span>,</span><br><span class="line">  <span class="string">'filter'</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>所以实际上 Vue 是初始化了 3 个全局函数，并且如果 <code>type</code> 是 <code>component</code> 且 <code>definition</code> 是一个对象的话，通过 <code>this.opitons._base.extend</code>， 相当于 <code>Vue.extend</code> 把这个对象转换成一个继承于 Vue 的构造函数，最后通过 <code>this.options[type + &#39;s&#39;][id] = definition</code> 把它挂载到 <code>Vue.options.components</code> 上。</p>
+<p>由于我们每个组件的创建都是通过 <code>Vue.extend</code> 继承而来，之前分析过有这样一段逻辑：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Sub.options = mergeOptions(</span><br><span class="line">  Super.options,</span><br><span class="line">  extendOptions</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>也就是说它会把 <code>Vue.options</code> 合并到 <code>Sub.options</code>，也就是组件的 <code>optinons</code> 上， 然后在组件的实例化阶段，会执行 <code>merge options</code> 逻辑，把 <code>Sub.options.components</code> 合并到 <code>vm.$options.components</code> 上。</p>
+<p>然后在创建 <code>vnode</code> 的过程中，会执行 <code>_createElement</code> 方法，我们再来回顾一下这部分的逻辑，它的定义在 <code>src/core/vdom/create-element.js</code> 中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">_createElement</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  context: Component,</span></span></span><br><span class="line"><span class="function"><span class="params">  tag?: string | Class&lt;Component&gt; | Function | Object,</span></span></span><br><span class="line"><span class="function"><span class="params">  data?: VNodeData,</span></span></span><br><span class="line"><span class="function"><span class="params">  children?: any,</span></span></span><br><span class="line"><span class="function"><span class="params">  normalizationType?: number</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">VNode</span> | <span class="title">Array</span>&lt;<span class="title">VNode</span>&gt; </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">let</span> vnode, ns</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> tag === <span class="string">'string'</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> Ctor</span><br><span class="line">    ns = (context.$vnode &amp;&amp; context.$vnode.ns) || config.getTagNamespace(tag)</span><br><span class="line">    <span class="keyword">if</span> (config.isReservedTag(tag)) &#123;</span><br><span class="line">      <span class="comment">// platform built-in elements</span></span><br><span class="line">      vnode = <span class="keyword">new</span> VNode(</span><br><span class="line">        config.parsePlatformTagName(tag), data, children,</span><br><span class="line">        <span class="literal">undefined</span>, <span class="literal">undefined</span>, context</span><br><span class="line">      )</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (isDef(Ctor = resolveAsset(context.$options, <span class="string">'components'</span>, tag))) &#123;</span><br><span class="line">      <span class="comment">// component</span></span><br><span class="line">      vnode = createComponent(Ctor, data, context, children, tag)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// unknown or unlisted namespaced elements</span></span><br><span class="line">      <span class="comment">// check at runtime because it may get assigned a namespace when its</span></span><br><span class="line">      <span class="comment">// parent normalizes children</span></span><br><span class="line">      vnode = <span class="keyword">new</span> VNode(</span><br><span class="line">        tag, data, children,</span><br><span class="line">        <span class="literal">undefined</span>, <span class="literal">undefined</span>, context</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// direct component options / constructor</span></span><br><span class="line">    vnode = createComponent(tag, data, context, children)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里有一个判断逻辑 <code>isDef(Ctor = resolveAsset(context.$options, &#39;components&#39;, tag))</code>，先来看一下 <code>resolveAsset</code> 的定义，在 <code>src/core/utils/options.js</code> 中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Resolve an asset.</span></span><br><span class="line"><span class="comment"> * This function is used because child instances need access</span></span><br><span class="line"><span class="comment"> * to assets defined in its ancestor chain.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">resolveAsset</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  options: Object,</span></span></span><br><span class="line"><span class="function"><span class="params">  type: string,</span></span></span><br><span class="line"><span class="function"><span class="params">  id: string,</span></span></span><br><span class="line"><span class="function"><span class="params">  warnMissing?: boolean</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">any</span> </span>&#123;</span><br><span class="line">  <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> id !== <span class="string">'string'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> assets = options[type]</span><br><span class="line">  <span class="comment">// check local registration variations first</span></span><br><span class="line">  <span class="keyword">if</span> (hasOwn(assets, id)) <span class="keyword">return</span> assets[id]</span><br><span class="line">  <span class="keyword">const</span> camelizedId = camelize(id)</span><br><span class="line">  <span class="keyword">if</span> (hasOwn(assets, camelizedId)) <span class="keyword">return</span> assets[camelizedId]</span><br><span class="line">  <span class="keyword">const</span> PascalCaseId = capitalize(camelizedId)</span><br><span class="line">  <span class="keyword">if</span> (hasOwn(assets, PascalCaseId)) <span class="keyword">return</span> assets[PascalCaseId]</span><br><span class="line">  <span class="comment">// fallback to prototype chain</span></span><br><span class="line">  <span class="keyword">const</span> res = assets[id] || assets[camelizedId] || assets[PascalCaseId]</span><br><span class="line">  <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; warnMissing &amp;&amp; !res) &#123;</span><br><span class="line">    warn(</span><br><span class="line">      <span class="string">'Failed to resolve '</span> + type.slice(<span class="number">0</span>, <span class="number">-1</span>) + <span class="string">': '</span> + id,</span><br><span class="line">      options</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段逻辑很简单，先通过 <code>const assets = options[type]</code> 拿到 <code>assets</code>，然后再尝试拿 <code>assets[id]</code>，这里有个顺序，先直接使用 <code>id</code> 拿，如果不存在，则把 <code>id</code> 变成驼峰的形式再拿，如果仍然不存在则在驼峰的基础上把首字母再变成大写的形式再拿，如果仍然拿不到则报错。这样说明了我们在使用 <code>Vue.component(id, definition)</code> 全局注册组件的时候，id 可以是连字符、驼峰或首字母大写的形式。</p>
+<p>那么回到我们的调用 <code>resolveAsset(context.$options, &#39;components&#39;, tag)</code>，即拿 <code>vm.$options.components[tag]</code>，这样我们就可以在 <code>resolveAsset</code> 的时候拿到这个组件的构造函数，并作为 <code>createComponent</code> 的钩子的参数。</p>
+<h4 id="局部注册"><a href="#局部注册" class="headerlink" title="局部注册"></a>局部注册</h4><p>Vue.js 也同样支持局部注册，我们可以在一个组件内部使用 <code>components</code> 选项做组件的局部注册，例如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> HelloWorld <span class="keyword">from</span> <span class="string">'./components/HelloWorld'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    HelloWorld</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其实理解了全局注册的过程，局部注册是非常简单的。在组件的 Vue 的实例化阶段有一个合并 <code>option</code> 的逻辑，之前我们也分析过，所以就把 <code>components</code> 合并到 <code>vm.$options.components</code> 上，这样我们就可以在 <code>resolveAsset</code> 的时候拿到这个组件的构造函数，并作为 <code>createComponent</code> 的钩子的参数。</p>
+<p>注意，局部注册和全局注册不同的是，只有该类型的组件才可以访问局部注册的子组件，而全局注册是扩展到 <code>Vue.options</code> 下，所以在所有组件创建的过程中，都会从全局的 <code>Vue.options.components</code> 扩展到当前组件的 <code>vm.$options.components</code> 下，这就是全局注册的组件能被任意使用的原因。</p>
+<h3 id="异步组件"><a href="#异步组件" class="headerlink" title="异步组件"></a>异步组件</h3><p>在我们平时的开发工作中，为了减少首屏代码体积，往往会把一些非首屏的组件设计成异步组件，按需加载。Vue 也原生支持了异步组件的能力，如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'async-example'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">   <span class="comment">// 这个特殊的 require 语法告诉 webpack</span></span><br><span class="line">   <span class="comment">// 自动将编译后的代码分割成不同的块，</span></span><br><span class="line">   <span class="comment">// 这些块将通过 Ajax 请求自动下载。</span></span><br><span class="line">   <span class="built_in">require</span>([<span class="string">'./my-async-component'</span>], resolve)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>示例中可以看到，Vue 注册的组件不再是一个对象，而是一个工厂函数，函数有两个参数 <code>resolve</code> 和 <code>reject</code>，函数内部用 <code>setTimout</code> 模拟了异步，实际使用可能是通过动态请求异步组件的 JS 地址，最终通过执行 <code>resolve</code> 方法，它的参数就是我们的异步组件对象。</p>
+<p>在了解了异步组件如何注册后，我们从源码的角度来分析一下它的实现。</p>
+<p>上一节我们分析了组件的注册逻辑，由于组件的定义并不是一个普通对象，所以不会执行 <code>Vue.extend</code> 的逻辑把它变成一个组件的构造函数，但是它仍然可以执行到 <code>createComponent</code> 函数，我们再来对这个函数做回顾，它的定义在 <code>src/core/vdom/create-component/js</code> 中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createComponent</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  Ctor: Class&lt;Component&gt; | Function | Object | void,</span></span></span><br><span class="line"><span class="function"><span class="params">  data: ?VNodeData,</span></span></span><br><span class="line"><span class="function"><span class="params">  context: Component,</span></span></span><br><span class="line"><span class="function"><span class="params">  children: ?Array&lt;VNode&gt;,</span></span></span><br><span class="line"><span class="function"><span class="params">  tag?: string</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">VNode</span> | <span class="title">Array</span>&lt;<span class="title">VNode</span>&gt; | <span class="title">void</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (isUndef(Ctor)) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> baseCtor = context.$options._base</span><br><span class="line"></span><br><span class="line">  <span class="comment">// plain options object: turn it into a constructor</span></span><br><span class="line">  <span class="keyword">if</span> (isObject(Ctor)) &#123;</span><br><span class="line">    Ctor = baseCtor.extend(Ctor)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// async component</span></span><br><span class="line">  <span class="keyword">let</span> asyncFactory</span><br><span class="line">  <span class="keyword">if</span> (isUndef(Ctor.cid)) &#123;</span><br><span class="line">    asyncFactory = Ctor</span><br><span class="line">    Ctor = resolveAsyncComponent(asyncFactory, baseCtor, context)</span><br><span class="line">    <span class="keyword">if</span> (Ctor === <span class="literal">undefined</span>) &#123;</span><br><span class="line">      <span class="comment">// return a placeholder node for async component, which is rendered</span></span><br><span class="line">      <span class="comment">// as a comment node but preserves all the raw information for the node.</span></span><br><span class="line">      <span class="comment">// the information will be used for async server-rendering and hydration.</span></span><br><span class="line">      <span class="keyword">return</span> createAsyncPlaceholder(</span><br><span class="line">        asyncFactory,</span><br><span class="line">        data,</span><br><span class="line">        context,</span><br><span class="line">        children,</span><br><span class="line">        tag</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们省略了不必要的逻辑，只保留关键逻辑，由于我们这个时候传入的 <code>Ctor</code> 是一个函数，那么它也并不会执行 <code>Vue.extend</code> 逻辑，因此它的 <code>cid</code> 是 <code>undefiend</code>，进入了异步组件创建的逻辑。这里首先执行了 <code>Ctor = resolveAsyncComponent(asyncFactory, baseCtor, context)</code> 方法，它的定义在 <code>src/core/vdom/helpers/resolve-async-component.js</code> 中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">resolveAsyncComponent</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  factory: Function,</span></span></span><br><span class="line"><span class="function"><span class="params">  baseCtor: Class&lt;Component&gt;,</span></span></span><br><span class="line"><span class="function"><span class="params">  context: Component</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">Class</span>&lt;<span class="title">Component</span>&gt; | <span class="title">void</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (isTrue(factory.error) &amp;&amp; isDef(factory.errorComp)) &#123;</span><br><span class="line">    <span class="keyword">return</span> factory.errorComp</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (isDef(factory.resolved)) &#123;</span><br><span class="line">    <span class="keyword">return</span> factory.resolved</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (isTrue(factory.loading) &amp;&amp; isDef(factory.loadingComp)) &#123;</span><br><span class="line">    <span class="keyword">return</span> factory.loadingComp</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (isDef(factory.contexts)) &#123;</span><br><span class="line">    <span class="comment">// already pending</span></span><br><span class="line">    factory.contexts.push(context)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> contexts = factory.contexts = [context]</span><br><span class="line">    <span class="keyword">let</span> sync = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> forceRender = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, l = contexts.length; i &lt; l; i++) &#123;</span><br><span class="line">        contexts[i].$forceUpdate()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> resolve = once(<span class="function">(<span class="params">res: <span class="built_in">Object</span> | Class&lt;Component&gt;</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// cache resolved</span></span><br><span class="line">      factory.resolved = ensureCtor(res, baseCtor)</span><br><span class="line">      <span class="comment">// invoke callbacks only if this is not a synchronous resolve</span></span><br><span class="line">      <span class="comment">// (async resolves are shimmed as synchronous during SSR)</span></span><br><span class="line">      <span class="keyword">if</span> (!sync) &#123;</span><br><span class="line">        forceRender()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> reject = once(<span class="function"><span class="params">reason</span> =&gt;</span> &#123;</span><br><span class="line">      process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; warn(</span><br><span class="line">        <span class="string">`Failed to resolve async component: <span class="subst">$&#123;<span class="built_in">String</span>(factory)&#125;</span>`</span> +</span><br><span class="line">        (reason ? <span class="string">`\nReason: <span class="subst">$&#123;reason&#125;</span>`</span> : <span class="string">''</span>)</span><br><span class="line">      )</span><br><span class="line">      <span class="keyword">if</span> (isDef(factory.errorComp)) &#123;</span><br><span class="line">        factory.error = <span class="literal">true</span></span><br><span class="line">        forceRender()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> res = factory(resolve, reject)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (isObject(res)) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> res.then === <span class="string">'function'</span>) &#123;</span><br><span class="line">        <span class="comment">// () =&gt; Promise</span></span><br><span class="line">        <span class="keyword">if</span> (isUndef(factory.resolved)) &#123;</span><br><span class="line">          res.then(resolve, reject)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (isDef(res.component) &amp;&amp; <span class="keyword">typeof</span> res.component.then === <span class="string">'function'</span>) &#123;</span><br><span class="line">        res.component.then(resolve, reject)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (isDef(res.error)) &#123;</span><br><span class="line">          factory.errorComp = ensureCtor(res.error, baseCtor)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (isDef(res.loading)) &#123;</span><br><span class="line">          factory.loadingComp = ensureCtor(res.loading, baseCtor)</span><br><span class="line">          <span class="keyword">if</span> (res.delay === <span class="number">0</span>) &#123;</span><br><span class="line">            factory.loading = <span class="literal">true</span></span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">              <span class="keyword">if</span> (isUndef(factory.resolved) &amp;&amp; isUndef(factory.error)) &#123;</span><br><span class="line">                factory.loading = <span class="literal">true</span></span><br><span class="line">                forceRender()</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;, res.delay || <span class="number">200</span>)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (isDef(res.timeout)) &#123;</span><br><span class="line">          setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (isUndef(factory.resolved)) &#123;</span><br><span class="line">              reject(</span><br><span class="line">                process.env.NODE_ENV !== <span class="string">'production'</span></span><br><span class="line">                  ? <span class="string">`timeout (<span class="subst">$&#123;res.timeout&#125;</span>ms)`</span></span><br><span class="line">                  : <span class="literal">null</span></span><br><span class="line">              )</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;, res.timeout)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sync = <span class="literal">false</span></span><br><span class="line">    <span class="comment">// return in case resolved synchronously</span></span><br><span class="line">    <span class="keyword">return</span> factory.loading</span><br><span class="line">      ? factory.loadingComp</span><br><span class="line">      : factory.resolved</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>resolveAsyncComponent</code> 函数的逻辑略复杂，因为它实际上处理了 3 种异步组件的创建方式，除了刚才示例的组件注册方式，还支持 2 种，一种是支持 <code>Promise</code> 创建组件的方式，如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(</span><br><span class="line">  <span class="string">'async-webpack-example'</span>,</span><br><span class="line">  <span class="comment">// 该 `import` 函数返回一个 `Promise` 对象。</span></span><br><span class="line">  () =&gt; <span class="keyword">import</span>(<span class="string">'./my-async-component'</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>另一种是高级异步组件，如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> AsyncComp = <span class="function"><span class="params">()</span> =&gt;</span> (&#123;</span><br><span class="line">  <span class="comment">// 需要加载的组件。应当是一个 Promise</span></span><br><span class="line">  component: <span class="keyword">import</span>(<span class="string">'./MyComp.vue'</span>),</span><br><span class="line">  <span class="comment">// 加载中应当渲染的组件</span></span><br><span class="line">  loading: LoadingComp,</span><br><span class="line">  <span class="comment">// 出错时渲染的组件</span></span><br><span class="line">  error: ErrorComp,</span><br><span class="line">  <span class="comment">// 渲染加载中组件前的等待时间。默认：200ms。</span></span><br><span class="line">  delay: <span class="number">200</span>,</span><br><span class="line">  <span class="comment">// 最长等待时间。超出此时间则渲染错误组件。默认：Infinity</span></span><br><span class="line">  timeout: <span class="number">3000</span></span><br><span class="line">&#125;)</span><br><span class="line">Vue.component(<span class="string">'async-example'</span>, AsyncComp)</span><br></pre></td></tr></table></figure>
+<p>那么解下来，我们就根据这 3 种异步组件的情况，来分别去分析 <code>resolveAsyncComponent</code> 的逻辑。</p>
+<h2 id="普通函数异步组件"><a href="#普通函数异步组件" class="headerlink" title="普通函数异步组件"></a>普通函数异步组件</h2><p>针对普通函数的情况，前面几个 if 判断可以忽略，它们是为高级组件所用，对于 <code>factory.contexts</code> 的判断，是考虑到多个地方同时初始化一个异步组件，那么它的实际加载应该只有一次。接着进入实际加载逻辑，定义了 <code>forceRender</code>、<code>resolve</code> 和 <code>reject</code> 函数，注意 <code>resolve</code> 和 <code>reject</code> 函数用 <code>once</code> 函数做了一层包装，它的定义在 <code>src/shared/util.js</code> 中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Ensure a function is called only once.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">once</span> (<span class="params">fn: Function</span>): <span class="title">Function</span> </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> called = <span class="literal">false</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!called) &#123;</span><br><span class="line">      called = <span class="literal">true</span></span><br><span class="line">      fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>once</code> 逻辑非常简单，传入一个函数，并返回一个新函数，它非常巧妙地利用闭包和一个标志位保证了它包装的函数只会执行一次，也就是确保 <code>resolve</code> 和 <code>reject</code> 函数只执行一次。</p>
+<p>接下来执行 <code>const res = factory(resolve, reject)</code> 逻辑，这块儿就是执行我们组件的工厂函数，同时把 <code>resolve</code> 和 <code>reject</code> 函数作为参数传入，组件的工厂函数通常会先发送请求去加载我们的异步组件的 JS 文件，拿到组件定义的对象 <code>res</code> 后，执行 <code>resolve(res)</code> 逻辑，它会先执行 <code>factory.resolved = ensureCtor(res, baseCtor)</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ensureCtor</span> (<span class="params">comp: any, base</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (</span><br><span class="line">    comp.__esModule ||</span><br><span class="line">    (hasSymbol &amp;&amp; comp[<span class="built_in">Symbol</span>.toStringTag] === <span class="string">'Module'</span>)</span><br><span class="line">  ) &#123;</span><br><span class="line">    comp = comp.default</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> isObject(comp)</span><br><span class="line">    ? base.extend(comp)</span><br><span class="line">    : comp</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个函数目的是为了保证能找到异步组件 JS 定义的组件对象，并且如果它是一个普通对象，则调用 <code>Vue.extend</code> 把它转换成一个组件的构造函数。</p>
+<p><code>resolve</code> 逻辑最后判断了 <code>sync</code>，显然我们这个场景下 <code>sync</code> 为 false，那么就会执行 <code>forceRender</code> 函数，它会遍历 <code>factory.contexts</code>，拿到每一个调用异步组件的实例 <code>vm</code>, 执行 <code>vm.$forceUpdate()</code> 方法，它的定义在 <code>src/core/instance/lifecycle.js</code> 中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.prototype.$forceUpdate = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> vm: Component = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">if</span> (vm._watcher) &#123;</span><br><span class="line">    vm._watcher.update()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>$forceUpdate</code> 的逻辑非常简单，就是调用渲染 <code>watcher</code> 的 <code>update</code> 方法，让渲染 <code>watcher</code> 对应的回调函数执行，也就是触发了组件的重新渲染。之所以这么做是因为 Vue 通常是数据驱动视图重新渲染，但是在整个异步组件加载过程中是没有数据发生变化的，所以通过执行 <code>$forceUpdate</code> 可以强制组件重新渲染一次。</p>
+<h2 id="Promise-异步组件"><a href="#Promise-异步组件" class="headerlink" title="Promise 异步组件"></a><code>Promise</code> 异步组件</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(</span><br><span class="line">  <span class="string">'async-webpack-example'</span>,</span><br><span class="line">  <span class="comment">// 该 `import` 函数返回一个 `Promise` 对象。</span></span><br><span class="line">  () =&gt; <span class="keyword">import</span>(<span class="string">'./my-async-component'</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>webpack 2+ 支持了异步加载的语法糖：<code>() =&gt; import(&#39;./my-async-component&#39;)</code>，当执行完 <code>res = factory(resolve, reject)</code>，返回的值就是 <code>import(&#39;./my-async-component&#39;)</code> 的返回值，它是一个 <code>Promise</code> 对象。接着进入 if 条件，又判断了 <code>typeof res.then === &#39;function&#39;)</code>，条件满足，执行：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (isUndef(factory.resolved)) &#123;</span><br><span class="line">  res.then(resolve, reject)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当组件异步加载成功后，执行 <code>resolve</code>，加载失败则执行 <code>reject</code>，这样就非常巧妙地实现了配合 webpack 2+ 的异步加载组件的方式（<code>Promise</code>）加载异步组件。</p>
+<h4 id="高级异步组件"><a href="#高级异步组件" class="headerlink" title="高级异步组件"></a>高级异步组件</h4><p>由于异步加载组件需要动态加载 JS，有一定网络延时，而且有加载失败的情况，所以通常我们在开发异步组件相关逻辑的时候需要设计 loading 组件和 error 组件，并在适当的时机渲染它们。Vue.js 2.3+ 支持了一种高级异步组件的方式，它通过一个简单的对象配置，帮你搞定 loading 组件和 error 组件的渲染时机，你完全不用关心细节，非常方便。接下来我们就从源码的角度来分析高级异步组件是怎么实现的。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> AsyncComp = <span class="function"><span class="params">()</span> =&gt;</span> (&#123;</span><br><span class="line">  <span class="comment">// 需要加载的组件。应当是一个 Promise</span></span><br><span class="line">  component: <span class="keyword">import</span>(<span class="string">'./MyComp.vue'</span>),</span><br><span class="line">  <span class="comment">// 加载中应当渲染的组件</span></span><br><span class="line">  loading: LoadingComp,</span><br><span class="line">  <span class="comment">// 出错时渲染的组件</span></span><br><span class="line">  error: ErrorComp,</span><br><span class="line">  <span class="comment">// 渲染加载中组件前的等待时间。默认：200ms。</span></span><br><span class="line">  delay: <span class="number">200</span>,</span><br><span class="line">  <span class="comment">// 最长等待时间。超出此时间则渲染错误组件。默认：Infinity</span></span><br><span class="line">  timeout: <span class="number">3000</span></span><br><span class="line">&#125;)</span><br><span class="line">Vue.component(<span class="string">'async-example'</span>, AsyncComp)</span><br></pre></td></tr></table></figure>
+<p>高级异步组件的初始化逻辑和普通异步组件一样，也是执行 <code>resolveAsyncComponent</code>，当执行完 <code>res = factory(resolve, reject)</code>，返回值就是定义的组件对象，显然满足 <code>else if (isDef(res.component) &amp;&amp; typeof res.component.then === &#39;function&#39;)</code> 的逻辑，接着执行 <code>res.component.then(resolve, reject)</code>，当异步组件加载成功后，执行 <code>resolve</code>，失败执行 <code>reject</code>。</p>
+<p>因为异步组件加载是一个异步过程，它接着又同步执行了如下逻辑：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (isDef(res.error)) &#123;</span><br><span class="line">  factory.errorComp = ensureCtor(res.error, baseCtor)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (isDef(res.loading)) &#123;</span><br><span class="line">  factory.loadingComp = ensureCtor(res.loading, baseCtor)</span><br><span class="line">  <span class="keyword">if</span> (res.delay === <span class="number">0</span>) &#123;</span><br><span class="line">    factory.loading = <span class="literal">true</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (isUndef(factory.resolved) &amp;&amp; isUndef(factory.error)) &#123;</span><br><span class="line">        factory.loading = <span class="literal">true</span></span><br><span class="line">        forceRender()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, res.delay || <span class="number">200</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (isDef(res.timeout)) &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (isUndef(factory.resolved)) &#123;</span><br><span class="line">      reject(</span><br><span class="line">        process.env.NODE_ENV !== <span class="string">'production'</span></span><br><span class="line">          ? <span class="string">`timeout (<span class="subst">$&#123;res.timeout&#125;</span>ms)`</span></span><br><span class="line">          : <span class="literal">null</span></span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, res.timeout)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>先判断 <code>res.error</code> 是否定义了 error 组件，如果有的话则赋值给 <code>factory.errorComp</code>。<br>接着判断 <code>res.loading</code> 是否定义了 loading 组件，如果有的话则赋值给 <code>factory.loadingComp</code>，如果设置了 <code>res.delay</code> 且为 0，则设置 <code>factory.loading = true</code>，否则延时 <code>delay</code> 的时间执行：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (isUndef(factory.resolved) &amp;&amp; isUndef(factory.error)) &#123;</span><br><span class="line">    factory.loading = <span class="literal">true</span></span><br><span class="line">    forceRender()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后判断 <code>res.timeout</code>，如果配置了该项，则在 <code>res.timout</code> 时间后，如果组件没有成功加载，执行 <code>reject</code>。</p>
+<p>在 <code>resolveAsyncComponent</code> 的最后有一段逻辑：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">sync = <span class="literal">false</span></span><br><span class="line"><span class="keyword">return</span> factory.loading</span><br><span class="line">  ? factory.loadingComp</span><br><span class="line">  : factory.resolved</span><br></pre></td></tr></table></figure>
+<p>如果 <code>delay</code> 配置为 0，则这次直接渲染 loading 组件，否则则延时 <code>delay</code> 执行 <code>forceRender</code>，那么又会再一次执行到 <code>resolveAsyncComponent</code>。</p>
+<p>那么这时候我们有几种情况，按逻辑的执行顺序，对不同的情况做判断。</p>
+<h4 id="异步组件加载失败"><a href="#异步组件加载失败" class="headerlink" title="异步组件加载失败"></a>异步组件加载失败</h4><p>当异步组件加载失败，会执行 <code>reject</code> 函数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> reject = once(<span class="function"><span class="params">reason</span> =&gt;</span> &#123;</span><br><span class="line">  process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; warn(</span><br><span class="line">    <span class="string">`Failed to resolve async component: <span class="subst">$&#123;<span class="built_in">String</span>(factory)&#125;</span>`</span> +</span><br><span class="line">    (reason ? <span class="string">`\nReason: <span class="subst">$&#123;reason&#125;</span>`</span> : <span class="string">''</span>)</span><br><span class="line">  )</span><br><span class="line">  <span class="keyword">if</span> (isDef(factory.errorComp)) &#123;</span><br><span class="line">    factory.error = <span class="literal">true</span></span><br><span class="line">    forceRender()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这个时候会把 <code>factory.error</code> 设置为 <code>true</code>，同时执行 <code>forceRender()</code> 再次执行到 <code>resolveAsyncComponent</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (isTrue(factory.error) &amp;&amp; isDef(factory.errorComp)) &#123;</span><br><span class="line">  <span class="keyword">return</span> factory.errorComp</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那么这个时候就返回 <code>factory.errorComp</code>，直接渲染 error 组件。</p>
+<h4 id="异步组件加载成功"><a href="#异步组件加载成功" class="headerlink" title="异步组件加载成功"></a>异步组件加载成功</h4><p>当异步组件加载成功，会执行 <code>resolve</code> 函数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> resolve = once(<span class="function">(<span class="params">res: <span class="built_in">Object</span> | Class&lt;Component&gt;</span>) =&gt;</span> &#123;</span><br><span class="line">  factory.resolved = ensureCtor(res, baseCtor)</span><br><span class="line">  <span class="keyword">if</span> (!sync) &#123;</span><br><span class="line">    forceRender()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>首先把加载结果缓存到 <code>factory.resolved</code> 中，这个时候因为 <code>sync</code> 已经为 false，则执行 <code>forceRender()</code> 再次执行到 <code>resolveAsyncComponent</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (isDef(factory.resolved)) &#123;</span><br><span class="line">  <span class="keyword">return</span> factory.resolved</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那么这个时候直接返回 <code>factory.resolved</code>，渲染成功加载的组件。</p>
+<h4 id="异步组件加载中"><a href="#异步组件加载中" class="headerlink" title="异步组件加载中"></a>异步组件加载中</h4><p>如果异步组件加载中并未返回，这时候会走到这个逻辑：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (isTrue(factory.loading) &amp;&amp; isDef(factory.loadingComp)) &#123;</span><br><span class="line">  <span class="keyword">return</span> factory.loadingComp</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那么则会返回 <code>factory.loadingComp</code>，渲染 loading 组件。</p>
+<h4 id="异步组件加载超时"><a href="#异步组件加载超时" class="headerlink" title="异步组件加载超时"></a>异步组件加载超时</h4><p>如果超时，则走到了 <code>reject</code> 逻辑，之后逻辑和加载失败一样，渲染 error 组件。</p>
+<h4 id="异步组件-patch"><a href="#异步组件-patch" class="headerlink" title="异步组件 patch"></a>异步组件 patch</h4><p>回到 <code>createComponent</code> 的逻辑：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Ctor = resolveAsyncComponent(asyncFactory, baseCtor, context)</span><br><span class="line"><span class="keyword">if</span> (Ctor === <span class="literal">undefined</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> createAsyncPlaceholder(</span><br><span class="line">    asyncFactory,</span><br><span class="line">    data,</span><br><span class="line">    context,</span><br><span class="line">    children,</span><br><span class="line">    tag</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果是第一次执行 <code>resolveAsyncComponent</code>，除非使用高级异步组件 <code>0 delay</code> 去创建了一个 loading 组件，否则返回是 <code>undefiend</code>，接着通过 <code>createAsyncPlaceholder</code> 创建一个注释节点作为占位符。它的定义在 <code>src/core/vdom/helpers/resolve-async-components.js</code> 中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createAsyncPlaceholder</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  factory: Function,</span></span></span><br><span class="line"><span class="function"><span class="params">  data: ?VNodeData,</span></span></span><br><span class="line"><span class="function"><span class="params">  context: Component,</span></span></span><br><span class="line"><span class="function"><span class="params">  children: ?Array&lt;VNode&gt;,</span></span></span><br><span class="line"><span class="function"><span class="params">  tag: ?string</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">VNode</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> node = createEmptyVNode()</span><br><span class="line">  node.asyncFactory = factory</span><br><span class="line">  node.asyncMeta = &#123; data, context, children, tag &#125;</span><br><span class="line">  <span class="keyword">return</span> node</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实际上就是就是创建了一个占位的注释 VNode，同时把 <code>asyncFactory</code> 和 <code>asyncMeta</code> 赋值给当前 <code>vnode</code>。</p>
+<p>当执行 <code>forceRender</code> 的时候，会触发组件的重新渲染，那么会再一次执行 <code>resolveAsyncComponent</code>，这时候就会根据不同的情况，可能返回 loading、error 或成功加载的异步组件，返回值不为 <code>undefined</code>，因此就走正常的组件 <code>render</code>、<code>patch</code> 过程，与组件第一次渲染流程不一样，这个时候是存在新旧 <code>vnode</code> 的，下一章我会分析组件更新的 <code>patch</code> 过程。</p>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+
+<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+<div class="widget-wrap">
+    <div id="myCanvasContainer" class="widget tagcloud" style="text-align:center;">
+        <canvas width="400" height="200" id="resCanvas" style="width=100%">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax知识点整理/">ajax知识点整理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular学习记录/">angular学习记录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css和js部分的优化相关/">css和js部分的优化相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css相关/">css相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html相关强化/">html相关强化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js设计模式小计/">js设计模式小计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuxt学习笔记/">nuxt学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service-worker实战/">service worker实战</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript相关学习/">typescript相关学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuepress学习小计/">vuepress学习小计</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一本需要反复阅读的js书籍/">一本需要反复阅读的js书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码编写规范总结/">代码编写规范总结</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码编写过程中的沉淀/">代码编写过程中的沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端知识点沉淀/">前端知识点沉淀</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片相关/">图片相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总的来说，这本书有点脱节了，内容有些老旧/">总的来说，这本书有点脱节了，内容有些老旧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务端性能优化/">服务端性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器中各种距离的计算/">浏览器中各种距离的计算</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器存储和缓存/">浏览器存储和缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深入浅出node-js一书读后感/">深入浅出node.js一书读后感</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/看vue-js一书所得/">看vue.js一书所得</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缓存相关/">缓存相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重绘与回流相关/">重绘与回流相关</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试记录/">面试记录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高性能javascript一书阅读笔记/">高性能javascript一书阅读笔记</a><span class="tag-list-count">1</span></li></ul>
+        </canvas>
+    </div>
+</div>
+
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <div class="site-author-image" itemprop="image"></div>
+            
+              <p class="site-author-name" itemprop="name">朱亮</p>
+              <p class="site-description motion-element" itemprop="description">Leon Zhu’s blog | 爱前端 | 爱生活</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Lenozhu" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zl937154020@163.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://juejin.im/user/576bcf062e958a005717bb94" target="_blank" title="掘金" rel="external nofollow"><i class="fa fa-fw fa-globe"></i>掘金</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是组件化"><span class="nav-number">1.</span> <span class="nav-text">什么是组件化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件VNode的创建过程"><span class="nav-number">2.</span> <span class="nav-text">组件VNode的创建过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件patch"><span class="nav-number">3.</span> <span class="nav-text">组件patch</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组件patch总结"><span class="nav-number">3.1.</span> <span class="nav-text">组件patch总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件合并配置"><span class="nav-number">4.</span> <span class="nav-text">组件合并配置</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#外部调用场景"><span class="nav-number"></span> <span class="nav-text">外部调用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件场景"><span class="nav-number"></span> <span class="nav-text">组件场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#合并配置总结"><span class="nav-number">0.1.</span> <span class="nav-text">合并配置总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件注册"><span class="nav-number">1.</span> <span class="nav-text">组件注册</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局注册"><span class="nav-number">1.1.</span> <span class="nav-text">全局注册</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部注册"><span class="nav-number">1.2.</span> <span class="nav-text">局部注册</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步组件"><span class="nav-number">2.</span> <span class="nav-text">异步组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#普通函数异步组件"><span class="nav-number"></span> <span class="nav-text">普通函数异步组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-异步组件"><span class="nav-number"></span> <span class="nav-text">Promise 异步组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#高级异步组件"><span class="nav-number">0.1.</span> <span class="nav-text">高级异步组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步组件加载失败"><span class="nav-number">0.2.</span> <span class="nav-text">异步组件加载失败</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步组件加载成功"><span class="nav-number">0.3.</span> <span class="nav-text">异步组件加载成功</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步组件加载中"><span class="nav-number">0.4.</span> <span class="nav-text">异步组件加载中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步组件加载超时"><span class="nav-number">0.5.</span> <span class="nav-text">异步组件加载超时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步组件-patch"><span class="nav-number">0.6.</span> <span class="nav-text">异步组件 patch</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">朱亮</span>
+
+
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      用户总数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+|
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      访问总数<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: false,
+        appId: '5V8qy6jz6hznerDs7rWicGrc-gzGzoHsz',
+        appKey: 'yLt75XbnTAnIKRLGYAI1AKag',
+        placeholder: '来呀，快活啊( ⊙ o ⊙ )！',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("5V8qy6jz6hznerDs7rWicGrc-gzGzoHsz", "yLt75XbnTAnIKRLGYAI1AKag");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
